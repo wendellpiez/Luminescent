@@ -1,0 +1,12 @@
+[!-- comment --]
+[zoo [ann}An annotation on the document [r}range{r]{ann]}
+[!-- LMNL demonstration  [ } { ] --]
+
+[range [!-- comment in a tag --]}A range{range]
+[range [ann]}Annotated range (named, empty annotation){range]
+[range [ann}flag{]}Annotated range, whose [name}ann{name] annotation has the value 'flag'{range]
+[range [ann}Annotation on the [name}range{name]{ann]}Annotated range, [markup}annotation{markup] marked up{range]
+[range}Annotated range, whose annotation happens to appear on its end tag{range [ann}Annotation{]]
+[range [type}empty{]]
+[range [ann [anninann] [!-- comment in an annotation --]] }A range, whose annotation has an annotation{range]
+[range}A range whose value includes an atom: {{atom}}. Atoms have length one. They can be {{atom [ann}the atom's annotation{ann]}} annotated, also. They can be named just like ranges.{range]{zoo]

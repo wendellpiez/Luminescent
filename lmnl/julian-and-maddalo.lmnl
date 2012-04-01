@@ -1,0 +1,1241 @@
+[text [title}Julian and Maddalo{]
+      [date}1819{]
+      [author [dates [birth}1792{][death}1822{]]}Percy Bysshe Shelley{]
+      [encodingStmt}Encoded in 2011-2012 by Wendell Piez as a 
+      demonstration of LMNL syntax. Range and annotation types should be 
+      fairly self-explanatory (and TEI-like), with the possible exception 
+      of 'vp' for verse paragraphs (which sometimes interrupt lines).{]
+      [editorialStmt}A correction to a long-standing misattribution
+      of quotes was made in lines 608-615.{]}
+  [body}
+    [vp}[lg}[l [n}1{n]}I rode one evening with Count Maddalo{l]
+      [l [n}2{n]}Upon the bank of land which breaks the flow{l]
+    {lg]
+    [lg}
+      [l [n}3{n]}Of Adria towards Venice: a bare strand{l]
+      [l [n}4{n]}Of hillocks, heaped from ever-shifting sand,{l]
+    {lg]
+    [lg}
+      [l [n}5{n]}Matted with thistles and amphibious weeds,{l]
+      [l [n}6{n]}Such as from earth’s embrace the salt ooze breeds,{l]
+    {lg]
+    [lg}
+      [l [n}7{n]}Is this; an uninhabited sea-side,{l]
+      [l [n}8{n]}Which the lone fisher, when his nets are dried,{l]
+    {lg]
+    [lg}
+      [l [n}9{n]}Abandons; and no other object breaks{l]
+      [l [n}10{n]}The waste, but one dwarf tree and some few stakes{l]
+      [l [n}11{n]}Broken and unrepaired, and the tide makes{l]
+    {lg]
+    [lg}
+      [l [n}12{n]}A narrow space of level sand thereon,{l]
+      [l [n}13{n]}Where ’twas our wont to ride while day went down.{l]
+    {lg]
+    [lg}
+      [l [n}14{n]}This ride was my delight. I love all waste{l]
+      [l [n}15{n]}And solitary places; where we taste{l]
+    {lg]
+    [lg}
+      [l [n}16{n]}The pleasure of believing what we see{l]
+      [l [n}17{n]}Is boundless, as we wish our souls to be:{l]
+    {lg]
+    [lg}
+      [l [n}18{n]}And such was this wide ocean, and this shore{l]
+      [l [n}19{n]}More barren than its billows; and yet more{l]
+    {lg]
+    [lg}
+      [l [n}20{n]}Than all, with a remembered friend I love{l]
+      [l [n}21{n]}To ride as then I rode;—for the winds drove{l]
+    {lg]
+    [lg}
+      [l [n}22{n]}The living spray along the sunny air{l]
+      [l [n}23{n]}Into our faces; the blue heavens were bare,{l]
+    {lg]
+    [lg}
+      [l [n}24{n]}Stripped to their depths by the awakening north;{l]
+      [l [n}25{n]}And, from the waves, sound like delight broke forth{l]
+    {lg]
+    [lg}
+      [l [n}26{n]}Harmonising with solitude, and sent{l]
+      [l [n}27{n]}Into our hearts aereal merriment.{l]
+    {lg]
+    [lg}
+      [l [n}28{n]}So, as we rode, we talked; and the swift thought,{l]
+      [l [n}29{n]}Winging itself with laughter, lingered not,{l]
+    {lg]
+    [lg}
+      [l [n}30{n]}But flew from brain to brain,—such glee was ours,{l]
+      [l [n}31{n]}Charged with light memories of remembered hours,{l]
+    {lg]
+    [lg}
+      [l [n}32{n]}None slow enough for sadness: till we came{l]
+      [l [n}33{n]}Homeward, which always makes the spirit tame.{l]
+    {lg]
+    [lg}
+      [l [n}34{n]}This day had been cheerful but cold, and now{l]
+      [l [n}35{n]}The sun was sinking, and the wind also.{l]
+    {lg]
+    [lg}
+      [l [n}36{n]}Our talk grew somewhat serious, as may be{l]
+      [l [n}37{n]}Talk interrupted with such raillery{l]
+    {lg]
+    [lg}
+      [l [n}38{n]}As mocks itself, because it cannot scorn{l]
+      [l [n}39{n]}The thoughts it would extinguish: —’twas forlorn,{l]
+    {lg]
+    [lg}
+      [l [n}40{n]}Yet pleasing, such as once, so poets tell,{l]
+      [l [n}41{n]}The devils held within the dales of Hell{l]
+    {lg]
+    [lg}
+      [l [n}42{n]}Concerning God, freewill and destiny:{l]
+      [l [n}43{n]}Of all that earth has been or yet may be,{l]
+    {lg]
+    [lg}
+      [l [n}44{n]}All that vain men imagine or believe,{l]
+      [l [n}45{n]}Or hope can paint or suffering may achieve,{l]
+    {lg]
+    [lg}
+      [l [n}46{n]}We descanted; and I (for ever still{l]
+      [l [n}47{n]}Is it not wise to make the best of ill?){l]
+    {lg]
+    [lg}
+      [l [n}48{n]}Argued against despondency, but pride{l]
+      [l [n}49{n]}Made my companion take the darker side.{l]
+    {lg]
+    [lg}
+      [l [n}50{n]}The sense that he was greater than his kind{l]
+      [l [n}51{n]}Had struck, methinks, his eagle spirit blind{l]
+    {lg]
+    [lg}
+      [l [n}52{n]}By gazing on its own exceeding light.{l]
+      [l [n}53{n]}Meanwhile the sun paused ere it should alight,{l]
+    {lg]
+    [lg}
+      [l [n}54{n]}Over the horizon of the mountains;—Oh,{l]
+      [l [n}55{n]}How beautiful is sunset, when the glow{l]
+    {lg]
+    [lg}
+      [l [n}56{n]}Of Heaven descends upon a land like thee,{l]
+      [l [n}57{n]}Thou Paradise of exiles, Italy!{l]
+    {lg]
+    [lg}
+      [l [n}58{n]}Thy mountains, seas and vineyards, and the towers{l]
+      [l [n}59{n]}Of cities they encircle!—it was ours{l]
+    {lg]
+    [lg}
+      [l [n}60{n]}To stand on thee, beholding it: and then,{l]
+      [l [n}61{n]}Just where we had dismounted, the Count’s men{l]
+    {lg]
+    [lg}
+      [l [n}62{n]}Were waiting for us with the gondola.—{l]
+      [l [n}63{n]}As those who pause on some delightful way{l]
+    {lg]
+    [lg}
+      [l [n}64{n]}Though bent on pleasant pilgrimage, we stood{l]
+      [l [n}65{n]}Looking upon the evening, and the flood{l]
+    {lg]
+    [lg}
+      [l [n}66{n]}Which lay between the city and the shore,{l]
+      [l [n}67{n]}Paved with the image of the sky … the hoar{l]
+    {lg]
+    [lg}
+      [l [n}68{n]}And aery Alps towards the North appeared{l]
+      [l [n}69{n]}Through mist, an heaven-sustaining bulwark reared{l]
+    {lg]
+    [lg}
+      [l [n}70{n]}Between the East and West; and half the sky{l]
+      [l [n}71{n]}Was roofed with clouds of rich emblazonry{l]
+    {lg]
+    [lg}
+      [l [n}72{n]}Dark purple at the zenith, which still grew{l]
+      [l [n}73{n]}Down the steep West into a wondrous hue{l]
+    {lg]
+    [lg}
+      [l [n}74{n]}Brighter than burning gold, even to the rent{l]
+      [l [n}75{n]}Where the swift sun yet paused in his descent{l]
+    {lg]
+    [lg}
+      [l [n}76{n]}Among the many-folded hills: they were{l]
+      [l [n}77{n]}Those famous Euganean hills, which bear,{l]
+    {lg]
+    [lg}
+      [l [n}78{n]}As seen from Lido thro’ the harbour piles,{l]
+      [l [n}79{n]}The likeness of a clump of peaked isles—{l]
+    {lg]
+    [lg}
+      [l [n}80{n]}And then—as if the Earth and Sea had been{l]
+      [l [n}81{n]}Dissolved into one lake of fire, were seen{l]
+    {lg]
+    [lg}
+      [l [n}82{n]}Those mountains towering as from waves of flame{l]
+      [l [n}83{n]}Around the vaporous sun, from which there came{l]
+    {lg]
+    [lg}
+      [l [n}84{n]}The inmost purple spirit of light, and made{l]
+      [l [n}85{n]}Their very peaks transparent. [q [who}Maddalo{who]}Ere it fade,{q]{l]
+    {lg]
+    [lg}
+      [l [n}86{n]}Said my companion, [q [who}Maddalo{who]}I will
+        show you soon{l]
+      [l [n}87{n]}A better station{q]—so, o’er the lagune{l]
+    {lg]
+    [lg}
+      [l [n}88{n]}We glided; and from that funereal bark{l]
+      [l [n}89{n]}I leaned, and saw the city, and could mark{l]
+    {lg]
+    [lg}
+      [l [n}90{n]}How from their many isles, in evening’s gleam,{l]
+      [l [n}91{n]}Its temples and its palaces did seem{l]
+    {lg]
+    [lg}
+      [l [n}92{n]}Like fabrics of enchantment piled to Heaven.{l]
+      [l [n}93{n]}I was about to speak, when—[q [who}Maddalo{who]}We
+        are even{l]
+    {lg]
+    [lg}
+      [l [n}94{n]}Now at the point I meant,{q] said Maddalo,{l]
+      [l [n}95{n]}And bade the gondolieri cease to row.{l]
+    {lg]
+    [lg}
+      [q [who}Maddalo{who]}[l [n}96{n]}Look, Julian, on the west,
+        and listen well{l]
+      [l [n}97{n]}If you hear not a deep and heavy bell.{l]{q]
+    {lg]
+    [lg}
+      [l [n}98{n]}I looked, and saw between us and the sun{l]
+      [l [n}99{n]}A building on an island; such a one{l]
+    {lg]
+    [lg}
+      [l [n}100{n]}As age to age might add, for uses vile,{l]
+      [l [n}101{n]}A windowless, deformed and dreary pile;{l]
+    {lg]
+    [lg}
+      [l [n}102{n]}And on the top an open tower, where hung{l]
+      [l [n}103{n]}A bell, which in the radiance swayed and swung;{l]
+      [l [n}104{n]}We could just hear its hoarse and iron tongue:{l]
+    {lg]
+    [lg}
+      [l [n}105{n]}The broad sun sunk behind it, and it tolled{l]
+      [l [n}106{n]}In strong and black relief.—[q [who}Maddalo{who]}What we behold{l]
+    {lg]
+    [lg}
+      [l [n}107{n]}Shall be the madhouse and its belfry tower,{l]{q]
+      [l [n}108{n]}Said Maddalo, [q [who}Maddalo{who]}and ever at
+        this hour{l]
+    {lg]
+    [lg}
+      [l [n}109{n]}Those who may cross the water, hear that bell{l]
+      [l [n}110{n]}Which calls the maniacs, each one from his cell,{l]
+    {lg]
+    [lg}
+      [l [n}111{n]}To vespers.{q]—[q [who}Julian{who]}As much skill as need to pray{l]
+      [l [n}112{n]}In thanks or hope for their dark lot have they{l]
+    {lg]
+    [lg}
+      [l [n}113{n]}To their stern maker,{q] I replied. [q [who}Maddalo{who]}O ho!{l]
+      [l [n}114{n]}You talk as in years past,{q] said
+        Maddalo.{l]
+    {lg]
+    [lg}
+      [q [who}Maddalo{who]}[l [n}115{n]}’Tis strange men change
+        not. You were ever still{l]
+      [l [n}116{n]}Among Christ’s flock a perilous infidel,{l]
+    {lg]
+    [lg}
+      [l [n}117{n]}A wolf for the meek lambs—if you can’t swim{l]
+      [l [n}118{n]}Beware of Providence.{q] I looked on him,{l]
+    {lg]
+    [lg}
+      [l [n}119{n]}But the gay smile had faded in his eye.{l]
+      [l [n}120{n]}[q [who}Maddalo{who]}And such,{q]—he cried, [q [who}Maddalo{who]}is our
+        mortality,{l]
+    {lg]
+    [lg}
+      [l [n}121{n]}And this must be the emblem and the sign{l]
+      [l [n}122{n]}Of what should be eternal and divine!—{l]
+    {lg]
+    [lg}
+      [l [n}123{n]}And like that black and dreary bell, the soul,{l]
+      [l [n}124{n]}Hung in a heaven-illumined tower, must toll{l]
+    {lg]
+    [lg}
+      [l [n}125{n]}Our thoughts and our desires to meet below{l]
+      [l [n}126{n]}Round the rent heart and pray—as madmen do{l]
+    {lg]
+    [lg}
+      [l [n}127{n]}For what? they know not,—till the night of death{l]
+      [l [n}128{n]}As sunset that strange vision, severeth{l]
+    {lg]
+    [lg}
+      [l [n}129{n]}Our memory from itself, and us from all{l]
+      [l [n}130{n]}We sought and yet were baffled.{q] I
+        recall{l]
+    {lg]
+    [lg}
+      [l [n}131{n]}The sense of what he said, although I mar{l]
+      [l [n}132{n]}The force of his expressions. The broad star{l]
+    {lg]
+    [lg}
+      [l [n}133{n]}Of day meanwhile had sunk behind the hill,{l]
+      [l [n}134{n]}And the black bell became invisible,{l]
+    {lg]
+    [lg}
+      [l [n}135{n]}And the red tower looked gray, and all between{l]
+      [l [n}136{n]}The churches, ships and palaces were seen{l]
+    {lg]
+    [lg}
+      [l [n}137{n]}Huddled in gloom;—into the purple sea{l]
+      [l [n}138{n]}The orange hues of heaven sunk silently.{l]
+    {lg]
+    [lg}
+      [l [n}139{n]}We hardly spoke, and soon the gondola{l]
+      [l [n}140{n]}Conveyed me to my lodging by the way.{l]{lg]{vp]
+    [vp}[lg}[l [n}141{n]}The following morn was rainy, cold, and dim:{l]
+      [l [n}142{n]}Ere Maddalo arose, I called on him,{l]
+    {lg]
+    [lg}
+      [l [n}143{n]}And whilst I waited with his child I played;{l]
+      [l [n}144{n]}A lovelier toy sweet Nature never made;{l]
+    {lg]
+    [lg}
+      [l [n}145{n]}A serious, subtle, wild, yet gentle being,{l]
+      [l [n}146{n]}Graceful without design and unforeseeing,{l]
+    {lg]
+    [lg}
+      [l [n}147{n]}With eyes—Oh speak not of her eyes!—which seem{l]
+      [l [n}148{n]}Twin mirrors of Italian Heaven, yet gleam{l]
+    {lg]
+    [lg}
+      [l [n}149{n]}With such deep meaning, as we never see{l]
+      [l [n}150{n]}But in the human countenance: with me{l]
+    {lg]
+    [lg}
+      [l [n}151{n]}She was a special favourite: I had nursed{l]
+      [l [n}152{n]}Her fine and feeble limbs when she came first{l]
+    {lg]
+    [lg}
+      [l [n}153{n]}To this bleak world; and she yet seemed to know{l]
+      [l [n}154{n]}On second sight her ancient playfellow,{l]
+      [l [n}155{n]}Less changed than she was by six months or so;{l]
+    {lg]
+    [lg}
+      [l [n}156{n]}For after her first shyness was worn out{l]
+      [l [n}157{n]}We sate there, rolling billiard balls about,{l]
+    {lg]
+    [lg}
+      [l [n}158{n]}When the Count entered. Salutations past—{l]
+      [q [who}Julian{who]}[l [n}159{n]}The word you spoke last
+        night might well have cast{l]
+    {lg]
+    [lg}
+      [l [n}160{n]}A darkness on my spirit—if man be{l]
+      [l [n}161{n]}The passive thing you say, I should not see{l]
+    {lg]
+    [lg}
+      [l [n}162{n]}Much harm in the religions and old saws{l]
+      [l [n}163{n]}(Tho’ I may never own such leaden laws){l]
+    {lg]
+    [lg}
+      [l [n}164{n]}Which break a teachless nature to the yoke:{l]
+      [l [n}165{n]}Mine is another faith.{q]—thus much I
+        spoke{l]
+    {lg]
+    [lg}
+      [l [n}166{n]}And noting he replied not, added: [q [who}Julian{who]}See{l]
+      [l [n}167{n]}This lovely child, blithe, innocent and free;{l]
+    {lg]
+    [lg}
+      [l [n}168{n]}She spends a happy time with little care,{l]
+      [l [n}169{n]}While we to such sick thoughts subjected are{l]
+    {lg]
+    [lg}
+      [l [n}170{n]}As came on you last night. It is our will{l]
+      [l [n}171{n]}That thus enchains us to permitted ill—{l]
+    {lg]
+    [lg}
+      [l [n}172{n]}We might be otherwise—we might be all{l]
+      [l [n}173{n]}We dream of happy, high, majestical.{l]
+    {lg]
+    [lg}
+      [l [n}174{n]}Where is the love, beauty, and truth we seek,{l]
+      [l [n}175{n]}But in our mind? and if we were not weak{l]
+    {lg]
+    [lg}
+      [l [n}176{n]}Should we be less in deed than in desire?{l]{q]
+      [q [who}Maddalo{who]}[l [n}177{n]}Ay, if we were not
+        weak—and we aspire{l]
+    {lg]
+    [lg}
+      [l [n}178{n]}How vainly to be strong!{q] said
+        Maddalo:{l]
+      [l [n}179{n]}[q [who}Maddalo{who]}You talk Utopia.{q] [q [who}Julian{who]}It remains to
+        know,{q]{l]
+    {lg]
+    [lg}
+      [l [n}180{n]}I then rejoined, [q [who}Julian{who]}and those
+        who try may find{l]
+      [l [n}181{n]}How strong the chains are which our spirit bind;{l]
+    {lg]
+    [lg}
+      [l [n}182{n]}Brittle perchance as straw … We are assured{l]
+      [l [n}183{n]}Much may be conquered, much may be endured,{l]
+    {lg]
+    [lg}
+      [l [n}184{n]}Of what degrades and crushes us. We know{l]
+      [l [n}185{n]}That we have power over ourselves to do{l]
+    {lg]
+    [lg}
+      [l [n}186{n]}And suffer—what, we know not till we try;{l]
+      [l [n}187{n]}But something nobler than to live and die—{l]
+      [l [n}188{n]}So taught those kings of old philosophy{l]
+    {lg]
+    [lg}
+      [l [n}189{n]}Who reigned, before Religion made men blind;{l]
+      [l [n}190{n]}And those who suffer with their suffering kind{l]
+    {lg]
+    [lg}
+      [l [n}191{n]}Yet feel their faith, religion.{q] [q [who}Maddalo{who]}My dear friend,{q]{l]
+      [l [n}192{n]}Said Maddalo, [q [who}Maddalo{who]}my judgement
+        will not bend{l]
+    {lg]
+    [lg}
+      [l [n}193{n]}To your opinion, though I think you might{l]
+      [l [n}194{n]}Make such a system refutation-tight{l]
+    {lg]
+    [lg}
+      [l [n}195{n]}As far as words go. I knew one like you{l]
+      [l [n}196{n]}Who to this city came some months ago,{l]
+    {lg]
+    [lg}
+      [l [n}197{n]}With whom I argued in this sort, and he{l]
+      [l [n}198{n]}Is now gone mad,—and so he answered me,—{l]
+    {lg]
+    [lg}
+      [l [n}199{n]}Poor fellow! but if you would like to go,{l]
+      [l [n}200{n]}We’ll visit him, and his wild talk will show{l]
+    {lg]
+    [lg}
+      [l [n}201{n]}How vain are such aspiring theories.{l]{q]
+      [q [who}Julian{who]}[l [n}202{n]}I hope to prove the
+        induction otherwise,{l]
+    {lg]
+    [lg}
+      [l [n}203{n]}And that a want of that true theory, still,{l]
+      [l [n}204{n]}Which seeks a [soCalled}soul of
+        goodness{soCalled] in things ill{l]
+    {lg]
+    [lg}
+      [l [n}205{n]}Or in himself or others, has thus bowed{l]
+      [l [n}206{n]}His being—there are some by nature proud,{l]
+    {lg]
+    [lg}
+      [l [n}207{n]}Who patient in all else demand but this—{l]
+      [l [n}208{n]}To love and be beloved with gentleness;{l]
+    {lg]
+    [lg}
+      [l [n}209{n]}And being scorned, what wonder if they die{l]
+      [l [n}210{n]}Some living death? this is not destiny{l]
+    {lg]
+    [l [n}211{n]}But man’s own wilful ill.{q]{vp][vp}As thus I spoke{l]
+    [lg}
+      [l [n}212{n]}Servants announced the gondola, and we{l]
+      [l [n}213{n]}Through the fast-falling rain and high-wrought sea{l]
+    {lg]
+    [lg}
+      [l [n}214{n]}Sailed to the island where the madhouse stands.{l]
+      [l [n}215{n]}We disembarked. The clap of tortured hands,{l]
+    {lg]
+    [lg}
+      [l [n}216{n]}Fierce yells and howlings and lamentings keen,{l]
+      [l [n}217{n]}And laughter where complaint had merrier been,{l]
+    {lg]
+    [lg}
+      [l [n}218{n]}Moans, shrieks, and curses, and blaspheming prayers{l]
+      [l [n}219{n]}Accosted us. We climbed the oozy stairs{l]
+    {lg]
+    [lg}
+      [l [n}220{n]}Into an old courtyard. I heard on high,{l]
+      [l [n}221{n]}Then, fragments of most touching melody,{l]
+    {lg]
+    [lg}
+      [l [n}222{n]}But looking up saw not the singer there—{l]
+      [l [n}223{n]}Through the black bars in the tempestuous air{l]
+    {lg]
+    [lg}
+      [l [n}224{n]}I saw, like weeds on a wrecked palace growing,{l]
+      [l [n}225{n]}Long tangled locks flung wildly forth, and flowing,{l]
+    {lg]
+    [lg}
+      [l [n}226{n]}Of those who on a sudden were beguiled{l]
+      [l [n}227{n]}Into strange silence, and looked forth and smiled{l]
+    {lg]
+    [lg}
+      [l [n}228{n]}Hearing sweet sounds. Then I: [q [who}Julian{who]}Methinks there were{l]
+      [l [n}229{n]}A cure of these with patience and kind care,{l]
+    {lg]
+    [lg}
+      [l [n}230{n]}If music can thus move … but what is he{l]
+      [l [n}231{n]}Whom we seek here?{q] [q [who}Maddalo{who]}Of his sad history{l]
+    {lg]
+    [lg}
+      [l [n}232{n]}I know but this,{q] said Maddalo: [q [who}Maddalo{who]}he came{l]
+      [l [n}233{n]}To Venice a dejected man, and fame{l]
+    {lg]
+    [lg}
+      [l [n}234{n]}Said he was wealthy, or he had been so;{l]
+      [l [n}235{n]}Some thought the loss of fortune wrought him woe;{l]
+    {lg]
+    [lg}
+      [l [n}236{n]}But he was ever talking in such sort{l]
+      [l [n}237{n]}As you do—far more sadly—he seemed hurt,{l]
+    {lg]
+    [lg}
+      [l [n}238{n]}Even as a man with his peculiar wrong,{l]
+      [l [n}239{n]}To hear but of the oppression of the strong,{l]
+    {lg]
+    [lg}
+      [l [n}240{n]}Or those absurd deceits (I think with you{l]
+      [l [n}241{n]}In some respects, you know) which carry through{l]
+    {lg]
+    [lg}
+      [l [n}242{n]}The excellent impostors of this earth{l]
+      [l [n}243{n]}When they outface detection—he had worth,{l]
+    {lg]
+    [lg}
+      [l [n}244{n]}Poor fellow! but a humorist in his way{q]—{l]
+      [l [n}245{n]}[q [who}Julian{who]}Alas, what drove him mad?{q] [q [who}Maddalo{who]}I cannot
+        say:{l]
+    {lg]
+    [lg}
+      [l [n}246{n]}A lady came with him from France, and when{l]
+      [l [n}247{n]}She left him and returned, he wandered then{l]
+    {lg]
+    [lg}
+      [l [n}248{n]}About yon lonely isles of desert sand{l]
+      [l [n}249{n]}Till he grew wild—he had no cash or land{l]
+    {lg]
+    [lg}
+      [l [n}250{n]}Remaining,—the police had brought him here—{l]
+      [l [n}251{n]}Some fancy took him and he would not bear{l]
+    {lg]
+    [lg}
+      [l [n}252{n]}Removal; so I fitted up for him{l]
+      [l [n}253{n]}Those rooms beside the sea, to please his whim,{l]
+    {lg]
+    [lg}
+      [l [n}254{n]}And sent him busts and books and urns for flowers,{l]
+      [l [n}255{n]}Which had adorned his life in happier hours,{l]
+    {lg]
+    [lg}
+      [l [n}256{n]}And instruments of music—you may guess{l]
+      [l [n}257{n]}A stranger could do little more or less{l]
+    {lg]
+    [lg}
+      [l [n}258{n]}For one so gentle and unfortunate:{l]
+      [l [n}259{n]}And those are his sweet strains which charm the weight{l]
+    {lg]
+    [lg}
+      [l [n}260{n]}From madmen’s chains, and make this Hell appear{l]
+      [l [n}261{n]}A heaven of sacred silence, hushed to hear.{q]—{l]
+    {lg]
+    [lg}
+      [q [who}Julian{who]}[l [n}262{n]}Nay, this was kind of
+        you—he had no claim,{l]
+      [l [n}263{n]}As the world says{q]—[q [who}Maddalo{who]}None—but the very same{l]
+    {lg]
+    [lg}
+      [l [n}264{n]}Which I on all mankind were I as he{l]
+      [l [n}265{n]}Fallen to such deep reverse;—his melody{l]
+    {lg]
+    [lg}
+      [l [n}266{n]}Is interrupted—now we hear the din{l]
+      [l [n}267{n]}Of madmen, shriek on shriek, again begin;{l]
+    {lg]
+    [lg}
+      [l [n}268{n]}Let us now visit him; after this strain{l]
+      [l [n}269{n]}He ever communes with himself again,{l]
+    {lg]
+    [lg}
+      [l [n}270{n]}And sees nor hears not any.{q] Having
+        said{l]
+      [l [n}271{n]}These words, we called the keeper, and he led{l]
+    {lg]
+    [lg}
+      [l [n}272{n]}To an apartment opening on the sea—{l]
+      [l [n}273{n]}There the poor wretch was sitting mournfully{l]
+    {lg]
+    [lg}
+      [l [n}274{n]}Near a piano, his pale fingers twined{l]
+      [l [n}275{n]}One with the other, and the ooze and wind{l]
+    {lg]
+    [lg}
+      [l [n}276{n]}Rushed through an open casement, and did sway{l]
+      [l [n}277{n]}His hair, and starred it with the brackish spray;{l]
+    {lg]
+    [lg}
+      [l [n}278{n]}His head was leaning on a music book,{l]
+      [l [n}279{n]}And he was muttering, and his lean limbs shook;{l]
+    {lg]
+    [lg}
+      [l [n}280{n]}His lips were pressed against a folded leaf{l]
+      [l [n}281{n]}In hue too beautiful for health, and grief{l]
+    {lg]
+    [lg}
+      [l [n}282{n]}Smiled in their motions as they lay apart—{l]
+      [l [n}283{n]}As one who wrought from his own fervid heart{l]
+    {lg]
+    [lg}
+      [l [n}284{n]}The eloquence of passion, soon he raised{l]
+      [l [n}285{n]}His sad meek face and eyes lustrous and glazed{l]
+    {lg]
+    [lg}
+      [l [n}286{n]}And spoke—sometimes as one who wrote, and thought{l]
+      [l [n}287{n]}His words might move some heart that heeded not,{l]
+    {lg]
+    [lg}
+      [l [n}288{n]}If sent to distant lands: and then as one{l]
+      [l [n}289{n]}Reproaching deeds never to be undone{l]
+    {lg]
+    [lg}
+      [l [n}290{n]}With wondering self-compassion; then his speech{l]
+      [l [n}291{n]}Was lost in grief, and then his words came each{l]
+    {lg]
+    [lg}
+      [l [n}292{n]}Unmodulated, cold, expressionless,—{l]
+      [l [n}293{n]}But that from one jarred accent you might guess{l]
+    {lg]
+    [lg}
+      [l [n}294{n]}It was despair made them so uniform:{l]
+      [l [n}295{n]}And all the while the loud and gusty storm{l]
+    {lg]
+    [lg}
+      [l [n}296{n]}Hissed through the window, and we stood behind{l]
+      [l [n}297{n]}Stealing his accents from the envious wind{l]
+    {lg]
+    [lg}
+      [l [n}298{n]}Unseen. I yet remember what he said{l]
+      [l [n}299{n]}Distinctly: such impression his words made.{l]{lg]{vp]
+    [vp}[lg}[l [n}300{n]}[q [who}madman{who]}Month after month,{q] he cried, [q [who}madman{who]}to bear
+        this load{l]
+      [l [n}301{n]}And as a jade urged by the whip and goad{l]
+    {lg]
+    [lg}
+      [l [n}302{n]}To drag life on, which like a heavy chain{l]
+      [l [n}303{n]}Lengthens behind with many a link of pain!—{l]
+    {lg]
+    [lg}
+      [l [n}304{n]}And not to speak my grief—O, not to dare{l]
+      [l [n}305{n]}To give a human voice to my despair,{l]
+    {lg]
+    [lg}
+      [l [n}306{n]}But live, and move, and, wretched thing! smile on{l]
+      [l [n}307{n]}As if I never went aside to groan,{l]
+    {lg]
+    [lg}
+      [l [n}308{n]}And wear this mask of falsehood even to those{l]
+      [l [n}309{n]}Who are most dear—not for my own repose—{l]
+    {lg]
+    [lg}
+      [l [n}310{n]}Alas! no scorn or pain or hate could be{l]
+      [l [n}311{n]}So heavy as that falsehood is to me—{l]
+    {lg]
+    [lg}
+      [l [n}312{n]}But that I cannot bear more altered faces{l]
+      [l [n}313{n]}Than needs must be, more changed and cold embraces,{l]
+    {lg]
+    [lg}
+      [l [n}314{n]}More misery, disappointment, and mistrust{l]
+      [l [n}315{n]}To own me for their father … Would the dust{l]
+    {lg]
+    [lg}
+      [l [n}316{n]}Were covered in upon my body now!{l]
+      [l [n}317{n]}That the life ceased to toil within my brow!{l]
+    {lg]
+    [lg}
+      [l [n}318{n]}And then these thoughts would at the least be fled;{l]
+      [l [n}319{n]}Let us not fear such pain can vex the dead.{l]{lg]{vp]
+    [vp}[lg}[l [n}320{n]}What Power delights to torture us? I know{l]
+      [l [n}321{n]}That to myself I do not wholly owe{l]
+    {lg]
+    [lg}
+      [l [n}322{n]}What now I suffer, though in part I may.{l]
+      [l [n}323{n]}Alas! none strewed sweet flowers upon the way{l]
+    {lg]
+    [lg}
+      [l [n}324{n]}Where wandering heedlessly, I met pale Pain{l]
+      [l [n}325{n]}My shadow, which will leave me not again—{l]
+    {lg]
+    [lg}
+      [l [n}326{n]}If I have erred, there was no joy in error,{l]
+      [l [n}327{n]}But pain and insult and unrest and terror;{l]
+    {lg]
+    [lg}
+      [l [n}328{n]}I have not as some do, bought penitence{l]
+      [l [n}329{n]}With pleasure, and a dark yet sweet offence,{l]
+    {lg]
+    [lg}
+      [l [n}330{n]}For then,—if love and tenderness and truth{l]
+      [l [n}331{n]}Had overlived hope’s momentary youth,{l]
+    {lg]
+    [lg}
+      [l [n}332{n]}My creed should have redeemed me from repenting;{l]
+      [l [n}333{n]}But loathed scorn and outrage unrelenting{l]
+    {lg]
+    [lg}
+      [l [n}334{n]}Met love excited by far other seeming{l]
+      [l [n}335{n]}Until the end was gained … as one from dreaming{l]
+    {lg]
+    [lg}
+      [l [n}336{n]}Of sweetest peace, I woke, and found my state{l]
+      [l [n}337{n]}Such as it is.—{vp][vp} O Thou, my
+        spirit’s mate{l]
+    {lg]
+    [lg}
+      [l [n}338{n]}Who, for thou art compassionate and wise,{l]
+      [l [n}339{n]}Wouldst pity me from thy most gentle eyes{l]
+    {lg]
+    [lg}
+      [l [n}340{n]}If this sad writing thou shouldst ever see—{l]
+      [l [n}341{n]}My secret groans must be unheard by thee,{l]
+    {lg]
+    [lg}
+      [l [n}342{n]}Thou wouldst weep tears bitter as blood to know{l]
+      [l [n}343{n]}Thy lost friend’s incommunicable woe.{l]{lg]{vp]
+    [vp}[lg}[l [n}344{n]}Ye few by whom my nature has been weighed{l]
+      [l [n}345{n]}In friendship, let me not that name degrade{l]
+    {lg]
+    [lg}
+      [l [n}346{n]}By placing on your hearts the secret load{l]
+      [l [n}347{n]}Which crushes mine to dust. There is one road{l]
+    {lg]
+    [lg}
+      [l [n}348{n]}To peace and that is truth, which follow ye!{l]
+      [l [n}349{n]}Love sometimes leads astray to misery.{l]
+    {lg]
+    [lg}
+      [l [n}350{n]}Yet think not though subdued—and I may well{l]
+      [l [n}351{n]}Say that I am subdued—that the full Hell{l]
+    {lg]
+    [lg}
+      [l [n}352{n]}Within me would infect the untainted breast{l]
+      [l [n}353{n]}Of sacred nature with its own unrest;{l]
+    {lg]
+    [lg}
+      [l [n}354{n]}As some perverted beings think to find{l]
+      [l [n}355{n]}In scorn or hate a medicine for the mind{l]
+    {lg]
+    [lg}
+      [l [n}356{n]}Which scorn or hate have wounded—O how vain!{l]
+      [l [n}357{n]}The dagger heals not but may rend again …{l]
+    {lg]
+    [lg}
+      [l [n}358{n]}Believe that I am ever still the same{l]
+      [l [n}359{n]}In creed as in resolve, and what may tame{l]
+    {lg]
+    [lg}
+      [l [n}360{n]}My heart, must leave the understanding free,{l]
+      [l [n}361{n]}Or all would sink in this keen agony—{l]
+    {lg]
+    [lg}
+      [l [n}362{n]}Nor dream that I will join the vulgar cry;{l]
+      [l [n}363{n]}Or with my silence sanction tyranny;{l]
+    {lg]
+    [lg}
+      [l [n}364{n]}Or seek a moment’s shelter from my pain{l]
+      [l [n}365{n]}In any madness which the world calls gain,{l]
+    {lg]
+    [lg}
+      [l [n}366{n]}Ambition or revenge or thoughts as stern{l]
+      [l [n}367{n]}As those which make me what I am; or turn{l]
+    {lg]
+    [lg}
+      [l [n}368{n]}To avarice or misanthropy or lust …{l]
+      [l [n}369{n]}Heap on me soon, O grave, thy welcome dust!{l]
+    {lg]
+    [lg}
+      [l [n}370{n]}Till then the dungeon may demand its prey,{l]
+      [l [n}371{n]}And Poverty and Shame may meet and say—{l]
+      [l [n}372{n]}Halting beside me on the public way—{l]
+    {lg]
+    [lg}
+      [q [who}Poverty{who]}[l [n}373{n]}That love-devoted youth is
+        ours—let’s sit{l]
+      [l [n}374{n]}Beside him—he may live some six months yet.{l]{q]
+    {lg]
+    [lg}
+      [l [n}375{n]}Or the red scaffold, as our country bends,{l]
+      [l [n}376{n]}May ask some willing victim; or ye friends{l]
+    {lg]
+    [lg}
+      [l [n}377{n]}May fall under some sorrow which this heart{l]
+      [l [n}378{n]}Or hand may share or vanquish or avert;{l]
+    {lg]
+    [lg}
+      [l [n}379{n]}I am prepared—in truth, with no proud joy—{l]
+      [l [n}380{n]}To do or suffer aught, as when a boy{l]
+    {lg]
+    [lg}
+      [l [n}381{n]}I did devote to justice and to love{l]
+      [l [n}382{n]}My nature, worthless now!{vp][vp}
+        I must remove{l]
+    {lg]
+    [lg}
+      [l [n}383{n]}A veil from my pent mind. ’Tis torn aside!{l]
+      [l [n}384{n]}O, pallid as Death’s dedicated bride,{l]
+      [l [n}385{n]}Thou mockery which art sitting by my side,{l]
+    {lg]
+    [lg}
+      [l [n}386{n]}Am I not wan like thee? at the grave’s call{l]
+      [l [n}387{n]}I haste, invited to thy wedding-ball{l]
+    {lg]
+    [lg}
+      [l [n}388{n]}To greet the ghastly paramour, for whom{l]
+      [l [n}389{n]}Thou hast deserted me … and made the tomb{l]
+    {lg]
+    [lg}
+      [l [n}390{n]}Thy bridal bed … But I beside your feet{l]
+      [l [n}391{n]}Will lie and watch ye from my winding-sheet—{l]
+    {lg]
+    [lg}
+      [l [n}392{n]}Thus … wide awake tho’ dead … yet stay, O stay!{l]
+      [l [n}393{n]}Go not so soon—I know not what I say—{l]
+    {lg]
+    [lg}
+      [l [n}394{n]}Hear but my reasons … I am mad, I fear,{l]
+      [l [n}395{n]}My fancy is o’erwrought … thou art not here …{l]
+    {lg]
+    [lg}
+      [l [n}396{n]}Pale art thou, ’tis most true … but thou art gone,{l]
+      [l [n}397{n]}Thy work is finished … I am left alone!—{l]{lg]{vp]
+    [vp}[lg}[l [n}398{n]}Nay, was it I who wooed thee to this breast{l]
+      [l [n}399{n]}Which, like a serpent, thou envenomest{l]
+    {lg]
+    [lg}
+      [l [n}400{n]}As in repayment of the warmth it lent?{l]
+      [l [n}401{n]}Didst thou not seek me for thine own content?{l]
+    {lg]
+    [lg}
+      [l [n}402{n]}Did not thy love awaken mine? I thought{l]
+      [l [n}403{n]}That thou wert she who said, [q [who}lover{who]}You kiss me not{l]
+    {lg]
+    [lg}
+      [l [n}404{n]}Ever, I fear you do not love me now{q]—{l]
+      [l [n}405{n]}In truth I loved even to my overthrow{l]
+    {lg]
+    [lg}
+      [l [n}406{n]}Her, who would fain forget these words: but they{l]
+      [l [n}407{n]}Cling to her mind, and cannot pass away.{l]{lg]{vp]
+    [vp}[lg}[l [n}408{n]}You say that I am proud—that when I speak{l]
+      [l [n}409{n]}My lip is tortured with the wrongs which break{l]
+    {lg]
+    [lg}
+      [l [n}410{n]}The spirit it expresses … Never one{l]
+      [l [n}411{n]}Humbled himself before, as I have done!{l]
+    {lg]
+    [lg}
+      [l [n}412{n]}Even the instinctive worm on which we tread{l]
+      [l [n}413{n]}Turns, though it wound not—then with prostrate head{l]
+    {lg]
+    [lg}
+      [l [n}414{n]}Sinks in the dusk and writhes like me—and dies?{l]
+      [l [n}415{n]}No: wears a living death of agonies!{l]
+    {lg]
+    [lg}
+      [l [n}416{n]}As the slow shadows of the pointed grass{l]
+      [l [n}417{n]}Mark the eternal periods, his pangs pass,{l]
+    {lg]
+    [lg}
+      [l [n}418{n]}Slow, ever-moving,—making moments be{l]
+      [l [n}419{n]}As mine seem—each an immortality!{l]{lg]{vp]
+    [vp}[lg}[l [n}420{n]}That you had never seen me—never heard{l]
+      [l [n}421{n]}My voice, and more than all had ne’er endured{l]
+    {lg]
+    [lg}
+      [l [n}422{n]}The deep pollution of my loathed embrace—{l]
+      [l [n}423{n]}That your eyes ne’er had lied love in my face—{l]
+    {lg]
+    [lg}
+      [l [n}424{n]}That, like some maniac monk, I had torn out{l]
+      [l [n}425{n]}The nerves of manhood by their bleeding root{l]
+    {lg]
+    [lg}
+      [l [n}426{n]}With mine own quivering fingers, so that ne’er{l]
+      [l [n}427{n]}Our hearts had for a moment mingled there{l]
+    {lg]
+    [lg}
+      [l [n}428{n]}To disunite in horror—these were not{l]
+      [l [n}429{n]}With thee, like some suppressed and hideous thought{l]
+    {lg]
+    [lg}
+      [l [n}430{n]}Which flits athwart our musings, but can find{l]
+      [l [n}431{n]}No rest within a pure and gentle mind …{l]
+    {lg]
+    [lg}
+      [l [n}432{n]}Thou sealedst them with many a bare broad word,{l]
+      [l [n}433{n]}And searedst my memory o’er them,—for I heard{l]
+      [l [n}434{n]}And can forget not … they were ministered{l]
+    {lg]
+    [lg}
+      [l [n}435{n]}One after one, those curses. Mix them up{l]
+      [l [n}436{n]}Like self-destroying poisons in one cup,{l]
+    {lg]
+    [lg}
+      [l [n}437{n]}And they will make one blessing which thou ne’er{l]
+      [l [n}438{n]}Didst imprecate for, on me,—death.{vp][vp} It were{l]
+    {lg]
+    [lg}
+      [l [n}439{n]}A cruel punishment for one most cruel,{l]
+      [l [n}440{n]}If such can love, to make that love the fuel{l]
+    {lg]
+    [lg}
+      [l [n}441{n]}Of the mind’s hell; hate, scorn, remorse, despair:{l]
+      [l [n}442{n]}But [emph}me{emph]—whose heart a stranger’s tear might wear{l]
+    {lg]
+    [lg}
+      [l [n}443{n]}As water-drops the sandy fountain-stone,{l]
+      [l [n}444{n]}Who loved and pitied all things, and could moan{l]
+    {lg]
+    [lg}
+      [l [n}445{n]}For woes which others hear not, and could see{l]
+      [l [n}446{n]}The absent with the glance of phantasy,{l]
+    {lg]
+    [lg}
+      [l [n}447{n]}And with the poor and trampled sit and weep,{l]
+      [l [n}448{n]}Following the captive to his dungeon deep;{l]
+      [l [n}449{n]}[emph}me{emph]—who
+        am as a nerve o’er which do creep{l]
+    {lg]
+    [lg}
+      [l [n}450{n]}The else unfelt oppressions of this earth,{l]
+      [l [n}451{n]}And was to thee the flame upon thy hearth,{l]
+    {lg]
+    [lg}
+      [l [n}452{n]}When all beside was cold—that thou on me{l]
+      [l [n}453{n]}Shouldst rain these plagues of blistering agony—{l]
+    {lg]
+    [lg}
+      [l [n}454{n]}Such curses are from lips once eloquent{l]
+      [l [n}455{n]}With love’s too partial praise—let none relent{l]
+    {lg]
+    [lg}
+      [l [n}456{n]}Who intend deeds too dreadful for a name{l]
+      [l [n}457{n]}Henceforth, if an example for the same{l]
+    {lg]
+    [lg}
+      [l [n}458{n]}They seek … for thou on me lookedst so, and so—{l]
+      [l [n}459{n]}And didst speak thus … and thus … I live to show{l]
+    {lg]
+    [lg}
+      [l [n}460{n]}How much men bear and die not!{vp][vp} Thou wilt tell{l]
+      [l [n}461{n]}With the grimace of hate, how horrible{l]
+    {lg]
+    [lg}
+      [l [n}462{n]}It was to meet my love when thine grew less;{l]
+      [l [n}463{n]}Thou wilt admire how I could e’er address{l]
+    {lg]
+    [lg}
+      [l [n}464{n]}Such features to love’s work … this taunt, though true,{l]
+      [l [n}465{n]}(For indeed Nature nor in form nor hue{l]
+    {lg]
+    [lg}
+      [l [n}466{n]}Bestowed on me her choicest workmanship){l]
+      [l [n}467{n]}Shall not be thy defence … for since thy lip{l]
+    {lg]
+    [lg}
+      [l [n}468{n]}Met mine first, years long past, since thine eye kindled{l]
+      [l [n}469{n]}With soft fire under mine, I have not dwindled{l]
+    {lg]
+    [lg}
+      [l [n}470{n]}Nor changed in mind or body, or in aught{l]
+      [l [n}471{n]}But as love changes what it loveth not{l]
+    {lg]
+    [lg}
+      [l [n}472{n]}After long years and many trials.{vp][vp} How vain{l]
+      [l [n}473{n]}Are words! I thought never to speak again,{l]
+    {lg]
+    [lg}
+      [l [n}474{n]}Not even in secret,—not to mine own heart—{l]
+      [l [n}475{n]}But from my lips the unwilling accents start,{l]
+    {lg]
+    [lg}
+      [l [n}476{n]}And from my pen the words flow as I write,{l]
+      [l [n}477{n]}Dazzling my eyes with scalding tears … my sight{l]
+    {lg]
+    [lg}
+      [l [n}478{n]}Is dim to see that charactered in vain{l]
+      [l [n}479{n]}On this unfeeling leaf which burns the brain{l]
+    {lg]
+    [lg}
+      [l [n}480{n]}And eats into it … blotting all things fair{l]
+      [l [n}481{n]}And wise and good which time had written there.{l]{lg]{vp]
+    [vp}[lg}[l [n}482{n]}Those who inflict must suffer, for they see{l]
+      [l [n}483{n]}The work of their own hearts, and this must be{l]
+    {lg]
+    [lg}
+      [l [n}484{n]}Our chastisement or recompense—O child!{l]
+      [l [n}485{n]}I would that thine were like to be more mild{l]
+    {lg]
+    [lg}
+      [l [n}486{n]}For both our wretched sakes … for thine the most{l]
+      [l [n}487{n]}Who feelest already all that thou hast lost{l]
+    {lg]
+    [lg}
+      [l [n}488{n]}Without the power to wish it thine again;{l]
+      [l [n}489{n]}And as slow years pass, a funereal train{l]
+    {lg]
+    [lg}
+      [l [n}490{n]}Each with the ghost of some lost hope or friend{l]
+      [l [n}491{n]}Following it like its shadow, wilt thou bend{l]
+    {lg]
+    [lg}
+      [l [n}492{n]}No thought on my dead memory?{vp][vp} Alas, love!{l]
+      [l [n}493{n]}Fear me not … against thee I would not move{l]
+    {lg]
+    [lg}
+      [l [n}494{n]}A finger in despite. Do I not live{l]
+      [l [n}495{n]}That thou mayst have less bitter cause to grieve?{l]
+    {lg]
+    [lg}
+      [l [n}496{n]}I give thee tears for scorn and love for hate;{l]
+      [l [n}497{n]}And that thy lot may be less desolate{l]
+    {lg]
+    [lg}
+      [l [n}498{n]}Than his on whom thou tramplest, I refrain{l]
+      [l [n}499{n]}From that sweet sleep which medicines all pain.{l]
+    {lg]
+    [lg}
+      [l [n}500{n]}Then, when thou speakest of me, never say{l]
+      [l [n}501{n]}[q [who}lover{who]}He could forgive not.{q] Here I cast away{l]
+    {lg]
+    [lg}
+      [l [n}502{n]}All human passions, all revenge, all pride;{l]
+      [l [n}503{n]}I think, speak, act no ill; I do but hide{l]
+    {lg]
+    [lg}
+      [l [n}504{n]}Under these words, like embers, every spark{l]
+      [l [n}505{n]}Of that which has consumed me—quick and dark{l]
+    {lg]
+    [lg}
+      [l [n}506{n]}The grave is yawning … as its roof shall cover{l]
+      [l [n}507{n]}My limbs with dust and worms under and over{l]
+    {lg]
+    [lg}
+      [l [n}508{n]}So let Oblivion hide this grief … the air{l]
+      [l [n}509{n]}Closes upon my accents, as despair{l]
+      [l [n}510{n]}Upon my heart—let death upon despair!{q]{l]{lg]{vp]
+    [vp}[lg}[l [n}511{n]}He ceased, and overcome leant back awhile,{l]
+      [l [n}512{n]}Then rising, with a melancholy smile{l]
+    {lg]
+    [lg}
+      [l [n}513{n]}Went to a sofa, and lay down, and slept{l]
+      [l [n}514{n]}A heavy sleep, and in his dreams he wept{l]
+    {lg]
+    [lg}
+      [l [n}515{n]}And muttered some familiar name, and we{l]
+      [l [n}516{n]}Wept without shame in his society.{l]
+    {lg]
+    [lg}
+      [l [n}517{n]}I think I never was impressed so much;{l]
+      [l [n}518{n]}The man who were not, must have lacked a touch{l]
+    {lg]
+    [lg}
+      [l [n}519{n]}Of human nature … then we lingered not,{l]
+      [l [n}520{n]}Although our argument was quite forgot,{l]
+    {lg]
+    [lg}
+      [l [n}521{n]}But calling the attendants, went to dine{l]
+      [l [n}522{n]}At Maddalo’s; yet neither cheer nor wine{l]
+    {lg]
+    [lg}
+      [l [n}523{n]}Could give us spirits, for we talked of him{l]
+      [l [n}524{n]}And nothing else, till daylight made stars dim;{l]
+    {lg]
+    [lg}
+      [l [n}525{n]}And we agreed his was some dreadful ill{l]
+      [l [n}526{n]}Wrought on him boldly, yet unspeakable,{l]
+    {lg]
+    [lg}
+      [l [n}527{n]}By a dear friend; some deadly change in love{l]
+      [l [n}528{n]}Of one vowed deeply which he dreamed not of;{l]
+    {lg]
+    [lg}
+      [l [n}529{n]}For whose sake he, it seemed, had fixed a blot{l]
+      [l [n}530{n]}Of falsehood on his mind which flourished not{l]
+    {lg]
+    [lg}
+      [l [n}531{n]}But in the light of all-beholding truth;{l]
+      [l [n}532{n]}And having stamped this canker on his youth{l]
+    {lg]
+    [lg}
+      [l [n}533{n]}She had abandoned him—and how much more{l]
+      [l [n}534{n]}Might be his woe, we guessed not—he had store{l]
+    {lg]
+    [lg}
+      [l [n}535{n]}Of friends and fortune once, as we could guess{l]
+      [l [n}536{n]}From his nice habits and his gentleness;{l]
+    {lg]
+    [lg}
+      [l [n}537{n]}These were now lost … it were a grief indeed{l]
+      [l [n}538{n]}If he had changed one unsustaining reed{l]
+    {lg]
+    [lg}
+      [l [n}539{n]}For all that such a man might else adorn.{l]
+      [l [n}540{n]}The colours of his mind seemed yet unworn;{l]
+    {lg]
+    [lg}
+      [l [n}541{n]}For the wild language of his grief was high,{l]
+      [l [n}542{n]}Such as in measure were called poetry;{l]
+    {lg]
+    [lg}
+      [l [n}543{n]}And I remember one remark which then{l]
+      [l [n}544{n]}Maddalo made. He said: [q [who}Maddalo{who]}Most
+        wretched men{l]
+    {lg]
+    [lg}
+      [l [n}545{n]}Are cradled into poetry by wrong,{l]
+      [l [n}546{n]}They learn in suffering what they teach in song.{l]{q]{lg]{vp]
+    [vp}[lg}[l [n}547{n]}If I had been an unconnected man,{l]
+      [l [n}548{n]}I, from this moment, should have formed some plan{l]
+    {lg]
+    [lg}
+      [l [n}549{n]}Never to leave sweet Venice,—for to me{l]
+      [l [n}550{n]}It was delight to ride by the lone sea;{l]
+    {lg]
+    [lg}
+      [l [n}551{n]}And then, the town is silent—one may write{l]
+      [l [n}552{n]}Or read in gondolas by day or night,{l]
+      [l [n}553{n]}Having the little brazen lamp alight,{l]
+    {lg]
+    [lg}
+      [l [n}554{n]}Unseen, uninterrupted; books are there,{l]
+      [l [n}555{n]}Pictures, and casts from all those statues fair{l]
+    {lg]
+    [lg}
+      [l [n}556{n]}Which were twin-born with poetry, and all{l]
+      [l [n}557{n]}We seek in towns, with little to recall{l]
+    {lg]
+    [lg}
+      [l [n}558{n]}Regrets for the green country. I might sit{l]
+      [l [n}559{n]}In Maddalo’s great palace, and his wit{l]
+    {lg]
+    [lg}
+      [l [n}560{n]}And subtle talk would cheer the winter night{l]
+      [l [n}561{n]}And make me know myself, and the firelight{l]
+    {lg]
+    [lg}
+      [l [n}562{n]}Would flash upon our faces, till the day{l]
+      [l [n}563{n]}Might dawn and make me wonder at my stay:{l]
+    {lg]
+    [lg}
+      [l [n}564{n]}But I had friends in London too: the chief{l]
+      [l [n}565{n]}Attraction here, was that I sought relief{l]
+    {lg]
+    [lg}
+      [l [n}566{n]}From the deep tenderness that maniac wrought{l]
+      [l [n}567{n]}Within me—’twas perhaps an idle thought—{l]
+    {lg]
+    [lg}
+      [l [n}568{n]}But I imagined that if day by day{l]
+      [l [n}569{n]}I watched him, and but seldom went away,{l]
+    {lg]
+    [lg}
+      [l [n}570{n]}And studied all the beatings of his heart{l]
+      [l [n}571{n]}With zeal, as men study some stubborn art{l]
+    {lg]
+    [lg}
+      [l [n}572{n]}For their own good, and could by patience find{l]
+      [l [n}573{n]}An entrance to the caverns of his mind,{l]
+    {lg]
+    [lg}
+      [l [n}574{n]}I might reclaim him from this dark estate:{l]
+      [l [n}575{n]}In friendships I had been most fortunate—{l]
+    {lg]
+    [lg}
+      [l [n}576{n]}Yet never saw I one whom I would call{l]
+      [l [n}577{n]}More willingly my friend; and this was all{l]
+    {lg]
+    [lg}
+      [l [n}578{n]}Accomplished not; such dreams of baseless good{l]
+      [l [n}579{n]}Oft come and go in crowds or solitude{l]
+    {lg]
+    [lg}
+      [l [n}580{n]}And leave no trace—but what I now designed{l]
+      [l [n}581{n]}Made for long years impression on my mind.{l]
+    {lg]
+    [lg}
+      [l [n}582{n]}The following morning, urged by my affairs,{l]
+      [l [n}583{n]}I left bright Venice.{vp] [vp}After many years{l]
+    {lg]
+    [lg}
+      [l [n}584{n]}And many changes I returned; the name{l]
+      [l [n}585{n]}Of Venice, and its aspect, was the same;{l]
+    {lg]
+    [lg}
+      [l [n}586{n]}But Maddalo was travelling far away{l]
+      [l [n}587{n]}Among the mountains of Armenia.{l]
+    {lg]
+    [lg}
+      [l [n}588{n]}His dog was dead. His child had now become{l]
+      [l [n}589{n]}A woman; such as it has been my doom{l]
+    {lg]
+    [lg}
+      [l [n}590{n]}To meet with few,—a wonder of this earth,{l]
+      [l [n}591{n]}Where there is little of transcendent worth,{l]
+    {lg]
+    [lg}
+      [l [n}592{n]}Like one of Shakespeare’s women: kindly she,{l]
+      [l [n}593{n]}And, with a manner beyond courtesy,{l]
+    {lg]
+    [lg}
+      [l [n}594{n]}Received her father’s friend; and when I asked{l]
+      [l [n}595{n]}Of the lorn maniac, she her memory tasked,{l]
+    {lg]
+    [lg}
+      [l [n}596{n]}And told as she had heard the mournful tale:{l]
+      [q [who}daughter{who] [indirect]}[l [n}597{n]}That the poor sufferer’s
+        health began to fail{l]
+    {lg]
+    [lg}
+      [l [n}598{n]}Two years from my departure, but that then{l]
+      [l [n}599{n]}The lady who had left him, came again.{l]{q]
+    {lg]
+    [lg}
+      [q [who}daughter{who]}[l [n}600{n]}Her mien had been imperious, but she now{l]
+      [l [n}601{n]}Looked meek—perhaps remorse had brought her low.{l]
+    {lg]
+    [lg}
+      [l [n}602{n]}Her coming made him better, and they stayed{l]
+      [l [n}603{n]}Together at my father’s—for I played,{l]
+    {lg]
+    [lg}
+      [l [n}604{n]}As I remember, with the lady’s shawl—{l]
+      [l [n}605{n]}I might be six years old—but after all{l]
+    {lg]
+    [lg}
+      [l [n}606{n]}She left him.{q] … [q [who}Julian{who]}Why, her heart must have been tough:{l]
+      [l [n}607{n]}How did it end?{q] [q [who}daughter{who]}And was not this enough?{l]
+    {lg]
+    [lg}
+      [l [n}608{n]}They met—they parted.{q]—[q [who}Julian{who]}Child, is there no more?{l]
+      [l [n}609{n]}Something within that
+        interval which bore{l]
+    {lg]
+    [lg}
+      [l [n}610{n]}The stamp of [emph}why{emph] they parted, [emph}how{emph] they met?{q]{l]
+      [l [n}611{n]}[q [who}daughter{who]}Yet if thine aged eyes disdain to wet{l]
+    {lg]
+    [lg}
+      [l [n}612{n]}Those wrinkled cheeks with youth’s remembered tears,{l]
+      [l [n}613{n]}Ask me no more, but let the silent years{l]
+    {lg]
+    [lg}
+      [l [n}614{n]}Be closed and cered over their memory{l]
+      [l [n}615{n]}As yon mute marble where their corpses lie.{l]{q]
+    {lg]
+    [lg}
+      [l [n}616{n]}I urged and questioned still, she told me how{l]
+      [l [n}617{n]}All happened—but the cold world shall not know.{l]{lg]{vp]
+  {body]
+{text]

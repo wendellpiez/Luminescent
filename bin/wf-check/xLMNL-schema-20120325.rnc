@@ -1,0 +1,61 @@
+namespace x = "http://lmnl-markup.org/ns/xLMNL"
+
+start =
+  element x:root {
+    attribute base-uri { xsd:anyURI }?,
+    comment*,  
+    element x:document {
+      document-model },
+    comment* }
+
+document-model =
+    attribute base-uri { xsd:anyURI }?,
+    attribute ID { xsd:ID },
+    attribute name { xsd:QName }?,
+    debug-support?,
+    (annotation | comment)*,
+    ( content,
+      range*,
+      (annotation | comment)*)?
+    
+annotation =
+  element x:annotation {
+    document-model }
+
+content =
+  element x:content {
+    element x:span {
+      attribute layer { xsd:IDREF },
+      attribute ranges { xsd:NMTOKENS }?,
+      attribute start { xsd:integer },
+      attribute end { xsd:integer },
+      (text
+       | element x:atom {
+           attribute name { xsd:NCName },
+           debug-support?,
+           annotation*
+         }
+       | comment )+
+    }*
+  }
+range =
+  element x:range {
+    attribute ID { xsd:ID },
+    attribute name { xsd:NCName }?,
+    attribute start { xsd:integer },
+    attribute end { xsd:integer },
+    debug-support?,
+    (annotation | comment)*
+  }
+
+comment =
+  element x:comment { 
+    debug-support?,
+    text }
+    
+    
+debug-support =
+    attribute sl { xsd:integer },
+    attribute so { xsd:integer },
+    attribute el { xsd:integer },
+    attribute eo { xsd:integer }

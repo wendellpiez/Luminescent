@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:lmnl-document xmlns:x="http://piez.org/namespace/LMNL/xLMNL"
+  base-uri="file:/c:/Users/Wendell/Projects/LMNL/2012-demo/sonnets/crimsonpetal.lmnl"
+  ID="N.d38e2" sl="1" so="1" el="15" eo="81" name="sonneteer">
+  <x:annotation ID="N.d38e3" name="id">
+    <x:content>
+      <x:span start="0" end="12" layer="N.d38e3">crimsonpetal</x:span>
+    </x:content>
+  </x:annotation>
+  <x:content>
+    <x:span start="0" end="1" layer="N.d38e2"> </x:span>
+    <x:span start="1" end="30" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e22 R.d38e23">Now sleeps the
+      crimson petal,</x:span>
+    <x:span start="30" end="31" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e22"> </x:span>
+    <x:span start="31" end="45" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e22 R.d38e29">now the
+      white;</x:span>
+    <x:span start="45" end="46" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21"> </x:span>
+    <x:span start="46" end="87" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e37 R.d38e38">Nor waves the
+      cypress in the palace walk;</x:span>
+    <x:span start="87" end="88" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21"> </x:span>
+    <x:span start="88" end="132" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e45 R.d38e47">Nor winks the gold
+      fin in the porphyry font:</x:span>
+    <x:span start="132" end="133" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21"> </x:span>
+    <x:span start="133" end="153" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e54 R.d38e55">The fire-fly
+      wakens:</x:span>
+    <x:span start="153" end="154" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e54"> </x:span>
+    <x:span start="154" end="173" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e20 R.d38e21 R.d38e54 R.d38e61">waken thou with
+      me.</x:span>
+    <x:span start="173" end="174" layer="N.d38e2" ranges="R.d38e19"> </x:span>
+    <x:span start="174" end="220" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e72 R.d38e73 R.d38e74 R.d38e75">Now droops
+      the milkwhite peacock like a ghost,</x:span>
+    <x:span start="220" end="221" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e72 R.d38e73"> </x:span>
+    <x:span start="221" end="260" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e72 R.d38e73 R.d38e83 R.d38e84">And like a
+      ghost she glimmers on to me.</x:span>
+    <x:span start="260" end="261" layer="N.d38e2" ranges="R.d38e19 R.d38e71"> </x:span>
+    <x:span start="261" end="303" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e94 R.d38e95 R.d38e96 R.d38e97">Now lies
+      the Earth all Danaë to the stars,</x:span>
+    <x:span start="303" end="304" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e94 R.d38e95"> </x:span>
+    <x:span start="304" end="340" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e94 R.d38e95 R.d38e104 R.d38e105">And all
+      thy heart lies open unto me.</x:span>
+    <x:span start="340" end="341" layer="N.d38e2" ranges="R.d38e19 R.d38e71"> </x:span>
+    <x:span start="341" end="373" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e117 R.d38e118">Now
+      slides the silent meteor on,</x:span>
+    <x:span start="373" end="374" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e117"> </x:span>
+    <x:span start="374" end="384" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e117 R.d38e125">and
+      leaves</x:span>
+    <x:span start="384" end="385" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e125"> </x:span>
+    <x:span start="385" end="402" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e125 R.d38e131">A
+      shining furrow,</x:span>
+    <x:span start="402" end="403" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e131"> </x:span>
+    <x:span start="403" end="425" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e71 R.d38e115 R.d38e116 R.d38e131 R.d38e137">as thy
+      thoughts in me.</x:span>
+    <x:span start="425" end="426" layer="N.d38e2" ranges="R.d38e19"> </x:span>
+    <x:span start="426" end="466" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e150 R.d38e151">Now folds the
+      lily all her sweetness up,</x:span>
+    <x:span start="466" end="467" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149"> </x:span>
+    <x:span start="467" end="504" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e159 R.d38e160">And slips into
+      the bosom of the lake:</x:span>
+    <x:span start="504" end="505" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149"> </x:span>
+    <x:span start="505" end="521" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167 R.d38e169">So fold
+      thyself,</x:span>
+    <x:span start="521" end="522" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167"> </x:span>
+    <x:span start="522" end="533" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167 R.d38e175">my
+      dearest,</x:span>
+    <x:span start="533" end="534" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167"> </x:span>
+    <x:span start="534" end="539" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167 R.d38e181">thou,</x:span>
+    <x:span start="539" end="540" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167"> </x:span>
+    <x:span start="540" end="548" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e167 R.d38e188">and
+      slip</x:span>
+    <x:span start="548" end="549" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e188"> </x:span>
+    <x:span start="549" end="581" layer="N.d38e2"
+      ranges="R.d38e19 R.d38e148 R.d38e149 R.d38e188 R.d38e194">Into my bosom
+      and be lost in me.</x:span>
+  </x:content>
+  <x:range start="0" end="0" ID="R.d38e8" sl="1" so="33" el="1" eo="134"
+    name="meta">
+    <x:annotation ID="N.d38e9" name="author">
+      <x:content>
+        <x:span start="0" end="21" layer="N.d38e9">Alfred, Lord
+          Tennyson</x:span>
+      </x:content>
+    </x:annotation>
+    <x:annotation ID="N.d38e13" name="title">
+      <x:content>
+        <x:span start="0" end="43" layer="N.d38e13">Now Sleeps the Crimson
+          Petal, Now the White</x:span>
+      </x:content>
+    </x:annotation>
+  </x:range>
+  <x:range start="1" end="581" ID="R.d38e19" sl="2" so="1" el="2" eo="8"
+    name="sonnet"/>
+  <x:range start="1" end="173" ID="R.d38e20" sl="2" so="9" el="2" eo="18"
+    name="quatrain"/>
+  <x:range start="1" end="173" ID="R.d38e21" sl="2" so="19" el="2" eo="21"
+    name="s"/>
+  <x:range start="1" end="45" ID="R.d38e22" sl="2" so="22" el="2" eo="27"
+    name="line"/>
+  <x:range start="1" end="30" ID="R.d38e23" sl="2" so="28" el="2" eo="32"
+    name="phr"/>
+  <x:range start="31" end="45" ID="R.d38e29" sl="2" so="68" el="2" eo="72"
+    name="phr"/>
+  <x:range start="46" end="87" ID="R.d38e37" sl="3" so="1" el="3" eo="6"
+    name="line"/>
+  <x:range start="46" end="87" ID="R.d38e38" sl="3" so="7" el="3" eo="11"
+    name="phr"/>
+  <x:range start="88" end="132" ID="R.d38e45" sl="4" so="1" el="4" eo="6"
+    name="line"/>
+  <x:range start="88" end="132" ID="R.d38e47" sl="4" so="7" el="4" eo="11"
+    name="phr"/>
+  <x:range start="133" end="173" ID="R.d38e54" sl="5" so="1" el="5" eo="6"
+    name="line"/>
+  <x:range start="133" end="153" ID="R.d38e55" sl="5" so="7" el="5" eo="11"
+    name="phr"/>
+  <x:range start="154" end="173" ID="R.d38e61" sl="5" so="38" el="5" eo="42"
+    name="phr"/>
+  <x:range start="174" end="425" ID="R.d38e71" sl="6" so="1" el="6" eo="8"
+    name="sestet"/>
+  <x:range start="174" end="260" ID="R.d38e72" sl="6" so="9" el="6" eo="17"
+    name="couplet"/>
+  <x:range start="174" end="260" ID="R.d38e73" sl="6" so="18" el="6" eo="20"
+    name="s"/>
+  <x:range start="174" end="220" ID="R.d38e74" sl="6" so="21" el="6" eo="26"
+    name="line"/>
+  <x:range start="174" end="220" ID="R.d38e75" sl="6" so="27" el="6" eo="31"
+    name="phr"/>
+  <x:range start="221" end="260" ID="R.d38e83" sl="7" so="1" el="7" eo="6"
+    name="line"/>
+  <x:range start="221" end="260" ID="R.d38e84" sl="7" so="7" el="7" eo="11"
+    name="phr"/>
+  <x:range start="261" end="340" ID="R.d38e94" sl="8" so="1" el="8" eo="9"
+    name="couplet"/>
+  <x:range start="261" end="340" ID="R.d38e95" sl="8" so="10" el="8" eo="12"
+    name="s"/>
+  <x:range start="261" end="303" ID="R.d38e96" sl="8" so="13" el="8" eo="18"
+    name="line"/>
+  <x:range start="261" end="303" ID="R.d38e97" sl="8" so="19" el="8" eo="23"
+    name="phr"/>
+  <x:range start="304" end="340" ID="R.d38e104" sl="9" so="1" el="9" eo="6"
+    name="line"/>
+  <x:range start="304" end="340" ID="R.d38e105" sl="9" so="7" el="9" eo="11"
+    name="phr"/>
+  <x:range start="341" end="425" ID="R.d38e115" sl="10" so="1" el="10" eo="9"
+    name="couplet"/>
+  <x:range start="341" end="425" ID="R.d38e116" sl="10" so="10" el="10" eo="12"
+    name="s"/>
+  <x:range start="341" end="384" ID="R.d38e117" sl="10" so="13" el="10" eo="18"
+    name="line"/>
+  <x:range start="341" end="373" ID="R.d38e118" sl="10" so="19" el="10" eo="23"
+    name="phr"/>
+  <x:range start="374" end="402" ID="R.d38e125" sl="10" so="62" el="10" eo="66"
+    name="phr"/>
+  <x:range start="385" end="425" ID="R.d38e131" sl="11" so="1" el="11" eo="6"
+    name="line"/>
+  <x:range start="403" end="425" ID="R.d38e137" sl="11" so="30" el="11" eo="34"
+    name="phr"/>
+  <x:range start="426" end="581" ID="R.d38e148" sl="12" so="1" el="12" eo="10"
+    name="quatrain"/>
+  <x:range start="426" end="581" ID="R.d38e149" sl="12" so="11" el="12" eo="13"
+    name="s"/>
+  <x:range start="426" end="466" ID="R.d38e150" sl="12" so="14" el="12" eo="19"
+    name="line"/>
+  <x:range start="426" end="466" ID="R.d38e151" sl="12" so="20" el="12" eo="24"
+    name="phr"/>
+  <x:range start="467" end="504" ID="R.d38e159" sl="13" so="1" el="13" eo="6"
+    name="line"/>
+  <x:range start="467" end="504" ID="R.d38e160" sl="13" so="7" el="13" eo="11"
+    name="phr"/>
+  <x:range start="505" end="548" ID="R.d38e167" sl="14" so="1" el="14" eo="6"
+    name="line"/>
+  <x:range start="505" end="521" ID="R.d38e169" sl="14" so="7" el="14" eo="11"
+    name="phr"/>
+  <x:range start="522" end="533" ID="R.d38e175" sl="14" so="34" el="14" eo="38"
+    name="phr"/>
+  <x:range start="534" end="539" ID="R.d38e181" sl="14" so="56" el="14" eo="60"
+    name="phr"/>
+  <x:range start="540" end="581" ID="R.d38e188" sl="14" so="72" el="14" eo="76"
+    name="phr"/>
+  <x:range start="549" end="581" ID="R.d38e194" sl="15" so="1" el="15" eo="6"
+    name="line"/>
+</x:lmnl-document>

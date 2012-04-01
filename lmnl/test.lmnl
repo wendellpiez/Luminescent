@@ -1,0 +1,24 @@
+[tests}
+[!-- COMMENT COMMENT COMMENT --]
+[item [k]}Content before first tag, including an {{atom [remark}just making things interesting{]}} atom.{item]
+[item [k]}Content after last tag{item]
+[item [k]}No single document range{item]
+[item [k]}Missing start tag{item]
+[item [k]}Missing [TAG}end tag{item]
+[item [k]}Bad GI{TAG] (not an XML name){item]
+[item [k]}Bad label (not an XML name){item]
+[group}
+  [title}Annotations{title]
+  [item [k]}Annotations not discrete{item]
+  [item}Content appearing outside annotations{item]
+  [item}All the other tests but inside annotations, not the document layer{item]
+{group]
+[group}
+  [title}Delimiters{title]
+  [item}End delimiter missing{item]
+  [item}Truncated document (extra end delimiter){item]
+  [item}What happens with missing or extra start delimiters?{item]
+  [item}Malformed atom (broken shells){item]
+{group]
+{tests]
+

@@ -1,0 +1,9 @@
+[zoo}
+  [empty [e}1{e] [test}TEST ME{]]
+  [excerpt [source [type}poem{]}The Housekeeper{source] [author}Robert Frost{author]}
+  [s}[l [n}144{n]}He {{atom1}}{{atom2 [e}C{e]}} [note=n1 [noted}A span is annotated{noted]}manages to keep the upper hand{l]
+  [l [n}145{n]}[note=n2 [noted [and}How?{and]}Another span is annotated, this time at more length. [emph [rend}italic{]}Plus{emph],
+  this annotation even has some of its own markup.{noted [and}The note is annotated, even, on its end tag.{and]]}On his own farm.{s] [s}He's boss.{s] [s}But as to hens:{l]
+  [l [n}146{n]}We fence our flowers{note=n1] in and the hens range.{note=n2]{l]{s]
+  {excerpt]
+{zoo]
