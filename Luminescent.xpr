@@ -46,7 +46,7 @@
                                     <String>XML</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/up/tags-to-xlmnl.xsl</String>
+                                    <String>lib/up/tags-to-xlmnl.xsl</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -57,7 +57,7 @@
                                     <String>XML</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/up/tag-teeth.xsl</String>
+                                    <String>lib/up/tag-teeth.xsl</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -68,7 +68,7 @@
                                     <String>XML</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/down/xlmnl-xml.xsl</String>
+                                    <String>lib/down/xlmnl-xml.xsl</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -79,7 +79,7 @@
                                     <String>XPROC</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/wf-check/validate-tags.sch</String>
+                                    <String>lib/wf-check/validate-tags.sch</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -90,7 +90,7 @@
                                     <String>XPROC</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/wf-check/validate-typing.sch</String>
+                                    <String>lib/wf-check/validate-typing.sch</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -101,7 +101,7 @@
                                     <String>XPROC</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/down/tei-arcs-svg.xsl</String>
+                                    <String>lib/down/tei-arcs-svg.xsl</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -112,7 +112,7 @@
                                     <String>XPROC</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/support/report-plaintext.xsl</String>
+                                    <String>lib/support/report-plaintext.xsl</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -145,7 +145,7 @@
                                     <String>XPROC</String>
                                 </field>
                                 <field name="url">
-                                    <String>bin/wf-check/validate-wf-tagging.sch</String>
+                                    <String>lib/wf-check/validate-wf-tagging.sch</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -1493,7 +1493,7 @@
     </meta>
     <projectTree name="Luminescent.xpr">
         <folder path="../../../../../Bin/cocoon/"/>
-        <folder path="bin/"/>
+        <folder path="lib/"/>
         <folder path="debug/"/>
         <folder path="lmnl/"/>
         <file name="sitemap.xmap"/>

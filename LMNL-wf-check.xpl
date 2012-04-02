@@ -39,7 +39,7 @@
       <p:pipe port="step3-tag-sawteeth" step="xLMNL"/>
     </p:input>
     <p:input port="schema">
-      <p:document href="bin/wf-check/validate-tags.sch"/>
+      <p:document href="lib/wf-check/validate-tags.sch"/>
     </p:input>
   </p:validate-with-schematron>
   
@@ -51,7 +51,7 @@
       <p:pipe port="step7-infer-annotations" step="xLMNL"/>
     </p:input>
     <p:input port="schema">
-      <p:document href="bin/wf-check/validate-typing.sch"/>
+      <p:document href="lib/wf-check/validate-typing.sch"/>
     </p:input>
   </p:validate-with-schematron>
  
@@ -70,7 +70,7 @@
   
   <p:xslt name="wf-report" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/support/svrl-plaintext.xsl"/>
+      <p:document href="lib/support/svrl-plaintext.xsl"/>
     </p:input>
   </p:xslt>
 

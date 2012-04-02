@@ -83,7 +83,7 @@
       <p:inline><lmnl><!-- dummy document --></lmnl></p:inline>
     </p:input>
     <p:input port="stylesheet">
-      <p:document href="bin/up/hide-comments.xsl"/>
+      <p:document href="lib/up/hide-comments.xsl"/>
     </p:input>
     <p:with-param name="lmnl-file" select="$lmnl-file"/>
   </p:xslt>
@@ -91,35 +91,35 @@
   <!--<p:identity name="tokenize"/>-->
   <p:xslt name="tokenize" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/tokenize.xsl"/>
+      <p:document href="lib/up/tokenize.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="locate-tokens"/>-->
   <p:xslt name="locate-tokens" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/locate-tokens.xsl"/>
+      <p:document href="lib/up/locate-tokens.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="tag-sawteeth"/>-->
   <p:xslt name="tag-sawteeth" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/tag-teeth.xsl"/>
+      <p:document href="lib/up/tag-teeth.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:validate-with-schematron assert-valid="false"
     name="validate-tags">
     <p:input port="schema">
-      <p:document href="bin/wf-check/validate-tags.sch"/>
+      <p:document href="lib/wf-check/validate-tags.sch"/>
     </p:input>
   </p:validate-with-schematron>-->
   
   <!--<p:identity name="assign-types"/>-->
   <p:xslt name="assign-types" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/assign-types.xsl"/>
+      <p:document href="lib/up/assign-types.xsl"/>
     </p:input>
   </p:xslt>
 
@@ -127,56 +127,56 @@
   <!--<p:identity name="label-starts"/>-->
   <p:xslt name="label-starts" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/label-starts.xsl"/>
+      <p:document href="lib/up/label-starts.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="label-ends"/>-->
   <p:xslt name="label-ends" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/label-ends.xsl"/>
+      <p:document href="lib/up/label-ends.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="infer-annotations"/>-->
   <p:xslt name="infer-annotations" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/infer-annotations.xsl"/>
+      <p:document href="lib/up/infer-annotations.xsl"/>
     </p:input>
   </p:xslt>
 
   <!--<p:identity name="mark-offsets"/>-->
   <p:xslt name="mark-offsets" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/mark-offsets.xsl"/>
+      <p:document href="lib/up/mark-offsets.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="extract-labels"/>-->
   <p:xslt name="extract-labels" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/extract-labels.xsl"/>
+      <p:document href="lib/up/extract-labels.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="assign-ids"/>-->
   <p:xslt name="assign-ids" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/assign-ids.xsl"/>
+      <p:document href="lib/up/assign-ids.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="mark-spans"/>-->
   <p:xslt name="mark-spans" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/mark-spans.xsl"/>
+      <p:document href="lib/up/mark-spans.xsl"/>
     </p:input>
   </p:xslt>
   
   <!--<p:identity name="tags-to-xlmnl"/>-->
   <p:xslt name="tags-to-xlmnl" version="2.0">
     <p:input port="stylesheet">
-      <p:document href="bin/up/tags-to-xlmnl.xsl"/>
+      <p:document href="lib/up/tags-to-xlmnl.xsl"/>
     </p:input>
   </p:xslt>
 

@@ -44,17 +44,17 @@
     <map:pipeline type="noncaching">
       <!-- SWITCH TO CACHING WHEN EVERYTHING IS WORKING -->
       <map:match pattern="**/*.js">
-        <map:read mime-type="text/ecmascript" src="bin/support/{2}.js"/>
+        <map:read mime-type="text/ecmascript" src="lib/support/{2}.js"/>
       </map:match>
       <map:match pattern="processor">
-        <map:generate src="bin/support/l.xml"/>
-        <map:transform type="xslt2" src="bin/support/processor-version.xsl"/>
+        <map:generate src="lib/support/l.xml"/>
+        <map:transform type="xslt2" src="lib/support/processor-version.xsl"/>
         <map:serialize type="html"/>
       </map:match>
       <map:match pattern="sitemap.html">
         <map:generate src="sitemap.xmap"/>
         <map:transform type="xslt2"
-          src="bin/support/infrastructure-display-html.xsl">
+          src="lib/support/infrastructure-display-html.xsl">
           <map:parameter name="level" value="."/>
         </map:transform>
         <map:serialize type="html"/>
@@ -66,7 +66,7 @@
       <map:match pattern="**.xsl">
         <map:generate src="{1}.xsl"/>
         <map:transform type="xslt2"
-          src="bin/support/infrastructure-display-html.xsl">
+          src="lib/support/infrastructure-display-html.xsl">
           <map:parameter name="level" value="."/>
         </map:transform>
         <map:serialize type="html"/>
@@ -74,176 +74,109 @@
 
       <map:match pattern="**.lmnl">
         <!--<map:read mime-type="text/plain" src="{1}.lmnl"/>-->
-        <map:generate src="bin/support/l.xml"/>
-        <map:transform type="xslt2" src="bin/support/plaintext.xsl">
+        <map:generate src="lib/support/l.xml"/>
+        <map:transform type="xslt2" src="lib/support/plaintext.xsl">
           <map:parameter name="plaintext-file" value="../../{1}.lmnl"/>
         </map:transform>
         <map:serialize type="text"/>
       </map:match>
 
-      <!--<map:match pattern="**.wlmnl">
-        <map:aggregate element="lmnl">
-          <map:part src="cocoon:/{1}.lmnl"/>
-        </map:aggregate>
-        <map:serialize type="xml"/>
-      </map:match>-->
+      
 
       <map:match pattern="**/xLMNL/*.xml">
-        <map:generate src="bin/support/l.xml" label="wrapped"/>
+        <map:generate src="lib/support/l.xml" label="wrapped"/>
         <map:transform type="xslt2" label="hide-comments"
-          src="bin/up/hide-comments.xsl">
+          src="lib/up/hide-comments.xsl">
           <map:parameter name="lmnl-file" value="../../{1}/{2}.lmnl"/>
         </map:transform>
         <map:transform type="xslt2" label="tokenize"
-          src="bin/up/tokenize.xsl"/>
+          src="lib/up/tokenize.xsl"/>
         <map:transform type="xslt2" label="locate-tokens"
-          src="bin/up/locate-tokens.xsl"/>
+          src="lib/up/locate-tokens.xsl"/>
         <map:transform type="xslt2" label="tag-sawteeth"
-          src="bin/up/tag-teeth.xsl"/>
+          src="lib/up/tag-teeth.xsl"/>
         <map:transform type="xslt2" label="assign-types"
-          src="bin/up/assign-types.xsl"/>
+          src="lib/up/assign-types.xsl"/>
         <map:transform type="xslt2" label="label-starts"
-          src="bin/up/label-starts.xsl"/>
+          src="lib/up/label-starts.xsl"/>
         <map:transform type="xslt2" label="label-ends"
-          src="bin/up/label-ends.xsl"/>
+          src="lib/up/label-ends.xsl"/>
         <map:transform type="xslt2" label="infer-annotations"
-          src="bin/up/infer-annotations.xsl"/>
+          src="lib/up/infer-annotations.xsl"/>
         <map:transform type="xslt2" label="mark-offsets"
-          src="bin/up/mark-offsets.xsl"/>
+          src="lib/up/mark-offsets.xsl"/>
         <map:transform type="xslt2" label="extract-labels"
-          src="bin/up/extract-labels.xsl"/>
+          src="lib/up/extract-labels.xsl"/>
         <map:transform type="xslt2" label="assign-ids"
-          src="bin/up/assign-ids.xsl"/>
+          src="lib/up/assign-ids.xsl"/>
         <map:transform type="xslt2" label="mark-spans"
-          src="bin/up/mark-spans.xsl"/>
+          src="lib/up/mark-spans.xsl"/>
 
         <map:transform type="xslt2" label="tags-to-xlmnl"
-          src="bin/up/tags-to-xlmnl.xsl"/>
+          src="lib/up/tags-to-xlmnl.xsl"/>
 
         <map:serialize type="xml"/>
       </map:match>
       <map:match pattern="**/*-analysis.html">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="bin/down/xLMNL-analyze.xsl"/>
+        <map:transform type="xslt2" src="lib/down/xLMNL-analyze.xsl"/>
         <map:serialize type="html"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
       <map:match pattern="**/*-sonneteer.svg">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="bin/down/sonneteer-svg.xsl"/>
+        <map:transform type="xslt2" src="lib/down/sonneteer-svg.xsl"/>
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
       <map:match pattern="**/*-sonneteer.html">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="bin/down/sonneteer-graph.xsl"/>
+        <map:transform type="xslt2" src="lib/down/sonneteer-graph.xsl"/>
         <map:serialize type="xhtml"/>
       </map:match>
       <map:match pattern="**/*-graph.svg">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="bin/down/{2}-graph-svg.xsl"/>
+        <map:transform type="xslt2" src="lib/down/{2}-graph-svg.xsl"/>
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
       <map:match pattern="**/*.xml">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="bin/down/xlmnl-xml.xsl">
+        <map:transform type="xslt2" src="lib/down/xlmnl-xml.xsl">
           <map:parameter name="use-request-parameters" value="true"/>
         </map:transform>
         <map:serialize type="xml"/>
       </map:match>
       <map:match pattern="**/demo.html">
         <map:generate src="cocoon:/{1}/xLMNL/demo.xml"/>
-        <map:transform type="xslt2" src="bin/down/xlmnl-xml.xsl">
+        <map:transform type="xslt2" src="lib/down/xlmnl-xml.xsl">
           <map:parameter name="element-list" value="demo+div+head+p+list+item+emph+term+q+link"/>
         </map:transform>
-        <map:transform type="xslt2" src="bin/down/demo-html.xsl"/>
+        <map:transform type="xslt2" src="lib/down/demo-html.xsl"/>
         <map:serialize type="html"/>
       </map:match>
       <!-- Following are leftover scraps ... -->
 
 
       <!---->
-      <!--<map:match pattern="**/*.lmnl">
+      <map:match pattern="**/serialize/*.lmnl">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="processing/steps/xLMNL-write.xsl"/>
         <map:serialize type="text"/>
-      </map:match>-->
-      <!--<map:match pattern="**/XMLinduce/*-structure.xml">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="processing/steps/xLMNL-segmenter.xsl">
-          <map:parameter name="stack" value="sonnet octave sestet quatrain tercet couplet line"/>
-        </map:transform>
-        <map:transform type="xslt2" src="processing/steps/segment-stacker.xsl"/>
-        <map:serialize type="xml"/>
       </map:match>
-      <map:match pattern="**/XMLinduce/*-phrasing.xml">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="processing/steps/xLMNL-segmenter.xsl">
-          <map:parameter name="stack" value="sonnet s phr"/>
-        </map:transform>
-        <map:transform type="xslt2" src="processing/steps/segment-stacker.xsl"/>
-        <map:serialize type="xml"/>
-      </map:match>-->
-      <!--<map:match pattern="**/XMLinduce/*">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}"/>
-        <map:transform type="xslt2" src="processing/steps/xLMNL-segmenter.xsl">
-          <map:parameter name="use-request-parameters" value="true"/>
-        </map:transform>
-        <map:transform type="xslt2" src="processing/steps/segment-stacker.xsl"/>
-        <map:serialize type="xml"/>
-      </map:match>-->
+      
+      
       <!--<map:match pattern="**/*-snapshot.png">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml" label="xml"/>
         <map:transform type="xslt2" src="processing/steps/sonnet-snapshot.xsl"/>
         <map:serialize type="svg2png"/>
       </map:match>-->
-      <!--<map:match pattern="**/*-sonnet-arcs.svg">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml" label="xml"/>
-        <map:transform type="xslt2" src="processing/steps/sonnet-arcs-svg.xsl"/>
-        <map:serialize type="svgxml"/>
-      </map:match>-->
-      <!--<map:match pattern="**/*-arcs.svg">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml" label="xml"/>
-        <map:transform type="xslt2" src="processing/steps/arcs-svg.xsl">
-          <map:parameter name="title" value="{2}"/>
-          <map:parameter name="use-request-parameters" value="true"/>
-        </map:transform>
-        <map:serialize type="svgxml"/>
-      </map:match>-->
-      <!--<map:match pattern="**/*-bars.svg">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml" label="xml"/>
-        <map:transform type="xslt2" src="processing/steps/sonnet-bars-svg.xsl"/>
-        <map:serialize type="svgxml"/>
-      </map:match>-->
-      <!--<map:match pattern="**/*-map.svg">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml" label="xml"/>
-        <map:transform type="xslt2" src="processing/steps/sonnet-map-svg.xsl"/>
-        <map:serialize type="svgxml"/>
-      </map:match>-->
+      
+      
+      
+      
 
-      <!--<map:match pattern="*/xml/**">
-        <map:generate src="{1}/{2}"/>
-        <map:serialize type="xml"/>
-      </map:match>
-      <map:match pattern="*/eclix/**">
-        <map:generate src="{1}/{2}"/>
-        <map:transform type="xslt2" src="processing/steps/lix-eclix.xsl"/>
-        <map:serialize type="xml"/>
-      </map:match>
-      <map:match pattern="*/clix/**">
-        <map:generate src="{1}/{2}"/>
-        <map:transform type="xslt2" src="processing/steps/lix-eclix.xsl"/>
-        <map:transform type="xslt2" src="processing/steps/eclix-clix-s.xsl" label="clix"/>
-        <map:serialize type="xml"/>
-      </map:match>
-      <map:match pattern="*/sclix/**">
-        <map:generate src="{1}/{2}"/>
-        <map:transform type="xslt2" src="processing/steps/lix-eclix.xsl"/>
-        <map:transform type="xslt2" src="processing/steps/eclix-clix-s.xsl"/>
-        <map:transform type="xslt2" src="processing/steps/clix-sclix.xsl" label="sclix"/>
-        <map:serialize type="xml"/>
-      </map:match>-->
+      
       <map:match pattern="*/directory">
         <map:generate src="{1}" type="xpathdirectory">
           <map:parameter name="xpath" value="/*/meta"/>
@@ -264,7 +197,7 @@
       </map:match>
       <map:match pattern="*">
         <map:generate src="cocoon:/{1}/directory"/>
-        <map:transform type="xslt2" src="bin/support/directory-links.xsl">
+        <map:transform type="xslt2" src="lib/support/directory-links.xsl">
           <map:parameter name="dir" value="{1}"/>
           <map:parameter name="use-request-parameters" value="true"/>
         </map:transform>
