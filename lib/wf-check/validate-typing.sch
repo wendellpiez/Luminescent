@@ -14,38 +14,19 @@
   <ns prefix="s" uri="http://lmnl-markup.org/ns/luminescent/tags"/>
   <ns prefix="util" uri="http://lmnl-markup.org/luminescent/schematron/util"/>
   
-  <let name="document-end" value="/s:root/node()[1]/self::s:empty |
-    /s:root/node()[1]/s:start/util:end-for-start(.)"/>
   
   <pattern>
-   <!-- <rule context="s:root">
-      <report test="exists(node()[1]/self::text()[normalize-space(.)])">
-        The document must start with a (start or empty) tag</report>
-      <assert test="exists(*[1]/(self::s:start|self::s:empty))"> The first tag must
-        be a start, not <value-of select="*[1]/s:indefinite-name(.)"/>
-        <value-of select="s:report-position(*[1])"/></assert>
-    </rule>-->
-    <rule context="s:root/s:*[1][self::s:start]">
-      <let name="last-end" value="../s:end[last()]"/>
-      
-      <assert test="util:end-for-start(.) is $last-end">
-        The document must be marked as a single range: <value-of select="util:tag(.)"/>
-        at <value-of select="util:start-position(.)"/>
-        <value-of select="util:end-for-start(.)/concat(' (which ends at ',
-          util:end-position(.),')')"/> and
-        <value-of select="$last-end/concat(' and ',util:tag(.))"/> at
-        <value-of select="$last-end/concat(' at ',util:start-position(.))"/>
-        (<value-of select="util:file-path(.)"/>) do not correspond.
-      </assert>
+    <rule context="/s:root/s:doc[1]">
+      <report test="exists(following-sibling::*)">
+        Content appears illegally after the end of the document at
+        <value-of select="util:end-position(.)"/>,
+        <value-of select="util:file-path(.)"/>
+      </report>
     </rule>
   </pattern>
   
   <pattern>
-    <rule context="node()">
-      <report test=". >> $document-end">
-        Content appears after the end tag of the document
-        <value-of select="util:end-position($document-end)"/>,
-        <value-of select="util:file-path(.)"/></report>
+    <rule context="s:*">
       <assert test="empty(@gi) or matches(@gi,'^\i\c*(=\i\c*)?\s*$')">
         Illegal name in <value-of select="util:tag(.)"/>
         at <value-of select="util:start-position(.)"/>,

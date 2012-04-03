@@ -1,5 +1,5 @@
-[tests}
 [!-- COMMENT COMMENT COMMENT --]
+[tests}
 [item [k]}Content before first tag, including an {{atom [remark}just making things interesting{]}} atom.{item]
 [item [k]}Content after last tag{item]
 [item [k]}No single document range{item]
@@ -19,6 +19,6 @@
   [item}Truncated document (extra end delimiter){item]
   [item}What happens with missing or extra start delimiters?{item]
   [item}Malformed atom (broken shells){item]
-{group]
-{tests]
+{group][o}
+{tests]{o]
 
