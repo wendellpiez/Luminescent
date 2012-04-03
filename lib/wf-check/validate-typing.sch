@@ -5,9 +5,9 @@
   <title>Validating range typing (step 7)</title>
   
   <!-- Assuming correct tagging syntax, validates types:
-     annotations are clean; every start has an end, and
-     every end has a start;
-     GIs are well-formed, etc. -->
+       annotations are clean; every start has an end, and
+       every end has a start;
+       GIs are well-formed, etc. -->
 
   <!--<include href="utility-functions.sch"/>-->
   
