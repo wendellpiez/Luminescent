@@ -36,12 +36,6 @@
     <xsl:next-match/>
   </xsl:template>
   
-  <xsl:template priority="3"
-    match="xs:attributeGroup[@name='debug-support']">
-    <xsl:text>&#xA;&#xA;</xsl:text>
-    <xsl:copy-of select="."/>
-  </xsl:template>
-  
   <xsl:template priority="2"
     match="*[exists(xs:attribute[@name=('sl','so','el','eo')])]">
     <xsl:copy>
@@ -50,5 +44,16 @@
       <xs:attributeGroup ref="x:debug-support"/>
     </xsl:copy>
   </xsl:template>
+
+  <xsl:template priority="3"
+    match="xs:attributeGroup[@name='debug-support']">
+    <xsl:text>&#xA;&#xA;</xsl:text>
+    <xsl:copy>
+      <xsl:apply-templates select="node() | @*"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="xs:attributeGroup[@name='debug-support']/xs:attribute/@use"/>
+  
   
 </xsl:stylesheet>

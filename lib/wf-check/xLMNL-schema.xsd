@@ -109,9 +109,9 @@
    </xs:element>
 
    <xs:attributeGroup name="debug-support">
-      <xs:attribute name="sl" use="required" type="xs:integer"/>
-      <xs:attribute name="so" use="required" type="xs:integer"/>
-      <xs:attribute name="el" use="required" type="xs:integer"/>
-      <xs:attribute name="eo" use="required" type="xs:integer"/>
+      <xs:attribute name="sl" type="xs:integer"/>
+      <xs:attribute name="so" type="xs:integer"/>
+      <xs:attribute name="el" type="xs:integer"/>
+      <xs:attribute name="eo" type="xs:integer"/>
    </xs:attributeGroup>
 </xs:schema>
