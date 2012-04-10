@@ -4,6 +4,7 @@
 
 [range [!-- comment in a tag --]}A range{range]
 [range [ann]}Annotated range (named, empty annotation){range]
+[arbitrary=a1}A case [arbitrary=a2}of{arbitrary=a1] arbitrary overlap.{arbitrary=a2]
 [range [ann}flag{]}Annotated range, whose [name}ann{name] annotation has the value 'flag'{range]
 [range [ann}Annotation on the [name}range{name]{ann]}Annotated range, [markup}annotation{markup] marked up{range]
 [range}Annotated range, whose annotation happens to appear on its end tag{range [ann}Annotation{]]
