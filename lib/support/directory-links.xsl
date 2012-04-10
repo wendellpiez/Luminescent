@@ -22,6 +22,7 @@
     <label key="xLMNL" view="step9">step 9</label>
     <label key="xLMNL" view="step10">step 10</label>
     <label key="xLMNL" view="step11">step 11</label>
+    <label key="xLMNL" view="step12">step 12</label>
     <label key="xLMNL">xLMNL</label>
     
     <label key="XML">XML</label>

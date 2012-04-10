@@ -85,7 +85,7 @@ span.shine  { background-color: papayawhip; color: midnightblue }
         </style>
       </head>
       <body style="background-color:{$specs/f:background-color}">
-        <svg width="450" xmlns="http://www.w3.org/2000/svg"
+        <svg width="450" height="800" xmlns="http://www.w3.org/2000/svg"
           style="position:fixed; top: 0px">
           <xsl:call-template name="draw-svg"/>
         </svg>

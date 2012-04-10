@@ -210,40 +210,40 @@
     </map:pipeline>
   </map:pipelines>
   <map:views>
-    <map:view name="step0" from-label="hide-comments">
+    <map:view name="step1" from-label="hide-comments">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step1" from-label="tokenize">
+    <map:view name="step2" from-label="tokenize">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step2" from-label="locate-tokens">
+    <map:view name="step3" from-label="locate-tokens">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step3" from-label="tag-sawteeth">
+    <map:view name="step4" from-label="tag-sawteeth">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step4" from-label="assign-types">
+    <map:view name="step5" from-label="assign-types">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step5" from-label="label-starts">
+    <map:view name="step6" from-label="label-starts">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step6" from-label="label-ends">
+    <map:view name="step7" from-label="label-ends">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step7" from-label="infer-annotations">
+    <map:view name="step8" from-label="infer-annotations">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step8" from-label="mark-offsets">
+    <map:view name="step9" from-label="mark-offsets">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step9" from-label="extract-labels">
+    <map:view name="step10" from-label="extract-labels">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step10" from-label="assign-ids">
+    <map:view name="step11" from-label="assign-ids">
       <map:serialize type="xml"/>
     </map:view>
-    <map:view name="step11" from-label="mark-spans">
+    <map:view name="step12" from-label="mark-spans">
       <map:serialize type="xml"/>
     </map:view>
 
