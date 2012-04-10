@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  xLMNL schema
+  By Wendell Piez for lmnl-markup.org
+  Created March 25, 2012
+  This schema is non-normative and only for reference
+-->
+<!--
+  Change history
+  
+  2012-04-10 [wap] Tweaked data type for span/@ranges to IDREFS.
+  
+  2012-03-25 [wap] Created by running a pathological xLMNL instance
+                   through Trang and editing by hand.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://lmnl-markup.org/ns/xLMNL" xmlns:x="http://lmnl-markup.org/ns/xLMNL">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:comment"/>
+        <xs:element ref="x:document"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:comment"/>
+      </xs:sequence>
+      <xs:attribute name="base-uri" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="document" type="x:document-model"/>
+  <xs:complexType name="document-model">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="x:annotation"/>
+        <xs:element ref="x:comment"/>
+      </xs:choice>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="x:content"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:range"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="x:annotation"/>
+          <xs:element ref="x:comment"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:sequence>
+    <xs:attribute name="base-uri" type="xs:anyURI"/>
+    <xs:attribute name="ID" use="required" type="xs:ID"/>
+    <xs:attribute name="name" type="xs:QName"/>
+    <xs:attribute name="sl" type="xs:integer"/>
+    <xs:attribute name="so" type="xs:integer"/>
+    <xs:attribute name="el" type="xs:integer"/>
+    <xs:attribute name="eo" type="xs:integer"/>
+  </xs:complexType>
+  <xs:element name="annotation" type="x:document-model"/>
+  <xs:element name="content">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:span"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="span">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="x:atom"/>
+        <xs:element ref="x:comment"/>
+      </xs:choice>
+      <xs:attribute name="layer" use="required" type="xs:IDREF"/>
+      <xs:attribute name="ranges" type="xs:IDREFS"/>
+      <xs:attribute name="start" use="required" type="xs:integer"/>
+      <xs:attribute name="end" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="atom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:annotation"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="sl" type="xs:integer"/>
+      <xs:attribute name="so" type="xs:integer"/>
+      <xs:attribute name="el" type="xs:integer"/>
+      <xs:attribute name="eo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="range">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="x:annotation"/>
+        <xs:element ref="x:comment"/>
+      </xs:choice>
+      <xs:attribute name="ID" use="required" type="xs:ID"/>
+      <xs:attribute name="name" type="xs:NCName"/>
+      <xs:attribute name="start" use="required" type="xs:integer"/>
+      <xs:attribute name="end" use="required" type="xs:integer"/>
+      <xs:attribute name="sl" type="xs:integer"/>
+      <xs:attribute name="so" type="xs:integer"/>
+      <xs:attribute name="el" type="xs:integer"/>
+      <xs:attribute name="eo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="comment">
+    <xs:complexType mixed="true">
+      <xs:attribute name="sl" type="xs:integer"/>
+      <xs:attribute name="so" type="xs:integer"/>
+      <xs:attribute name="el" type="xs:integer"/>
+      <xs:attribute name="eo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="debug-support">
+    <xs:attribute name="sl" use="required" type="xs:integer"/>
+    <xs:attribute name="so" use="required" type="xs:integer"/>
+    <xs:attribute name="el" use="required" type="xs:integer"/>
+    <xs:attribute name="eo" use="required" type="xs:integer"/>
+  </xs:attributeGroup>
+</xs:schema>
