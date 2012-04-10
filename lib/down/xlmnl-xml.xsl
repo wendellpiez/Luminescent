@@ -68,12 +68,10 @@
     <xsl:element name="{(@name[f:okay-name(.)],'lmnl-document')[1]}">
       <xsl:copy-of select="namespace::x"/>
       <xsl:call-template name="annotation-attributes"/>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="x:content"/>
     </xsl:element>    
   </xsl:template>
   
-  <!-- these annotations are demoted to XML attributes -->
-  <xsl:template match="x:document/x:annotation"/>
   
   <xsl:template match="x:content" name="build-xml">
     <!--<xsl:param name="elements" select="()" tunnel="yes"/>-->
@@ -110,19 +108,27 @@
   </xsl:template>
 
   <xsl:template name="annotation-attributes">
+    <xsl:param name="owner" select="."/>
+    <xsl:param name="elements" select="()" tunnel="yes"/>
     <!-- Demotes annotations into XML attributes -->
-    <xsl:for-each-group select="x:annotation" group-by="@name">
-    <xsl:attribute name="{(current-grouping-key()[f:okay-name(.)],'annotation')[1]}">
-      <xsl:value-of select="current-group()/x:content/string()" separator=" "/>
-    </xsl:attribute>
+    <xsl:for-each-group
+      select="$owner/x:annotation[empty(x:annotation|x:range)]" group-by="@name">
+      <xsl:attribute
+        name="{(current-grouping-key()[f:okay-name(.)],'annotation')[1]}">
+        <xsl:value-of select="current-group()/x:content/string()" separator=" "
+        />
+      </xsl:attribute>
     </xsl:for-each-group>
+    <xsl:sequence
+      select="$owner/x:annotation[exists(x:annotation|x:range)]"
+    />
   </xsl:template>
   
   <xsl:template match="x:annotation">
-      <xsl:copy>
-        <xsl:copy-of select="@*"/>
-        <xsl:apply-templates/>
-      </xsl:copy>
+    <xsl:copy>
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates/>
+    </xsl:copy>
   </xsl:template>
   
   <xsl:template match="x:annotation/x:content">
@@ -234,13 +240,20 @@
     </xsl:apply-templates>
   </xsl:function>
   
-  <xsl:function name="f:annotation-xml" as="document-node()">
+  <!--<xsl:function name="f:annotation-xml" as="element(x:annotation)">
     <xsl:param name="layer" as="element(x:annotation)"/>
     <xsl:param name="elements" as="xs:string*"/>
-    <xsl:apply-templates select="$layer">
-      <xsl:with-param name="elements" select="$elements" tunnel="yes"/>
-    </xsl:apply-templates>
-  </xsl:function>
+    <xsl:for-each select="$layer">
+      <xsl:copy>
+        <xsl:copy-of select="@*"/>
+        <xsl:sequence select="$layer/x:content/preceding-sibling::x:annotation/f:annotation-xml(.,$elements)"/>
+        <xsl:apply-templates select="$layer/x:content">
+          <xsl:with-param name="elements" select="$elements" tunnel="yes"/>
+        </xsl:apply-templates>
+        <xsl:sequence select="$layer/x:content/following-sibling::x:annotation/f:annotation-xml(.,$elements)"/>
+      </xsl:copy>
+    </xsl:for-each>
+  </xsl:function>-->
   
   <xsl:function name="f:spans-xml" as="document-node()">
     <!-- levitates an arbitrary set of spans (expected to be consecutive and
