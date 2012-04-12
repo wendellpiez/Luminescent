@@ -3,7 +3,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   queryBinding="xslt2">
   
-  <title>Validating tags (step 3)</title>
+  <title>Validating tags (step 4)</title>
 <!-- Validates structure of tags after tag-wrapping tokens -->
 
   <ns prefix="t" uri="http://lmnl-markup.org/ns/luminescent/tokens"/>

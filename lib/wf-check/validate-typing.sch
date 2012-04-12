@@ -2,7 +2,7 @@
 <schema xmlns="http://purl.oclc.org/dsdl/schematron"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" queryBinding="xslt2">
 
-  <title>Validating range typing (step 7)</title>
+  <title>Validating range typing (step 8)</title>
   
   <!-- Assuming correct tagging syntax, validates types:
        annotations are clean; every start has an end, and

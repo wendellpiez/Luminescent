@@ -44,6 +44,11 @@
     <xsl:apply-templates select="following-sibling::node()[1]" mode="annotate"/>
   </xsl:template>
   
+  <!-- errors, encountered, warrant quitting -->
+  <xsl:template match="error" mode="annotate">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+  
   <!-- certain kinds of nodes are unexpected in this mode, so we capture them as errors -->
   <xsl:template match="end | atom | text()[normalize-space(.)]" mode="annotate">
     <error code="{upper-case((self::*/local-name(.),'text')[1])}-UNEXPECTED">
@@ -91,7 +96,7 @@
       <xsl:apply-templates select="node()[1]" mode="annotate"/>
       <xsl:choose>
         <xsl:when test="empty($end)">
-          <error code="ANNOTATION-UNFINISHED">
+          <error code="{upper-case($type)}-UNFINISHED">
             <xsl:copy-of select="@sl|@so|@el|@eo"/>
             <xsl:apply-templates select="following-sibling::node()"/>
           </error>
