@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0"
-  xmlns:x="http://lmnl.org/namespace/LMNL/xLMNL"
-  xmlns:f="http://lmnl.org/namespace/XSLT/utility"
+  xmlns:x="http://lmnl-markup.org/ns/xLMNL"
+  xmlns:f="http://lmnl-markup.org/ns/xslt/utility"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema">
 

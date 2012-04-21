@@ -15,7 +15,12 @@
   
   <xsl:strip-space elements="x:document x:range x:annotation"/>
 
-  <!--<xsl:param name="filename" as="xs:string" select="''"/>-->
+  <xsl:param name="basename" as="xs:string" select="''"/>
+
+  <!-- returns all spans covered by any given range -->
+  <xsl:key name="spans-by-rangeID" match="x:span" use="tokenize(@ranges,'\s+')"/>
+
+  <xsl:key name="range-by-ID" match="x:range" use="@ID"/>
   
   <xsl:variable name="all-range-names"
     select="distinct-values(//x:range/@name)"/>
@@ -49,8 +54,11 @@
         <z:range name="{current-grouping-key()}">
           <xsl:for-each select="current-group()">
             <xsl:variable name="here" select="."/>
-            <xsl:for-each-group
+            <!--<xsl:for-each-group
               select="../x:range[not(f:excludes(.,$here))]
+              [f:overlaps(.,$here)]" group-by="@name">-->
+            <xsl:for-each-group
+              select="key('spans-by-rangeID',@ID)/key('range-by-ID',tokenize(@ranges,'\s+'))
               [f:overlaps(.,$here)]" group-by="@name">
               <z:overlap name="{current-grouping-key()}"
                 ID="{$here/@ID}"
@@ -75,9 +83,6 @@
 
 body { font-size: small }
 
-div.overlap { background-colox: lavender; padding: 0.5em; bordex: thin solid black;
-  margin: 0.15em }
-
 .name { font-size: 120%; font-family: monospace }
 
 h4 { margin: 0em; font-size: 115% }
@@ -96,7 +101,13 @@ td.overlaps {  background-color: lavender }
         
       </head>
         <body>
-          <h4>(Coming soon ... a listing of the points of overlap ...)</h4>
+        <h4>
+          <xsl:text>file: </xsl:text>
+          <a href="{$basename}.lmnl">
+            <xsl:value-of select="$basename"/>
+            <xsl:text>.lmnl</xsl:text>
+          </a>
+        </h4>
           <!-- do this by identifying spans assigned to disjunct sets of ranges -->
           <xsl:apply-templates select="$range-report/z:report" mode="html"/>
         </body>
@@ -170,7 +181,7 @@ td.overlaps {  background-color: lavender }
       <xsl:for-each select="z:range">
         <xsl:variable name="range-name" select="@name"/>
         <li>
-          <xsl:value-of select="@name"/>
+          <xsl:apply-templates select="@name" mode="name"/>
           <xsl:choose>
             <xsl:when test="empty(z:overlap)"> (none)</xsl:when>
             <xsl:otherwise>
@@ -179,14 +190,14 @@ td.overlaps {  background-color: lavender }
                 <ul>
                 <xsl:value-of select="$range-name"/>
                   <xsl:value-of select="key('range-by-ID',@ID,$document)/z:location(.)"/>
-                  <xsl:text>/</xsl:text>
-                  <xsl:value-of select="key('range-by-ID',@ID,$document)/(@end - @start)"/>
+                  <!--<xsl:text>/</xsl:text>
+                  <xsl:value-of select="key('range-by-ID',@ID,$document)/(@end - @start)"/>-->
                   <xsl:text> with </xsl:text>
                   <xsl:for-each select="tokenize(@cases,' ')">
                     <xsl:if test="position() gt 1">; </xsl:if>
                     <xsl:value-of select="key('range-by-ID',.,$document)/concat(@name,z:location(.))"/>
-                    <xsl:text>/</xsl:text>
-                    <xsl:value-of select="key('range-by-ID',.,$document)/(@end - @start)"/>
+                    <!--<xsl:text>/</xsl:text>
+                    <xsl:value-of select="key('range-by-ID',.,$document)/(@end - @start)"/>-->
                   </xsl:for-each>
                 </ul>
               </xsl:for-each>
@@ -222,7 +233,9 @@ td.overlaps {  background-color: lavender }
     <xsl:param name="r" as="element(x:range)"/>
     <xsl:value-of>
       <xsl:text> (</xsl:text>
-      <xsl:value-of select="string-join(($r/@l,$r/@o),'.')"/>
+      <xsl:value-of select="string-join(($r/@sl,$r/@so),'.')"/>
+      <xsl:text>-</xsl:text>
+      <xsl:value-of select="string-join(($r/@el,$r/@eo),'.')"/>
       <xsl:text>)</xsl:text>
     </xsl:value-of>
   </xsl:function>
