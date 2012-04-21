@@ -54,7 +54,7 @@
   <xsl:template match="start | empty">
     <xsl:variable name="end" select="key('end-for-start',@rID)"/>
     <x:range start="{@off}" end="{$end/@off}">
-      <xsl:apply-templates select="@gi | @rID | @so | @sl | @eo | @el"/>
+      <xsl:apply-templates select="@gi | @rID | @so | @sl | $end/@eo | $end/@el"/>
       <xsl:apply-templates select="(.|$end)/(annotation | comment)"/>
     </x:range>
   </xsl:template>
