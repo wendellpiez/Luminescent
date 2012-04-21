@@ -57,19 +57,17 @@
             <!--<xsl:for-each-group
               select="../x:range[not(f:excludes(.,$here))]
               [f:overlaps(.,$here)]" group-by="@name">-->
-            <xsl:for-each-group
-              select="key('spans-by-rangeID',@ID)/key('range-by-ID',tokenize(@ranges,'\s+'))
-              [f:overlaps(.,$here)]" group-by="@name">
+            <xsl:for-each-group group-by="@name"
+              select="key('spans-by-rangeID',@ID)/
+                      key('range-by-ID',tokenize(@ranges,'\s+'))
+                      [f:overlaps(.,$here)]">
               <z:overlap name="{current-grouping-key()}"
                 ID="{$here/@ID}"
               cases="{current-group()/@ID}"/>
             </xsl:for-each-group>
-            
           </xsl:for-each>
-          
         </z:range>
       </xsl:for-each-group>
-      
     </z:report>
   </xsl:template>
   

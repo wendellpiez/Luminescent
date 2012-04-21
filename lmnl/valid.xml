@@ -1,8 +1,0 @@
-<aggregated-report>
-   <report title="Validating tags (step 3)">
-      <incident>The document must start with a (start range or empty range) tag</incident>
-   </report>
-   <report title="Validating range typing (step 4)"/>
-   <report title="Validating range correspondence (step 6)"/>
-</aggregated-report>
-
