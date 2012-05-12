@@ -1,5 +1,6 @@
 [!-- COMMENT COMMENT COMMENT --]
 [tests}
+[meta [test [test]}test me{test]]
 [item [k]}Content before first tag, including an {{atom [remark}just making things interesting{]}} atom.{item]
 [item [k]}Content after last tag{item]
 [item [k]}No single document range{item]
