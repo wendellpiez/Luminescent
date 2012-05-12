@@ -40,10 +40,6 @@
 
   <xsl:key name="range-by-id" match="x:range" use="@ID"/>
   
-  <xsl:key name="range-by-start" match="x:range" use="@start"/>
-  
-  <xsl:key name="range-by-end" match="x:range" use="@end"/>
-  
   <xsl:template match="/">
     <!-- entering from the top, we take $elements from $element-list -->
     <xsl:apply-templates select="*/x:document">
@@ -127,7 +123,9 @@
   <xsl:template match="x:annotation">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
-      <xsl:apply-templates/>
+      <xsl:apply-templates>
+        <xsl:with-param name="layer" select="." tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
   
@@ -191,8 +189,8 @@
          that are not being pulled into the XML, and write tags for them --> 
     <xsl:param name="layer" as="element()" tunnel="yes"/>
     <xsl:variable name="elements" select="key('range-by-id',tokenize(@elements,'\s+'),$layer)/@name"/>
-    <xsl:apply-templates mode="start-tag" select="key('range-by-start',@start,$layer)[not(@name=$elements)]">
-      <xsl:sort order="descending" data-type="number" select="@end"/>
+    <xsl:apply-templates mode="start-tag" select="f:range-for-start(@start,$layer)[not(@name=$elements)]">
+        <xsl:sort order="descending" data-type="number" select="@end"/>
     </xsl:apply-templates>
     <xsl:copy>
       <xsl:copy-of select="@ranges"/>
@@ -200,7 +198,7 @@
     </xsl:copy>
     <!-- next come end tags for tags ending after the span -->
     <xsl:apply-templates mode="end-tag"
-      select="key('range-by-end',@end,$layer)[not(@name=$elements)]">
+      select="f:range-for-end(@end,$layer)[not(@name=$elements)]">
       <xsl:sort order="ascending" data-type="number" select="@start"/>
     </xsl:apply-templates>
   </xsl:template>
@@ -280,6 +278,20 @@
     <xsl:param name="span" as="element(x:span)"/>
     <xsl:param name="id" as="xs:string"/>
     <xsl:sequence select="$span/parent::x:content/../x:range[@ID=$id]"/>
+  </xsl:function>
+  
+  <xsl:function name="f:range-for-start" as="element(x:range)*">
+    <!-- returns a range element given a start offset and a layer -->
+    <xsl:param name="start" as="xs:integer"/>
+    <xsl:param name="layer" as="element()"/>
+    <xsl:sequence select="$layer/child::x:range[@start=$start]"/>
+  </xsl:function>
+  
+  <xsl:function name="f:range-for-end" as="element(x:range)*">
+    <!-- returns a range element given an ID and a layer -->
+    <xsl:param name="end" as="xs:integer"/>
+    <xsl:param name="layer" as="element()"/>
+    <xsl:sequence select="$layer/child::x:range[@end=$end]"/>
   </xsl:function>
   
   <xsl:function name="f:okay-name" as="xs:boolean">
