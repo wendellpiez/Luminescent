@@ -93,6 +93,8 @@ th, td { padding: 5px; text-align: center;
 
 th.rowhead { text-align: right }
 
+td.self-overlaps {  background-color: pink }
+
 td.overlaps {  background-color: lavender }
 
         </style>
@@ -152,6 +154,7 @@ td.overlaps {  background-color: lavender }
                     test="not(preceding-sibling::z:range intersect $checking)">-->
                     <xsl:attribute name="class">
                       <xsl:choose>
+                        <xsl:when test="$overlaps and @name=$checking/@name">self-overlaps</xsl:when>
                         <xsl:when test="$overlaps">overlaps</xsl:when>
                         <xsl:otherwise>stacks</xsl:otherwise>
                       </xsl:choose>
