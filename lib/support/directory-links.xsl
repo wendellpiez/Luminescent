@@ -28,6 +28,7 @@
     <label key="XML">XML</label>
     <label type="-analysis.html">Analysis</label>
     <conditional-label type="-graph.svg">Bubble graph</conditional-label>
+    <conditional-label type="-lyric-graph.html">Lyric graph</conditional-label>
     <conditional-label type=".html">Demo HTML</conditional-label>
     <conditional-label type="-sonneteer.html">Sonnet bubbles</conditional-label>
    <!-- <xsl:choose>
@@ -49,6 +50,10 @@
     
   </xsl:variable>
 
+  <xsl:variable name="lyrics" as="element()+">
+    <basename>Easter1916</basename>
+  </xsl:variable>
+  
   <xsl:template match="/">
     <html>
       <body style="background-color: thistle">
@@ -105,6 +110,13 @@
   <xsl:template match="conditional-label[.='Demo HTML']" mode="cell">
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:if test="$basename='demo'">
+      <xsl:next-match/>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="conditional-label[.='Lyric graph']" mode="cell">
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:if test="$basename=$lyrics">
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
