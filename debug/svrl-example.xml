@@ -1,6 +1,0 @@
-<svrl:schematron-output xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:schold="http://www.ascc.net/xml/schematron" xmlns:saxon="http://saxon.sf.net/" xmlns:s="http://piez.org/lmnl/sawteeth/tags" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:svrl="http://purl.oclc.org/dsdl/svrl" title="" schemaVersion=""><!--  Â 
-		  Â 
-		  Â 
-		 --><svrl:ns-prefix-in-attribute-values uri="http://piez.org/lmnl/sawteeth/tags" prefix="s"/><svrl:active-pattern document="file:/C:/Users/Wendell/Projects/LMNL/2012-demo/sawteeth-xLMNL.xpl"/><svrl:fired-rule context="s:root"/><svrl:failed-assert test="empty(s:start[1]/preceding-sibling::text()[normalize-space()])" location="/*:root[namespace-uri()='http://piez.org/lmnl/sawteeth/tags'][1]"><svrl:text>
-        Content appears before the first start tag.
-        line 1, position 5</svrl:text></svrl:failed-assert></svrl:schematron-output>
