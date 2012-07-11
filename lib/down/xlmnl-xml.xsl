@@ -129,6 +129,8 @@
     </xsl:copy>
   </xsl:template>
   
+  <xsl:template match="x:comment"/>
+  
   <xsl:template match="x:annotation/x:content">
     <xsl:copy>
       <xsl:copy-of select="@*"/>

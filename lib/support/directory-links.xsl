@@ -11,6 +11,10 @@
     
     <!--<label key="eclix">ECLIX</label>
     <label key="clix">CLIX</label>-->
+    <!--<xsl:if test="$dir='sonnets'">
+      <label key="snapshot"/>
+    </xsl:if>-->
+    
     <label key="xLMNL" view="step1">step 1</label>
     <label key="xLMNL" view="step2">step 2</label>
     <label key="xLMNL" view="step3">step 3</label>
@@ -31,7 +35,8 @@
     <conditional-label type="-lyric-graph.html">Lyric graph</conditional-label>
     <conditional-label type=".html">Demo HTML</conditional-label>
     <conditional-label type="-sonneteer.html">Sonnet bubbles</conditional-label>
-   <!-- <xsl:choose>
+    
+    <!-- <xsl:choose>
       <xsl:when test="$type='sonnets'">
         <label key="snapshot"/>
         <!-\-<label key="xLMNL" view="structure">Structure</label>
@@ -60,7 +65,9 @@
         <h1>
           <!--<xsl:value-of select="$dir"/>
           <xsl:text>/*.xml</xsl:text>-->
-          <xsl:text>LMNL syntax parsing: a demonstration</xsl:text>
+          <xsl:text>LMNL syntax parsing: a demonstration [</xsl:text>
+          <xsl:value-of select="$dir"/>
+          <xsl:text>]</xsl:text>
         </h1>
         <table>
           <xsl:apply-templates select="//dir:file/@name[ends-with(.,'lmnl')]"/>
@@ -122,7 +129,7 @@
   </xsl:template>
   
   <xsl:template match="conditional-label[ends-with(@type,'sonneteer.html')]" mode="cell">
-    <xsl:if test="$dir='sonnets'">
+    <xsl:if test="$dir='../sonnets'">
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
@@ -151,6 +158,11 @@
         <xsl:value-of select=".."/>
       </a>
     </p>
+  </xsl:template>
+  
+  <xsl:template match="@key[.='snapshot']" mode="menu-item">
+    <xsl:param name="basename" tunnel="yes"/>
+    <img src="{$basename}-snapshot.png"/>
   </xsl:template>
   
   <xsl:template match="@key[.='XML']" mode="menu-item">

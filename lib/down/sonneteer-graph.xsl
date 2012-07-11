@@ -33,7 +33,7 @@
     <styles>
       <ranges color="lavender" opacity="0">sonnet octave sestet</ranges>
       <ranges color="lightsteelblue" opacity="0.1">quatrain tercet couplet</ranges>
-      <ranges color="papayawhip" opacity="0.3" stroke="orange">s</ranges>
+      <ranges color="rosybrown" opacity="0.1" stroke="orange">s</ranges>
       <ranges color="lavender" opacity="0.2">line</ranges>
       <ranges color="pink" opacity="0.1">phr</ranges>
     </styles>

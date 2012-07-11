@@ -145,6 +145,12 @@
       </map:match>
       
       <!--  bespoke conversions (customized for directory or document) -->
+      <map:match pattern="sonnets/*-snapshot.png">
+        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml" label="xml"/>
+        <map:transform type="xslt2" src="lib/down/sonnet-snapshot.xsl"/>
+        <map:serialize type="svg2png"/>
+      </map:match>
+      
       <map:match pattern="sonnets/*-sonneteer.svg">
         <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
         <map:transform type="xslt2" src="lib/down/sonneteer-svg.xsl"/>
