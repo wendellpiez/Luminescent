@@ -31,9 +31,9 @@
         <value-of select="local:file-path(.)"/>
       </assert>
       <assert test="*[last()]/self::t:d = $closedelimiter">
-        tags all end with  <value-of select="local:or-seq($closedelimiter)"/> ... check after
+        tags must end with  <value-of select="local:or-seq($closedelimiter)"/> ... check after
         <value-of select="local:end-position(.)"/>,
-        <value-of select="local:end-position(.)"/>
+        <value-of select="local:file-path(.)"/>
       </assert>
       <!--<report test="*[last()]/local:end-position(.)">
         look at 

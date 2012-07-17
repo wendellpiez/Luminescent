@@ -125,7 +125,5 @@
     <xsl:param name="tag" as="element()"/>
     <xsl:value-of select="$tag/root(.)/s:root/@base-uri/util:URI-to-DOS(.)"/>
   </xsl:function>
-  
-  
-  
-    </schema>
+
+</schema>
