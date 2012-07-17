@@ -1,2 +1,10 @@
 # oXygen project file
 *.xpr
+
+# archiving logic
+localhost+8888/
+snapshot.bat
+
+# misc
+debug/
+xml-mapping-notes.txt
