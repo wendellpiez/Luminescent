@@ -8,6 +8,10 @@
 <!--
   Change history
   
+  2012-07-29 [wap] Simplified to remove the restriction that there
+                   must be a document range; so we don't need a
+                   'root' element either.
+                   
   2012-04-10 [wap] Tweaked data type for span/@ranges to IDREFS.
   
   2012-03-25 [wap] Created by running a pathological xLMNL instance
@@ -22,18 +26,8 @@
            elementFormDefault="qualified"
            targetNamespace="http://lmnl-markup.org/ns/xLMNL">
 
-   <xs:element name="root">
-      <xs:complexType>
-         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:comment"/>
-            <xs:element ref="x:document"/>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="x:comment"/>
-         </xs:sequence>
-         <xs:attribute name="base-uri" type="xs:anyURI"/>
-      </xs:complexType>
-   </xs:element>
-
    <xs:element name="document" type="x:document-model"/>
+  
    <xs:complexType name="document-model">
       <xs:sequence>
          <xs:choice minOccurs="0" maxOccurs="unbounded">

@@ -15,15 +15,6 @@
   <ns prefix="util" uri="http://lmnl-markup.org/luminescent/schematron/util"/>
   
   
-  <pattern>
-    <rule context="/s:root/s:doc[1]">
-      <report test="exists(following-sibling::*)">
-        Content appears illegally after the end of the document at
-        <value-of select="util:end-position(.)"/>,
-        <value-of select="util:file-path(.)"/>
-      </report>
-    </rule>
-  </pattern>
   
   <pattern>
     <rule context="s:*">

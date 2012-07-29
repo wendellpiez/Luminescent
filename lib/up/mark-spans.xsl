@@ -28,7 +28,7 @@
     <xsl:param name="stack" select="()"/>
     <xsl:copy copy-namespaces="no">
       <xsl:copy-of select="@*"/>
-      <xsl:for-each select="ancestor::*[exists(@aID)][1]/@aID">
+      <xsl:for-each select="ancestor::*[exists(@lID)][1]/@lID">
         <xsl:attribute name="layer" select="."/>
       </xsl:for-each>
       <xsl:if test="exists($stack)">

@@ -9,21 +9,16 @@
 
   <xsl:key name="end-for-start" match="end | empty" use="@rID"/>
   
-  <xsl:template match="/root">
-    <x:root>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="*"/>
-    </x:root>
-  </xsl:template>
   
-  <xsl:template match="doc">
+  <xsl:template match="/root">
     <x:document>
       <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates/>
+      <xsl:call-template name="content"/>
     </x:document>
   </xsl:template>
   
-  <xsl:template match="text">
+  <xsl:template name="content">
+    <xsl:apply-templates select="annotation"/>
     <x:content>
       <xsl:for-each-group select="span|atom|comment"
         group-adjacent="string-join((@layer,@ranges),':')">
@@ -61,8 +56,8 @@
  
  <xsl:template match="annotation">
     <x:annotation>
-      <xsl:apply-templates select="@aID | @gi | @so | @sl | @eo | @el"/>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@lID | @gi | @so | @sl | @eo | @el"/>
+      <xsl:call-template name="content"/>
     </x:annotation>
   </xsl:template>
 
@@ -70,7 +65,7 @@
     <xsl:attribute name="name" select="."/>
   </xsl:template>
   
-  <xsl:template match="@aID | @rID">
+  <xsl:template match="@lID | @rID">
     <xsl:attribute name="ID" select="."/>
   </xsl:template>
   

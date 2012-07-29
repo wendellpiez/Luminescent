@@ -11,17 +11,6 @@
   <ns prefix="local" uri="http://lmnl-markup.org/ns/local"/>
   
   <pattern>
-    <rule context="s:root">
-      <assert test="exists(*[1]/(self::s:tag|self::t:comment))">
-        The document must start with a (start range or empty range) tag, declaration or comment</assert>
-      <report test="exists(s:tag[last()]/following-sibling::t:t[normalize-space(.)])">
-        Content is found following the last tag (ending at 
-        <value-of select="local:end-position(s:tag[last()])"/>)
-      in <value-of select="local:file-path(.)"/></report>
-    </rule>
-  </pattern>
-  
-  <pattern>
     <rule context="s:tag">
       <let name="opendelimiter" value="('{','[')"/>
       <let name="closedelimiter" value="(']','}')"/>

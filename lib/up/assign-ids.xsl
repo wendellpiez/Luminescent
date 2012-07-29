@@ -18,7 +18,7 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="doc | start | empty | annotation">
+  <xsl:template match="root | start | empty | annotation">
     <xsl:copy>
       <xsl:apply-templates select="." mode="id"/>
       <xsl:apply-templates select="@*|node()"/>
@@ -43,9 +43,9 @@
     <xsl:attribute name="rID" select="concat('R.',generate-id())"/>
   </xsl:template>
   
-  <xsl:template match="doc | annotation" mode="id">
-    <!-- being isomorphic to annotations, documents get annotation IDs -->
-    <xsl:attribute name="aID" select="concat('N.',generate-id())"/>
+  <xsl:template match="root | annotation" mode="id">
+    <!-- the root and annotations get layer IDs   -->
+    <xsl:attribute name="lID" select="concat('N.',generate-id())"/>
   </xsl:template>
   
   

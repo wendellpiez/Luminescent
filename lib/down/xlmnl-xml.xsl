@@ -42,7 +42,7 @@
   
   <xsl:template match="/">
     <!-- entering from the top, we take $elements from $element-list -->
-    <xsl:apply-templates select="*/x:document">
+    <xsl:apply-templates select="x:document">
       <xsl:with-param name="elements" tunnel="yes" as="xs:string*">
         <xsl:choose>
           <xsl:when test="normalize-space($element-list)">

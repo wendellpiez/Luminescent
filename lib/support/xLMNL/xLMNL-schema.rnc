@@ -13,12 +13,8 @@
 namespace x = "http://lmnl-markup.org/ns/xLMNL"
 
 start =
-  element x:root {
-    attribute base-uri { xsd:anyURI }?,
-    comment*,  
-    element x:document {
-      document-model },
-    comment* }
+  element x:document {
+    document-model }
 
 document-model =
     attribute base-uri { xsd:anyURI }?,

@@ -12,7 +12,7 @@
   <xsl:strip-space elements="x:document x:range x:annotation"/>
   
   <xsl:template match="/">
-    <xsl:apply-templates select="x:root/x:document" mode="write"/>
+    <xsl:apply-templates select="x:document" mode="write"/>
   </xsl:template>
   
   <xsl:key name="ranges-by-name" match="x:range" use="string(@name)"/>

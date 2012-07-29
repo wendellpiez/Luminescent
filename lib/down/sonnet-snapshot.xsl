@@ -27,7 +27,7 @@
   
 </xsl:variable>
  
-  <xsl:variable name="lmnl-document" select="/*/x:document"/>
+  <xsl:variable name="lmnl-document" select="/x:document"/>
   
   
   

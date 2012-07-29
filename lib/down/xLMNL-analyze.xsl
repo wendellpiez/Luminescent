@@ -25,11 +25,8 @@
   <xsl:variable name="all-range-names"
     select="distinct-values(//x:range/@name)"/>
 
-  <xsl:variable name="document-name"
-    select="string(/*/x:document/x:range[1]/@name)"/>
-
   <xsl:variable name="document"
-    select="/*/x:document"/>
+    select="/x:document"/>
 
   <xsl:variable name="range-report">
     <!-- raw report in XML format -->

@@ -60,7 +60,7 @@
   </xsl:variable>
   
   
-  <xsl:variable name="lmnl-document" select="/*/x:document"/>
+  <xsl:variable name="lmnl-document" select="/x:document"/>
   
   <xsl:key name="ranges-by-name" match="x:document/x:range" use="@name"/>
   
@@ -68,7 +68,7 @@
   
   <xsl:key name="spans-by-range" match="x:span" use="tokenize(@ranges,'\s+')"/>
   
-  <xsl:variable name="doc-length" select="(/*/x:document/x:content/x:span[last()]/@end,0)[1]"/>
+  <xsl:variable name="doc-length" select="(/x:document/x:content/x:span[last()]/@end,0)[1]"/>
   
   <xsl:variable name="squeeze"
     select="f:round(600 - ($specs/f:top-margin + $specs/f:bottom-margin)) div $doc-length"/>
