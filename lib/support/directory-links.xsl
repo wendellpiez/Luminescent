@@ -76,10 +76,10 @@
           <!--<xsl:value-of select="$dir"/>
           <xsl:text>/*.xml</xsl:text>-->
           <xsl:text>LMNL syntax parsing: a demonstration</xsl:text></h1>
-        <h2>
+        <xsl:comment>
+          <xsl:text>$dir is </xsl:text>
           <xsl:value-of select="$dir"/>
-          <xsl:text>]</xsl:text>
-        </h2>
+        </xsl:comment>
         <table>
           <xsl:call-template name="table-header"/>
           <xsl:apply-templates select="//dir:file[ends-with(@name,'lmnl')]"/>
