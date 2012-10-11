@@ -13,10 +13,13 @@
     <!--<label key="eclix">ECLIX</label>
     <label key="clix">CLIX</label>-->
     <xsl:if test="$sonnet-dir">
-      <label key="snapshot"/>
+      <group>
+        <label key="snapshot"/>
+      </group>
     </xsl:if>
     
     <xsl:if test="not($sonnet-dir)">
+      <group name="Luminescent">
       <label key="xLMNL" view="step1">step 1</label>
       <label key="xLMNL" view="step2">step 2</label>
       <label key="xLMNL" view="step3">step 3</label>
@@ -29,17 +32,19 @@
       <label key="xLMNL" view="step10">step 10</label>
       <label key="xLMNL" view="step11">step 11</label>
       <label key="xLMNL" view="step12">step 12</label>
+      <label key="xLMNL" color="duskyrose">xLMNL</label>
+      </group>
     </xsl:if>
     
-    <label key="xLMNL">xLMNL</label>
+    <group name="Results">
 
-    <label key="XML">XML</label>
-    <label type="-analysis.html">Analysis</label>
-    <conditional-label type="-graph.svg">Bubble graph</conditional-label>
-    <conditional-label type="-lyric-graph.html">Lyric graph</conditional-label>
-    <conditional-label type=".html">Demo HTML</conditional-label>
-    <conditional-label type="-sonneteer.html">Sonnet bubbles</conditional-label>
-
+      <label key="XML" color="lightsteelblue">XML</label>
+    <label type="-analysis.html" color="skyblue">Analysis</label>
+    <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
+    <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
+    <conditional-label type=".html" color="pink">Demo HTML</conditional-label>
+    <conditional-label type="-sonneteer.html" color="pink">Sonnet bubbles</conditional-label>
+    </group>
     <!-- <xsl:choose>
       <xsl:when test="$type='sonnets'">
         <label key="snapshot"/>
@@ -61,6 +66,7 @@
 
   <xsl:variable name="lyrics" as="element()+">
     <basename>Easter1916</basename>
+    <basename>WinterNight</basename>
   </xsl:variable>
 
   <xsl:template match="/">
@@ -70,20 +76,41 @@
           <!--<xsl:value-of select="$dir"/>
           <xsl:text>/*.xml</xsl:text>-->
           <xsl:text>LMNL syntax parsing: a demonstration</xsl:text></h1>
-        <h2><xsl:text> [</xsl:text>
+        <h2>
           <xsl:value-of select="$dir"/>
           <xsl:text>]</xsl:text>
         </h2>
         <table>
-          <xsl:apply-templates select="//dir:file/@name[ends-with(.,'lmnl')]"/>
+          <xsl:call-template name="table-header"/>
+          <xsl:apply-templates select="//dir:file[ends-with(@name,'lmnl')]"/>
         </table>
       </body>
     </html>
   </xsl:template>
 
-  <xsl:template match="@name">
-    <xsl:variable name="file" select="normalize-space(.)"/>
+  <xsl:template name="table-header">
     <tr style="border-top: thin solid black; border-bottom: thin solid black;">
+      <td
+        style="padding-right: 0.5em; padding-left: 0.5em;border-top: thin solid black;
+        background-color:aliceblue">
+        <p style="margin:0ex">Source</p>
+        <xsl:apply-templates select="$labels" mode="table-header"/></td>
+    </tr>
+  </xsl:template>
+  
+  <xsl:template match="group" mode="table-header">
+    <td colspan="{count(*)}" style="padding-right: 0.5em; padding-left: 0.5em;
+      text-align: center; border-top: thin solid black;
+      background-color:{(*/@color,'lavender')[1]}">
+      <p style="margin:0ex;font-weight: bold">
+        <xsl:apply-templates select="@name"/>
+      </p>
+    </td>
+  </xsl:template>
+            
+  <xsl:template match="dir:file">
+    <xsl:variable name="file" select="normalize-space(@name)"/>
+    <tr>
       <td
         style="padding-right: 0.5em; padding-left: 0.5em; background-color: aliceblue">
         <xsl:apply-templates select="../*/meta/(@author, @title)"/>
@@ -103,10 +130,15 @@
     </tr>
   </xsl:template>
 
+  <xsl:template match="group" mode="cell">
+    <xsl:apply-templates mode="cell"/>
+  </xsl:template>
+  
   <xsl:template match="*" mode="cell">
     <td
       style="font-family: sans-serif; font-size: 80%; font-weight: bold;
-      background-color:lavender; margin: 6px; padding: 4px">
+      background-color:{(@color,'lavender')[1]};
+      margin: 6px; padding: 4px">
       <!--<a href="{ (: http://{$host}:8888 :) }/LMNL/{.}/{$dir}/{$file}">-->
       <xsl:apply-templates select="@key|@type" mode="menu-item"/>
     </td>

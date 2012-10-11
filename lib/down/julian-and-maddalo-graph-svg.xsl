@@ -27,7 +27,7 @@
       <drop>30</drop>
     </title>
     <styles>
-      <ranges color="lavender" opacity="0.2">vp</ranges>
+      <ranges color="lavender" opacity="0.2">verse-para</ranges>
       <ranges color="skyblue">lg</ranges>
       <ranges color="steelblue">l</ranges>
       <ranges color="pink" opacity="0.3"
@@ -35,18 +35,18 @@
         stroke-opacity="0.8">q</ranges>
     </styles>
     <bars indent="40">
-      <ranges width="25" indent="-10">vp</ranges>
+      <ranges width="25" indent="-10">verse-para</ranges>
       <ranges width="10" indent="-15">lg</ranges>
       <ranges width="10" indent="-25">l</ranges>
       <ranges width="20" indent="10">q</ranges>
     </bars>
     <discs indent="200">
-      <range label="left">vp</range>
+      <range label="left">verse-para</range>
       <range label="left">q</range>
       <range>lg</range>
       <range>l</range>
     </discs>
-    <text line="l" div="vp" indent="120">
+    <text line="l" div="verse-para" indent="120">
       <font-size>36</font-size>
       <font-color>lightsteelblue</font-color>
       <highlight ranges="q">pink</highlight>
@@ -57,10 +57,10 @@
     </buttons>-->
   </xsl:variable>
   
-  <xsl:template match="x:span[f:starting-ranges(.)/@name='vp']"
+  <xsl:template match="x:span[f:starting-ranges(.)/@name='verse-para']"
     mode="write" priority="5">
-    <!-- vp starts are marked with pilcrows -->
-    <xsl:if test="not(f:ranges(.)[@name='vp'] is key('ranges-by-name','vp',$lmnl-document)[1])">
+    <!-- verse-para starts are marked with pilcrows -->
+    <xsl:if test="not(f:ranges(.)[@name='verse-para'] is key('ranges-by-name','verse-para',$lmnl-document)[1])">
       <svg:tspan> &#182; </svg:tspan>
     </xsl:if>
     <xsl:next-match/>

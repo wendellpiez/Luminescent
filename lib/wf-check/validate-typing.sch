@@ -36,7 +36,7 @@
     <rule context="s:end">
       <assert test="exists(@pID)">
         No start tag matches end tag <value-of select="util:tag(.)"/>
-        <value-of select="util:start-position(.)"/>,
+        at <value-of select="util:start-position(.)"/>,
         <value-of select="util:file-path(.)"/>
       </assert>
     </rule>

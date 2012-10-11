@@ -55,7 +55,7 @@
       <range label="left">phr</range>
       <range label="left">s</range>
     </discs>
-    <text line="l" div="vp">
+    <text line="l" div="verse-para">
       <indent>120</indent>
       <font-size>36</font-size>
       <font-color>lightsteelblue</font-color>
@@ -67,10 +67,10 @@
     </buttons>-->
   </xsl:variable>
   
-  <xsl:template match="x:span[f:starting-ranges(.)/@name='vp']"
+  <xsl:template match="x:span[f:starting-ranges(.)/@name='verse-para']"
     mode="write" priority="5">
-    <!-- vp starts are marked with pilcrows -->
-    <xsl:if test="not(f:ranges(.)[@name='vp'] is key('ranges-by-name','vp',$lmnl-document)[1])">
+    <!-- verse-para starts are marked with pilcrows -->
+    <xsl:if test="not(f:ranges(.)[@name='verse-para'] is key('ranges-by-name','verse-para',$lmnl-document)[1])">
       <svg:tspan> &#182; </svg:tspan>
     </xsl:if>
     <xsl:next-match/>

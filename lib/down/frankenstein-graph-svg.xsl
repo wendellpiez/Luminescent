@@ -28,7 +28,7 @@
       <drop>30</drop>
     </title>
     <styles>
-      <ranges color="lavender" opacity="0.2">preface introduction chapter div vp</ranges>
+      <ranges color="lavender" opacity="0.2">preface introduction chapter div verse-para</ranges>
       <ranges color="skyblue">lg verse</ranges>
       <ranges color="steelblue">l line</ranges>
       <ranges color="thistle" opacity="0.1">letter entry</ranges>

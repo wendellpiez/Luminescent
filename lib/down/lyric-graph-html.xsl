@@ -31,21 +31,21 @@
       <drop>30</drop>
     </title>
     <styles>
-      <ranges color="rosybrown" opacity="0.1">vp</ranges>
+      <ranges color="rosybrown" opacity="0.1">verse-para</ranges>
       <ranges color="darkorange" opacity="0.1">quatrain</ranges>
       <ranges color="gold" opacity="0.1" stroke="orange">s</ranges>
       <ranges color="white" opacity="0.2">l</ranges>
       <ranges color="yellow" opacity="0.2">phr</ranges>
     </styles>
     <bars indent="10">
-      <ranges width="30" indent="0">vp</ranges>
-      <ranges width="30" indent="30">quatrain</ranges>
-      <ranges width="30" indent="60">l</ranges>
-      <ranges width="30" indent="90">phr</ranges>
-      <ranges width="30" indent="120">s</ranges>
+      <ranges width="150" indent="0">verse-para</ranges>
+      <ranges width="30" indent="15">quatrain</ranges>
+      <ranges width="30" indent="45">l</ranges>
+      <ranges width="30" indent="75">phr</ranges>
+      <ranges width="30" indent="105">s</ranges>
     </bars>
-    <discs indent="150">
-      <range label="none">vp</range>
+    <discs indent="180">
+      <range label="none">verse-para</range>
       <range label="none">quatrain</range>
       <range>l</range>
       <range label="left">phr</range>
@@ -79,9 +79,9 @@ $(document).ready(function() {
     });
         </script>
         <style type="text/css">
-div#text    { margin-left:170px; color: white; font-size: 14pt;
-              width:330px }
-div.vp      { margin-top: 2ex }
+div#text    { margin-left:180px; color: white; font-size: 14pt;
+              width:280px }
+div.verse-para      { margin-top: 2ex }
 h3.title, h4.author { margin: 0px }
 h3.title { border-bottom: thin solid white }
 div.lg      { margin-top: 2ex }
@@ -107,8 +107,8 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
 
  
   <xsl:template name="bars-svg">
-    <svg width="{$specs/f:bars/f:ranges[last()]/
-      sum((@width,ancestor-or-self::*/@indent))}"
+    <svg width="{max($specs/f:bars/f:ranges/
+      sum((@width,ancestor-or-self::*/@indent)))}"
       height="800" xmlns="http://www.w3.org/2000/svg"
       style="position:fixed; top: 0px">
       <g transform="translate({$specs/f:left-margin} {$specs/f:top-margin})">
@@ -129,7 +129,7 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
   <xsl:variable name="lyric-xml">
     <xsl:apply-templates select="$lmnl-document">
       <xsl:with-param name="elements" tunnel="yes" as="xs:string*"
-        select="('poem','meta','vp','l')"/>
+        select="('poem','meta','verse-para','l')"/>
     </xsl:apply-templates>
   </xsl:variable>
 
@@ -170,7 +170,7 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
     </p>
   </xsl:template>
   
-  <xsl:template mode="display" match="vp">
+  <xsl:template mode="display" match="verse-para">
     <div class="{local-name()}">
       <xsl:apply-templates mode="display"/>
     </div>
