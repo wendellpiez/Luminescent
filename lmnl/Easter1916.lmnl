@@ -1,6 +1,6 @@
 [poem}
 [meta [author}William Butler Yeats{] [title}Easter 1916{]]
-[vp}[quatrain}[s}[phr}[l}I have met them at close of day{l]
+[verse-para}[quatrain}[s}[phr}[l}I have met them at close of day{l]
 [l}Coming with vivid faces{l]
 [l}From counter or desk among grey{l]
 [l}Eighteenth-century houses.{l]{phr]{s]{quatrain]
@@ -15,9 +15,9 @@
 [quatrain}[phr}[l}Being certain that they and I{l]
 [l}But lived where motley is worn:{l]{phr]
 [phr}[l}All changed, changed utterly:{l]{phr]
-[phr}[l}A terrible beauty is born.{l]{phr]{quatrain]{s]{vp]
+[phr}[l}A terrible beauty is born.{l]{phr]{quatrain]{s]{verse-para]
 
-[vp}[quatrain}[s}[phr}[l}That woman's days were spent{l]
+[verse-para}[quatrain}[s}[phr}[l}That woman's days were spent{l]
 [l}In ignorant good-will,{l]{phr]
 [phr}[l}Her nights in argument{l]
 [l}Until her voice grew shrill.{l]{phr]{s]{quatrain]
@@ -40,9 +40,9 @@
 [quatrain}[l}In the casual comedy;{l]{phr]
 [l}[phr}He,{phr] [phr}too,{phr] [phr}has been changed in his turn,{phr]{l]
 [phr}[l}Transformed utterly:{l]{phr]
-[phr}[l}A terrible beauty is born.{l]{phr]{quatrain]{s]{vp]
+[phr}[l}A terrible beauty is born.{l]{phr]{quatrain]{s]{verse-para]
 
-[vp}[quatrain}[s}[phr}[l}Hearts with one purpose alone{l]
+[verse-para}[quatrain}[s}[phr}[l}Hearts with one purpose alone{l]
 [l}Through summer and winter seem{l]
 [l}Enchanted to a stone{l]
 [l}To trouble the living stream.{l]{phr]{s]{quatrain]
@@ -57,9 +57,9 @@
 [quatrain}[phr}[l}The long-legged moor-hens dive,{l]{phr]
 [phr}[l}And hens to moor-cocks call;{l]{phr]
 [phr}[l}Minute by minute they live:{l]{phr]
-[phr}[l}The stone's in the midst of all.{l]{phr]{quatrain]{s]{vp]
+[phr}[l}The stone's in the midst of all.{l]{phr]{quatrain]{s]{verse-para]
 
-[vp}[quatrain}[s}[phr}[l}Too long a sacrifice{l]
+[verse-para}[quatrain}[s}[phr}[l}Too long a sacrifice{l]
 [l}Can make a stone of the heart.{l]{phr]{s]
 [s}[phr}[l}O when may it suffice?{l]{phr]{s]
 [s}[l}[phr}That is Heaven's part,{phr] [phr}our part{l]{quatrain]
@@ -82,7 +82,7 @@
 [quatrain}[l}Now and in time to be,{l]{phr]
 [phr}[l}Wherever green is worn,{l]{phr]
 [l}[phr}Are changed,{phr] [phr}changed utterly:{phr]{l]
-[phr}[l}A terrible beauty is born.{l]{phr]{s]{quatrain]{vp]
+[phr}[l}A terrible beauty is born.{l]{phr]{s]{quatrain]{verse-para]
 {poem
 
 [commentary}

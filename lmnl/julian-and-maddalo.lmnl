@@ -3,12 +3,12 @@
       [author [dates [birth}1792{][death}1822{]]}Percy Bysshe Shelley{]
       [encodingStmt}Encoded in 2011-2012 by Wendell Piez as a 
       demonstration of LMNL syntax. Range and annotation types should be 
-      fairly self-explanatory (and TEI-like), with the possible exception 
-      of 'vp' for verse paragraphs (which sometimes interrupt lines).{]
+      fairly self-explanatory (and TEI-like), with a few additions such
+      as 'verse-para' for verse paragraphs (which sometimes interrupt lines).{]
       [editorialStmt}A correction to a long-standing misattribution
       of quotes was made in lines 608-615.{]}
   [body}
-    [vp}[lg}[l [n}1{n]}I rode one evening with Count Maddalo{l]
+    [verse-para}[lg}[l [n}1{n]}I rode one evening with Count Maddalo{l]
       [l [n}2{n]}Upon the bank of land which breaks the flow{l]
     {lg]
     [lg}
@@ -291,8 +291,8 @@
     {lg]
     [lg}
       [l [n}139{n]}We hardly spoke, and soon the gondola{l]
-      [l [n}140{n]}Conveyed me to my lodging by the way.{l]{lg]{vp]
-    [vp}[lg}[l [n}141{n]}The following morn was rainy, cold, and dim:{l]
+      [l [n}140{n]}Conveyed me to my lodging by the way.{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}141{n]}The following morn was rainy, cold, and dim:{l]
       [l [n}142{n]}Ere Maddalo arose, I called on him,{l]
     {lg]
     [lg}
@@ -438,7 +438,7 @@
       [l [n}209{n]}And being scorned, what wonder if they die{l]
       [l [n}210{n]}Some living death? this is not destiny{l]
     {lg]
-    [l [n}211{n]}But man’s own wilful ill.{q]{vp][vp}As thus I spoke{l]
+    [l [n}211{n]}But man’s own wilful ill.{q]{verse-para][verse-para}As thus I spoke{l]
     [lg}
       [l [n}212{n]}Servants announced the gondola, and we{l]
       [l [n}213{n]}Through the fast-falling rain and high-wrought sea{l]
@@ -616,8 +616,8 @@
     {lg]
     [lg}
       [l [n}298{n]}Unseen. I yet remember what he said{l]
-      [l [n}299{n]}Distinctly: such impression his words made.{l]{lg]{vp]
-    [vp}[lg}[l [n}300{n]}[q [who}madman{who]}Month after month,{q] he cried, [q [who}madman{who]}to bear
+      [l [n}299{n]}Distinctly: such impression his words made.{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}300{n]}[q [who}madman{who]}Month after month,{q] he cried, [q [who}madman{who]}to bear
         this load{l]
       [l [n}301{n]}And as a jade urged by the whip and goad{l]
     {lg]
@@ -655,8 +655,8 @@
     {lg]
     [lg}
       [l [n}318{n]}And then these thoughts would at the least be fled;{l]
-      [l [n}319{n]}Let us not fear such pain can vex the dead.{l]{lg]{vp]
-    [vp}[lg}[l [n}320{n]}What Power delights to torture us? I know{l]
+      [l [n}319{n]}Let us not fear such pain can vex the dead.{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}320{n]}What Power delights to torture us? I know{l]
       [l [n}321{n]}That to myself I do not wholly owe{l]
     {lg]
     [lg}
@@ -689,7 +689,7 @@
     {lg]
     [lg}
       [l [n}336{n]}Of sweetest peace, I woke, and found my state{l]
-      [l [n}337{n]}Such as it is.—{vp][vp} O Thou, my
+      [l [n}337{n]}Such as it is.—{verse-para][verse-para} O Thou, my
         spirit’s mate{l]
     {lg]
     [lg}
@@ -702,8 +702,8 @@
     {lg]
     [lg}
       [l [n}342{n]}Thou wouldst weep tears bitter as blood to know{l]
-      [l [n}343{n]}Thy lost friend’s incommunicable woe.{l]{lg]{vp]
-    [vp}[lg}[l [n}344{n]}Ye few by whom my nature has been weighed{l]
+      [l [n}343{n]}Thy lost friend’s incommunicable woe.{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}344{n]}Ye few by whom my nature has been weighed{l]
       [l [n}345{n]}In friendship, let me not that name degrade{l]
     {lg]
     [lg}
@@ -778,7 +778,7 @@
     {lg]
     [lg}
       [l [n}381{n]}I did devote to justice and to love{l]
-      [l [n}382{n]}My nature, worthless now!{vp][vp}
+      [l [n}382{n]}My nature, worthless now!{verse-para][verse-para}
         I must remove{l]
     {lg]
     [lg}
@@ -808,8 +808,8 @@
     {lg]
     [lg}
       [l [n}396{n]}Pale art thou, ’tis most true … but thou art gone,{l]
-      [l [n}397{n]}Thy work is finished … I am left alone!—{l]{lg]{vp]
-    [vp}[lg}[l [n}398{n]}Nay, was it I who wooed thee to this breast{l]
+      [l [n}397{n]}Thy work is finished … I am left alone!—{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}398{n]}Nay, was it I who wooed thee to this breast{l]
       [l [n}399{n]}Which, like a serpent, thou envenomest{l]
     {lg]
     [lg}
@@ -826,8 +826,8 @@
     {lg]
     [lg}
       [l [n}406{n]}Her, who would fain forget these words: but they{l]
-      [l [n}407{n]}Cling to her mind, and cannot pass away.{l]{lg]{vp]
-    [vp}[lg}[l [n}408{n]}You say that I am proud—that when I speak{l]
+      [l [n}407{n]}Cling to her mind, and cannot pass away.{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}408{n]}You say that I am proud—that when I speak{l]
       [l [n}409{n]}My lip is tortured with the wrongs which break{l]
     {lg]
     [lg}
@@ -848,8 +848,8 @@
     {lg]
     [lg}
       [l [n}418{n]}Slow, ever-moving,—making moments be{l]
-      [l [n}419{n]}As mine seem—each an immortality!{l]{lg]{vp]
-    [vp}[lg}[l [n}420{n]}That you had never seen me—never heard{l]
+      [l [n}419{n]}As mine seem—each an immortality!{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}420{n]}That you had never seen me—never heard{l]
       [l [n}421{n]}My voice, and more than all had ne’er endured{l]
     {lg]
     [lg}
@@ -883,7 +883,7 @@
     {lg]
     [lg}
       [l [n}437{n]}And they will make one blessing which thou ne’er{l]
-      [l [n}438{n]}Didst imprecate for, on me,—death.{vp][vp} It were{l]
+      [l [n}438{n]}Didst imprecate for, on me,—death.{verse-para][verse-para} It were{l]
     {lg]
     [lg}
       [l [n}439{n]}A cruel punishment for one most cruel,{l]
@@ -928,7 +928,7 @@
       [l [n}459{n]}And didst speak thus … and thus … I live to show{l]
     {lg]
     [lg}
-      [l [n}460{n]}How much men bear and die not!{vp][vp} Thou wilt tell{l]
+      [l [n}460{n]}How much men bear and die not!{verse-para][verse-para} Thou wilt tell{l]
       [l [n}461{n]}With the grimace of hate, how horrible{l]
     {lg]
     [lg}
@@ -952,7 +952,7 @@
       [l [n}471{n]}But as love changes what it loveth not{l]
     {lg]
     [lg}
-      [l [n}472{n]}After long years and many trials.{vp][vp} How vain{l]
+      [l [n}472{n]}After long years and many trials.{verse-para][verse-para} How vain{l]
       [l [n}473{n]}Are words! I thought never to speak again,{l]
     {lg]
     [lg}
@@ -969,8 +969,8 @@
     {lg]
     [lg}
       [l [n}480{n]}And eats into it … blotting all things fair{l]
-      [l [n}481{n]}And wise and good which time had written there.{l]{lg]{vp]
-    [vp}[lg}[l [n}482{n]}Those who inflict must suffer, for they see{l]
+      [l [n}481{n]}And wise and good which time had written there.{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}482{n]}Those who inflict must suffer, for they see{l]
       [l [n}483{n]}The work of their own hearts, and this must be{l]
     {lg]
     [lg}
@@ -990,7 +990,7 @@
       [l [n}491{n]}Following it like its shadow, wilt thou bend{l]
     {lg]
     [lg}
-      [l [n}492{n]}No thought on my dead memory?{vp][vp} Alas, love!{l]
+      [l [n}492{n]}No thought on my dead memory?{verse-para][verse-para} Alas, love!{l]
       [l [n}493{n]}Fear me not … against thee I would not move{l]
     {lg]
     [lg}
@@ -1024,8 +1024,8 @@
     [lg}
       [l [n}508{n]}So let Oblivion hide this grief … the air{l]
       [l [n}509{n]}Closes upon my accents, as despair{l]
-      [l [n}510{n]}Upon my heart—let death upon despair!{q]{l]{lg]{vp]
-    [vp}[lg}[l [n}511{n]}He ceased, and overcome leant back awhile,{l]
+      [l [n}510{n]}Upon my heart—let death upon despair!{q]{l]{lg]{verse-para]
+    [verse-para}[lg}[l [n}511{n]}He ceased, and overcome leant back awhile,{l]
       [l [n}512{n]}Then rising, with a melancholy smile{l]
     {lg]
     [lg}
@@ -1095,8 +1095,8 @@
     {lg]
     [lg}
       [l [n}545{n]}Are cradled into poetry by wrong,{l]
-      [l [n}546{n]}They learn in suffering what they teach in song.{l]{q]{lg]{vp]
-    [vp}[lg}[l [n}547{n]}If I had been an unconnected man,{l]
+      [l [n}546{n]}They learn in suffering what they teach in song.{l]{q]{lg]{verse-para]
+    [verse-para}[lg}[l [n}547{n]}If I had been an unconnected man,{l]
       [l [n}548{n]}I, from this moment, should have formed some plan{l]
     {lg]
     [lg}
@@ -1166,7 +1166,7 @@
     {lg]
     [lg}
       [l [n}582{n]}The following morning, urged by my affairs,{l]
-      [l [n}583{n]}I left bright Venice.{vp] [vp}After many years{l]
+      [l [n}583{n]}I left bright Venice.{verse-para] [verse-para}After many years{l]
     {lg]
     [lg}
       [l [n}584{n]}And many changes I returned; the name{l]
@@ -1236,6 +1236,6 @@
     {lg]
     [lg}
       [l [n}616{n]}I urged and questioned still, she told me how{l]
-      [l [n}617{n]}All happened—but the cold world shall not know.{l]{lg]{vp]
+      [l [n}617{n]}All happened—but the cold world shall not know.{l]{lg]{verse-para]
   {body]
 {text]
