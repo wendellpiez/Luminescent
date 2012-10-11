@@ -1,0 +1,32 @@
+How to set up Textpad (the Windows text editor) to run LMNL validation as a tool.
+
+Other text editors will have analogous capabilities.
+
+=== Textpad setup --
+
+Set up for running Calabash from Textpad to validate LMNL syntax files:
+
+Under Preferences/Tools add "Validate LMNL syntax"
+
+Command: C:\Bin\xmlcalabash-1.0.0\calabash.bat
+  (or wherever Calabash is)
+
+Parameters: lmnl-file=file:/$UNIXFile C:\Users\Wendell\Projects\LMNL\luminescent\LMNL-wf-check.xpl
+  (or wherever your XPL file is)
+
+Initial folder: $FileDir
+
+Check the following:
+  Capture output
+  Sound alert when completed
+
+Regular expression to match output:
+  .*[^0-9]\([0-9]+\):\([0-9]+\).+\([A-Z]:[^ ]+\)
+
+Registers:
+  File: 3
+  Line: 1
+  Column: 2
+
+
+
