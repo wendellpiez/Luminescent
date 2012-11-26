@@ -10,15 +10,15 @@
   
   <xsl:variable name="labels" as="element()*">
 
-    <!--<label key="eclix">ECLIX</label>
-    <label key="clix">CLIX</label>-->
-    <xsl:if test="$sonnet-dir">
+    
+    <!--<label key="xLMNL" color="duskyrose">xLMNL</label>-->
+    <!--<xsl:if test="$sonnet-dir">
       <group>
         <label key="snapshot"/>
       </group>
     </xsl:if>
-    
-    <xsl:if test="not($sonnet-dir)">
+    -->
+    <!--<xsl:if test="not($sonnet-dir)">
       <group name="Luminescent">
       <label key="xLMNL" view="step1">step 1</label>
       <label key="xLMNL" view="step2">step 2</label>
@@ -35,10 +35,10 @@
       <label key="xLMNL" color="duskyrose">xLMNL</label>
       </group>
     </xsl:if>
-    
+    -->
     <group name="Results">
-
-      <label key="XML" color="lightsteelblue">XML</label>
+      <label key="xLMNL" color="duskyrose">xLMNL</label>
+    <!--<label key="XML" color="lightsteelblue">XML</label>-->
     <label type="-analysis.html" color="skyblue">Analysis</label>
     <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
     <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
@@ -66,9 +66,20 @@
 
   <xsl:variable name="lyrics" as="element()+">
     <basename>Easter1916</basename>
+    <basename>silkentent</basename>
+    <basename>hamlet-quote</basename>
     <basename>WinterNight</basename>
   </xsl:variable>
-
+  
+  <xsl:variable name="include" as="element()+">
+    <basename>PLfragment</basename>
+    <basename>hamlet-quote</basename>
+    <basename>silkentent</basename>
+    <basename>Easter1916</basename>
+    <basename>frankenstein</basename>
+    <basename>julian-and-maddalo</basename>
+  </xsl:variable>
+  
   <xsl:template match="/">
     <html>
       <body style="background-color: thistle">
@@ -76,13 +87,16 @@
           <!--<xsl:value-of select="$dir"/>
           <xsl:text>/*.xml</xsl:text>-->
           <xsl:text>LMNL syntax parsing: a demonstration</xsl:text></h1>
+        <h2>October 2012</h2>
         <xsl:comment>
           <xsl:text>$dir is </xsl:text>
           <xsl:value-of select="$dir"/>
         </xsl:comment>
         <table>
           <xsl:call-template name="table-header"/>
-          <xsl:apply-templates select="//dir:file[ends-with(@name,'lmnl')]"/>
+          <xsl:apply-templates select="//dir:file
+            [replace(@name,'\.lmnl$','')=$include]
+            [ends-with(@name,'lmnl')]"/>
         </table>
       </body>
     </html>

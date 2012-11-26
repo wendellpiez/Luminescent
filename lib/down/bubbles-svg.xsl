@@ -157,9 +157,7 @@
   <xsl:template match="f:text" mode="write-text">
     <xsl:variable name="line-range" select="$specs/f:text/@line"/>
     <!--<xsl:variable name="div-range" select="$specs/f:text/@div"/>-->
-    <xsl:variable name="font-size" select="($specs/f:text/f:font-size,'24')[1]"/>
-    <xsl:variable name="font-color" select="($specs/f:text/f:font-color,'black')[1]"/>
-    <xsl:variable name="indent" select="($specs/f:text/@indent,50)[1]"/>
+   <xsl:variable name="indent" select="($specs/f:text/@indent,50)[1]"/>
     
     <xsl:variable name="range-spec" select="$specs/f:styles/f:ranges[tokenize(.,'\s+')=$line-range]"/>
     <xsl:variable name="stroke" select="($range-spec/@stroke,'black')[1]"/>
@@ -172,23 +170,29 @@
     <xsl:variable name="line-count" select="count($line-ranges)"/>
     <xsl:variable name="last-y" select="$line-ranges[last()]/@end"/>
     
-    <xsl:for-each select="$line-ranges">
-      <!-- start-y and radius measure the extent of the range -->
-      <xsl:variable name="start-y" select="@start"/>
-      <xsl:variable name="radius" select="(@end - @start) div 2"/>
-      
-      <!-- line-count, last-y and y space the lines evenly, leaving a
+    <g fill="{($specs/f:text/f:font-color,'black')[1]}"
+      font-size="{($specs/f:text/f:font-size,'24')[1]}"
+      font-family="{($specs/f:text/f:font-family,'sans-serif')[1]}">
+
+      <xsl:for-each select="$line-ranges">
+        <!-- start-y and radius measure the extent of the range -->
+        <xsl:variable name="start-y" select="@start"/>
+        <xsl:variable name="radius" select="(@end - @start) div 2"/>
+        
+        <!-- line-count, last-y and y space the lines evenly, leaving a
            single line height for the divs -->
-      <xsl:variable name="y" select="(position() - 0.5) * ($last-y div $line-count)"/>
-      <!-- first drawing a line from the vertical position of this range to the
+        <xsl:variable name="y" select="(position() - 0.5) * ($last-y div $line-count)"/>
+        <!-- first drawing a line from the vertical position of this range to the
            text baseline -->
-      <path fill="none"  stroke="{$stroke}"
-        stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
-        d="M 0 {$start-y + $radius} L {$indent} {$y}"/>
-      <text fill="{$font-color}" font-size="{$font-size}" x="{$indent}" y="{$y}" >
-        <xsl:apply-templates select="key('spans-by-range',@ID)" mode="write"/>
-      </text>
-    </xsl:for-each>    
+        <path fill="none"  stroke="{$stroke}"
+          stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
+          d="M 0 {$start-y + $radius} L {$indent - 5} {$y}"/>
+        <text x="{$indent}" y="{$y}" >
+          <xsl:apply-templates select="key('spans-by-range',@ID)" mode="write"/>
+        </text>
+      </xsl:for-each>    
+      
+    </g>
   </xsl:template>
   
   <!--<xsl:template priority="2"
