@@ -44,7 +44,7 @@
       <ranges width="30" indent="75">phr</ranges>
       <ranges width="30" indent="105">s</ranges>
     </bars>
-    <discs indent="180">
+    <discs indent="220">
       <range label="none">verse-para</range>
       <range label="none">quatrain</range>
       <range label="none">tercet</range>
@@ -65,7 +65,7 @@
         </script>
         <script type="text/javascript">
 $(document).ready(function() {
-  $('.rangebar').hover(
+  $('.range-bar').hover(
     function(event) {
       /* scroll to the corresponding span,
          found by @class=this.id */
@@ -81,8 +81,8 @@ $(document).ready(function() {
     });
         </script>
         <style type="text/css">
-div#text    { margin-left:180px; color: white; font-size: 14pt;
-              width:280px }
+div#text    { margin-left:180px; color: white; font-size: 12pt;
+              width:320px }
 div.verse-para      { margin-top: 2ex }
 h3.title, h4.author { margin: 0px }
 h3.title { border-bottom: thin solid white }
@@ -187,7 +187,7 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
   <xsl:template match="l/x:span" mode="display">
     <span id="{generate-id(.)}"
       class="{string-join(
-      for $r in tokenize(@ranges,'\s+') return replace($r,'^R.','bar'),' ')}">
+      for $r in tokenize(@ranges,'\s+') return replace($r,'^R.','bar-'),' ')}">
       <xsl:apply-templates/>
     </span>
   </xsl:template>
@@ -202,9 +202,9 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
     <xsl:param name="stroke-width" select="1" as="xs:double"/>
     <xsl:param name="fill-opacity" select="0.2" as="xs:double"/>
     <set attributeName="fill-opacity" to="{$fill-opacity + 0.1}"
-      begin="{replace(@ID,'^R.','bar')}.mouseover"/>
+      begin="{replace(@ID,'^R.','bar-')}.mouseover"/>
     <set attributeName="fill-opacity" to="{$fill-opacity}"
-      begin="{replace(@ID,'^R.','bar')}.mouseout"/>
+      begin="{replace(@ID,'^R.','bar-')}.mouseout"/>
     <xsl:for-each select="key('spans-by-range',@ID,$lyric-xml)">
       <set attributeName="fill-opacity" to="{$fill-opacity + 0.1}"
         begin="{generate-id(.)}.mouseover"/>

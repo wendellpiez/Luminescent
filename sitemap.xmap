@@ -5,7 +5,7 @@
     <map:serializers default="xml">
       <map:serializer name="text"
         src="org.apache.cocoon.serialization.TextSerializer"
-        mime-type="text/plain" logger="sitemap.serializer.text">
+        mime-type="text/plain;charset=UTF-8" logger="sitemap.serializer.text">
         <encoding>UTF-8</encoding>
       </map:serializer>
       <map:serializer name="xhtml"

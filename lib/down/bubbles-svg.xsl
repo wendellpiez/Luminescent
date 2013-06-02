@@ -99,6 +99,7 @@
       
       <xsl:for-each select="$specs/f:discs/f:range">
         <xsl:variable name="spec" select="."/>
+        
         <xsl:variable name="style" select="$specs/f:styles/f:ranges[tokenize(.,'\s+') = current()]"/>
         <xsl:variable name="fill" select="($style/@color,'black')[1]"/>
         <xsl:variable name="fill-opacity" select="($style/@opacity,'0.2')[1]"/>
@@ -257,7 +258,7 @@
             
             <xsl:variable name="start-y" select="@start"/>
             <xsl:variable name="height" select="@end - @start"/>
-            <rect id="{replace(@ID,'^R.','bar')}" class="rangebar" title="{@name}"
+            <rect id="{replace(@ID,'^R.','bar-')}" class="range-bar" title="{@name}"
               x="{$indent}" y="{$start-y}"
               rx="4" ry="4"
               width="{$width}" height="{$height}" stroke="{$stroke}"
