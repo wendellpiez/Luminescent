@@ -1,0 +1,83 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# MarkOver: a transformation language for (x)LMNL
+
+# The metaphor is a mama bear licking her cub into shape.
+# Through a sequence of passes, a LMNL document is modified;
+# ranges may be added, removed and modified; their contents
+# may be kept in place or deleted; annotations may be added
+# or removed.
+
+start = e.transform
+
+e.transform = element transform {
+  e.let*,
+  e.pass+ }
+
+e.pass = element pass {
+  attribute scope { text }?,
+  e.let*,
+  (p.match-range | p.match-annotation)+
+}
+# Within a pass, where ranges and annotations are matched more
+# than once, subsequent matches override earlier ones. So
+# proceed in order from most general to most specific (or
+# avoid multiple matches on ranges or annotations within
+# a pass).
+
+e.let = element let {
+  a.name?,
+  (e.annotate+ |
+   p.insert ) }
+
+p.match-range = element match {
+  (attribute range { text } |
+   attribute regex { text } ),
+  e.let*,
+  p.insert?, (p.keep-range | e.drop), p.insert?
+ }
+
+# Ranges may be matched either explicitly (by the name
+# of a range) or implicitly (by a string match using
+# a regular expression), but not both. For conditional
+# matches, chain the process; e.g. match a regex in
+# one pass, mark it as a range, then in a subsequent
+# pass manipulate the ranges.
+
+p.match-annotation = element match {
+  (attribute annotation { text } ),
+  e.let*,
+  ( e.annotate+ |
+    e.drop ) }
+
+p.keep-range =
+  (e.keep |
+   element range {
+     a.name?,
+     e.annotate*,
+     p.insert?,
+     p.keep-range,
+     p.insert? } )
+
+e.range = element range {
+  attribute name { text }?,
+  e.annotate*,
+  p.insert? }
+
+e.annotate = element annotate {
+  a.name?,
+  e.annotate*,
+  p.insert }
+
+p.insert = (e.range | e.literal | e.eval | text )+
+
+e.keep = element keep { empty }
+
+e.drop = element drop { empty }
+
+e.literal = element literal { text }
+
+e.eval = element eval { attribute select { text } }
+
+a.name = attribute name { text }
+
