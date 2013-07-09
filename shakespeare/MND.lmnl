@@ -1,0 +1,2875 @@
+[lmnlTEI [projectHeader}TEI in LMNL, by Wendell Piez. The text below has been transposed from
+      TEI XML into LMNL syntax. Along the way, certain modifications have been made, with the result that 
+      not all encoding remains in the state described in the original header (reproduced below), which 
+      describes the XML source. This text is produced for purposes only of demonstrating an experimental 
+      text encoding; it is not for publication and all rights to its use remain with the Folger Library.{projectHeader]
+
+  [teiHeader 
+    [fileDesc 
+      [titleStmt}
+        [title}A Midsummer Night’s Dream{title]
+        [author}William Shakespeare{author]
+        [editor}Barbara A. Mowat{editor]
+        [editor}Paul Werstine{editor]
+        [respStmt}
+          [resp}Edited for XML and encoded by{resp]
+          [persName}Michael Poston{persName]
+          [persName}Rebecca Niles{persName]{respStmt]{titleStmt]
+      [editionStmt}
+        [edition [n}0.8{]}Beta version{edition]{editionStmt]
+      [publicationStmt}
+        [idno}MND{idno]
+        [publisher}Folger Shakespeare Library{publisher]
+        [address}
+          [addrLine}201 East Capitol Street, SE{addrLine]
+          [addrLine}Washington, DC 20003{addrLine]
+          [addrLine}http://www.folgerdigitaltexts.org{addrLine]
+          [addrLine}folgertexts@folger.edu{addrLine]{address]
+        [availability}
+          [licence [target}http://creativecommons.org/licenses/by-nc/3.0/deed.en_US{]}Distributed under a Creative Commons Attribution-NonCommercial 3.0 Unported License{licence]{availability]
+        [date}December, 2012{date]{publicationStmt]
+      [seriesStmt}
+        [title}Folger Digital Texts{title]{seriesStmt]
+      [sourceDesc}
+        [listWit}
+          [witness}
+            [biblStruct}
+              [monogr}
+                [author}William Shakespeare{author]
+                [title}A Midsummer Night’s Dream{title]
+                [editor}Barbara A. Mowat{editor]
+                [editor}Paul Werstine{editor]
+                [imprint}
+                  [pubPlace}New York{pubPlace]
+                  [publisher}Washington Square Press{publisher]
+                  [date}1993{date]{imprint]{monogr]{biblStruct]{witness]
+          [witness}Adobe Digital Edition{witness]
+          [witness}The current version of the base text{witness]{listWit]{sourceDesc]]
+    [encodingDesc 
+      [projectDesc}
+        [p}The Folger Digital Texts project makes the texts of the  Folger Shakespeare Library editions freely available for noncommercial use. The primary goal is to represent the source text faithfully, as simply as possible within the TEI P5 schema. Lineation and other typographic features from the print edition are reproduced, with he interpretations previously implicit in the print layout now made explicit in the encoding.{p]
+        [p}In addition, most elements are assigned a unique identifier. This facilitates our use of stand-off markup and provides the means for future works to point very specifically to words, lines, speeches, and arbitrary sections of the text.{p]
+        [p}Please note this project offers only the encoded text and textual notes (textual notes are forthcoming). For the explanatory notes, glosses, and illustrations, refer to the print edition and/or ebook published by Simon & Schuster.{p]{projectDesc]
+      [editorialDecl}
+        [correction}
+          [p}This XML document may include corrections and revisions made by the original Folger Edition editors. Where the text deviates from prior publications, the earlier readings are noted within critical apparatus entry tags.{p]{correction]
+        [quotation}
+          [p}Quotation marks (single and double quotes) are replaced with the [gi}q{gi] element, except when the quoted text refers to a name or title, in which case the [gi}name{gi] or [gi}title{gi] element is used. Apostrophes, as distinct from single quotes, are not tagged and are retained as-is within the text.{p]{quotation]
+        [hyphenation [eol}hard{]}
+          [p}Hyphenation is generally retained. Hyphenated words are considered to be a single word, enclosed within a single word tag ([gi}w{gi]).{p]
+          [p}For all end-of-line hyphenation, the word fragments are rejoined into a single [gi}w{gi] tag. Often, the word is placed on the line where the word begins. When this would affect lineation (e.g., when the second word fragment is the only element on its line), the word is moved to the next line.{p]
+          [p}Soft end-of-line hyphens (i.e., those added only because of the line break) are silently removed. Editors Barbara A. Mowat and Paul Werstine determine whether the hyphen should be retained.{p]{hyphenation]
+        [segmentation}
+          [p}Acts are enclosed in [gi}div1{gi] tags. Scenes are enclosed in [gi}div2{gi] tags. Prologues, epilogues, inductions, and choruses are tagged using either [gi}div1{gi] or [gi}div2{gi], whichever is most appropriate.{p]
+          [p}Page breaks from the print edition are included in [gi}pb{gi] tags.  Line breaks from the print edition are included in [gi}lb{gi] tags.{p]
+          [p}Speeches are enclosed in [gi}sp{gi] tags. Speech tags usually contain a speech prefix (in the [gi}speaker{gi] tag), and an anonymous block ([gi}ab{gi]) containing the text of the speech.{p]
+          [p}Stage Directions are enclosed within [gi}stage{gi] tags. They may occur within or between speeches.{p]
+          [p}Poems, songs, and letters are enclosed in [gi}seg{gi] tags, with the [att}type{att] attribute specifying the type. Segments split between speeches are linked through [att}next{att] and [att}prev{att] attributes. Songs that appear more separated from the text, which may or may not be attributable to a given speaker, may be enclosed in [gi}floatingText{gi] tags, which then contains the [gi}seg{gi] tag.{p]
+          [p}Foreign words and phrases are enclosed in [gi}foreign{gi] tags.{p]
+          [p}Words, spaces, and punctuation marks are enclosed in [gi}w{gi], [gi}c{gi], and [gi}pc{gi] tags respectively.{p]
+          [p}Lines (verse and prose) are not explicitly segmented. They are noted through stand-off markup.{p]{segmentation]
+        [interpretation}
+          [p}As much as possible, interpretations are separated from the base text. In other words, tags that offer non-essential interpretations point to, but do not enclose, [gi}w{gi], [gi}c{gi], and [gi}pc{gi] tags.{p]
+          [p}Lineation is determined by critical judgments, complicated by accidental features of publication. While this document marks the line breaks as they appear in the Folger editions, it is understood that other projects may wish to format the text differently. Therefore, the text itself is not enclosed in any kind of line tag ([gi}l{gi] or [gi}ab{gi]). Instead, the elements of a typographic line are combined using a [gi}join{gi] tag. Using [gi}join{gi] tags allows us to maintain the Folger line numbering system and offer additional information about the verse without imposing these features on the base text. Not insignificantly, this also helps to avoid overlapping hierarchies in the XML.{p]
+          [p}The [att}ana{att] attribute of the [gi}join{gi] tags designates the line as [val}verse{val], [val}prose{val], or [val}short{val]. Verse lines may use [att}prev{att] and [att}next{att] attributes to point to other typographic lines that complete the metrical line. When it is unclear how to combine an incomplete line into a full metrical line, or when it is unclear whether the line represents verse or prose, the line is designated as [val}short{val].{p]
+          [p}Identifying formal units of verse requires another interpretation. This document notes when stanzas are indicated in the edition, often by indentation. Couplets are not generally indented, and therefore, unless part of a larger formal structure, their presence is not always acknowledged.{p]
+          [p}Stanzas often occur in poems and songs, but they may also be found in conversational verse. Indentations might have been noted through [att}rend{att] attributes, but this is less useful than attempting to define the structure of the stanza. However, marking verse units through [gi}lg{gi] tags is not feasible, because the text is not enclosed in [gi}l{gi] tags. Using [gi}l{gi] tags only here would be inconsistent with our encoding elsewhere and would lead to further difficulties with overlapping hierarchies (quotes spanning lines, verse lines split between speakers, etc.).{p]
+          [p}Instead, pointers ([gi}ptr{gi] elements) link the typographic line (using the [gi}join{gi] tag) to a stanza definition. The [att}n{att] attribute notes the corresponding line within the stanza. If the line is split, more than one typographic line may share the same [att}n{att] attribute. The [att}prev{att] and [att}next{att] attributes point to the next lines in the stanza. Couplets are generally marked only when they appear near other {p]
+          [p}Identifying exactly who participates in a given stage direction requires another interpretation. Sometimes a participant is directly named, but often, only general or ambiguous directions are given. The [att}ana{att] attribute of the [gi}stage{gi] tag links the stage direction to the characters believed to be involved. The preference might be to use the [att}who{att] attribute, if TEI allowed this. Still, it is worth noting that judgment is involved. Ambiguity may be conveyed by linking to [gi}personGrp{gi] references. For example, it may be impossible to know how many attendants and servants are on stage, or whether the messenger in one scene is the same as the messenger in another.{p]{interpretation]{editorialDecl]
+      [tagsDecl}
+        [namespace [name}http://www.tei-c.org/ns/1.0{]}
+          [tagUsage [gi}pb{]}Marks the beginning of a page in the print edition. The [att}n{att] attribute gives the page number. The [att}spanTo{att] attribute gives the [att}xml:id{att] of a milestone element marking the end of the page.{tagUsage]
+          [tagUsage [gi}milestone{]}Marks the end of a page in the print edition. The [att}n{att] attribute gives the page number.  The [att}unit{att] attribute has the value [val}page{val].{tagUsage]
+          [tagUsage [gi}fw{]}Provides the act/scene header for the page, as given in the print edition. The [att}n{att] attribute gives the page number.  The [att}type{att] attribute has the value [val}header{val].{tagUsage]
+          [tagUsage [gi}lb{]}Marks a line break in the print edition.{tagUsage]
+          [tagUsage [gi}div1{]}Marks an act (or induction, prologue, epilogue). The [att}type{att] attribute gives the division type. The [att}n{att] attribute gives the canonical act number, where appropriate.{tagUsage]
+          [tagUsage [gi}div2{]}Marks a scene (or prologue, epilogue, chorus). The [att}type{att] attribute gives the division type. The [att}n{att] attribute gives the canonical scene number, where appropriate.{tagUsage]
+          [tagUsage [gi}head{]}Provides the act/scene/floatingText header, as given in the print edition.{tagUsage]
+          [tagUsage [gi}stage{]}Marks stage directions. The [att}n{att] attribute gives the stage direction line number. The [att}type{att] attribute identifies the type of stage direction, as follows:
+            [list}
+              [item}[val}entrance{val]: marks character entrances{item]
+              [item}[val}exit{val]: marks character exits. At the end of scenes (though not necessarily at the end of the play), dead characters are included in the exit direction{item]
+              [item}[val}delivery{val]: marks directions on how a character speaks (asides, speaking to a specific character, reading, singing, disguising a voice){item]
+              [item}[val}location{val]: marks where the character speaks ("within", "above"){item]
+              [item}[val}modifier{val]: usually marks a character in disguise (e.g., "as Balthazar"){item]
+              [item}[val}business{val]: any other action, whether performed by a character or not. Directions such as "flourish" and "thunder and lightning" are considered to be "business", since someone will have to make them happen{item]
+              [item}[val}dumbshow{val]: describes the action of a dumbshow{item]
+              [item}[val}mixed{val]: a stage direction that combines several of the above{item]{list]
+            The [att}ana{att] attribute identifies the characters associated with that stage direction.{tagUsage]
+          [tagUsage [gi}sp{]}Marks a speech within the text. The [att}who{att] attribute identifies the characters associated with that speech.{tagUsage]
+          [tagUsage [gi}speaker{]}Provides the speech prefix, as given in the print edition.{tagUsage]
+          [tagUsage [gi}ab{]}Within [gi}sp{gi] tags, contains the text of the speech.{tagUsage]
+          [tagUsage [gi}w{]}Marks a word in a speech, stage direction, speech prefix, or header. The [att}n{att] attribute gives the line number, where appropriate.{tagUsage]
+          [tagUsage [gi}c{]}Marks a space character in a speech, stage direction, speech prefix, or header. The [att}n{att] attribute gives the line number, where appropriate.{tagUsage]
+          [tagUsage [gi}pc{]}Marks a punctuation character in a speech, stage direction, speech prefix, or header. The [att}n{att] attribute gives the line number, where appropriate.{tagUsage]
+          [tagUsage [gi}gap{]}Marks editorial placeholders where words are missing or unclear in the primary text.{tagUsage]
+          [tagUsage [gi}join{]}Joins [gi}w{gi], [gi}c{gi], [gi}pc{gi] and [gi}anchor{gi] elements into a typographic line. The [att}n{att] attribute gives the line number. The [att}type{att] attribute has the value [val}line{val]. The [att}ana{att] attribute has the value [val}verse{val], [val}prose{val], or [val}short{val]. The [gi}prev{gi] and [gi}next{gi] attributes provide the means for reconstructing split verse lines.{tagUsage]
+          [tagUsage [gi}ptr{]}Creates a pointer for one or more [gi}w{gi], [gi}c{gi], [gi}pc{gi], and [gi}anchor{gi] elements, used to link them to analytical interpretations such as textual notes or stanza identification.{tagUsage]
+          [tagUsage [gi}seg{]}Often contains a song, poem, or letter, identified by its [att}type{att] attribute; or, if inside a [gi}w{gi] tag, identifies a word segment that may be quoted or emended.{tagUsage]
+          [tagUsage [gi}floatingText{]}Used sparingly to contain a song or poem that seems distinct from the surrounding text and may not be attributed to a specific speaker.{tagUsage]
+          [tagUsage [gi}q{]}Contains quoted sections of text.{tagUsage]
+          [tagUsage [gi}foreign{]}Marks non-English words. The [att}xml:lang{att] attribute identifies the foreign language, where appropriate.{tagUsage]
+          [tagUsage [gi}name{]}Marks a proper name that may be quoted or italicized in the text.{tagUsage]
+          [tagUsage [gi}title{]}Marks a title that may be quoted or italicized in the text.{tagUsage]
+          [tagUsage [gi}hi{]}Marks sections of text that are otherwise highlighted (generally italicized).{tagUsage]
+          [tagUsage [gi}anchor{]}Marks areas where content in a prior source text is not present in the current reading.{tagUsage]
+          [tagUsage [gi}app{]}Critical apparatus containing variant readings from prior publications.{tagUsage]{namespace]{tagsDecl]
+      [refsDecl}
+        [p}Words, spaces, and punctuation characters are numbered sequentially, incremented by 10.{p]
+        [p}Most other elements begin with an element-specific prefix, followed by a reference to the Folger Through Line Number, a sequential numbering of the numbered lines in the text. If an element is inline with play text, it has the same line number as the line where it begins. If it begins on a line following play text, a decimal number is appended and incremented as necessary. If it falls between a speech prefix and the play text, a ".0" is appended to the value of the following line number.{p]{refsDecl]
+      [variantEncoding [method}double-end-point{][location}internal{]]]
+    [profileDesc 
+      [langUsage}
+        [language [ident}en{]}English{language]
+        [language [ident}fr{]}French{language]
+        [language [ident}it{]}Italian{language]
+        [language [ident}la{]}Latin{language]
+        [language [ident}es{]}Spanish{language]{langUsage]
+      [particDesc}
+        [listPerson}
+          [person}
+            [persName}
+              [name}Hermia{name]{persName]
+            [sex [value}2{]}female{sex]{person]
+          [person}
+            [persName}
+              [name}Lysander{name]{persName]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Helena{name]{persName]
+            [sex [value}2{]}female{sex]{person]
+          [person}
+            [persName}
+              [name}Demetrius{name]{persName]
+            [sex [value}1{]}male{sex]{person]{listPerson]
+        [listPerson}
+          [person}
+            [persName}
+              [name}Theseus{name]{persName]
+            [state}
+              [p}duke of Athens{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Hippolyta{name]{persName]
+            [state}
+              [p}queen of the Amazons{p]{state]
+            [sex [value}2{]}female{sex]{person]
+          [person}
+            [persName}
+              [name}Egeus{name]{persName]
+            [state}
+              [p}father to Hermia{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Philostrate{name]{persName]
+            [state}
+              [p}master of the revels to Theseus{p]{state]
+            [sex [value}1{]}male{sex]{person]{listPerson]
+        [listPerson}
+          [person}
+            [persName}
+              [name}Nick Bottom{name]{persName]
+            [state}
+              [p}weaver{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Peter Quince{name]{persName]
+            [state}
+              [p}carpenter{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Francis Flute{name]{persName]
+            [state}
+              [p}bellows-mender{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Tom Snout{name]{persName]
+            [state}
+              [p}tinker{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Snug{name]{persName]
+            [state}
+              [p}joiner{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Robin Starveling{name]{persName]
+            [state}
+              [p}tailor{p]{state]
+            [sex [value}1{]}male{sex]{person]{listPerson]
+        [listPerson}
+          [person}
+            [persName}
+              [name}Oberon{name]{persName]
+            [state}
+              [p}king of the Fairies{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person}
+            [persName}
+              [name}Titania{name]{persName]
+            [state}
+              [p}queen of the Fairies{p]{state]
+            [sex [value}2{]}female{sex]{person]
+          [person}
+            [persName}
+              [name}Robin Goodfellow{name]{persName]
+            [state}
+              [p}a “puck,” or hobgoblin, in Oberon’s service{p]{state]
+            [sex [value}1{]}male{sex]{person]
+          [person [corresp}#FAIRIES{]}
+            [persName}
+              [name}A Fairy{name]{persName]
+            [state}
+              [p}in the service of Titania{p]{state]
+            [sex [value}2{]}female{sex]{person]
+          [listPerson}
+            [person [corresp}#FAIRIES{]}
+              [persName}
+                [name}Peaseblossom{name]{persName]
+              [sex [value}2{]}female{sex]{person]
+            [person [corresp}#FAIRIES{]}
+              [persName}
+                [name}Cobweb{name]{persName]
+              [sex [value}2{]}female{sex]{person]
+            [person [corresp}#FAIRIES{]}
+              [persName}
+                [name}Mote{name]{persName]
+              [sex [value}2{]}female{sex]{person]
+            [person [corresp}#FAIRIES{]}
+              [persName}
+                [name}Mustardseed{name]{persName]
+              [sex [value}2{]}female{sex]{person]{listPerson]{listPerson]
+        [listPerson}
+          [listPerson}
+            [personGrp]
+            [personGrp]{listPerson]
+          [listPerson}
+            [personGrp]
+            [person [corresp}#FAIRIES{]]
+            [person [corresp}#FAIRIES{]]{listPerson]{listPerson]{particDesc]]
+    [revisionDesc 
+      [change [when}2012-12-05{]}Released as Beta version.{change]]]}[text 
+        [title}A Midsummer Night’s Dream{title]}[body}
+[act [n}1{][head}ACT 1{head]}
+[scene [n}1{][head}Scene 1{head]}
+[stage [n}SD 1.1.0{][}Enter Theseus, Hippolyta, and Philostrate, with others.{]]  
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.1{]}Now, fair Hippolyta, our nuptial hour{line] 
+[line [n}1.1.2{]}Draws on apace. Four happy days bring in{line] 
+[line [n}1.1.3{]}Another moon. But, O, methinks how slow{line] 
+[line [n}1.1.4{]}This old moon wanes! She lingers my desires{line] 
+[line [n}1.1.5{]}Like to a stepdame or a dowager{line] 
+[line [n}1.1.6{]}Long withering out a young man’s revenue.{line] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]} 
+[line [n}1.1.7{]}Four days will quickly steep themselves in night;{line] 
+[line [n}1.1.8{]}Four nights will quickly dream away the time;{line] 
+[line [n}1.1.9{]}And then the moon, like to a silver bow{line] 
+[line [n}1.1.10{]}New-bent in heaven, shall behold the night{line] 
+[line [n}1.1.11{]}Of our solemnities. {sp] 
+[sp [speaker}THESEUS{speaker]}Go, Philostrate,{line] 
+[line [n}1.1.13{]}Stir up the Athenian youth to merriments.{line] 
+[line [n}1.1.14{]}Awake the pert and nimble spirit of mirth.{line] 
+[line [n}1.1.15{]}Turn melancholy forth to funerals;{line] 
+[line [n}1.1.16{]}The pale companion is not for our pomp.{line] 
+[stage [n}SD 1.1.16.1{][}Philostrate exits.{]] 
+[line [n}1.1.17{]}Hippolyta, I wooed thee with my sword{line] 
+[line [n}1.1.18{]}And won thy love doing thee injuries,{line] 
+[line [n}1.1.19{]}But I will wed thee in another key,{line] 
+[line [n}1.1.20{]}With pomp, with triumph, and with reveling.{line] {sp] 
+[stage [n}SD 1.1.20.1{][}Enter Egeus and his daughter Hermia, and Lysander   and Demetrius.{]]  
+[sp [speaker}EGEUS{speaker]} 
+[line [n}1.1.21{]}Happy be Theseus, our renownèd duke!{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.22{]}Thanks, good Egeus. What’s the news with thee?{line] {sp] 
+[sp [speaker}EGEUS{speaker]} 
+[line [n}1.1.23{]}Full of vexation come I, with complaint{line] 
+[line [n}1.1.24{]}Against my child, my daughter Hermia.—{line] 
+[line [n}1.1.25{]}Stand forth, Demetrius.—My noble lord,{line] 
+[line [n}1.1.26{]}This man hath my consent to marry her.—{line] 
+[line [n}1.1.27{]}Stand forth, Lysander.—And, my gracious duke,{line] 
+[line [n}1.1.28{]}This man hath bewitched the bosom of my child.—{line] 
+[line [n}1.1.29{]}Thou, thou, Lysander, thou hast given her rhymes{line] 
+[line [n}1.1.30{]}And interchanged love tokens with my child.{line] 
+[line [n}1.1.31{]}Thou hast by moonlight at her window sung{line] 
+[line [n}1.1.32{]}With feigning voice verses of feigning love{line] 
+[line [n}1.1.33{]}And stol’n the impression of her fantasy{line] 
+[line [n}1.1.34{]}With bracelets of thy hair, rings, gauds, conceits,{line] 
+[line [n}1.1.35{]}Knacks, trifles, nosegays, sweetmeats—messengers{line] 
+[line [n}1.1.36{]}Of strong prevailment in unhardened youth.{line] 
+[line [n}1.1.37{]}With cunning hast thou filched my daughter’s heart,{line] 
+[line [n}1.1.38{]}Turned her obedience (which is due to me){line] 
+[line [n}1.1.39{]}To stubborn harshness.—And, my gracious duke,{line] 
+[line [n}1.1.40{]}Be it so she will not here before your Grace{line] 
+[line [n}1.1.41{]}Consent to marry with Demetrius,{line] 
+[line [n}1.1.42{]}I beg the ancient privilege of Athens:{line] 
+[line [n}1.1.43{]}As she is mine, I may dispose of her,{line] 
+[line [n}1.1.44{]}Which shall be either to this gentleman{line] 
+[line [n}1.1.45{]}Or to her death, according to our law{line] 
+[line [n}1.1.46{]}Immediately provided in that case.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.47{]}What say you, Hermia? Be advised, fair maid.{line] 
+[line [n}1.1.48{]}To you, your father should be as a god,{line] 
+[line [n}1.1.49{]}One that composed your beauties, yea, and one{line] 
+[line [n}1.1.50{]}To whom you are but as a form in wax{line] 
+[line [n}1.1.51{]}By him imprinted, and within his power{line] 
+[line [n}1.1.52{]}To leave the figure or disfigure it.{line] 
+[line [n}1.1.53{]}Demetrius is a worthy gentleman.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.54{]}So is Lysander. {sp] 
+[sp [speaker}THESEUS{speaker]}In himself he is,{line] 
+[line [n}1.1.56{]}But in this kind, wanting your father’s voice,{line] 
+[line [n}1.1.57{]}The other must be held the worthier.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.58{]}I would my father looked but with my eyes.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.59{]}Rather your eyes must with his judgment look.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.60{]}I do entreat your Grace to pardon me.{line] 
+[line [n}1.1.61{]}I know not by what power I am made bold,{line] 
+[line [n}1.1.62{]}Nor how it may concern my modesty{line] 
+[line [n}1.1.63{]}In such a presence here to plead my thoughts;{line] 
+[line [n}1.1.64{]}But I beseech your Grace that I may know{line] 
+[line [n}1.1.65{]}The worst that may befall me in this case{line] 
+[line [n}1.1.66{]}If I refuse to wed Demetrius.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.67{]}Either to die the death, or to abjure{line] 
+[line [n}1.1.68{]}Forever the society of men.{line] 
+[line [n}1.1.69{]}Therefore, fair Hermia, question your desires,{line] 
+[line [n}1.1.70{]}Know of your youth, examine well your blood,{line] 
+[line [n}1.1.71{]}Whether (if you yield not to your father’s choice){line] 
+[line [n}1.1.72{]}You can endure the livery of a nun,{line] 
+[line [n}1.1.73{]}For aye to be in shady cloister mewed,{line] 
+[line [n}1.1.74{]}To live a barren sister all your life,{line] 
+[line [n}1.1.75{]}Chanting faint hymns to the cold fruitless moon.{line] 
+[line [n}1.1.76{]}Thrice-blessèd they that master so their blood{line] 
+[line [n}1.1.77{]}To undergo such maiden pilgrimage,{line] 
+[line [n}1.1.78{]}But earthlier happy is the rose distilled{line] 
+[line [n}1.1.79{]}Than that which, withering on the virgin thorn,{line] 
+[line [n}1.1.80{]}Grows, lives, and dies in single blessedness.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.81{]}So will I grow, so live, so die, my lord,{line] 
+[line [n}1.1.82{]}Ere I will yield my virgin patent up{line] 
+[line [n}1.1.83{]}Unto his lordship whose unwishèd yoke{line] 
+[line [n}1.1.84{]}My soul consents not to give sovereignty.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.85{]}Take time to pause, and by the next new moon{line] 
+[line [n}1.1.86{]}(The sealing day betwixt my love and me{line] 
+[line [n}1.1.87{]}For everlasting bond of fellowship),{line] 
+[line [n}1.1.88{]}Upon that day either prepare to die{line] 
+[line [n}1.1.89{]}For disobedience to your father’s will,{line] 
+[line [n}1.1.90{]}Or else to wed Demetrius, as he would,{line] 
+[line [n}1.1.91{]}Or on Diana’s altar to protest{line] 
+[line [n}1.1.92{]}For aye austerity and single life.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}1.1.93{]}Relent, sweet Hermia, and, Lysander, yield{line] 
+[line [n}1.1.94{]}Thy crazèd title to my certain right.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.95{]}You have her father’s love, Demetrius.{line] 
+[line [n}1.1.96{]}Let me have Hermia’s. Do you marry him.{line] {sp] 
+[sp [speaker}EGEUS{speaker]} 
+[line [n}1.1.97{]}Scornful Lysander, true, he hath my love;{line] 
+[line [n}1.1.98{]}And what is mine my love shall render him.{line] 
+[line [n}1.1.99{]}And she is mine, and all my right of her{line] 
+[line [n}1.1.100{]}I do estate unto Demetrius.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[stage [run-in] [n}SD 1.1.101.0{][}, to Theseus{]] 
+[line [n}1.1.101{]}I am, my lord, as well derived as he,{line] 
+[line [n}1.1.102{]}As well possessed. My love is more than his;{line] 
+[line [n}1.1.103{]}My fortunes every way as fairly ranked{line] 
+[line [n}1.1.104{]}(If not with vantage) as Demetrius’;{line] 
+[line [n}1.1.105{]}And (which is more than all these boasts can be){line] 
+[line [n}1.1.106{]}I am beloved of beauteous Hermia.{line] 
+[line [n}1.1.107{]}Why should not I then prosecute my right?{line] 
+[line [n}1.1.108{]}Demetrius, I’ll avouch it to his head,{line] 
+[line [n}1.1.109{]}Made love to Nedar’s daughter, Helena,{line] 
+[line [n}1.1.110{]}And won her soul; and she, sweet lady, dotes,{line] 
+[line [n}1.1.111{]}Devoutly dotes, dotes in idolatry,{line] 
+[line [n}1.1.112{]}Upon this spotted and inconstant man.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}1.1.113{]}I must confess that I have heard so much,{line] 
+[line [n}1.1.114{]}And with Demetrius thought to have spoke thereof;{line] 
+[line [n}1.1.115{]}But, being overfull of self-affairs,{line] 
+[line [n}1.1.116{]}My mind did lose it.—But, Demetrius, come,{line] 
+[line [n}1.1.117{]}And come, Egeus; you shall go with me.{line] 
+[line [n}1.1.118{]}I have some private schooling for you both.—{line] 
+[line [n}1.1.119{]}For you, fair Hermia, look you arm yourself{line] 
+[line [n}1.1.120{]}To fit your fancies to your father’s will,{line] 
+[line [n}1.1.121{]}Or else the law of Athens yields you up{line] 
+[line [n}1.1.122{]}(Which by no means we may extenuate){line] 
+[line [n}1.1.123{]}To death or to a vow of single life.—{line] 
+[line [n}1.1.124{]}Come, my Hippolyta. What cheer, my love?—{line] 
+[line [n}1.1.125{]}Demetrius and Egeus, go along.{line] 
+[line [n}1.1.126{]}I must employ you in some business{line] 
+[line [n}1.1.127{]}Against our nuptial, and confer with you{line] 
+[line [n}1.1.128{]}Of something nearly that concerns yourselves.{line] {sp] 
+[sp [speaker}EGEUS{speaker]} 
+[line [n}1.1.129{]}With duty and desire we follow you.{line] {sp] 
+[stage [n}SD 1.1.129.1{][}All but Hermia and Lysander exit.{]] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.130{]}How now, my love? Why is your cheek so pale?{line] 
+[line [n}1.1.131{]}How chance the roses there do fade so fast?{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.132{]}Belike for want of rain, which I could well{line] 
+[line [n}1.1.133{]}Beteem them from the tempest of my eyes.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.134{]}Ay me! For aught that I could ever read,{line] 
+[line [n}1.1.135{]}Could ever hear by tale or history,{line] 
+[line [n}1.1.136{]}The course of true love never did run smooth.{line] 
+[line [n}1.1.137{]}But either it was different in blood—{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.138{]}O cross! Too high to be enthralled to low.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.139{]}Or else misgraffèd in respect of years—{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.140{]}O spite! Too old to be engaged to young.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.141{]}Or else it stood upon the choice of friends—{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.142{]}O hell, to choose love by another’s eyes!{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.143{]}Or, if there were a sympathy in choice,{line] 
+[line [n}1.1.144{]}War, death, or sickness did lay siege to it,{line] 
+[line [n}1.1.145{]}Making it momentany as a sound,{line] 
+[line [n}1.1.146{]}Swift as a shadow, short as any dream,{line] 
+[line [n}1.1.147{]}Brief as the lightning in the collied night,{line] 
+[line [n}1.1.148{]}That, in a spleen, unfolds both heaven and earth,{line] 
+[line [n}1.1.149{]}And, ere a man hath power to say [q}Behold!{line]{q] 
+[line [n}1.1.150{]}The jaws of darkness do devour it up.{line] 
+[line [n}1.1.151{]}So quick bright things come to confusion.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.152{]}If then true lovers have been ever crossed,{line] 
+[line [n}1.1.153{]}It stands as an edict in destiny.{line] 
+[line [n}1.1.154{]}Then let us teach our trial patience{line] 
+[line [n}1.1.155{]}Because it is a customary cross,{line] 
+[line [n}1.1.156{]}As due to love as thoughts and dreams and sighs,{line] 
+[line [n}1.1.157{]}Wishes and tears, poor fancy’s followers.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.158{]}A good persuasion. Therefore, hear me, Hermia:{line] 
+[line [n}1.1.159{]}I have a widow aunt, a dowager{line] 
+[line [n}1.1.160{]}Of great revenue, and she hath no child.{line] 
+[line [n}1.1.161{]}From Athens is her house remote seven leagues,{line] 
+[line [n}1.1.162{]}And she respects me as her only son.{line] 
+[line [n}1.1.163{]}There, gentle Hermia, may I marry thee;{line] 
+[line [n}1.1.164{]}And to that place the sharp Athenian law{line] 
+[line [n}1.1.165{]}Cannot pursue us. If thou lovest me, then{line] 
+[line [n}1.1.166{]}Steal forth thy father’s house tomorrow night,{line] 
+[line [n}1.1.167{]}And in the wood a league without the town{line] 
+[line [n}1.1.168{]}(Where I did meet thee once with Helena{line] 
+[line [n}1.1.169{]}To do observance to a morn of May),{line] 
+[line [n}1.1.170{]}There will I stay for thee. {sp] 
+[sp [speaker}HERMIA{speaker]}My good Lysander,{line] 
+[line [n}1.1.172{]}I swear to thee by Cupid’s strongest bow,{line] 
+[line [n}1.1.173{]}By his best arrow with the golden head,{line] 
+[line [n}1.1.174{]}By the simplicity of Venus’ doves,{line] 
+[line [n}1.1.175{]}By that which knitteth souls and prospers loves,{line] 
+[line [n}1.1.176{]}And by that fire which burned the Carthage queen{line] 
+[line [n}1.1.177{]}When the false Trojan under sail was seen,{line] 
+[line [n}1.1.178{]}By all the vows that ever men have broke{line] 
+[line [n}1.1.179{]}(In number more than ever women spoke),{line] 
+[line [n}1.1.180{]}In that same place thou hast appointed me,{line] 
+[line [n}1.1.181{]}Tomorrow truly will I meet with thee.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.182{]}Keep promise, love. Look, here comes Helena.{line] {sp]  
+[stage [n}SD 1.1.182.1{][}Enter Helena.{]]  
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.183{]}Godspeed, fair Helena. Whither away?{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}1.1.184{]}Call you me [q}fair{q]? That [q}fair{q] again unsay.{line] 
+[line [n}1.1.185{]}Demetrius loves your fair. O happy fair!{line] 
+[line [n}1.1.186{]}Your eyes are lodestars and your tongue’s sweet air{line] 
+[line [n}1.1.187{]}More tunable than lark to shepherd’s ear{line] 
+[line [n}1.1.188{]}When wheat is green, when hawthorn buds appear.{line] 
+[line [n}1.1.189{]}Sickness is catching. O, were favor so!{line] 
+[line [n}1.1.190{]}Yours would I catch, fair Hermia, ere I go.{line] 
+[line [n}1.1.191{]}My ear should catch your voice, my eye your eye;{line] 
+[line [n}1.1.192{]}My tongue should catch your tongue’s sweet melody.{line] 
+[line [n}1.1.194{]}Were the world mine, Demetrius being bated,{line] 
+[line [n}1.1.195{]}The rest I’d give to be to you translated.{line] 
+[line [n}1.1.196{]}O, teach me how you look and with what art{line] 
+[line [n}1.1.197{]}You sway the motion of Demetrius’ heart!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.198{]}I frown upon him, yet he loves me still.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}1.1.199{]}O, that your frowns would teach my smiles such skill!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.201{]}I give him curses, yet he gives me love.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}1.1.202{]}O, that my prayers could such affection move!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.203{]}The more I hate, the more he follows me.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}1.1.204{]}The more I love, the more he hateth me.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.205{]}His folly, Helena, is no fault of mine.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}1.1.206{]}None but your beauty. Would that fault were mine!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.207{]}Take comfort: he no more shall see my face.{line] 
+[line [n}1.1.208{]}Lysander and myself will fly this place.{line] 
+[line [n}1.1.209{]}Before the time I did Lysander see{line] 
+[line [n}1.1.210{]}Seemed Athens as a paradise to me.{line] 
+[line [n}1.1.211{]}O, then, what graces in my love do dwell{line] 
+[line [n}1.1.212{]}That he hath turned a heaven unto a hell!{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.213{]}Helen, to you our minds we will unfold.{line] 
+[line [n}1.1.214{]}Tomorrow night when Phoebe doth behold{line] 
+[line [n}1.1.215{]}Her silver visage in the wat’ry glass,{line] 
+[line [n}1.1.216{]}Decking with liquid pearl the bladed grass{line] 
+[line [n}1.1.217{]}(A time that lovers’ flights doth still conceal),{line] 
+[line [n}1.1.218{]}Through Athens’ gates have we devised to steal.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}1.1.219{]}And in the wood where often you and I{line] 
+[line [n}1.1.220{]}Upon faint primrose beds were wont to lie,{line] 
+[line [n}1.1.221{]}Emptying our bosoms of their counsel sweet,{line] 
+[line [n}1.1.222{]}There my Lysander and myself shall meet,{line] 
+[line [n}1.1.223{]}And thence from Athens turn away our eyes{line] 
+[line [n}1.1.224{]}To seek new friends and stranger companies.{line] 
+[line [n}1.1.225{]}Farewell, sweet playfellow. Pray thou for us,{line] 
+[line [n}1.1.226{]}And good luck grant thee thy Demetrius.—{line] 
+[line [n}1.1.227{]}Keep word, Lysander. We must starve our sight{line] 
+[line [n}1.1.228{]}From lovers’ food till morrow deep midnight.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}1.1.229{]}I will, my Hermia.
+[stage [n}SD 1.1.229{][}Hermia exits.{]] Helena, adieu.{line] 
+[line [n}1.1.231{]}As you on him, Demetrius dote on you!{line] {sp] 
+[stage [n}SD 1.1.231.1{][}Lysander exits.{]] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}1.1.232{]}How happy some o’er other some can be!{line] 
+[line [n}1.1.233{]}Through Athens I am thought as fair as she.{line] 
+[line [n}1.1.234{]}But what of that? Demetrius thinks not so.{line] 
+[line [n}1.1.235{]}He will not know what all but he do know.{line] 
+[line [n}1.1.236{]}And, as he errs, doting on Hermia’s eyes,{line] 
+[line [n}1.1.237{]}So I, admiring of his qualities.{line] 
+[line [n}1.1.238{]}Things base and vile, holding no quantity,{line] 
+[line [n}1.1.239{]}Love can transpose to form and dignity.{line] 
+[line [n}1.1.240{]}Love looks not with the eyes but with the mind;{line] 
+[line [n}1.1.241{]}And therefore is winged Cupid painted blind.{line] 
+[line [n}1.1.242{]}Nor hath Love’s mind of any judgment taste.{line] 
+[line [n}1.1.243{]}Wings, and no eyes, figure unheedy haste.{line] 
+[line [n}1.1.244{]}And therefore is Love said to be a child{line] 
+[line [n}1.1.245{]}Because in choice he is so oft beguiled.{line] 
+[line [n}1.1.246{]}As waggish boys in game themselves forswear,{line] 
+[line [n}1.1.247{]}So the boy Love is perjured everywhere.{line] 
+[line [n}1.1.248{]}For, ere Demetrius looked on Hermia’s eyne,{line] 
+[line [n}1.1.249{]}He hailed down oaths that he was only mine;{line] 
+[line [n}1.1.250{]}And when this hail some heat from Hermia felt,{line] 
+[line [n}1.1.251{]}So he dissolved, and show’rs of oaths did melt.{line] 
+[line [n}1.1.252{]}I will go tell him of fair Hermia’s flight.{line] 
+[line [n}1.1.253{]}Then to the wood will he tomorrow night{line] 
+[line [n}1.1.254{]}Pursue her. And, for this intelligence{line] 
+[line [n}1.1.255{]}If I have thanks, it is a dear expense.{line] 
+[line [n}1.1.256{]}But herein mean I to enrich my pain,{line] 
+[line [n}1.1.257{]}To have his sight thither and back again.{line] {sp] 
+[stage [n}SD 1.1.257.1{][}She exits.{]] {scene] 
+[scene [n}2{][head}Scene 2{head]}
+[stage [n}SD 1.2.0{][}Enter Quince the carpenter, and Snug the joiner, and Bottom the weaver, and Flute the bellows-mender, and Snout the tinker, and Starveling the tailor.{]]  
+[sp [speaker}QUINCE{speaker]}
+[ab}Is all our company here?{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}You were best to call them generally, man by man, according to the scrip.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Here is the scroll of every man’s name which is thought fit, through all Athens, to play in our interlude before the Duke and the Duchess on his wedding day at night.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}First, good Peter Quince, say what the play treats on, then read the names of the actors, and so grow to a point.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Marry, our play is [title}The most lamentable comedy and most cruel death of Pyramus and Thisbe.{title]{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}A very good piece of work, I assure you, and a merry. Now, good Peter Quince, call forth your actors by the scroll. Masters, spread yourselves.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Answer as I call you. Nick Bottom, the weaver.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Ready. Name what part I am for, and proceed.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}You, Nick Bottom, are set down for Pyramus.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}What is Pyramus—a lover or a tyrant?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}A lover that kills himself most gallant for love.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}That will ask some tears in the true performing of it. If I do it, let the audience look to their eyes. I will move storms; I will condole in some measure. To the rest.—Yet my chief humor is for a tyrant. I could play Ercles rarely, or a part to tear a cat in, to make all split:  [poem}
+[line [n}1.2.29{]}The raging rocks{line] 
+[line [n}1.2.30{]}And shivering shocks{line] 
+[line [n}1.2.31{]}Shall break the locks{line] 
+[line [n}1.2.32{]}Of prison gates.{line] 
+[line [n}1.2.33{]}And Phibbus’ car{line] 
+[line [n}1.2.34{]}Shall shine from far{line] 
+[line [n}1.2.35{]}And make and mar{line] 
+[line [n}1.2.36{]}The foolish Fates.{line]{poem]  This was lofty. Now name the rest of the players. This is Ercles’ vein, a tyrant’s vein. A lover is more condoling.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Francis Flute, the bellows-mender.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}Here, Peter Quince.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Flute, you must take Thisbe on you.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}What is Thisbe—a wand’ring knight?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}It is the lady that Pyramus must love.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}Nay, faith, let not me play a woman. I have a beard coming.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}That’s all one. You shall play it in a mask, and you may speak as small as you will.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}An I may hide my face, let me play Thisbe too. I’ll speak in a monstrous little voice: [q}Thisne, Thisne!{q]—[q}Ah Pyramus, my lover dear! Thy Thisbe dear and lady dear!{q]{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}No, no, you must play Pyramus—and, Flute, you Thisbe.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Well, proceed.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Robin Starveling, the tailor.{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[ab}Here, Peter Quince.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Robin Starveling, you must play Thisbe’s mother.—Tom Snout, the tinker.{ab] {sp] 
+[sp [speaker}SNOUT{speaker]}
+[ab}Here, Peter Quince.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}You, Pyramus’ father.—Myself, Thisbe’s father.—Snug the joiner, you the lion’s part.— And I hope here is a play fitted.{ab] {sp] 
+[sp [speaker}SNUG{speaker]}
+[ab}Have you the lion’s part written? Pray you, if it be, give it me, for I am slow of study.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}You may do it extempore, for it is nothing but roaring.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Let me play the lion too. I will roar that I will do any man’s heart good to hear me. I will roar that I will make the Duke say [q}Let him roar again. Let him roar again!{q]{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}An you should do it too terribly, you would fright the Duchess and the ladies that they would shriek, and that were enough to hang us all.{ab] {sp] 
+[sp [speaker}ALL{speaker]}
+[ab}That would hang us, every mother’s son.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I grant you, friends, if you should fright the ladies out of their wits, they would have no more discretion but to hang us. But I will aggravate my voice so that I will roar you as gently as any sucking dove. I will roar you an ’twere any nightingale.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}You can play no part but Pyramus, for Pyramus is a sweet-faced man, a proper man as one shall see in a summer’s day, a most lovely gentlemanlike man. Therefore you must needs play  Pyramus.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Well, I will undertake it. What beard were I best to play it in?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Why, what you will.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I will discharge it in either your straw-color beard, your orange-tawny beard, your purple-in-grain beard, or your French-crown-color beard, your perfit yellow.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Some of your French crowns have no hair at all, and then you will play barefaced. But, masters, here are your parts,
+[stage [n}SD 1.2.95{][} giving out the parts,{]] and I am to entreat you, request you, and desire you[anchor][app [from}#a0055840{]}[rdg [wit}#print #ebook{]},{rdg]{app] to con them by tomorrow night and meet me in the palace wood, a mile without the town, by moonlight. There will we rehearse, for if we meet in the city, we shall be dogged with company and our devices known. In the meantime I will draw a bill of properties such as our play wants. I pray you fail me not.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}We will meet, and there we may rehearse most obscenely and courageously. Take pains. Be perfit. Adieu.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}At the Duke’s Oak we meet.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Enough. Hold, or cut bowstrings.{ab] {sp] 
+[stage [n}SD 1.2.107.1{][}They exit.{]] {scene] {act] 
+[act [n}2{][head}ACT 2{head]}
+[scene [n}1{][head}Scene 1{head]}
+[stage [n}SD 2.1.0{][}Enter a Fairy at one door and Robin Goodfellow at another.{]]  
+[sp [speaker}ROBIN{speaker]} 
+[line [n}2.1.1{]}How now, spirit? Whither wander you?{line] {sp] 
+[sp [speaker}FAIRY{speaker]} [poem}[line}Over hill, over dale,{line]
+[line}Thorough bush, thorough brier,{line]
+[line}Over park, over pale,{line]
+[line}Thorough flood, thorough fire;{line]
+[line}I do wander everywhere,{line]
+[line}Swifter than the moon’s sphere.{line]
+[line}And I serve the Fairy Queen,{line]
+[line}To dew her orbs upon the green.{line]
+[line}The cowslips tall her pensioners be;{line]
+[line}In their gold coats spots you see;{line]
+[line}Those be rubies, fairy favors;{line]
+[line}In those freckles live their savors.{line]{poem] 
+[line [n}2.1.14{]}I must go seek some dewdrops here{line] 
+[line [n}2.1.15{]}And hang a pearl in every cowslip’s ear.{line] 
+[line [n}2.1.16{]}Farewell, thou lob of spirits. I’ll be gone.{line] 
+[line [n}2.1.17{]}Our queen and all her elves come here anon.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}2.1.18{]}The King doth keep his revels here tonight.{line] 
+[line [n}2.1.19{]}Take heed the Queen come not within his sight,{line] 
+[line [n}2.1.20{]}For Oberon is passing fell and wrath{line] 
+[line [n}2.1.21{]}Because that she, as her attendant, hath{line] 
+[line [n}2.1.22{]}A lovely boy stolen from an Indian king;{line] 
+[line [n}2.1.23{]}She never had so sweet a changeling.{line] 
+[line [n}2.1.24{]}And jealous Oberon would have the child{line] 
+[line [n}2.1.25{]}Knight of his train, to trace the forests wild.{line] 
+[line [n}2.1.26{]}But she perforce withholds the lovèd boy,{line] 
+[line [n}2.1.27{]}Crowns him with flowers, and makes him all her joy.{line] 
+[line [n}2.1.29{]}And now they never meet in grove or green,{line] 
+[line [n}2.1.30{]}By fountain clear, or spangled starlight sheen,{line] 
+[line [n}2.1.31{]}But they do square, that all their elves for fear{line] 
+[line [n}2.1.32{]}Creep into acorn cups and hide them there.{line] {sp] 
+[sp [speaker}FAIRY{speaker]} 
+[line [n}2.1.33{]}Either I mistake your shape and making quite,{line] 
+[line [n}2.1.34{]}Or else you are that shrewd and knavish sprite{line] 
+[line [n}2.1.35{]}Called Robin Goodfellow. Are not you he{line] 
+[line [n}2.1.36{]}That frights the maidens of the villagery,{line] 
+[line [n}2.1.37{]}Skim milk, and sometimes labor in the quern{line] 
+[line [n}2.1.38{]}And bootless make the breathless huswife churn,{line] 
+[line [n}2.1.39{]}And sometime make the drink to bear no barm,{line] 
+[line [n}2.1.40{]}Mislead night wanderers, laughing at their harm?{line] 
+[line [n}2.1.41{]}Those that [q}Hobgoblin{q] call you, and [q}sweet Puck,{line]{q] 
+[line [n}2.1.42{]}You do their work, and they shall have good luck.{line] 
+[line [n}2.1.43{]}Are not you he? {sp] 
+[sp [speaker}ROBIN{speaker]}Thou speakest aright.{line] 
+[line [n}2.1.45{]}I am that merry wanderer of the night.{line] 
+[line [n}2.1.46{]}I jest to Oberon and make him smile{line] 
+[line [n}2.1.47{]}When I a fat and bean-fed horse beguile,{line] 
+[line [n}2.1.48{]}Neighing in likeness of a filly foal.{line] 
+[line [n}2.1.49{]}And sometime lurk I in a gossip’s bowl{line] 
+[line [n}2.1.50{]}In very likeness of a roasted crab,{line] 
+[line [n}2.1.51{]}And, when she drinks, against her lips I bob{line] 
+[line [n}2.1.52{]}And on her withered dewlap pour the ale.{line] 
+[line [n}2.1.53{]}The wisest aunt, telling the saddest tale,{line] 
+[line [n}2.1.54{]}Sometime for three-foot stool mistaketh me;{line] 
+[line [n}2.1.55{]}Then slip I from her bum, down topples she,{line] 
+[line [n}2.1.56{]}And [q}Tailor!{q] cries, and falls into a cough,{line] 
+[line [n}2.1.57{]}And then the whole choir hold their hips and loffe{line] 
+[line [n}2.1.58{]}And waxen in their mirth and neeze and swear{line] 
+[line [n}2.1.59{]}A merrier hour was never wasted there.{line] 
+[line [n}2.1.60{]}But room, fairy. Here comes Oberon.{line] {sp] 
+[sp [speaker}FAIRY{speaker]} 
+[line [n}2.1.61{]}And here my mistress. Would that he were gone!{line] {sp]  
+[stage [n}SD 2.1.61.1{][}Enter Oberon the King of Fairies at one door, with his train, and Titania the Queen at another, with hers.{]]  
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.62{]}Ill met by moonlight, proud Titania.{line] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}2.1.63{]}What, jealous Oberon? Fairies skip hence.{line] 
+[line [n}2.1.64{]}I have forsworn his bed and company.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.65{]}Tarry, rash wanton. Am not I thy lord?{line] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}2.1.66{]}Then I must be thy lady. But I know{line] 
+[line [n}2.1.67{]}When thou hast stolen away from Fairyland{line] 
+[line [n}2.1.68{]}And in the shape of Corin sat all day{line] 
+[line [n}2.1.69{]}Playing on pipes of corn and versing love{line] 
+[line [n}2.1.70{]}To amorous Phillida. Why art thou here,{line] 
+[line [n}2.1.71{]}Come from the farthest steep of India,{line] 
+[line [n}2.1.72{]}But that, forsooth, the bouncing Amazon,{line] 
+[line [n}2.1.73{]}Your buskined mistress and your warrior love,{line] 
+[line [n}2.1.74{]}To Theseus must be wedded, and you come{line] 
+[line [n}2.1.75{]}To give their bed joy and prosperity?{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.76{]}How canst thou thus for shame, Titania,{line] 
+[line [n}2.1.77{]}Glance at my credit with Hippolyta,{line] 
+[line [n}2.1.78{]}Knowing I know thy love to Theseus?{line] 
+[line [n}2.1.79{]}Didst not thou lead him through the glimmering night{line] 
+[line [n}2.1.81{]}From Perigouna, whom he ravishèd,{line] 
+[line [n}2.1.82{]}And make him with fair Aegles break his faith,{line] 
+[line [n}2.1.83{]}With Ariadne and Antiopa?{line] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}2.1.84{]}These are the forgeries of jealousy;{line] 
+[line [n}2.1.85{]}And never, since the middle summer’s spring,{line] 
+[line [n}2.1.86{]}Met we on hill, in dale, forest, or mead,{line] 
+[line [n}2.1.87{]}By pavèd fountain or by rushy brook,{line] 
+[line [n}2.1.88{]}Or in the beachèd margent of the sea,{line] 
+[line [n}2.1.89{]}To dance our ringlets to the whistling wind,{line] 
+[line [n}2.1.90{]}But with thy brawls thou hast disturbed our sport.{line] 
+[line [n}2.1.91{]}Therefore the winds, piping to us in vain,{line] 
+[line [n}2.1.92{]}As in revenge have sucked up from the sea{line] 
+[line [n}2.1.93{]}Contagious fogs, which, falling in the land,{line] 
+[line [n}2.1.94{]}Hath every pelting river made so proud{line] 
+[line [n}2.1.95{]}That they have overborne their continents.{line] 
+[line [n}2.1.96{]}The ox hath therefore stretched his yoke in vain,{line] 
+[line [n}2.1.97{]}The plowman lost his sweat, and the green corn{line] 
+[line [n}2.1.98{]}Hath rotted ere his youth attained a beard.{line] 
+[line [n}2.1.99{]}The fold stands empty in the drownèd field,{line] 
+[line [n}2.1.100{]}And crows are fatted with the murrain flock.{line] 
+[line [n}2.1.101{]}The nine-men’s-morris is filled up with mud,{line] 
+[line [n}2.1.102{]}And the quaint mazes in the wanton green,{line] 
+[line [n}2.1.103{]}For lack of tread, are undistinguishable.{line] 
+[line [n}2.1.104{]}The human mortals want their winter here.{line] 
+[line [n}2.1.105{]}No night is now with hymn or carol blessed.{line] 
+[line [n}2.1.106{]}Therefore the moon, the governess of floods,{line] 
+[line [n}2.1.107{]}Pale in her anger, washes all the air,{line] 
+[line [n}2.1.108{]}That rheumatic diseases do abound.{line] 
+[line [n}2.1.109{]}And thorough this distemperature we see{line] 
+[line [n}2.1.110{]}The seasons alter: hoary-headed frosts{line] 
+[line [n}2.1.111{]}Fall in the fresh lap of the crimson rose,{line] 
+[line [n}2.1.112{]}And on old Hiems’ thin and icy crown{line] 
+[line [n}2.1.113{]}An odorous chaplet of sweet summer buds{line] 
+[line [n}2.1.114{]}Is, as in mockery, set. The spring, the summer,{line] 
+[line [n}2.1.115{]}The childing autumn, angry winter, change{line] 
+[line [n}2.1.116{]}Their wonted liveries, and the mazèd world{line] 
+[line [n}2.1.117{]}By their increase now knows not which is which.{line] 
+[line [n}2.1.118{]}And this same progeny of evils comes{line] 
+[line [n}2.1.119{]}From our debate, from our dissension;{line] 
+[line [n}2.1.120{]}We are their parents and original.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.121{]}Do you amend it, then. It lies in you.{line] 
+[line [n}2.1.122{]}Why should Titania cross her Oberon?{line] 
+[line [n}2.1.123{]}I do but beg a little changeling boy{line] 
+[line [n}2.1.124{]}To be my henchman. {sp] 
+[sp [speaker}TITANIA{speaker]}Set your heart at rest:{line] 
+[line [n}2.1.126{]}The Fairyland buys not the child of me.{line] 
+[line [n}2.1.127{]}His mother was a vot’ress of my order,{line] 
+[line [n}2.1.128{]}And in the spicèd Indian air by night{line] 
+[line [n}2.1.129{]}Full often hath she gossiped by my side{line] 
+[line [n}2.1.130{]}And sat with me on Neptune’s yellow sands,{line] 
+[line [n}2.1.131{]}Marking th’ embarkèd traders on the flood,{line] 
+[line [n}2.1.132{]}When we have laughed to see the sails conceive{line] 
+[line [n}2.1.133{]}And grow big-bellied with the wanton wind;{line] 
+[line [n}2.1.134{]}Which she, with pretty and with swimming gait,{line] 
+[line [n}2.1.135{]}Following (her womb then rich with my young squire),{line] 
+[line [n}2.1.137{]}Would imitate and sail upon the land{line] 
+[line [n}2.1.138{]}To fetch me trifles and return again,{line] 
+[line [n}2.1.139{]}As from a voyage, rich with merchandise.{line] 
+[line [n}2.1.140{]}But she, being mortal, of that boy did die,{line] 
+[line [n}2.1.141{]}And for her sake do I rear up her boy,{line] 
+[line [n}2.1.142{]}And for her sake I will not part with him.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.143{]}How long within this wood intend you stay?{line] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}2.1.144{]}Perchance till after Theseus’ wedding day.{line] 
+[line [n}2.1.145{]}If you will patiently dance in our round{line] 
+[line [n}2.1.146{]}And see our moonlight revels, go with us.{line] 
+[line [n}2.1.147{]}If not, shun me, and I will spare your haunts.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.148{]}Give me that boy and I will go with thee.{line] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}2.1.149{]}Not for thy fairy kingdom. Fairies, away.{line] 
+[line [n}2.1.150{]}We shall chide downright if I longer stay.{line] {sp] 
+[stage [n}SD 2.1.150.1{][}Titania and her fairies exit.{]] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.151{]}Well, go thy way. Thou shalt not from this grove{line] 
+[line [n}2.1.152{]}Till I torment thee for this injury.—{line] 
+[line [n}2.1.153{]}My gentle Puck, come hither. Thou rememb’rest{line] 
+[line [n}2.1.154{]}Since once I sat upon a promontory{line] 
+[line [n}2.1.155{]}And heard a mermaid on a dolphin’s back{line] 
+[line [n}2.1.156{]}Uttering such dulcet and harmonious breath{line] 
+[line [n}2.1.157{]}That the rude sea grew civil at her song{line] 
+[line [n}2.1.158{]}And certain stars shot madly from their spheres{line] 
+[line [n}2.1.159{]}To hear the sea-maid’s music. {sp] 
+[sp [speaker}ROBIN{speaker]}I remember.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.161{]}That very time I saw (but thou couldst not),{line] 
+[line [n}2.1.162{]}Flying between the cold moon and the earth,{line] 
+[line [n}2.1.163{]}Cupid all armed. A certain aim he took{line] 
+[line [n}2.1.164{]}At a fair vestal thronèd by the west,{line] 
+[line [n}2.1.165{]}And loosed his love-shaft smartly from his bow{line] 
+[line [n}2.1.166{]}As it should pierce a hundred thousand hearts.{line] 
+[line [n}2.1.167{]}But I might see young Cupid’s fiery shaft{line] 
+[line [n}2.1.168{]}Quenched in the chaste beams of the wat’ry moon,{line] 
+[line [n}2.1.169{]}And the imperial vot’ress passèd on{line] 
+[line [n}2.1.170{]}In maiden meditation, fancy-free.{line] 
+[line [n}2.1.171{]}Yet marked I where the bolt of Cupid fell.{line] 
+[line [n}2.1.172{]}It fell upon a little western flower,{line] 
+[line [n}2.1.173{]}Before, milk-white, now purple with love’s wound,{line] 
+[line [n}2.1.174{]}And maidens call it [q}love-in-idleness.{line]{q] 
+[line [n}2.1.175{]}Fetch me that flower; the herb I showed thee once.{line] 
+[line [n}2.1.176{]}The juice of it on sleeping eyelids laid{line] 
+[line [n}2.1.177{]}Will make or man or woman madly dote{line] 
+[line [n}2.1.178{]}Upon the next live creature that it sees.{line] 
+[line [n}2.1.179{]}Fetch me this herb, and be thou here again{line] 
+[line [n}2.1.180{]}Ere the leviathan can swim a league.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}2.1.181{]}I’ll put a girdle round about the Earth{line][app [from}#w0085440{]}[rdg [wit}#print #ebook{]}earth{rdg]{app] 
+[line [n}2.1.182{]}In forty minutes. {sp]
+[stage [n}SD 2.1.182{][}He exits.{]] 
+[sp [speaker}OBERON{speaker]}Having once this juice,{line] 
+[line [n}2.1.184{]}I’ll watch Titania when she is asleep{line] 
+[line [n}2.1.185{]}And drop the liquor of it in her eyes.{line] 
+[line [n}2.1.186{]}The next thing then she, waking, looks upon{line] 
+[line [n}2.1.187{]}(Be it on lion, bear, or wolf, or bull,{line] 
+[line [n}2.1.188{]}On meddling monkey, or on busy ape){line] 
+[line [n}2.1.189{]}She shall pursue it with the soul of love.{line] 
+[line [n}2.1.190{]}And ere I take this charm from off her sight{line] 
+[line [n}2.1.191{]}(As I can take it with another herb),{line] 
+[line [n}2.1.192{]}I’ll make her render up her page to me.{line] 
+[line [n}2.1.193{]}But who comes here? I am invisible,{line] 
+[line [n}2.1.194{]}And I will overhear their conference.{line] {sp]  
+[stage [n}SD 2.1.194.1{][}Enter Demetrius, Helena following him.{]]  
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.1.195{]}I love thee not; therefore pursue me not.{line] 
+[line [n}2.1.196{]}Where is Lysander and fair Hermia?{line] 
+[line [n}2.1.197{]}The one I’ll stay; the other stayeth me.{line] 
+[line [n}2.1.198{]}Thou told’st me they were stol’n unto this wood,{line] 
+[line [n}2.1.199{]}And here am I, and wood within this wood{line] 
+[line [n}2.1.200{]}Because I cannot meet my Hermia.{line] 
+[line [n}2.1.201{]}Hence, get thee gone, and follow me no more.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.1.202{]}You draw me, you hard-hearted adamant!{line] 
+[line [n}2.1.203{]}But yet you draw not iron, for my heart{line] 
+[line [n}2.1.204{]}Is true as steel. Leave you your power to draw,{line] 
+[line [n}2.1.205{]}And I shall have no power to follow you.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.1.206{]}Do I entice you? Do I speak you fair?{line] 
+[line [n}2.1.207{]}Or rather do I not in plainest truth{line] 
+[line [n}2.1.208{]}Tell you I do not, nor I cannot love you?{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.1.209{]}And even for that do I love you the more.{line] 
+[line [n}2.1.210{]}I am your spaniel, and, Demetrius,{line] 
+[line [n}2.1.211{]}The more you beat me I will fawn on you.{line] 
+[line [n}2.1.212{]}Use me but as your spaniel: spurn me, strike me,{line] 
+[line [n}2.1.213{]}Neglect me, lose me; only give me leave{line] 
+[line [n}2.1.214{]}(Unworthy as I am) to follow you.{line] 
+[line [n}2.1.215{]}What worser place can I beg in your love{line] 
+[line [n}2.1.216{]}(And yet a place of high respect with me){line] 
+[line [n}2.1.217{]}Than to be usèd as you use your dog?{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.1.218{]}Tempt not too much the hatred of my spirit,{line] 
+[line [n}2.1.219{]}For I am sick when I do look on thee.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.1.220{]}And I am sick when I look not on you.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.1.221{]}You do impeach your modesty too much{line] 
+[line [n}2.1.222{]}To leave the city and commit yourself{line] 
+[line [n}2.1.223{]}Into the hands of one that loves you not,{line] 
+[line [n}2.1.224{]}To trust the opportunity of night{line] 
+[line [n}2.1.225{]}And the ill counsel of a desert place{line] 
+[line [n}2.1.226{]}With the rich worth of your virginity.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.1.227{]}Your virtue is my privilege. For that{line] 
+[line [n}2.1.228{]}It is not night when I do see your face,{line] 
+[line [n}2.1.229{]}Therefore I think I am not in the night.{line] 
+[line [n}2.1.230{]}Nor doth this wood lack worlds of company,{line] 
+[line [n}2.1.231{]}For you, in my respect, are all the world.{line] 
+[line [n}2.1.232{]}Then, how can it be said I am alone{line] 
+[line [n}2.1.233{]}When all the world is here to look on me?{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.1.234{]}I’ll run from thee and hide me in the brakes{line] 
+[line [n}2.1.235{]}And leave thee to the mercy of wild beasts.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.1.236{]}The wildest hath not such a heart as you.{line] 
+[line [n}2.1.237{]}Run when you will. The story shall be changed:{line] 
+[line [n}2.1.238{]}Apollo flies and Daphne holds the chase;{line] 
+[line [n}2.1.239{]}The dove pursues the griffin; the mild hind{line] 
+[line [n}2.1.240{]}Makes speed to catch the tiger. Bootless speed{line] 
+[line [n}2.1.241{]}When cowardice pursues and valor flies!{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.1.242{]}I will not stay thy questions. Let me go,{line] 
+[line [n}2.1.243{]}Or if thou follow me, do not believe{line] 
+[line [n}2.1.244{]}But I shall do thee mischief in the wood.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.1.245{]}Ay, in the temple, in the town, the field,{line] 
+[line [n}2.1.246{]}You do me mischief. Fie, Demetrius!{line] 
+[line [n}2.1.247{]}Your wrongs do set a scandal on my sex.{line] 
+[line [n}2.1.248{]}We cannot fight for love as men may do.{line] 
+[line [n}2.1.249{]}We should be wooed and were not made to woo.{line] 
+[stage [n}SD 2.1.249.1{][}Demetrius exits.{]] 
+[line [n}2.1.250{]}I’ll follow thee and make a heaven of hell{line] 
+[line [n}2.1.251{]}To die upon the hand I love so well.{line] {sp]
+[stage [n}SD 2.1.251{][}Helena exits.{]] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}2.1.252{]}Fare thee well, nymph. Ere he do leave this grove,{line] 
+[line [n}2.1.253{]}Thou shalt fly him, and he shall seek thy love.{line]  
+[stage [n}SD 2.1.253.1{][}Enter Robin.{]]  
+[line [n}2.1.254{]}Hast thou the flower there? Welcome, wanderer.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}2.1.255{]}Ay, there it is. {sp] 
+[sp [speaker}OBERON{speaker]}I pray thee give it me.{line] 
+[stage [n}SD 2.1.256.1{][}Robin gives him the flower.{]] 
+[line [n}2.1.257{]}I know a bank where the wild thyme blows,{line] 
+[line [n}2.1.258{]}Where oxlips and the nodding violet grows,{line] 
+[line [n}2.1.259{]}Quite overcanopied with luscious woodbine,{line] 
+[line [n}2.1.260{]}With sweet muskroses, and with eglantine.{line] 
+[line [n}2.1.261{]}There sleeps Titania sometime of the night,{line] 
+[line [n}2.1.262{]}Lulled in these flowers with dances and delight.{line] 
+[line [n}2.1.263{]}And there the snake throws her enameled skin,{line] 
+[line [n}2.1.264{]}Weed wide enough to wrap a fairy in.{line] 
+[line [n}2.1.265{]}And with the juice of this I’ll streak her eyes{line] 
+[line [n}2.1.266{]}And make her full of hateful fantasies.{line] 
+[line [n}2.1.267{]}Take thou some of it, and seek through this grove.{line] 
+[stage [n}SD 2.1.267.1{][}He gives Robin part of the flower.{]] 
+[line [n}2.1.268{]}A sweet Athenian lady is in love{line] 
+[line [n}2.1.269{]}With a disdainful youth. Anoint his eyes,{line] 
+[line [n}2.1.270{]}But do it when the next thing he espies{line] 
+[line [n}2.1.271{]}May be the lady. Thou shalt know the man{line] 
+[line [n}2.1.272{]}By the Athenian garments he hath on.{line] 
+[line [n}2.1.273{]}Effect it with some care, that he may prove{line] 
+[line [n}2.1.274{]}More fond on her than she upon her love.{line] 
+[line [n}2.1.275{]}And look thou meet me ere the first cock crow.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}2.1.276{]}Fear not, my lord. Your servant shall do so.{line] {sp] 
+[stage [n}SD 2.1.276.1{][}They exit.{]] {scene]
+[scene [n}2{][head}Scene 2{head]}
+[stage [n}SD 2.2.0{][}Enter Titania, Queen of Fairies, with her train.{]]  
+[sp [speaker}TITANIA{speaker]} 
+[line [n}2.2.1{]}Come, now a roundel and a fairy song;{line] 
+[line [n}2.2.2{]}Then, for the third part of a minute, hence—{line] 
+[line [n}2.2.3{]}Some to kill cankers in the muskrose buds,{line] 
+[line [n}2.2.4{]}Some war with reremice for their leathern wings{line] 
+[line [n}2.2.5{]}To make my small elves coats, and some keep back{line] 
+[line [n}2.2.6{]}The clamorous owl that nightly hoots and wonders{line] 
+[line [n}2.2.7{]}At our quaint spirits. Sing me now asleep.{line] 
+[line [n}2.2.8{]}Then to your offices and let me rest.{line] {sp]
+[stage [n}SD 2.2.8{][}She lies down.{]]  [floatingText}[body}
+[stage [n}SD 2.2.8.1{][}Fairies sing.{]] 
+[sp [speaker}FIRST FAIRY{speaker]}[song} 
+[line [n}2.2.9{]}You spotted snakes with double tongue,{line] 
+[line [n}2.2.10{]}Thorny hedgehogs, be not seen.{line] 
+[line [n}2.2.11{]}Newts and blindworms, do no wrong,{line] 
+[line [n}2.2.12{]}Come not near our Fairy Queen.{line]{song] {sp] 
+[sp [speaker}CHORUS{speaker]}[song} 
+[line [n}2.2.13{]}Philomel, with melody{line] 
+[line [n}2.2.14{]}Sing in our sweet lullaby.{line] 
+[line [n}2.2.15{]}Lulla, lulla, lullaby, lulla, lulla, lullaby.{line] 
+[line [n}2.2.16{]}Never harm{line] 
+[line [n}2.2.17{]}Nor spell nor charm{line] 
+[line [n}2.2.18{]}Come our lovely lady nigh.{line] 
+[line [n}2.2.19{]}So good night, with lullaby.{line]{song] {sp] 
+[sp [speaker}FIRST FAIRY{speaker]}[song} 
+[line [n}2.2.20{]}Weaving spiders, come not here.{line] 
+[line [n}2.2.21{]}Hence, you long-legged spinners, hence.{line] 
+[line [n}2.2.22{]}Beetles black, approach not near.{line] 
+[line [n}2.2.23{]}Worm nor snail, do no offence.{line]{song] {sp] 
+[sp [speaker}CHORUS{speaker]}[song} 
+[line [n}2.2.24{]}Philomel, with melody{line] 
+[line [n}2.2.25{]}Sing in our sweet lullaby.{line] 
+[line [n}2.2.26{]}Lulla, lulla, lullaby, lulla, lulla, lullaby.{line] 
+[line [n}2.2.27{]}Never harm{line] 
+[line [n}2.2.28{]}Nor spell nor charm{line] 
+[line [n}2.2.29{]}Come our lovely lady nigh.{line] 
+[line [n}2.2.30{]}So good night, with lullaby.{line]{song] {sp]{body]{floatingText] 
+[stage [n}SD 2.2.30.1{][}Titania sleeps.{]] 
+[sp [speaker}SECOND FAIRY{speaker]} 
+[line [n}2.2.31{]}Hence, away! Now all is well.{line] 
+[line [n}2.2.32{]}One aloof stand sentinel.{line] {sp]
+[stage [n}SD 2.2.32{][} Fairies exit.{]]  
+[stage [n}SD 2.2.32.1{][}
+  [stage [n}SD 2.2.32.1{][}Enter Oberon,{]] 
+  [stage [n}SD 2.2.32.1{][}who anoints Titania’s eyelids with the nectar.{]]{]]  
+[sp [speaker}OBERON{speaker]} [poem}
+[line [n}2.2.33{]}What thou seest when thou dost wake,{line] 
+[line [n}2.2.34{]}Do it for thy true love take.{line] 
+[line [n}2.2.35{]}Love and languish for his sake.{line] 
+[line [n}2.2.36{]}Be it ounce, or cat, or bear,{line] 
+[line [n}2.2.37{]}Pard, or boar with bristled hair,{line] 
+[line [n}2.2.38{]}In thy eye that shall appear{line] 
+[line [n}2.2.39{]}When thou wak’st, it is thy dear.{line] 
+[line [n}2.2.40{]}Wake when some vile thing is near.{line]{poem] {sp]
+[stage [n}SD 2.2.40{][}He exits.{]]  
+[stage [n}SD 2.2.40.1{][}Enter Lysander and Hermia.{]]  
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}2.2.41{]}Fair love, you faint with wand’ring in the wood.{line] 
+[line [n}2.2.42{]}And, to speak troth, I have forgot our way.{line] 
+[line [n}2.2.43{]}We’ll rest us, Hermia, if you think it good,{line] 
+[line [n}2.2.44{]}And tarry for the comfort of the day.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}2.2.45{]}Be it so, Lysander. Find you out a bed,{line] 
+[line [n}2.2.46{]}For I upon this bank will rest my head.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}2.2.47{]}One turf shall serve as pillow for us both;{line] 
+[line [n}2.2.48{]}One heart, one bed, two bosoms, and one troth.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}2.2.49{]}Nay, good Lysander. For my sake, my dear,{line] 
+[line [n}2.2.50{]}Lie further off yet. Do not lie so near.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}2.2.51{]}O, take the sense, sweet, of my innocence!{line] 
+[line [n}2.2.52{]}Love takes the meaning in love’s conference.{line] 
+[line [n}2.2.53{]}I mean that my heart unto yours is knit,{line] 
+[line [n}2.2.54{]}So that but one heart we can make of it;{line] 
+[line [n}2.2.55{]}Two bosoms interchainèd with an oath—{line] 
+[line [n}2.2.56{]}So then two bosoms and a single troth.{line] 
+[line [n}2.2.57{]}Then by your side no bed-room me deny,{line] 
+[line [n}2.2.58{]}For lying so, Hermia, I do not lie.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}2.2.59{]}Lysander riddles very prettily.{line] 
+[line [n}2.2.60{]}Now much beshrew my manners and my pride{line] 
+[line [n}2.2.61{]}If Hermia meant to say Lysander lied.{line] 
+[line [n}2.2.62{]}But, gentle friend, for love and courtesy,{line] 
+[line [n}2.2.63{]}Lie further off in human modesty.{line] 
+[line [n}2.2.64{]}Such separation, as may well be said,{line] 
+[line [n}2.2.65{]}Becomes a virtuous bachelor and a maid.{line] 
+[line [n}2.2.66{]}So far be distant; and good night, sweet friend.{line] 
+[line [n}2.2.67{]}Thy love ne’er alter till thy sweet life end!{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} [q}
+[line [n}2.2.68{]}Amen, amen{q] to that fair prayer, say I,{line] 
+[line [n}2.2.69{]}And then end life when I end loyalty!{line] 
+[line [n}2.2.70{]}Here is my bed. Sleep give thee all his rest!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}2.2.71{]}With half that wish the wisher’s eyes be pressed!{line] {sp] 
+[stage [n}SD 2.2.71.1{][}They sleep.{]]  
+[stage [n}SD 2.2.71.2{][}Enter Robin.{]]  
+[sp [speaker}ROBIN{speaker]} [poem}
+[line [n}2.2.72{]}Through the forest have I gone,{line] 
+[line [n}2.2.73{]}But Athenian found I none{line] 
+[line [n}2.2.74{]}On whose eyes I might approve{line] 
+[line [n}2.2.75{]}This flower’s force in stirring love.{line] 
+[stage [n}SD 2.2.75.1{][}He sees Lysander.{]] 
+[line [n}2.2.76{]}Night and silence! Who is here?{line] 
+[line [n}2.2.77{]}Weeds of Athens he doth wear.{line] 
+[line [n}2.2.78{]}This is he my master said{line] 
+[line [n}2.2.79{]}Despisèd the Athenian maid.{line] 
+[line [n}2.2.80{]}And here the maiden, sleeping sound{line] 
+[line [n}2.2.81{]}On the dank and dirty ground.{line] 
+[line [n}2.2.82{]}Pretty soul, she durst not lie{line] 
+[line [n}2.2.83{]}Near this lack-love, this kill-courtesy.—{line] 
+[line [n}2.2.84{]}Churl, upon thy eyes I throw{line] 
+[line [n}2.2.85{]}All the power this charm doth owe.{line] 
+[stage [n}SD 2.2.85.1{][}He anoints Lysander’s eyelids with the nectar.{]] 
+[line [n}2.2.86{]}When thou wak’st, let love forbid{line] 
+[line [n}2.2.87{]}Sleep his seat on thy eyelid.{line] 
+[line [n}2.2.88{]}So, awake when I am gone,{line] 
+[line [n}2.2.89{]}For I must now to Oberon.{line]{poem] {sp]
+[stage [n}SD 2.2.89{][}He exits.{]]  
+[stage [n}SD 2.2.89.1{][}Enter Demetrius and Helena, running.{]]  
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.2.90{]}Stay, though thou kill me, sweet Demetrius.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.2.91{]}I charge thee, hence, and do not haunt me thus.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.2.92{]}O, wilt thou darkling leave me? Do not so.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}2.2.93{]}Stay, on thy peril. I alone will go.{line] {sp]
+[stage [n}SD 2.2.93{][}Demetrius exits.{]] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.2.94{]}O, I am out of breath in this fond chase.{line] 
+[line [n}2.2.95{]}The more my prayer, the lesser is my grace.{line] 
+[line [n}2.2.96{]}Happy is Hermia, wheresoe’er she lies,{line] 
+[line [n}2.2.97{]}For she hath blessèd and attractive eyes.{line] 
+[line [n}2.2.98{]}How came her eyes so bright? Not with salt tears.{line] 
+[line [n}2.2.99{]}If so, my eyes are oftener washed than hers.{line] 
+[line [n}2.2.100{]}No, no, I am as ugly as a bear,{line] 
+[line [n}2.2.101{]}For beasts that meet me run away for fear.{line] 
+[line [n}2.2.102{]}Therefore no marvel though Demetrius{line] 
+[line [n}2.2.103{]}Do as a monster fly my presence thus.{line] 
+[line [n}2.2.104{]}What wicked and dissembling glass of mine{line] 
+[line [n}2.2.105{]}Made me compare with Hermia’s sphery eyne?{line] 
+[line [n}2.2.106{]}But who is here? Lysander, on the ground!{line] 
+[line [n}2.2.107{]}Dead or asleep? I see no blood, no wound.—{line] 
+[line [n}2.2.108{]}Lysander, if you live, good sir, awake.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[stage [run-in] [n}SD 2.2.109.0{][}, waking up{]] 
+[line [n}2.2.109{]}And run through fire I will for thy sweet sake.{line] 
+[line [n}2.2.110{]}Transparent Helena! Nature shows art,{line] 
+[line [n}2.2.111{]}That through thy bosom makes me see thy heart.{line] 
+[line [n}2.2.112{]}Where is Demetrius? O, how fit a word{line] 
+[line [n}2.2.113{]}Is that vile name to perish on my sword!{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.2.114{]}Do not say so. Lysander, say not so.{line] 
+[line [n}2.2.115{]}What though he love your Hermia? Lord, what though?{line] 
+[line [n}2.2.117{]}Yet Hermia still loves you. Then be content.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}2.2.118{]}Content with Hermia? No, I do repent{line] 
+[line [n}2.2.119{]}The tedious minutes I with her have spent.{line] 
+[line [n}2.2.120{]}Not Hermia, but Helena I love.{line] 
+[line [n}2.2.121{]}Who will not change a raven for a dove?{line] 
+[line [n}2.2.122{]}The will of man is by his reason swayed,{line] 
+[line [n}2.2.123{]}And reason says you are the worthier maid.{line] 
+[line [n}2.2.124{]}Things growing are not ripe until their season;{line] 
+[line [n}2.2.125{]}So I, being young, till now ripe not to reason.{line] 
+[line [n}2.2.126{]}And touching now the point of human skill,{line] 
+[line [n}2.2.127{]}Reason becomes the marshal to my will{line] 
+[line [n}2.2.128{]}And leads me to your eyes, where I o’erlook{line] 
+[line [n}2.2.129{]}Love’s stories written in love’s richest book.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}2.2.130{]}Wherefore was I to this keen mockery born?{line] 
+[line [n}2.2.131{]}When at your hands did I deserve this scorn?{line] 
+[line [n}2.2.132{]}Is ’t not enough, is ’t not enough, young man,{line] 
+[line [n}2.2.133{]}That I did never, no, nor never can{line] 
+[line [n}2.2.134{]}Deserve a sweet look from Demetrius’ eye,{line] 
+[line [n}2.2.135{]}But you must flout my insufficiency?{line] 
+[line [n}2.2.136{]}Good troth, you do me wrong, good sooth, you do,{line] 
+[line [n}2.2.137{]}In such disdainful manner me to woo.{line] 
+[line [n}2.2.138{]}But fare you well. Perforce I must confess{line] 
+[line [n}2.2.139{]}I thought you lord of more true gentleness.{line] 
+[line [n}2.2.140{]}O, that a lady of one man refused{line] 
+[line [n}2.2.141{]}Should of another therefore be abused!{line] {sp]
+[stage [n}SD 2.2.141{][}She exits.{]] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}2.2.142{]}She sees not Hermia.—Hermia, sleep thou there,{line] 
+[line [n}2.2.143{]}And never mayst thou come Lysander near.{line] 
+[line [n}2.2.144{]}For, as a surfeit of the sweetest things{line] 
+[line [n}2.2.145{]}The deepest loathing to the stomach brings,{line] 
+[line [n}2.2.146{]}Or as the heresies that men do leave{line] 
+[line [n}2.2.147{]}Are hated most of those they did deceive,{line] 
+[line [n}2.2.148{]}So thou, my surfeit and my heresy,{line] 
+[line [n}2.2.149{]}Of all be hated, but the most of me!{line] 
+[line [n}2.2.150{]}And, all my powers, address your love and might{line] 
+[line [n}2.2.151{]}To honor Helen and to be her knight.{line] {sp]
+[stage [n}SD 2.2.151{][}He exits.{]] 
+[sp [speaker}HERMIA{speaker]}
+[stage [run-in] [n}SD 2.2.152.0{][}, waking up{]] 
+[line [n}2.2.152{]}Help me, Lysander, help me! Do thy best{line] 
+[line [n}2.2.153{]}To pluck this crawling serpent from my breast.{line] 
+[line [n}2.2.154{]}Ay me, for pity! What a dream was here!{line] 
+[line [n}2.2.155{]}Lysander, look how I do quake with fear.{line] 
+[line [n}2.2.156{]}Methought a serpent ate my heart away,{line] 
+[line [n}2.2.157{]}And you sat smiling at his cruel prey.{line] 
+[line [n}2.2.158{]}Lysander! What, removed? Lysander, lord!{line] 
+[line [n}2.2.159{]}What, out of hearing? Gone? No sound, no word?{line] 
+[line [n}2.2.160{]}Alack, where are you? Speak, an if you hear.{line] 
+[line [n}2.2.161{]}Speak, of all loves! I swoon almost with fear.—{line] 
+[line [n}2.2.162{]}No? Then I well perceive you are not nigh.{line] 
+[line [n}2.2.163{]}Either death or you I’ll find immediately.{line] {sp] 
+[stage [n}SD 2.2.163.1{][}She exits.{]] {scene] {act] 
+[act [n}3{][head}ACT 3{head]}
+[scene [n}1{][head}Scene 1{head]}
+[stage [n}SD 3.1.0{][}With Titania still asleep onstage, enter the Clowns, Bottom, Quince, Snout, Starveling, Snug, and Flute.{]]  
+[sp [speaker}BOTTOM{speaker]}
+[ab}Are we all met?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Pat, pat. And here’s a marvels convenient place for our rehearsal. This green plot shall be our stage, this hawthorn brake our tiring-house, and we will do it in action as we will do it before the Duke.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Peter Quince?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}What sayest thou, bully Bottom?{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}There are things in this comedy of Pyramus and Thisbe that will never please. First, Pyramus must draw a sword to kill himself, which the ladies cannot abide. How answer you that?{ab] {sp] 
+[sp [speaker}SNOUT{speaker]}
+[ab}By ’r lakin, a parlous fear.{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[ab}I believe we must leave the killing out, when all is done.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Not a whit! I have a device to make all well. Write me a prologue, and let the prologue seem to say we will do no harm with our swords, and that Pyramus is not killed indeed. And, for the more better assurance, tell them that I, Pyramus, am not Pyramus, but Bottom the weaver. This will put them out of fear.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Well, we will have such a prologue, and it shall be written in eight and six.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}No, make it two more. Let it be written in eight and eight.{ab] {sp] 
+[sp [speaker}SNOUT{speaker]}
+[ab}Will not the ladies be afeard of the lion?{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[ab}I fear it, I promise you.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Masters, you ought to consider with yourself, to bring in (God shield us!) a lion among ladies is a most dreadful thing. For there is not a more fearful wildfowl than your lion living, and we ought to look to ’t.{ab] {sp] 
+[sp [speaker}SNOUT{speaker]}
+[ab}Therefore another prologue must tell he is not a lion.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Nay, you must name his name, and half his face must be seen through the lion’s neck, and he himself must speak through, saying thus, or to the same defect: [q}Ladies,{q] or [q}Fair ladies, I would wish you,{q] or [q}I would request you,{q] or [q}I would entreat you not to fear, not to tremble! My life for yours. If you think I come hither as a lion, it were pity of my life. No, I am no such thing. I am a man as other men are.{q] And there indeed let him name his name and tell them plainly he is Snug the joiner.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Well, it shall be so. But there is two hard things: that is, to bring the moonlight into a chamber, for you know Pyramus and Thisbe meet by moonlight.{ab] {sp] 
+[sp [speaker}SNOUT{speaker]}
+[ab}Doth the moon shine that night we play our play?{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}A calendar, a calendar! Look in the almanac. Find out moonshine, find out moonshine.{ab] {sp] 
+[stage [n}SD 3.1.53.1{][}Quince takes out a book.{]] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Yes, it doth shine that night.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Why, then, may you leave a casement of the great chamber window, where we play, open, and the moon may shine in at the casement.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Ay, or else one must come in with a bush of thorns and a lantern and say he comes to disfigure or to present the person of Moonshine. Then there is another thing: we must have a wall in the great chamber, for Pyramus and Thisbe, says the story, did talk through the chink of a wall.{ab] {sp] 
+[sp [speaker}SNOUT{speaker]}
+[ab}You can never bring in a wall. What say you, Bottom?{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Some man or other must present Wall. And let him have some plaster, or some loam, or some roughcast about him to signify wall, or let him hold his fingers thus, and through that cranny shall Pyramus and Thisbe whisper.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}If that may be, then all is well. Come, sit down, every mother’s son, and rehearse your parts. Pyramus, you begin. When you have spoken your speech, enter into that brake, and so everyone according to his cue.{ab] {sp]  
+[stage [n}SD 3.1.75.1{][}Enter Robin invisible to those onstage.{]]  
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.1.76.0{][}, aside{]] 
+[line [n}3.1.76{]}What hempen homespuns have we swagg’ring here{line] 
+[line [n}3.1.77{]}So near the cradle of the Fairy Queen?{line] 
+[line [n}3.1.78{]}What, a play toward? I’ll be an auditor—{line] 
+[line [n}3.1.79{]}An actor too perhaps, if I see cause.{line] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Speak, Pyramus.—Thisbe, stand forth.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 3.1.81.0{][}, as Pyramus{]] [poem}
+[line [n}3.1.81{]}Thisbe, the flowers of odious savors sweet—{line]{poem] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[line [n}3.1.82{]}Odors, odors!{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 3.3.83.0{][}, as Pyramus{]] [poem}
+[line [n}3.1.83{]}…odors savors sweet.{line] 
+[line [n}3.1.84{]}So hath thy breath, my dearest Thisbe dear.—{line] 
+[line [n}3.1.85{]}But hark, a voice! Stay thou but here awhile,{line] 
+[line [n}3.1.86{]}And by and by I will to thee appear.{line]{poem] {sp]
+[stage [n}SD 3.1.86{][}He exits.{]] 
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.1.87.0{][}, aside{]] 
+[line [n}3.1.87{]}A stranger Pyramus than e’er played here.{line] {sp]
+[stage [n}SD 3.1.87{][}He exits.{]] 
+[sp [speaker}FLUTE{speaker]}
+[ab}Must I speak now?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Ay, marry, must you, for you must understand he goes but to see a noise that he heard and is to come again.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 3.1.92.0{][}, as Thisbe{]] [poem}
+[line [n}3.1.92{]}Most radiant Pyramus, most lily-white of hue,{line] 
+[line [n}3.1.93{]}Of color like the red rose on triumphant brier,{line] 
+[line [n}3.1.94{]}Most brisky juvenal and eke most lovely Jew,{line] 
+[line [n}3.1.95{]}As true as truest horse, that yet would never tire.{line] 
+[line [n}3.1.96{]}I’ll meet thee, Pyramus, at Ninny’s tomb.{line]{poem] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}[q}Ninus’ tomb,{q] man! Why, you must not speak that yet. That you answer to Pyramus. You speak all your part at once, cues and all.—Pyramus, enter. Your cue is past. It is [q}never tire.{q]{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}O! 
+[stage [n}SD 3.1.101.0{][}As Thisbe.{]] [poem}
+[line [n}3.1.102{]}As true as truest horse, that yet would never tire.{line]{poem]{ab] {sp]  
+[stage [n}SD 3.1.102.1{][}Enter Robin, and Bottom as Pyramus with the ass-head.{]]  
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 3.1.104.0{][}, as Pyramus{]] [poem}
+[line [n}3.1.104{]}If I were fair, fair Thisbe, I were only thine.{line]{poem] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}O monstrous! O strange! We are haunted. Pray, masters, fly, masters! Help!{ab] {sp] 
+[stage [n}SD 3.1.106.1{][}Quince, Flute, Snout, Snug, and Starveling exit.{]] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.1.107{]}I’ll follow you. I’ll lead you about a round,{line] 
+[line [n}3.1.108{]}Through bog, through bush, through brake,{line] 
+[line [n}3.1.109{]}through brier.{line] 
+[line [n}3.1.110{]}Sometime a horse I’ll be, sometime a hound,{line] 
+[line [n}3.1.111{]}A hog, a headless bear, sometime a fire,{line] 
+[line [n}3.1.112{]}And neigh, and bark, and grunt, and roar, and burn,{line] 
+[line [n}3.1.113{]}Like horse, hound, hog, bear, fire, at every turn.{line] {sp] 
+[stage [n}SD 3.1.113.1{][}He exits.{]] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Why do they run away? This is a knavery of them to make me afeard.{ab] {sp] 
+[stage [n}SD 3.1.115.1{][}Enter Snout.{]]  
+[sp [speaker}SNOUT{speaker]}
+[ab}O Bottom, thou art changed! What do I see on thee?{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}What do you see? You see an ass-head of your own, do you?{ab] {sp]
+[stage [n}SD 3.1.119{][}Snout exits.{]]  
+[stage [n}SD 3.1.119.1{][}Enter Quince.{]]  
+[sp [speaker}QUINCE{speaker]}
+[ab}Bless thee, Bottom, bless thee! Thou art translated!{ab] {sp]
+[stage [n}SD 3.1.121{][}He exits.{]] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I see their knavery. This is to make an ass of me, to fright me, if they could. But I will not stir from this place, do what they can. I will walk up and down here, and I will sing, that they shall hear I am not afraid. 
+[stage [n}SD 3.1.127{][}He sings.{]][song}
+[line [n}3.1.127{]}The ouzel cock, so black of hue,{line] 
+[line [n}3.1.128{]}With orange-tawny bill,{line] 
+[line [n}3.1.129{]}The throstle with his note so true,{line] 
+[line [n}3.1.130{]}The wren with little quill—{line]{song]{ab] {sp] 
+[sp [speaker}TITANIA{speaker]}
+[stage [run-in] [n}SD 3.1.131.0{][}, waking up{]] 
+[line [n}3.1.131{]}What angel wakes me from my flow’ry bed?{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [run-in] [n}SD 3.1.132.0{][} sings{]]
+[ab} [song}
+[line [n}3.1.132{]}The finch, the sparrow, and the lark,{line] 
+[line [n}3.1.133{]}The plainsong cuckoo gray,{line] 
+[line [n}3.1.134{]}Whose note full many a man doth mark{line] 
+[line [n}3.1.135{]}And dares not answer [q}nay{q]—{line]{song] for, indeed, who would set his wit to so foolish a bird? Who would give a bird the lie though he cry [q}cuckoo{q] never so?{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}3.1.139{]}I pray thee, gentle mortal, sing again.{line] 
+[line [n}3.1.140{]}Mine ear is much enamored of thy note,{line] 
+[line [n}3.1.141{]}So is mine eye enthrallèd to thy shape,{line] 
+[line [n}3.1.142{]}And thy fair virtue’s force perforce doth move me{line] 
+[line [n}3.1.143{]}On the first view to say, to swear, I love thee.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Methinks, mistress, you should have little reason for that. And yet, to say the truth, reason and love keep little company together nowadays. The more the pity that some honest neighbors will not make them friends. Nay, I can gleek upon occasion.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}3.1.150{]}Thou art as wise as thou art beautiful.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Not so neither; but if I had wit enough to get out of this wood, I have enough to serve mine own turn.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}3.1.154{]}Out of this wood do not desire to go.{line] 
+[line [n}3.1.155{]}Thou shalt remain here whether thou wilt or no.{line] 
+[line [n}3.1.156{]}I am a spirit of no common rate.{line] 
+[line [n}3.1.157{]}The summer still doth tend upon my state,{line] 
+[line [n}3.1.158{]}And I do love thee. Therefore go with me.{line] 
+[line [n}3.1.159{]}I’ll give thee fairies to attend on thee,{line] 
+[line [n}3.1.160{]}And they shall fetch thee jewels from the deep{line] 
+[line [n}3.1.161{]}And sing while thou on pressèd flowers dost sleep.{line] 
+[line [n}3.1.162{]}And I will purge thy mortal grossness so{line] 
+[line [n}3.1.163{]}That thou shalt like an airy spirit go.—{line] 
+[line [n}3.1.164{]}Peaseblossom, Cobweb, Mote, and Mustardseed!{line] {sp]  
+[stage [n}SD 3.1.164.1{][}Enter four Fairies: Peaseblossom, Cobweb, Mote, and Mustardseed.{]]  
+[sp [speaker}PEASEBLOSSOM{speaker]}
+[ab}Ready.{ab] {sp] 
+[sp [speaker}COBWEB{speaker]}
+[ab}And I.{ab] {sp] 
+[sp [speaker}MOTE{speaker]}
+[ab}And I.{ab] {sp] 
+[sp [speaker}MUSTARDSEED{speaker]}
+[ab}And I.{ab] {sp] 
+[sp [speaker}ALL{speaker]}
+[ab}Where shall we go?{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}3.1.170{]}Be kind and courteous to this gentleman.{line] 
+[line [n}3.1.171{]}Hop in his walks and gambol in his eyes;{line] 
+[line [n}3.1.172{]}Feed him with apricocks and dewberries,{line] 
+[line [n}3.1.173{]}With purple grapes, green figs, and mulberries;{line] 
+[line [n}3.1.174{]}The honey-bags steal from the humble-bees,{line] 
+[line [n}3.1.175{]}And for night-tapers crop their waxen thighs{line] 
+[line [n}3.1.176{]}And light them at the fiery glowworms’ eyes{line] 
+[line [n}3.1.177{]}To have my love to bed and to arise;{line] 
+[line [n}3.1.178{]}And pluck the wings from painted butterflies{line] 
+[line [n}3.1.179{]}To fan the moonbeams from his sleeping eyes.{line] 
+[line [n}3.1.180{]}Nod to him, elves, and do him courtesies.{line] {sp] 
+[sp [speaker}PEASEBLOSSOM{speaker]}
+[ab}Hail, mortal!{ab] {sp] 
+[sp [speaker}COBWEB{speaker]}
+[ab}Hail!{ab] {sp] 
+[sp [speaker}MOTE{speaker]}
+[ab}Hail!{ab] {sp] 
+[sp [speaker}MUSTARDSEED{speaker]}
+[ab}Hail!{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I cry your Worships mercy, heartily.—I beseech your Worship’s name.{ab] {sp] 
+[sp [speaker}COBWEB{speaker]}
+[ab}Cobweb.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I shall desire you of more acquaintance, good Master Cobweb. If I cut my finger, I shall make bold with you.—Your name, honest gentleman?{ab] {sp] 
+[sp [speaker}PEASEBLOSSOM{speaker]}
+[ab}Peaseblossom.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I pray you, commend me to Mistress Squash, your mother, and to Master Peascod, your father. Good Master Peaseblossom, I shall desire you of more acquaintance, too.—Your name, I beseech you, sir?{ab] {sp] 
+[sp [speaker}MUSTARDSEED{speaker]}
+[ab}Mustardseed.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Good Master Mustardseed, I know your patience well. That same cowardly, giantlike ox-beef hath devoured many a gentleman of your house. I promise you, your kindred hath made my eyes water ere now. I desire you of more acquaintance, good Master Mustardseed.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}3.1.204{]}Come, wait upon him. Lead him to my bower.{line] 
+[line [n}3.1.205{]}The moon, methinks, looks with a wat’ry eye,{line] 
+[line [n}3.1.206{]}And when she weeps, weeps every little flower,{line] 
+[line [n}3.1.207{]}Lamenting some enforcèd chastity.{line] 
+[line [n}3.1.208{]}Tie up my lover’s tongue. Bring him silently.{line] {sp] 
+[stage [n}SD 3.1.208.1{][}They exit.{]] {scene] 
+[scene [n}2{][head}Scene 2{head]}
+[stage [n}SD 3.2.0{][}Enter Oberon, King of Fairies.{]]  
+[sp [speaker}OBERON{speaker]} 
+[line [n}3.2.1{]}I wonder if Titania be awaked;{line] 
+[line [n}3.2.2{]}Then what it was that next came in her eye,{line] 
+[line [n}3.2.3{]}Which she must dote on in extremity.{line]  
+[stage [n}SD 3.2.3.1{][}Enter Robin Goodfellow.{]]  
+[line [n}3.2.4{]}Here comes my messenger. How now, mad spirit?{line] 
+[line [n}3.2.5{]}What night-rule now about this haunted grove?{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.2.6{]}My mistress with a monster is in love.{line] 
+[line [n}3.2.7{]}Near to her close and consecrated bower,{line] 
+[line [n}3.2.8{]}While she was in her dull and sleeping hour,{line] 
+[line [n}3.2.9{]}A crew of patches, rude mechanicals,{line] 
+[line [n}3.2.10{]}That work for bread upon Athenian stalls,{line] 
+[line [n}3.2.11{]}Were met together to rehearse a play{line] 
+[line [n}3.2.12{]}Intended for great Theseus’ nuptial day.{line] 
+[line [n}3.2.13{]}The shallowest thick-skin of that barren sort,{line] 
+[line [n}3.2.14{]}Who Pyramus presented in their sport,{line] 
+[line [n}3.2.15{]}Forsook his scene and entered in a brake.{line] 
+[line [n}3.2.16{]}When I did him at this advantage take,{line] 
+[line [n}3.2.17{]}An ass’s noll I fixèd on his head.{line] 
+[line [n}3.2.18{]}Anon his Thisbe must be answerèd,{line] 
+[line [n}3.2.19{]}And forth my mimic comes. When they him spy,{line] 
+[line [n}3.2.20{]}As wild geese that the creeping fowler eye,{line] 
+[line [n}3.2.21{]}Or russet-pated choughs, many in sort,{line] 
+[line [n}3.2.22{]}Rising and cawing at the gun’s report,{line] 
+[line [n}3.2.23{]}Sever themselves and madly sweep the sky,{line] 
+[line [n}3.2.24{]}So at his sight away his fellows fly,{line] 
+[line [n}3.2.25{]}And, at our stamp, here o’er and o’er one falls.{line] 
+[line [n}3.2.26{]}He [q}Murder{q] cries and help from Athens calls.{line] 
+[line [n}3.2.27{]}Their sense thus weak, lost with their fears thus strong,{line] 
+[line [n}3.2.29{]}Made senseless things begin to do them wrong;{line] 
+[line [n}3.2.30{]}For briers and thorns at their apparel snatch,{line] 
+[line [n}3.2.31{]}Some sleeves, some hats, from yielders all things catch.{line] 
+[line [n}3.2.33{]}I led them on in this distracted fear{line] 
+[line [n}3.2.34{]}And left sweet Pyramus translated there.{line] 
+[line [n}3.2.35{]}When in that moment, so it came to pass,{line] 
+[line [n}3.2.36{]}Titania waked and straightway loved an ass.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}3.2.37{]}This falls out better than I could devise.{line] 
+[line [n}3.2.38{]}But hast thou yet latched the Athenian’s eyes{line] 
+[line [n}3.2.39{]}With the love juice, as I did bid thee do?{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.2.40{]}I took him sleeping—that is finished, too—{line] 
+[line [n}3.2.41{]}And the Athenian woman by his side,{line] 
+[line [n}3.2.42{]}That, when he waked, of force she must be eyed.{line] {sp]  
+[stage [n}SD 3.2.42.1{][}Enter Demetrius and Hermia.{]]  
+[sp [speaker}OBERON{speaker]} 
+[line [n}3.2.43{]}Stand close. This is the same Athenian.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.2.44{]}This is the woman, but not this the man.{line] {sp] 
+[stage [n}SD 3.2.44.1{][}They step aside.{]] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.45{]}O, why rebuke you him that loves you so?{line] 
+[line [n}3.2.46{]}Lay breath so bitter on your bitter foe!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.47{]}Now I but chide, but I should use thee worse,{line] 
+[line [n}3.2.48{]}For thou, I fear, hast given me cause to curse.{line] 
+[line [n}3.2.49{]}If thou hast slain Lysander in his sleep,{line] 
+[line [n}3.2.50{]}Being o’er shoes in blood, plunge in the deep{line] 
+[line [n}3.2.51{]}And kill me too.{line] 
+[line [n}3.2.52{]}The sun was not so true unto the day{line] 
+[line [n}3.2.53{]}As he to me. Would he have stolen away{line] 
+[line [n}3.2.54{]}From sleeping Hermia? I’ll believe as soon{line] 
+[line [n}3.2.55{]}This whole Earth[app [from}#w0170780{]}[rdg [wit}#print #ebook{]}earth{rdg]{app] may be bored, and that the moon{line] 
+[line [n}3.2.56{]}May through the center creep and so displease{line] 
+[line [n}3.2.57{]}Her brother’s noontide with th’ Antipodes.{line] 
+[line [n}3.2.58{]}It cannot be but thou hast murdered him.{line] 
+[line [n}3.2.59{]}So should a murderer look, so dead, so grim.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.60{]}So should the murdered look, and so should I,{line] 
+[line [n}3.2.61{]}Pierced through the heart with your stern cruelty.{line] 
+[line [n}3.2.62{]}Yet you, the murderer, look as bright, as clear,{line] 
+[line [n}3.2.63{]}As yonder Venus in her glimmering sphere.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.64{]}What’s this to my Lysander? Where is he?{line] 
+[line [n}3.2.65{]}Ah, good Demetrius, wilt thou give him me?{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.66{]}I had rather give his carcass to my hounds.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.67{]}Out, dog! Out, cur! Thou driv’st me past the bounds{line] 
+[line [n}3.2.68{]}Of maiden’s patience. Hast thou slain him, then?{line] 
+[line [n}3.2.69{]}Henceforth be never numbered among men.{line] 
+[line [n}3.2.70{]}O, once tell true! Tell true, even for my sake!{line] 
+[line [n}3.2.71{]}Durst thou have looked upon him, being awake?{line] 
+[line [n}3.2.72{]}And hast thou killed him sleeping? O brave touch!{line] 
+[line [n}3.2.73{]}Could not a worm, an adder, do so much?{line] 
+[line [n}3.2.74{]}An adder did it, for with doubler tongue{line] 
+[line [n}3.2.75{]}Than thine, thou serpent, never adder stung.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.76{]}You spend your passion on a misprised mood.{line] 
+[line [n}3.2.77{]}I am not guilty of Lysander’s blood,{line] 
+[line [n}3.2.78{]}Nor is he dead, for aught that I can tell.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.79{]}I pray thee, tell me then that he is well.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.80{]}An if I could, what should I get therefor?{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.81{]}A privilege never to see me more.{line] 
+[line [n}3.2.82{]}And from thy hated presence part I so.{line] 
+[line [n}3.2.83{]}See me no more, whether he be dead or no.{line] {sp] 
+[stage [n}SD 3.2.83.1{][}She exits.{]] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.84{]}There is no following her in this fierce vein.{line] 
+[line [n}3.2.85{]}Here, therefore, for a while I will remain.{line] 
+[line [n}3.2.86{]}So sorrow’s heaviness doth heavier grow{line] 
+[line [n}3.2.87{]}For debt that bankrout sleep doth sorrow owe,{line] 
+[line [n}3.2.88{]}Which now in some slight measure it will pay,{line] 
+[line [n}3.2.89{]}If for his tender here I make some stay.{line] {sp] 
+[stage [n}SD 3.2.89.1{][}He lies down and falls asleep.{]] 
+[sp [speaker}OBERON{speaker]}
+[stage [run-in] [n}SD 3.2.90.0{][}, to Robin{]] 
+[line [n}3.2.90{]}What hast thou done? Thou hast mistaken quite{line] 
+[line [n}3.2.91{]}And laid the love juice on some true-love’s sight.{line] 
+[line [n}3.2.92{]}Of thy misprision must perforce ensue{line] 
+[line [n}3.2.93{]}Some true-love turned, and not a false turned true.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.2.94{]}Then fate o’errules, that, one man holding troth,{line] 
+[line [n}3.2.95{]}A million fail, confounding oath on oath.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}3.2.96{]}About the wood go swifter than the wind,{line] 
+[line [n}3.2.97{]}And Helena of Athens look thou find.{line] 
+[line [n}3.2.98{]}All fancy-sick she is and pale of cheer{line] 
+[line [n}3.2.99{]}With sighs of love that costs the fresh blood dear.{line] 
+[line [n}3.2.100{]}By some illusion see thou bring her here.{line] 
+[line [n}3.2.101{]}I’ll charm his eyes against she do appear.{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[line [n}3.2.102{]}I go, I go, look how I go,{line] 
+[line [n}3.2.103{]}Swifter than arrow from the Tartar’s bow.{line] {sp]
+[stage [n}SD 3.2.103{][}He exits.{]] 
+[sp [speaker}OBERON{speaker]}
+[stage [n}SD 3.2.104.0{][}, applying the nectar to Demetrius’ eyes{]]
+[poem}[line}Flower of this purple dye,{line]
+[line}Hit with Cupid’s archery,{line]
+[line}Sink in apple of his eye.{line]
+[line}When his love he doth espy,{line]
+[line}Let her shine as gloriously{line]
+[line}As the Venus of the sky.—[app [from}#p0180260{]}[rdg [wit}#print #ebook{]]{app]{line]
+[line}When thou wak’st, if she be by,{line]
+[line}Beg of her for remedy.{line]{poem] {sp]  
+[stage [n}SD 3.2.111.1{][}Enter Robin.{]]  
+[sp [speaker}ROBIN{speaker]}
+[poem}[line}Captain of our fairy band,{line]
+[line}Helena is here at hand,{line]
+[line}And the youth, mistook by me,{line]
+[line}Pleading for a lover’s fee.{line]
+[line}Shall we their fond pageant see?{line]
+[line}Lord, what fools these mortals be!{line]{poem] {sp] 
+[sp [speaker}OBERON{speaker]}
+[poem}[line}Stand aside. The noise they make{line]
+[line}Will cause Demetrius to awake.{line]{poem] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[poem}[line}Then will two at once woo one.{line]
+[line}That must needs be sport alone.{line]
+[line}And those things do best please me{line]
+[line}That befall prepost’rously.{line]{poem] {sp] 
+[stage [n}SD 3.2.123.1{][}They step aside.{]]  
+[stage [n}SD 3.2.123.2{][}Enter Lysander and Helena.{]]  
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.124{]}Why should you think that I should woo in scorn?{line] 
+[line [n}3.2.125{]}Scorn and derision never come in tears.{line] 
+[line [n}3.2.126{]}Look when I vow, I weep; and vows so born,{line] 
+[line [n}3.2.127{]}In their nativity all truth appears.{line] 
+[line [n}3.2.128{]}How can these things in me seem scorn to you,{line] 
+[line [n}3.2.129{]}Bearing the badge of faith to prove them true?{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.130{]}You do advance your cunning more and more.{line] 
+[line [n}3.2.131{]}When truth kills truth, O devilish holy fray!{line] 
+[line [n}3.2.132{]}These vows are Hermia’s. Will you give her o’er?{line] 
+[line [n}3.2.133{]}Weigh oath with oath, and you will nothing weigh.{line] 
+[line [n}3.2.135{]}Your vows to her and me, put in two scales,{line] 
+[line [n}3.2.136{]}Will even weigh, and both as light as tales.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.137{]}I had no judgment when to her I swore.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.138{]}Nor none, in my mind, now you give her o’er.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.139{]}Demetrius loves her, and he loves not you.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[stage [run-in] [n}SD 3.2.140.0{][}, waking up{]] 
+[line [n}3.2.140{]}O Helen, goddess, nymph, perfect, divine!{line] 
+[line [n}3.2.141{]}To what, my love, shall I compare thine eyne?{line] 
+[line [n}3.2.142{]}Crystal is muddy. O, how ripe in show{line] 
+[line [n}3.2.143{]}Thy lips, those kissing cherries, tempting grow!{line] 
+[line [n}3.2.144{]}That pure congealèd white, high Taurus’ snow,{line] 
+[line [n}3.2.145{]}Fanned with the eastern wind, turns to a crow{line] 
+[line [n}3.2.146{]}When thou hold’st up thy hand. O, let me kiss{line] 
+[line [n}3.2.147{]}This princess of pure white, this seal of bliss!{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.148{]}O spite! O hell! I see you all are bent{line] 
+[line [n}3.2.149{]}To set against me for your merriment.{line] 
+[line [n}3.2.150{]}If you were civil and knew courtesy,{line] 
+[line [n}3.2.151{]}You would not do me thus much injury.{line] 
+[line [n}3.2.152{]}Can you not hate me, as I know you do,{line] 
+[line [n}3.2.153{]}But you must join in souls to mock me too?{line] 
+[line [n}3.2.154{]}If you were men, as men you are in show,{line] 
+[line [n}3.2.155{]}You would not use a gentle lady so,{line] 
+[line [n}3.2.156{]}To vow and swear and superpraise my parts,{line] 
+[line [n}3.2.157{]}When, I am sure, you hate me with your hearts.{line] 
+[line [n}3.2.158{]}You both are rivals and love Hermia,{line] 
+[line [n}3.2.159{]}And now both rivals to mock Helena.{line] 
+[line [n}3.2.160{]}A trim exploit, a manly enterprise,{line] 
+[line [n}3.2.161{]}To conjure tears up in a poor maid’s eyes{line] 
+[line [n}3.2.162{]}With your derision! None of noble sort{line] 
+[line [n}3.2.163{]}Would so offend a virgin and extort{line] 
+[line [n}3.2.164{]}A poor soul’s patience, all to make you sport.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.165{]}You are unkind, Demetrius. Be not so,{line] 
+[line [n}3.2.166{]}For you love Hermia; this you know I know.{line] 
+[line [n}3.2.167{]}And here with all goodwill, with all my heart,{line] 
+[line [n}3.2.168{]}In Hermia’s love I yield you up my part.{line] 
+[line [n}3.2.169{]}And yours of Helena to me bequeath,{line] 
+[line [n}3.2.170{]}Whom I do love and will do till my death.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.171{]}Never did mockers waste more idle breath.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.172{]}Lysander, keep thy Hermia. I will none.{line] 
+[line [n}3.2.173{]}If e’er I loved her, all that love is gone.{line] 
+[line [n}3.2.174{]}My heart to her but as guest-wise sojourned,{line] 
+[line [n}3.2.175{]}And now to Helen is it home returned,{line] 
+[line [n}3.2.176{]}There to remain. {sp] 
+[sp [speaker}LYSANDER{speaker]}Helen, it is not so.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.178{]}Disparage not the faith thou dost not know,{line] 
+[line [n}3.2.179{]}Lest to thy peril thou aby it dear.{line] 
+[line [n}3.2.180{]}Look where thy love comes. Yonder is thy dear.{line] {sp]  
+[stage [n}SD 3.2.180.1{][}Enter Hermia.{]]  
+[sp [speaker}HERMIA{speaker]}
+[stage [run-in] [n}SD 3.2.181.0{][}, to Lysander{]] 
+[line [n}3.2.181{]}Dark night, that from the eye his function takes,{line] 
+[line [n}3.2.182{]}The ear more quick of apprehension makes;{line] 
+[line [n}3.2.183{]}Wherein it doth impair the seeing sense,{line] 
+[line [n}3.2.184{]}It pays the hearing double recompense.{line] 
+[line [n}3.2.185{]}Thou art not by mine eye, Lysander, found;{line] 
+[line [n}3.2.186{]}Mine ear, I thank it, brought me to thy sound.{line] 
+[line [n}3.2.187{]}But why unkindly didst thou leave me so?{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.188{]}Why should he stay whom love doth press to go?{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.189{]}What love could press Lysander from my side?{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.190{]}Lysander’s love, that would not let him bide,{line] 
+[line [n}3.2.191{]}Fair Helena, who more engilds the night{line] 
+[line [n}3.2.192{]}Than all yon fiery oes and eyes of light.{line] 
+[line [n}3.2.193{]}Why seek’st thou me? Could not this make thee know{line] 
+[line [n}3.2.195{]}The hate I bear thee made me leave thee so?{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.196{]}You speak not as you think. It cannot be.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.197{]}Lo, she is one of this confederacy!{line] 
+[line [n}3.2.198{]}Now I perceive they have conjoined all three{line] 
+[line [n}3.2.199{]}To fashion this false sport in spite of me.—{line] 
+[line [n}3.2.200{]}Injurious Hermia, most ungrateful maid,{line] 
+[line [n}3.2.201{]}Have you conspired, have you with these contrived,{line] 
+[line [n}3.2.202{]}To bait me with this foul derision?{line] 
+[line [n}3.2.203{]}Is all the counsel that we two have shared,{line] 
+[line [n}3.2.204{]}The sisters’ vows, the hours that we have spent{line] 
+[line [n}3.2.205{]}When we have chid the hasty-footed time{line] 
+[line [n}3.2.206{]}For parting us—O, is all forgot?{line] 
+[line [n}3.2.207{]}All schooldays’ friendship, childhood innocence?{line] 
+[line [n}3.2.208{]}We, Hermia, like two artificial gods,{line] 
+[line [n}3.2.209{]}Have with our needles created both one flower,{line] 
+[line [n}3.2.210{]}Both on one sampler, sitting on one cushion,{line] 
+[line [n}3.2.211{]}Both warbling of one song, both in one key,{line] 
+[line [n}3.2.212{]}As if our hands, our sides, voices, and minds{line] 
+[line [n}3.2.213{]}Had been incorporate. So we grew together{line] 
+[line [n}3.2.214{]}Like to a double cherry, seeming parted,{line] 
+[line [n}3.2.215{]}But yet an union in partition,{line] 
+[line [n}3.2.216{]}Two lovely berries molded on one stem;{line] 
+[line [n}3.2.217{]}So with two seeming bodies but one heart,{line] 
+[line [n}3.2.218{]}Two of the first, like coats in heraldry,{line] 
+[line [n}3.2.219{]}Due but to one, and crownèd with one crest.{line] 
+[line [n}3.2.220{]}And will you rent our ancient love asunder,{line] 
+[line [n}3.2.221{]}To join with men in scorning your poor friend?{line] 
+[line [n}3.2.222{]}It is not friendly; ’tis not maidenly.{line] 
+[line [n}3.2.223{]}Our sex, as well as I, may chide you for it,{line] 
+[line [n}3.2.224{]}Though I alone do feel the injury.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.225{]}I am amazèd at your words.{line] 
+[line [n}3.2.226{]}I scorn you not. It seems that you scorn me.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.227{]}Have you not set Lysander, as in scorn,{line] 
+[line [n}3.2.228{]}To follow me and praise my eyes and face,{line] 
+[line [n}3.2.229{]}And made your other love, Demetrius,{line] 
+[line [n}3.2.230{]}Who even but now did spurn me with his foot,{line] 
+[line [n}3.2.231{]}To call me goddess, nymph, divine and rare,{line] 
+[line [n}3.2.232{]}Precious, celestial? Wherefore speaks he this{line] 
+[line [n}3.2.233{]}To her he hates? And wherefore doth Lysander{line] 
+[line [n}3.2.234{]}Deny your love (so rich within his soul){line] 
+[line [n}3.2.235{]}And tender me, forsooth, affection,{line] 
+[line [n}3.2.236{]}But by your setting on, by your consent?{line] 
+[line [n}3.2.237{]}What though I be not so in grace as you,{line] 
+[line [n}3.2.238{]}So hung upon with love, so fortunate,{line] 
+[line [n}3.2.239{]}But miserable most, to love unloved?{line] 
+[line [n}3.2.240{]}This you should pity rather than despise.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.241{]}I understand not what you mean by this.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.242{]}Ay, do. Persever, counterfeit sad looks,{line] 
+[line [n}3.2.243{]}Make mouths upon me when I turn my back,{line] 
+[line [n}3.2.244{]}Wink each at other, hold the sweet jest up.{line] 
+[line [n}3.2.245{]}This sport, well carried, shall be chronicled.{line] 
+[line [n}3.2.246{]}If you have any pity, grace, or manners,{line] 
+[line [n}3.2.247{]}You would not make me such an argument.{line] 
+[line [n}3.2.248{]}But fare you well. ’Tis partly my own fault,{line] 
+[line [n}3.2.249{]}Which death or absence soon shall remedy.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.250{]}Stay, gentle Helena. Hear my excuse,{line] 
+[line [n}3.2.251{]}My love, my life, my soul, fair Helena.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.252{]}O excellent! {sp] 
+[sp [speaker}HERMIA{speaker]}
+[stage [run-in] [n}SD 3.2.253.0{][}, to Lysander{]] Sweet, do not scorn her so.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[stage [run-in] [n}SD 3.2.254.0{][}, to Lysander{]] 
+[line [n}3.2.254{]}If she cannot entreat, I can compel.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.255{]}Thou canst compel no more than she entreat.{line] 
+[line [n}3.2.256{]}Thy threats have no more strength than her weak prayers.—{line] 
+[line [n}3.2.258{]}Helen, I love thee. By my life, I do.{line] 
+[line [n}3.2.259{]}I swear by that which I will lose for thee,{line] 
+[line [n}3.2.260{]}To prove him false that says I love thee not.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.261{]}I say I love thee more than he can do.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.262{]}If thou say so, withdraw and prove it too.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.263{]}Quick, come. {sp] 
+[sp [speaker}HERMIA{speaker]}Lysander, whereto tends all this?{line] {sp] 
+[stage [n}SD 3.2.264.1{][}She takes hold of Lysander.{]] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.265{]}Away, you Ethiop! {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[stage [run-in] [n}SD 3.2.266.0{][}, to Hermia{]] No, no. He’ll{line] 
+[line [n}3.2.267{]}Seem to break loose.
+[stage [n}SD 3.2.267{][} To Lysander.{]] Take on as you would follow,{line] 
+[line [n}3.2.269{]}But yet come not. You are a tame man, go!{line] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[stage [run-in] [n}SD 3.2.270.0{][}, to Hermia{]] 
+[line [n}3.2.270{]}Hang off, thou cat, thou burr! Vile thing, let loose,{line] 
+[line [n}3.2.271{]}Or I will shake thee from me like a serpent.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.272{]}Why are you grown so rude? What change is this,{line] 
+[line [n}3.2.273{]}Sweet love? {sp] 
+[sp [speaker}LYSANDER{speaker]}Thy love? Out, tawny Tartar, out!{line] 
+[line [n}3.2.275{]}Out, loathèd med’cine! O, hated potion, hence!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.276{]}Do you not jest? {sp] 
+[sp [speaker}HELENA{speaker]}Yes, sooth, and so do you.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.278{]}Demetrius, I will keep my word with thee.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.279{]}I would I had your bond. For I perceive{line] 
+[line [n}3.2.280{]}A weak bond holds you. I’ll not trust your word.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.281{]}What? Should I hurt her, strike her, kill her dead?{line] 
+[line [n}3.2.282{]}Although I hate her, I’ll not harm her so.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.283{]}What, can you do me greater harm than hate?{line] 
+[line [n}3.2.284{]}Hate me? Wherefore? O me, what news, my love?{line] 
+[line [n}3.2.285{]}Am not I Hermia? Are not you Lysander?{line] 
+[line [n}3.2.286{]}I am as fair now as I was erewhile.{line] 
+[line [n}3.2.287{]}Since night you loved me; yet since night you left me.{line] 
+[line [n}3.2.289{]}Why, then, you left me—O, the gods forbid!—{line] 
+[line [n}3.2.290{]}In earnest, shall I say? {sp] 
+[sp [speaker}LYSANDER{speaker]}Ay, by my life,{line] 
+[line [n}3.2.292{]}And never did desire to see thee more.{line] 
+[line [n}3.2.293{]}Therefore be out of hope, of question, of doubt.{line] 
+[line [n}3.2.294{]}Be certain, nothing truer, ’tis no jest{line] 
+[line [n}3.2.295{]}That I do hate thee and love Helena.{line] {sp] 
+[stage [n}SD 3.2.295.1{][}Hermia turns him loose.{]] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.296{]}O me!
+[stage [n}SD 3.2.296{][} To Helena.{]] You juggler, you cankerblossom,{line] 
+[line [n}3.2.297{]}You thief of love! What, have you come by night{line] 
+[line [n}3.2.298{]}And stol’n my love’s heart from him? {sp] 
+[sp [speaker}HELENA{speaker]}Fine, i’ faith.{line] 
+[line [n}3.2.300{]}Have you no modesty, no maiden shame,{line] 
+[line [n}3.2.301{]}No touch of bashfulness? What, will you tear{line] 
+[line [n}3.2.302{]}Impatient answers from my gentle tongue?{line] 
+[line [n}3.2.303{]}Fie, fie, you counterfeit, you puppet, you!{line] {sp] 
+[sp [speaker}HERMIA{speaker]} [q}
+[line [n}3.2.304{]}Puppet{q]? Why so? Ay, that way goes the game.{line] 
+[line [n}3.2.305{]}Now I perceive that she hath made compare{line] 
+[line [n}3.2.306{]}Between our statures; she hath urged her height,{line] 
+[line [n}3.2.307{]}And with her personage, her tall personage,{line] 
+[line [n}3.2.308{]}Her height, forsooth, she hath prevailed with him.{line] 
+[line [n}3.2.309{]}And are you grown so high in his esteem{line] 
+[line [n}3.2.310{]}Because I am so dwarfish and so low?{line] 
+[line [n}3.2.311{]}How low am I, thou painted maypole? Speak!{line] 
+[line [n}3.2.312{]}How low am I? I am not yet so low{line] 
+[line [n}3.2.313{]}But that my nails can reach unto thine eyes.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.314{]}I pray you, though you mock me,gentlemen,{line] 
+[line [n}3.2.315{]}Let her not hurt me. I was never curst;{line] 
+[line [n}3.2.316{]}I have no gift at all in shrewishness.{line] 
+[line [n}3.2.317{]}I am a right maid for my cowardice.{line] 
+[line [n}3.2.318{]}Let her not strike me. You perhaps may think,{line] 
+[line [n}3.2.319{]}Because she is something lower than myself,{line] 
+[line [n}3.2.320{]}That I can match her. {sp] 
+[sp [speaker}HERMIA{speaker]}[q}Lower{q]? Hark, again!{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.322{]}Good Hermia, do not be so bitter with me.{line] 
+[line [n}3.2.323{]}I evermore did love you, Hermia,{line] 
+[line [n}3.2.324{]}Did ever keep your counsels, never wronged you—{line] 
+[line [n}3.2.325{]}Save that, in love unto Demetrius,{line] 
+[line [n}3.2.326{]}I told him of your stealth unto this wood.{line] 
+[line [n}3.2.327{]}He followed you; for love, I followed him.{line] 
+[line [n}3.2.328{]}But he hath chid me hence and threatened me{line] 
+[line [n}3.2.329{]}To strike me, spurn me, nay, to kill me too.{line] 
+[line [n}3.2.330{]}And now, so you will let me quiet go,{line] 
+[line [n}3.2.331{]}To Athens will I bear my folly back{line] 
+[line [n}3.2.332{]}And follow you no further. Let me go.{line] 
+[line [n}3.2.333{]}You see how simple and how fond I am.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.334{]}Why, get you gone. Who is ’t that hinders you?{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.335{]}A foolish heart that I leave here behind.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.336{]}What, with Lysander? {sp] 
+[sp [speaker}HELENA{speaker]}With Demetrius.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.338{]}Be not afraid. She shall not harm thee, Helena.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.339{]}No, sir, she shall not, though you take her part.{line] {sp] 
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.340{]}O, when she is angry, she is keen and shrewd.{line] 
+[line [n}3.2.341{]}She was a vixen when she went to school,{line] 
+[line [n}3.2.342{]}And though she be but little, she is fierce.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} [q}
+[line [n}3.2.343{]}Little{q] again? Nothing but [q}low{q] and [q}little{q]?{line] 
+[line [n}3.2.344{]}Why will you suffer her to flout me thus?{line] 
+[line [n}3.2.345{]}Let me come to her. {sp] 
+[sp [speaker}LYSANDER{speaker]}Get you gone, you dwarf,{line] 
+[line [n}3.2.347{]}You minimus of hind’ring knotgrass made,{line] 
+[line [n}3.2.348{]}You bead, you acorn— {sp] 
+[sp [speaker}DEMETRIUS{speaker]}You are too officious{line] 
+[line [n}3.2.350{]}In her behalf that scorns your services.{line] 
+[line [n}3.2.351{]}Let her alone. Speak not of Helena.{line] 
+[line [n}3.2.352{]}Take not her part. For if thou dost intend{line] 
+[line [n}3.2.353{]}Never so little show of love to her,{line] 
+[line [n}3.2.354{]}Thou shalt aby it. {sp] 
+[sp [speaker}LYSANDER{speaker]}Now she holds me not.{line] 
+[line [n}3.2.356{]}Now follow, if thou dar’st, to try whose right,{line] 
+[line [n}3.2.357{]}Of thine or mine, is most in Helena.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} [q}
+[line [n}3.2.358{]}Follow{q]? Nay, I’ll go with thee, cheek by jowl.{line] {sp] 
+[stage [n}SD 3.2.358.1{][}Demetrius and Lysander exit.{]] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.359{]}You, mistress, all this coil is long of you.{line] 
+[stage [n}SD 3.2.259.1{][}Helena retreats.{]] 
+[line [n}3.2.360{]}Nay, go not back. {sp] 
+[sp [speaker}HELENA{speaker]}I will not trust you, I,{line] 
+[line [n}3.2.362{]}Nor longer stay in your curst company.{line] 
+[line [n}3.2.363{]}Your hands than mine are quicker for a fray.{line] 
+[line [n}3.2.364{]}My legs are longer though, to run away.{line] {sp]
+[stage [n}SD 3.2.364{][}She exits.{]] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.365{]}I am amazed and know not what to say.{line] {sp]
+[stage [n}SD 3.2.365{][}She exits.{]] 
+[sp [speaker}OBERON{speaker]}
+[stage [run-in] [n}SD 3.2.366.0{][}, to Robin{]] 
+[line [n}3.2.366{]}This is thy negligence. Still thou mistak’st,{line] 
+[line [n}3.2.367{]}Or else committ’st thy knaveries willfully.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.2.368{]}Believe me, king of shadows, I mistook.{line] 
+[line [n}3.2.369{]}Did not you tell me I should know the man{line] 
+[line [n}3.2.370{]}By the Athenian garments he had on?{line] 
+[line [n}3.2.371{]}And so far blameless proves my enterprise{line] 
+[line [n}3.2.372{]}That I have ’nointed an Athenian’s eyes;{line] 
+[line [n}3.2.373{]}And so far am I glad it so did sort,{line] 
+[line [n}3.2.374{]}As this their jangling I esteem a sport.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}3.2.375{]}Thou seest these lovers seek a place to fight.{line] 
+[line [n}3.2.376{]}Hie, therefore, Robin, overcast the night;{line] 
+[line [n}3.2.377{]}The starry welkin cover thou anon{line] 
+[line [n}3.2.378{]}With drooping fog as black as Acheron,{line] 
+[line [n}3.2.379{]}And lead these testy rivals so astray{line] 
+[line [n}3.2.380{]}As one come not within another’s way.{line] 
+[line [n}3.2.381{]}Like to Lysander sometime frame thy tongue;{line] 
+[line [n}3.2.382{]}Then stir Demetrius up with bitter wrong.{line] 
+[line [n}3.2.383{]}And sometime rail thou like Demetrius.{line] 
+[line [n}3.2.384{]}And from each other look thou lead them thus,{line] 
+[line [n}3.2.385{]}Till o’er their brows death-counterfeiting sleep{line] 
+[line [n}3.2.386{]}With leaden legs and batty wings doth creep.{line] 
+[line [n}3.2.387{]}Then crush this herb into Lysander’s eye,{line] 
+[stage [n}SD 3.2.387.1{][}He gives a[app [from}#w0225590{]}[rdg [wit}#print #ebook{]}the{rdg]{app] flower to Robin.{]] 
+[line [n}3.2.388{]}Whose liquor hath this virtuous property,{line] 
+[line [n}3.2.389{]}To take from thence all error with his might{line] 
+[line [n}3.2.390{]}And make his eyeballs roll with wonted sight.{line] 
+[line [n}3.2.391{]}When they next wake, all this derision{line] 
+[line [n}3.2.392{]}Shall seem a dream and fruitless vision.{line] 
+[line [n}3.2.393{]}And back to Athens shall the lovers wend,{line] 
+[line [n}3.2.394{]}With league whose date till death shall never end.{line] 
+[line [n}3.2.395{]}Whiles I in this affair do thee employ,{line] 
+[line [n}3.2.396{]}I’ll to my queen and beg her Indian boy;{line] 
+[line [n}3.2.397{]}And then I will her charmèd eye release{line] 
+[line [n}3.2.398{]}From monster’s view, and all things shall be peace.{line] {sp] 
+[sp [speaker}ROBIN{speaker]} 
+[line [n}3.2.399{]}My fairy lord, this must be done with haste,{line] 
+[line [n}3.2.400{]}For night’s swift dragons cut the clouds full fast,{line] 
+[line [n}3.2.401{]}And yonder shines Aurora’s harbinger,{line] 
+[line [n}3.2.402{]}At whose approach, ghosts wand’ring here and there{line] 
+[line [n}3.2.404{]}Troop home to churchyards. Damnèd spirits all,{line] 
+[line [n}3.2.405{]}That in crossways and floods have burial,{line] 
+[line [n}3.2.406{]}Already to their wormy beds are gone.{line] 
+[line [n}3.2.407{]}For fear lest day should look their shames upon,{line] 
+[line [n}3.2.408{]}They willfully themselves exile from light{line] 
+[line [n}3.2.409{]}And must for aye consort with black-browed night.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}3.2.410{]}But we are spirits of another sort.{line] 
+[line [n}3.2.411{]}I with the Morning’s love have oft made sport{line] 
+[line [n}3.2.412{]}And, like a forester, the groves may tread{line] 
+[line [n}3.2.413{]}Even till the eastern gate, all fiery red,{line] 
+[line [n}3.2.414{]}Opening on Neptune with fair blessèd beams,{line] 
+[line [n}3.2.415{]}Turns into yellow gold his salt-green streams.{line] 
+[line [n}3.2.416{]}But notwithstanding, haste! Make no delay.{line] 
+[line [n}3.2.417{]}We may effect this business yet ere day.{line] {sp]
+[stage [n}SD 3.2.417{][}He exits.{]] 
+[sp [speaker}ROBIN{speaker]}
+[poem}[line}Up and down, up and down,{line]
+[line}I will lead them up and down.{line]
+[line}I am feared in field and town.{line]
+[line}Goblin, lead them up and down.{line]{poem] 
+[line [n}3.2.422{]}Here comes one.{line] {sp]  
+[stage [n}SD 3.2.422.1{][}Enter Lysander.{]]  
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.423{]}Where art thou, proud Demetrius? Speak thou now.{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.2.424.0{][}, in Demetrius’ voice{]] 
+[line [n}3.2.424{]}Here, villain, drawn and ready. Where art thou?{line] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[line [n}3.2.425{]}I will be with thee straight.{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.2.426{][}, in Demetrius’ voice{]]
+[line [n}3.2.426{]}Follow me, then, to{line] 
+[line [n}3.2.427{]}plainer ground.{line] {sp]
+[stage [n}SD 3.2.427{][}Lysander exits.{]]  
+[stage [n}SD 3.2.427.1{][}Enter Demetrius.{]]  
+[sp [speaker}DEMETRIUS{speaker]}
+[line [n}3.2.428{]}Lysander, speak again.{line] 
+[line [n}3.2.429{]}Thou runaway, thou coward, art thou fled?{line] 
+[line [n}3.2.430{]}Speak! In some bush? Where dost thou hide thy head?{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.2.432.0{][}, in Lysander’s voice{]] 
+[line [n}3.2.432{]}Thou coward, art thou bragging to the stars,{line] 
+[line [n}3.2.433{]}Telling the bushes that thou look’st for wars,{line] 
+[line [n}3.2.434{]}And wilt not come? Come, recreant! Come, thou child!{line] 
+[line [n}3.2.436{]}I’ll whip thee with a rod. He is defiled{line] 
+[line [n}3.2.437{]}That draws a sword on thee. {sp] 
+[sp [speaker}DEMETRIUS{speaker]}Yea, art thou there?{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.2.439.0{][}, in Lysander’s voice{]] 
+[line [n}3.2.439{]}Follow my voice. We’ll try no manhood here.{line] {sp] 
+[stage [n}SD 3.2.439.1{][}They exit.{]]  
+[stage [n}SD 3.2.439.2{][}Enter Lysander.{]]  
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}3.2.440{]}He goes before me and still dares me on.{line] 
+[line [n}3.2.441{]}When I come where he calls, then he is gone.{line] 
+[line [n}3.2.442{]}The villain is much lighter-heeled than I.{line] 
+[line [n}3.2.443{]}I followed fast, but faster he did fly,{line] 
+[line [n}3.2.444{]}That fallen am I in dark uneven way,{line] 
+[line [n}3.2.445{]}And here will rest me. Come, thou gentle day,{line] 
+[line [n}3.2.446{]}For if but once thou show me thy gray light,{line] 
+[line [n}3.2.447{]}I’ll find Demetrius and revenge this spite.{line] {sp] 
+[stage [n}SD 3.2.447.1{][}He lies down and sleeps.{]]  
+[stage [n}SD 3.2.447.2{][}Enter Robin and Demetrius.{]]  
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.2.448.0{][}, in Lysander’s voice{]] 
+[line [n}3.2.448{]}Ho, ho, ho! Coward, why com’st thou not?{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.449{]}Abide me, if thou dar’st, for well I wot{line] 
+[line [n}3.2.450{]}Thou runn’st before me, shifting every place,{line] 
+[line [n}3.2.451{]}And dar’st not stand nor look me in the face.{line] 
+[line [n}3.2.452{]}Where art thou now? {sp] 
+[sp [speaker}ROBIN{speaker]}
+[stage [run-in] [n}SD 3.2.453.0{][}, in Lysander’s voice{]] Come hither. I am here.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}3.2.454{]}Nay, then, thou mock’st me. Thou shalt buy this dear{line] 
+[line [n}3.2.456{]}If ever I thy face by daylight see.{line] 
+[line [n}3.2.457{]}Now go thy way. Faintness constraineth me{line] 
+[line [n}3.2.458{]}To measure out my length on this cold bed.{line] 
+[line [n}3.2.459{]}By day’s approach look to be visited.{line] {sp] 
+[stage [n}SD 3.2.459.1{][}He lies down and sleeps.{]]  
+[stage [n}SD 3.2.459.2{][}Enter Helena.{]]  
+[sp [speaker}HELENA{speaker]} 
+[line [n}3.2.460{]}O weary night, O long and tedious night,{line] 
+[line [n}3.2.461{]}Abate thy hours! Shine, comforts, from the east,{line] 
+[line [n}3.2.462{]}That I may back to Athens by daylight{line] 
+[line [n}3.2.463{]}From these that my poor company detest.{line] 
+[line [n}3.2.464{]}And sleep, that sometimes shuts up sorrow’s eye,{line] 
+[line [n}3.2.465{]}Steal me awhile from mine own company.{line] {sp] 
+[stage [n}SD 3.2.465.1{][}She lies down and sleeps.{]] 
+[sp [speaker}ROBIN{speaker]}
+[poem}[line}Yet but three? Come one more.{line]
+[line}Two of both kinds makes up four.{line]
+[line}Here she comes, curst and sad.{line]
+[line}Cupid is a knavish lad{line]
+[line}Thus to make poor females mad.{line]{poem] {sp]  
+[stage [n}SD 3.2.470.1{][}Enter Hermia.{]]  
+[sp [speaker}HERMIA{speaker]} 
+[line [n}3.2.471{]}Never so weary, never so in woe,{line] 
+[line [n}3.2.472{]}Bedabbled with the dew and torn with briers,{line] 
+[line [n}3.2.473{]}I can no further crawl, no further go.{line] 
+[line [n}3.2.474{]}My legs can keep no pace with my desires.{line] 
+[line [n}3.2.475{]}Here will I rest me till the break of day.{line] 
+[line [n}3.2.476{]}Heavens shield Lysander if they mean a fray!{line] {sp] 
+[stage [n}SD 3.2.476.1{][}She lies down and sleeps.{]] 
+[sp [speaker}ROBIN{speaker]}
+[ab}
+[poem}[line}On the ground{line]
+[line}Sleep sound.{line]
+[line}I’ll apply{line]
+[line}To your eye,{line]
+[line}Gentle lover, remedy.{line]
+[stage [n}SD 3.2.481.1{][}Robin applies the nectar   to Lysander’s eyes.{]][line}When thou wak’st,{line]
+[line}Thou tak’st{line]
+[line}True delight{line]
+[line}In the sight{line]
+[line}Of thy former lady’s eye.{line]
+[line}And the country proverb known,{line]
+[line}That every man should take his own,{line]
+[line}In your waking shall be shown.{line]
+[line}Jack shall have Jill;{line]
+[line}Naught shall go ill;{line]{poem] The man shall have his mare again, and all shall be well.{ab] {sp] 
+[stage [n}SD 3.2.492.1{][}He exits.{]] {scene] {act] 
+[act [n}4{][head}ACT 4{head]}
+[scene [n}1{][head}Scene 1{head]}
+[stage [n}SD 4.1.0{][}With the four lovers still asleep onstage, enter Titania, Queen of Fairies, and Bottom and Fairies, and Oberon, the King, behind them unseen by those onstage.{]]  
+[sp [speaker}TITANIA{speaker]} 
+[line [n}4.1.1{]}Come, sit thee down upon this flow’ry bed,{line] 
+[line [n}4.1.2{]}While I thy amiable cheeks do coy,{line] 
+[line [n}4.1.3{]}And stick muskroses in thy sleek smooth head,{line] 
+[line [n}4.1.4{]}And kiss thy fair large ears, my gentle joy.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Where’s Peaseblossom?{ab] {sp] 
+[sp [speaker}PEASEBLOSSOM{speaker]}
+[ab}Ready.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Scratch my head, Peaseblossom. Where’s Monsieur Cobweb?{ab] {sp] 
+[sp [speaker}COBWEB{speaker]}
+[ab}Ready.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Monsieur Cobweb, good monsieur, get you your weapons in your hand and kill me a red-hipped humble-bee on the top of a thistle, and, good monsieur, bring me the honey-bag. Do not fret yourself too much in the action, monsieur, and, good monsieur, have a care the honey-bag break not; I would be loath to have you overflown with a honey-bag, signior. 
+[stage [n}SD 4.1.17{][}Cobweb exits.{]] Where’s Monsieur Mustardseed?{ab] {sp] 
+[sp [speaker}MUSTARDSEED{speaker]}
+[ab}Ready.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Give me your neaf, Monsieur Mustardseed. Pray you, leave your courtesy, good monsieur.{ab] {sp] 
+[sp [speaker}MUSTARDSEED{speaker]}
+[ab}What’s your will?{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Nothing, good monsieur, but to help Cavalery Cobweb to scratch. I must to the barber’s, monsieur, for methinks I am marvels hairy about the face. And I am such a tender ass, if my hair do but tickle me, I must scratch.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}4.1.28{]}What, wilt thou hear some music, my sweet love?{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I have a reasonable good ear in music. Let’s have the tongs and the bones.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}4.1.31{]}Or say, sweet love, what thou desirest to eat.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Truly, a peck of provender. I could munch your good dry oats. Methinks I have a great desire to a bottle of hay. Good hay, sweet hay, hath no fellow.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}4.1.36{]}I have a venturous fairy that shall seek{line] 
+[line [n}4.1.37{]}The squirrel’s hoard and fetch thee new nuts.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}I had rather have a handful or two of dried peas. But, I pray you, let none of your people stir me; I have an exposition of sleep come upon me.{ab] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}4.1.41{]}Sleep thou, and I will wind thee in my arms.—{line] 
+[line [n}4.1.42{]}Fairies, begone, and be all ways away.{line] 
+[stage [n}SD 4.1.42.1{][}Fairies exit.{]] 
+[line [n}4.1.43{]}So doth the woodbine the sweet honeysuckle{line] 
+[line [n}4.1.44{]}Gently entwist; the female ivy so{line] 
+[line [n}4.1.45{]}Enrings the barky fingers of the elm.{line] 
+[line [n}4.1.46{]}O, how I love thee! How I dote on thee!{line] {sp] 
+[stage [n}SD 4.1.46.1{][}Bottom and Titania sleep.{]]  
+[stage [n}SD 4.1.46.2{][}Enter Robin Goodfellow.{]]  
+[sp [speaker}OBERON{speaker]} 
+[line [n}4.1.47{]}Welcome, good Robin. Seest thou this sweet sight?{line] 
+[line [n}4.1.48{]}Her dotage now I do begin to pity.{line] 
+[line [n}4.1.49{]}For, meeting her of late behind the wood,{line] 
+[line [n}4.1.50{]}Seeking sweet favors for this hateful fool,{line] 
+[line [n}4.1.51{]}I did upbraid her and fall out with her.{line] 
+[line [n}4.1.52{]}For she his hairy temples then had rounded{line] 
+[line [n}4.1.53{]}With coronet of fresh and fragrant flowers;{line] 
+[line [n}4.1.54{]}And that same dew, which sometime on the buds{line] 
+[line [n}4.1.55{]}Was wont to swell like round and orient pearls,{line] 
+[line [n}4.1.56{]}Stood now within the pretty flouriets’ eyes,{line] 
+[line [n}4.1.57{]}Like tears that did their own disgrace bewail.{line] 
+[line [n}4.1.58{]}When I had at my pleasure taunted her,{line] 
+[line [n}4.1.59{]}And she in mild terms begged my patience,{line] 
+[line [n}4.1.60{]}I then did ask of her her changeling child,{line] 
+[line [n}4.1.61{]}Which straight she gave me, and her fairy sent{line] 
+[line [n}4.1.62{]}To bear him to my bower in Fairyland.{line] 
+[line [n}4.1.63{]}And now I have the boy, I will undo{line] 
+[line [n}4.1.64{]}This hateful imperfection of her eyes.{line] 
+[line [n}4.1.65{]}And, gentle Puck, take this transformèd scalp{line] 
+[line [n}4.1.66{]}From off the head of this Athenian swain,{line] 
+[line [n}4.1.67{]}That he, awaking when the other do,{line] 
+[line [n}4.1.68{]}May all to Athens back again repair{line] 
+[line [n}4.1.69{]}And think no more of this night’s accidents{line] 
+[line [n}4.1.70{]}But as the fierce vexation of a dream.{line] 
+[line [n}4.1.71{]}But first I will release the Fairy Queen.{line] 
+[stage [n}SD 4.1.71.1{][}He applies the nectar to her eyes.{]]
+[poem}[line}Be as thou wast wont to be.{line]
+[line}See as thou wast wont to see.{line]
+[line}Dian’s bud o’er Cupid’s flower{line]
+[line}Hath such force and blessèd power.{line]{poem] 
+[line [n}4.1.76{]}Now, my Titania, wake you, my sweet queen.{line] {sp] 
+[sp [speaker}TITANIA{speaker]}
+[stage [run-in] [n}SD 4.1.77.0{][}, waking{]] 
+[line [n}4.1.77{]}My Oberon, what visions have I seen!{line] 
+[line [n}4.1.78{]}Methought I was enamored of an ass.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}4.1.79{]}There lies your love. {sp] 
+[sp [speaker}TITANIA{speaker]}How came these things to pass?{line] 
+[line [n}4.1.81{]}O, how mine eyes do loathe his visage now!{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}4.1.82{]}Silence awhile.—Robin, take off this head.—{line] 
+[line [n}4.1.83{]}Titania, music call; and strike more dead{line] 
+[line [n}4.1.84{]}Than common sleep of all these five the sense.{line] {sp] 
+[sp [speaker}TITANIA{speaker]} 
+[line [n}4.1.85{]}Music, ho, music such as charmeth sleep!{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[stage [n}SD 4.1.86.0{][}, removing the ass-head from Bottom{]] 
+[line [n}4.1.86{]}Now, when thou wak’st, with thine own fool’s eyes peep.{line] {sp] 
+[sp [speaker}OBERON{speaker]} 
+[line [n}4.1.88{]}Sound music.
+[stage [n}SD 4.1.88{][}Music.{]] Come, my queen, take hands with me,{line] 
+[line [n}4.1.90{]}And rock the ground whereon these sleepers be.{line] 
+[stage [n}SD 4.1.90.1{][}Titania and Oberon dance.{]] 
+[line [n}4.1.91{]}Now thou and I are new in amity,{line] 
+[line [n}4.1.92{]}And will tomorrow midnight solemnly{line] 
+[line [n}4.1.93{]}Dance in Duke Theseus’ house triumphantly,{line] 
+[line [n}4.1.94{]}And bless it to all fair prosperity.{line] 
+[line [n}4.1.95{]}There shall the pairs of faithful lovers be{line] 
+[line [n}4.1.96{]}Wedded, with Theseus, all in jollity.{line] {sp] 
+[sp [speaker}ROBIN{speaker]}
+[poem}[line}Fairy king, attend and mark.{line]
+[line}I do hear the morning lark.{line]{poem] {sp] 
+[sp [speaker}OBERON{speaker]}
+[poem}[line}Then, my queen, in silence sad{line]
+[line}Trip we after night’s shade.{line]
+[line}We the globe can compass soon,{line]
+[line}Swifter than the wand’ring moon.{line]{poem] {sp] 
+[sp [speaker}TITANIA{speaker]}
+[poem}[line}Come, my lord, and in our flight{line]
+[line}Tell me how it came this night{line]
+[line}That I sleeping here was found{line]
+[line}With these mortals on the ground.{line]{poem] {sp] 
+[stage [n}SD 4.1.106.1{][}Oberon, Robin, and Titania exit.{]]  
+[stage [n}SD 4.1.106.2{][}
+  [stage [}Wind horn.{]] 
+  [stage [}Enter Theseus and all his train, Hippolyta, Egeus.{]]{]]  
+[sp [speaker}THESEUS{speaker]} 
+[line [n}4.1.107{]}Go, one of you, find out the Forester.{line] 
+[line [n}4.1.108{]}For now our observation is performed,{line] 
+[line [n}4.1.109{]}And, since we have the vaward of the day,{line] 
+[line [n}4.1.110{]}My love shall hear the music of my hounds.{line] 
+[line [n}4.1.111{]}Uncouple in the western valley; let them go.{line] 
+[line [n}4.1.112{]}Dispatch, I say, and find the Forester.{line] 
+[stage [n}SD 4.1.112.1{][}A Servant exits.{]] 
+[line [n}4.1.113{]}We will, fair queen, up to the mountain’s top{line] 
+[line [n}4.1.114{]}And mark the musical confusion{line] 
+[line [n}4.1.115{]}Of hounds and echo in conjunction.{line] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]} 
+[line [n}4.1.116{]}I was with Hercules and Cadmus once,{line] 
+[line [n}4.1.117{]}When in a wood of Crete they bayed the bear{line] 
+[line [n}4.1.118{]}With hounds of Sparta. Never did I hear{line] 
+[line [n}4.1.119{]}Such gallant chiding, for, besides the groves,{line] 
+[line [n}4.1.120{]}The skies, the fountains, every region near{line] 
+[line [n}4.1.121{]}Seemed all one mutual cry. I never heard{line] 
+[line [n}4.1.122{]}So musical a discord, such sweet thunder.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}4.1.123{]}My hounds are bred out of the Spartan kind,{line] 
+[line [n}4.1.124{]}So flewed, so sanded; and their heads are hung{line] 
+[line [n}4.1.125{]}With ears that sweep away the morning dew;{line] 
+[line [n}4.1.126{]}Crook-kneed, and dewlapped like Thessalian bulls;{line] 
+[line [n}4.1.127{]}Slow in pursuit, but matched in mouth like bells,{line] 
+[line [n}4.1.128{]}Each under each. A cry more tunable{line] 
+[line [n}4.1.129{]}Was never holloed to, nor cheered with horn,{line] 
+[line [n}4.1.130{]}In Crete, in Sparta, nor in Thessaly.{line] 
+[line [n}4.1.131{]}Judge when you hear.—But soft! What nymphs are these?{line] {sp] 
+[sp [speaker}EGEUS{speaker]} 
+[line [n}4.1.133{]}My lord, this is my daughter here asleep,{line] 
+[line [n}4.1.134{]}And this Lysander; this Demetrius is,{line] 
+[line [n}4.1.135{]}This Helena, old Nedar’s Helena.{line] 
+[line [n}4.1.136{]}I wonder of their being here together.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}4.1.137{]}No doubt they rose up early to observe{line] 
+[line [n}4.1.138{]}The rite of May, and hearing our intent,{line] 
+[line [n}4.1.139{]}Came here in grace of our solemnity.{line] 
+[line [n}4.1.140{]}But speak, Egeus. Is not this the day{line] 
+[line [n}4.1.141{]}That Hermia should give answer of her choice?{line] {sp] 
+[sp [speaker}EGEUS{speaker]}
+[line [n}4.1.142{]}It is, my lord.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}4.1.143{]}Go, bid the huntsmen wake them with their horns.{line] {sp] 
+[stage [n}SD 4.1.143.1{][}A Servant exits.{]] 
+[stage [n}SD 4.1.143.2{][}
+  [stage [n}SD 4.1.143.2{][}Shout within. Wind horns.{]] 
+  [stage [n}SD 4.1.143.2{][}They all start up.{]]{]] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}4.1.144{]}Good morrow, friends. Saint Valentine is past.{line] 
+[line [n}4.1.145{]}Begin these woodbirds but to couple now?{line] {sp] 
+[stage [n}SD 4.1.145.1{][}Demetrius, Helena, Hermia, and Lysander kneel.{]] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}4.1.146{]}Pardon, my lord. {sp] 
+[sp [speaker}THESEUS{speaker]}I pray you all, stand up.{line] 
+[stage [n}SD 4.1.147.1{][}They rise.{]] 
+[line [n}4.1.148{]}I know you two are rival enemies.{line] 
+[line [n}4.1.149{]}How comes this gentle concord in the world,{line] 
+[line [n}4.1.150{]}That hatred is so far from jealousy{line] 
+[line [n}4.1.151{]}To sleep by hate and fear no enmity?{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}4.1.152{]}My lord, I shall reply amazèdly,{line] 
+[line [n}4.1.153{]}Half sleep, half waking. But as yet, I swear,{line] 
+[line [n}4.1.154{]}I cannot truly say how I came here.{line] 
+[line [n}4.1.155{]}But, as I think—for truly would I speak,{line] 
+[line [n}4.1.156{]}And now I do bethink me, so it is:{line] 
+[line [n}4.1.157{]}I came with Hermia hither. Our intent{line] 
+[line [n}4.1.158{]}Was to be gone from Athens, where we might,{line] 
+[line [n}4.1.159{]}Without the peril of the Athenian law—{line] {sp] 
+[sp [speaker}EGEUS{speaker]} 
+[line [n}4.1.160{]}Enough, enough!—My lord, you have enough.{line] 
+[line [n}4.1.161{]}I beg the law, the law[anchor][app [from}#a0267710{]}[rdg [wit}#print #ebook{]},{rdg]{app] upon his head.{line] 
+[line [n}4.1.162{]}They would have stol’n away.—They would, Demetrius,{line] 
+[line [n}4.1.164{]}Thereby to have defeated you and me:{line] 
+[line [n}4.1.165{]}You of your wife and me of my consent,{line] 
+[line [n}4.1.166{]}Of my consent that she should be your wife.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}4.1.167{]}My lord, fair Helen told me of their stealth,{line] 
+[line [n}4.1.168{]}Of this their purpose hither to this wood,{line] 
+[line [n}4.1.169{]}And I in fury hither followed them,{line] 
+[line [n}4.1.170{]}Fair Helena in fancy following me.{line] 
+[line [n}4.1.171{]}But, my good lord, I wot not by what power{line] 
+[line [n}4.1.172{]}(But by some power it is) my love to Hermia,{line] 
+[line [n}4.1.173{]}Melted as the snow, seems to me now{line] 
+[line [n}4.1.174{]}As the remembrance of an idle gaud{line] 
+[line [n}4.1.175{]}Which in my childhood I did dote upon,{line] 
+[line [n}4.1.176{]}And all the faith, the virtue of my heart,{line] 
+[line [n}4.1.177{]}The object and the pleasure of mine eye,{line] 
+[line [n}4.1.178{]}Is only Helena. To her, my lord,{line] 
+[line [n}4.1.179{]}Was I betrothed ere I saw Hermia.{line] 
+[line [n}4.1.180{]}But like a sickness did I loathe this food.{line] 
+[line [n}4.1.181{]}But, as in health, come to my natural taste,{line] 
+[line [n}4.1.182{]}Now I do wish it, love it, long for it,{line] 
+[line [n}4.1.183{]}And will forevermore be true to it.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}4.1.184{]}Fair lovers, you are fortunately met.{line] 
+[line [n}4.1.185{]}Of this discourse we more will hear anon.—{line] 
+[line [n}4.1.186{]}Egeus, I will overbear your will,{line] 
+[line [n}4.1.187{]}For in the temple by and by, with us,{line] 
+[line [n}4.1.188{]}These couples shall eternally be knit.—{line] 
+[line [n}4.1.189{]}And, for the morning now is something worn,{line] 
+[line [n}4.1.190{]}Our purposed hunting shall be set aside.{line] 
+[line [n}4.1.191{]}Away with us to Athens. Three and three,{line] 
+[line [n}4.1.192{]}We’ll hold a feast in great solemnity.{line] 
+[line [n}4.1.193{]}Come, Hippolyta.{line] {sp] 
+[stage [n}SD 4.1.193.1{][}Theseus and his train, including Hippolyta and Egeus, exit.{]] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}4.1.194{]}These things seem small and undistinguishable,{line] 
+[line [n}4.1.195{]}Like far-off mountains turnèd into clouds.{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}4.1.196{]}Methinks I see these things with parted eye,{line] 
+[line [n}4.1.197{]}When everything seems double. {sp] 
+[sp [speaker}HELENA{speaker]}So methinks.{line] 
+[line [n}4.1.199{]}And I have found Demetrius like a jewel,{line] 
+[line [n}4.1.200{]}Mine own and not mine own. {sp] 
+[sp [speaker}DEMETRIUS{speaker]}Are you sure{line] 
+[line [n}4.1.202{]}That we are awake? It seems to me{line] 
+[line [n}4.1.203{]}That yet we sleep, we dream. Do not you think{line] 
+[line [n}4.1.204{]}The Duke was here and bid us follow him?{line] {sp] 
+[sp [speaker}HERMIA{speaker]} 
+[line [n}4.1.205{]}Yea, and my father. {sp] 
+[sp [speaker}HELENA{speaker]}And Hippolyta.{line] {sp] 
+[sp [speaker}LYSANDER{speaker]} 
+[line [n}4.1.207{]}And he did bid us follow to the temple.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]} 
+[line [n}4.1.208{]}Why, then, we are awake. Let’s follow him,{line] 
+[line [n}4.1.209{]}And by the way let us recount our dreams.{line] {sp] 
+[stage [n}SD 4.1.209.1{][}Lovers exit.{]] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [run-in] [n}SD 4.1.210{][}, waking up{]]
+[ab} When my cue comes, call me, and I will answer. My next is [q}Most fair Pyramus.{q] Hey-ho! Peter Quince! Flute the bellows-mender! Snout the tinker! Starveling! God’s my life! Stolen hence and left me asleep! I have had a most rare vision. I have had a dream past the wit of man to say what dream it was. Man is but an ass if he go about to expound this dream. Methought I was—there is no man can tell what. Methought I was and methought I had—but man is but a patchedfool if he will offer to say what methought I had. The eye of man hath not heard, the ear of man hath not seen, man’s hand is not able to taste, his tongue to conceive, nor his heart to report what my dream was. I will get Peter Quince to write a ballad of this dream. It shall be called [title}Bottom’s Dream{title] because it hath no bottom; and I will sing it in the latter end of a play, before the Duke. Peradventure, to make it the more gracious, I shall sing it at her death.{ab] {sp] 
+[stage [n}SD 4.1.229.1{][}He exits.{]] {scene]
+[scene [n}2{][head}Scene 2{head]}
+[stage [n}SD 4.2.0{][}Enter Quince, Flute, Snout, and Starveling.{]]  
+[sp [speaker}QUINCE{speaker]}
+[ab}Have you sent to Bottom’s house? Is he come home yet?{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[ab}He cannot be heard of. Out of doubt he is transported.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}If he come not, then the play is marred. It goes not forward, doth it?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}It is not possible. You have not a man in all Athens able to discharge Pyramus but he.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}No, he hath simply the best wit of any handicraftman in Athens.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Yea, and the best person too, and he is a very paramour for a sweet voice.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}You must say [q}paragon.{q] A [q}paramour{q] is (God bless us) a thing of naught.{ab] {sp]  
+[stage [n}SD 4.2.14.1{][}Enter Snug the joiner.{]]  
+[sp [speaker}SNUG{speaker]}
+[ab}Masters, the Duke is coming from the temple, and there is two or three lords and ladies more married. If our sport had gone forward, we had all been made men.{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[ab}O, sweet bully Bottom! Thus hath he lost six pence a day during his life. He could not have ’scaped six pence a day. An the Duke had not given him six pence a day for playing Pyramus, I’ll be hanged. He would have deserved it. Six pence a day in Pyramus, or nothing!{ab] {sp]  
+[stage [n}SD 4.2.24.1{][}Enter Bottom.{]]  
+[sp [speaker}BOTTOM{speaker]}
+[ab}Where are these lads? Where are these hearts?{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Bottom! O most courageous day! O most happy hour!{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Masters, I am to discourse wonders. But ask me not what; for, if I tell you, I am not true Athenian. I will tell you everything right as it fell out.{ab] {sp] 
+[sp [speaker}QUINCE{speaker]}
+[ab}Let us hear, sweet Bottom.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}Not a word of me. All that I will tell you is that the Duke hath dined. Get your apparel together, good strings to your beards, new ribbons to your pumps. Meet presently at the palace. Every man look o’er his part. For the short and the long is, our play is preferred. In any case, let Thisbe have clean linen, and let not him that plays the lion pare his nails, for they shall hang out for the lion’s claws. And, most dear actors, eat no onions nor garlic, for we are to utter sweet breath, and I do not doubt but to hear them say it is a sweet comedy. No more words. Away! Go, away!{ab] {sp] 
+[stage [n}SD 4.2.45.1{][}They exit.{]] {scene] {act] 
+[act [n}5{][head}ACT 5{head]}
+[scene [n}1{][head}Scene 1{head]}
+[stage [n}SD 5.1.0{][}Enter Theseus, Hippolyta, and Philostrate, Lords, and Attendants.{]]  
+[sp [speaker}HIPPOLYTA{speaker]} 
+[line [n}5.1.1{]}’Tis strange, my Theseus, that these lovers speak of.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.2{]}More strange than true. I never may believe{line] 
+[line [n}5.1.3{]}These antique fables, nor these fairy toys.{line] 
+[line [n}5.1.4{]}Lovers and madmen have such seething brains,{line] 
+[line [n}5.1.5{]}Such shaping fantasies, that apprehend{line] 
+[line [n}5.1.6{]}More than cool reason ever comprehends.{line] 
+[line [n}5.1.7{]}The lunatic, the lover, and the poet{line] 
+[line [n}5.1.8{]}Are of imagination all compact.{line] 
+[line [n}5.1.9{]}One sees more devils than vast hell can hold:{line] 
+[line [n}5.1.10{]}That is the madman. The lover, all as frantic,{line] 
+[line [n}5.1.11{]}Sees Helen’s beauty in a brow of Egypt.{line] 
+[line [n}5.1.12{]}The poet’s eye, in a fine frenzy rolling,{line] 
+[line [n}5.1.13{]}Doth glance from heaven to Earth[app [from}#w0289150{]}[rdg [wit}#print #ebook{]}earth{rdg]{app], from Earth[app [from}#w0289200{]}[rdg [wit}#print #ebook{]}earth{rdg]{app] to heaven,{line] 
+[line [n}5.1.15{]}And as imagination bodies forth{line] 
+[line [n}5.1.16{]}The forms of things unknown, the poet’s pen{line] 
+[line [n}5.1.17{]}Turns them to shapes and gives to airy nothing{line] 
+[line [n}5.1.18{]}A local habitation and a name.{line] 
+[line [n}5.1.19{]}Such tricks hath strong imagination{line] 
+[line [n}5.1.20{]}That, if it would but apprehend some joy,{line] 
+[line [n}5.1.21{]}It comprehends some bringer of that joy.{line] 
+[line [n}5.1.22{]}Or in the night, imagining some fear,{line] 
+[line [n}5.1.23{]}How easy is a bush supposed a bear!{line] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]} 
+[line [n}5.1.24{]}But all the story of the night told over,{line] 
+[line [n}5.1.25{]}And all their minds transfigured so together,{line] 
+[line [n}5.1.26{]}More witnesseth than fancy’s images{line] 
+[line [n}5.1.27{]}And grows to something of great constancy,{line] 
+[line [n}5.1.28{]}But, howsoever, strange and admirable.{line] {sp]  
+[stage [n}SD 5.1.28.1{][}Enter Lovers: Lysander, Demetrius, Hermia, and Helena.{]]  
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.29{]}Here come the lovers full of joy and mirth.—{line] 
+[line [n}5.1.30{]}Joy, gentle friends! Joy and fresh days of love{line] 
+[line [n}5.1.31{]}Accompany your hearts! {sp] 
+[sp [speaker}LYSANDER{speaker]}More than to us{line] 
+[line [n}5.1.33{]}Wait in your royal walks, your board, your bed!{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.34{]}Come now, what masques, what dances shall we have{line] 
+[line [n}5.1.36{]}To wear away this long age of three hours{line] 
+[line [n}5.1.37{]}Between our after-supper and bedtime?{line] 
+[line [n}5.1.38{]}Where is our usual manager of mirth?{line] 
+[line [n}5.1.39{]}What revels are in hand? Is there no play{line] 
+[line [n}5.1.40{]}To ease the anguish of a torturing hour?{line] 
+[line [n}5.1.41{]}Call Philostrate. {sp] 
+[sp [speaker}PHILOSTRATE{speaker]}
+[stage [run-in] [n}SD 5.1.42.0{][}, coming forward{]][anchor][app [from}#an-18191{]}[rdg [wit}#print #ebook{]} {rdg]{app]Here, mighty Theseus.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.43{]}Say what abridgment have you for this evening,{line] 
+[line [n}5.1.44{]}What masque, what music? How shall we beguile{line] 
+[line [n}5.1.45{]}The lazy time if not with some delight?{line] {sp] 
+[sp [speaker}PHILOSTRATE{speaker]}
+[stage [n}SD 5.1.46.0{][}, giving Theseus a paper{]] 
+[line [n}5.1.46{]}There is a brief how many sports are ripe.{line] 
+[line [n}5.1.47{]}Make choice of which your Highness will see first.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} [title}
+[line [n}5.1.48{]}The battle with the Centaurs, to be sung{line] 
+[line [n}5.1.49{]}By an Athenian eunuch to the harp.{line]{title] 
+[line [n}5.1.50{]}We’ll none of that. That have I told my love{line] 
+[line [n}5.1.51{]}In glory of my kinsman Hercules.{line] [title}
+[line [n}5.1.52{]}The riot of the tipsy Bacchanals,{line] 
+[line [n}5.1.53{]}Tearing the Thracian singer in their rage.{line]{title] 
+[line [n}5.1.54{]}That is an old device, and it was played{line] 
+[line [n}5.1.55{]}When I from Thebes came last a conqueror.{line] [title}
+[line [n}5.1.56{]}The thrice-three Muses mourning for the death{line] 
+[line [n}5.1.57{]}Of learning, late deceased in beggary.{line]{title] 
+[line [n}5.1.58{]}That is some satire, keen and critical,{line] 
+[line [n}5.1.59{]}Not sorting with a nuptial ceremony.{line] [title}
+[line [n}5.1.60{]}A tedious brief scene of young Pyramus{line] 
+[line [n}5.1.61{]}And his love Thisbe, very tragical mirth.{line]{title] [q}
+[line [n}5.1.62{]}Merry{q] and [q}tragical{q]? [q}Tedious{q] and [q}brief{q]?{line] 
+[line [n}5.1.63{]}That is hot ice and wondrous strange snow!{line] 
+[line [n}5.1.64{]}How shall we find the concord of this discord?{line] {sp] 
+[sp [speaker}PHILOSTRATE{speaker]} 
+[line [n}5.1.65{]}A play there is, my lord, some ten words long{line] 
+[line [n}5.1.66{]}(Which is as brief as I have known a play),{line] 
+[line [n}5.1.67{]}But by ten words, my lord, it is too long,{line] 
+[line [n}5.1.68{]}Which makes it tedious; for in all the play,{line] 
+[line [n}5.1.69{]}There is not one word apt, one player fitted.{line] 
+[line [n}5.1.70{]}And tragical, my noble lord, it is.{line] 
+[line [n}5.1.71{]}For Pyramus therein doth kill himself,{line] 
+[line [n}5.1.72{]}Which, when I saw rehearsed, I must confess,{line] 
+[line [n}5.1.73{]}Made mine eyes water; but more merry tears{line] 
+[line [n}5.1.74{]}The passion of loud laughter never shed.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.75{]}What are they that do play it?{line] {sp] 
+[sp [speaker}PHILOSTRATE{speaker]} 
+[line [n}5.1.76{]}Hard-handed men that work in Athens here,{line] 
+[line [n}5.1.77{]}Which never labored in their minds till now,{line] 
+[line [n}5.1.78{]}And now have toiled their unbreathed memories{line] 
+[line [n}5.1.79{]}With this same play, against your nuptial.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.80{]}And we will hear it. {sp] 
+[sp [speaker}PHILOSTRATE{speaker]}No, my noble lord,{line] 
+[line [n}5.1.82{]}It is not for you. I have heard it over,{line] 
+[line [n}5.1.83{]}And it is nothing, nothing in the world,{line] 
+[line [n}5.1.84{]}Unless you can find sport in their intents,{line] 
+[line [n}5.1.85{]}Extremely stretched and conned with cruel pain{line] 
+[line [n}5.1.86{]}To do you service. {sp] 
+[sp [speaker}THESEUS{speaker]}I will hear that play,{line] 
+[line [n}5.1.88{]}For never anything can be amiss{line] 
+[line [n}5.1.89{]}When simpleness and duty tender it.{line] 
+[line [n}5.1.90{]}Go, bring them in—and take your places, ladies.{line] {sp] 
+[stage [n}SD 5.1.90.1{][}Philostrate exits.{]] 
+[sp [speaker}HIPPOLYTA{speaker]} 
+[line [n}5.1.91{]}I love not to see wretchedness o’ercharged,{line] 
+[line [n}5.1.92{]}And duty in his service perishing.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.93{]}Why, gentle sweet, you shall see no such thing.{line] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]} 
+[line [n}5.1.94{]}He says they can do nothing in this kind.{line] {sp] 
+[sp [speaker}THESEUS{speaker]} 
+[line [n}5.1.95{]}The kinder we, to give them thanks for nothing.{line] 
+[line [n}5.1.96{]}Our sport shall be to take what they mistake;{line] 
+[line [n}5.1.97{]}And what poor duty cannot do, noble respect{line] 
+[line [n}5.1.98{]}Takes it in might, not merit.{line] 
+[line [n}5.1.99{]}Where I have come, great clerks have purposèd{line] 
+[line [n}5.1.100{]}To greet me with premeditated welcomes,{line] 
+[line [n}5.1.101{]}Where I have seen them shiver and look pale,{line] 
+[line [n}5.1.102{]}Make periods in the midst of sentences,{line] 
+[line [n}5.1.103{]}Throttle their practiced accent in their fears,{line] 
+[line [n}5.1.104{]}And in conclusion dumbly have broke off,{line] 
+[line [n}5.1.105{]}Not paying me a welcome. Trust me, sweet,{line] 
+[line [n}5.1.106{]}Out of this silence yet I picked a welcome,{line] 
+[line [n}5.1.107{]}And in the modesty of fearful duty,{line] 
+[line [n}5.1.108{]}I read as much as from the rattling tongue{line] 
+[line [n}5.1.109{]}Of saucy and audacious eloquence.{line] 
+[line [n}5.1.110{]}Love, therefore, and tongue-tied simplicity{line] 
+[line [n}5.1.111{]}In least speak most, to my capacity.{line]  
+[stage [n}SD 5.1.111.1{][}Enter Philostrate.{]]  {sp] 
+[sp [speaker}PHILOSTRATE{speaker]} 
+[line [n}5.1.112{]}So please your Grace, the Prologue is addressed.{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[line [n}5.1.113{]}Let him approach.{line] {sp]  
+[stage [n}SD 5.1.113.1{][}Enter the Prologue.{]]  
+[sp [speaker}PROLOGUE{speaker]} 
+[line [n}5.1.114{]}If we offend, it is with our goodwill.{line] 
+[line [n}5.1.115{]}That you should think we come not to offend,{line] 
+[line [n}5.1.116{]}But with goodwill. To show our simple skill,{line] 
+[line [n}5.1.117{]}That is the true beginning of our end.{line] 
+[line [n}5.1.118{]}Consider, then, we come but in despite.{line] 
+[line [n}5.1.119{]}We do not come, as minding to content you,{line] 
+[line [n}5.1.120{]}Our true intent is. All for your delight{line] 
+[line [n}5.1.121{]}We are not here. That you should here repent you,{line] 
+[line [n}5.1.123{]}The actors are at hand, and, by their show,{line] 
+[line [n}5.1.124{]}You shall know all that you are like to know.{line] {sp] 
+[stage [n}SD 5.1.124.1{][}Prologue exits.{]] 
+[sp [speaker}THESEUS{speaker]}
+[ab}This fellow doth not stand upon points.{ab] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[ab}He hath rid his prologue like a rough colt; he knows not the stop. A good moral, my lord: it is not enough to speak, but to speak true.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}Indeed he hath played on this prologue like a child on a recorder—a sound, but not in government.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}His speech was like a tangled chain—nothing impaired, but all disordered. Who is next?{ab] {sp]  
+[stage [n}SD 5.1.133.1{][}Enter Pyramus (Bottom), and Thisbe (Flute), and Wall (Snout), and Moonshine (Starveling), and Lion (Snug), and Prologue (Quince).{]]  
+[sp [speaker}QUINCE{speaker]}
+[stage [n}SD 5.1.134.0{][}, as Prologue{]] 
+[line [n}5.1.134{]}Gentles, perchance you wonder at this show.{line] 
+[line [n}5.1.135{]}But wonder on, till truth make all things plain.{line] 
+[line [n}5.1.136{]}This man is Pyramus, if you would know.{line] 
+[line [n}5.1.137{]}This beauteous lady Thisbe is certain.{line] 
+[line [n}5.1.138{]}This man with lime and roughcast doth present{line] [q}
+[line [n}5.1.139{]}Wall,{q] that vile wall which did these lovers sunder;{line] 
+[line [n}5.1.141{]}And through Wall’s chink, poor souls, they are content{line] 
+[line [n}5.1.143{]}To whisper, at the which let no man wonder.{line] 
+[line [n}5.1.144{]}This man, with lantern, dog, and bush of thorn,{line] 
+[line [n}5.1.145{]}Presenteth [q}Moonshine,{q] for, if you will know,{line] 
+[line [n}5.1.146{]}By moonshine did these lovers think no scorn{line] 
+[line [n}5.1.147{]}To meet at Ninus’ tomb, there, there to woo.{line] 
+[line [n}5.1.148{]}This grisly beast (which [q}Lion{q] hight by name){line] 
+[line [n}5.1.149{]}The trusty Thisbe coming first by night{line] 
+[line [n}5.1.150{]}Did scare away, or rather did affright;{line] 
+[line [n}5.1.151{]}And, as she fled, her mantle she did fall,{line] 
+[line [n}5.1.152{]}Which Lion vile with bloody mouth did stain.{line] 
+[line [n}5.1.153{]}Anon comes Pyramus, sweet youth and tall,{line] 
+[line [n}5.1.154{]}And finds his trusty Thisbe’s mantle slain.{line] 
+[line [n}5.1.155{]}Whereat, with blade, with bloody blameful blade,{line] 
+[line [n}5.1.156{]}He bravely broached his boiling bloody breast.{line] 
+[line [n}5.1.157{]}And Thisbe, tarrying in mulberry shade,{line] 
+[line [n}5.1.158{]}His dagger drew, and died. For all the rest,{line] 
+[line [n}5.1.159{]}Let Lion, Moonshine, Wall, and lovers twain{line] 
+[line [n}5.1.160{]}At large discourse, while here they do remain.{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}I wonder if the lion be to speak.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}No wonder, my lord. One lion may when many asses do.{ab] {sp] 
+[stage [n}SD 5.1.163.1{][}Lion, Thisbe, Moonshine, and Prologue exit.{]] 
+[sp [speaker}SNOUT{speaker]}
+[stage [n}SD 5.1.164.0{][}, as Wall{]] 
+[line [n}5.1.164{]}In this same interlude it doth befall{line] 
+[line [n}5.1.165{]}That I, one Snout by name, present a wall;{line] 
+[line [n}5.1.166{]}And such a wall as I would have you think{line] 
+[line [n}5.1.167{]}That had in it a crannied hole or chink,{line] 
+[line [n}5.1.168{]}Through which the lovers, Pyramus and Thisbe,{line] 
+[line [n}5.1.169{]}Did whisper often, very secretly.{line] 
+[line [n}5.1.170{]}This loam, this roughcast, and this stone doth show{line] 
+[line [n}5.1.171{]}That I am that same wall. The truth is so.{line] 
+[line [n}5.1.172{]}And this the cranny is, right and sinister,{line] 
+[line [n}5.1.173{]}Through which the fearful lovers are to whisper.{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}Would you desire lime and hair to speak better?{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}It is the wittiest partition that ever I heard discourse, my lord.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}Pyramus draws near the wall. Silence.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.179.0{][}, as Pyramus{]] 
+[line [n}5.1.179{]}O grim-looked night! O night with hue so black!{line] 
+[line [n}5.1.180{]}O night, which ever art when day is not!{line] 
+[line [n}5.1.181{]}O night! O night! Alack, alack, alack!{line] 
+[line [n}5.1.182{]}I fear my Thisbe’s promise is forgot.{line] 
+[line [n}5.1.183{]}And thou, O wall, O sweet, O lovely wall,{line] 
+[line [n}5.1.184{]}That stand’st between her father’s ground and mine,{line] 
+[line [n}5.1.186{]}Thou wall, O wall, O sweet and lovely wall,{line] 
+[line [n}5.1.187{]}Show me thy chink to blink through with mine eyne.{line] 
+[line [n}5.1.189{]}Thanks, courteous wall. Jove shield thee well for this.{line] 
+[line [n}5.1.191{]}But what see I? No Thisbe do I see.{line] 
+[line [n}5.1.192{]}O wicked wall, through whom I see no bliss,{line] 
+[line [n}5.1.193{]}Cursed be thy stones for thus deceiving me!{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}The wall, methinks, being sensible, should curse again.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}No, in truth, sir, he should not. [q}Deceiving me{q] is Thisbe’s cue. She is to enter now, and I am to spy her through the wall. You shall see it will fall pat as I told you. Yonder she comes.{ab] {sp]  
+[stage [n}SD 5.1.199.1{][}Enter Thisbe (Flute).{]]  
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.200.0{][}, as Thisbe{]] 
+[line [n}5.1.200{]}O wall, full often hast thou heard my moans{line] 
+[line [n}5.1.201{]}For parting my fair Pyramus and me.{line] 
+[line [n}5.1.202{]}My cherry lips have often kissed thy stones,{line] 
+[line [n}5.1.203{]}Thy stones with lime and hair knit up in thee.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.204.0{][}, as Pyramus{]] 
+[line [n}5.1.204{]}I see a voice! Now will I to the chink{line] 
+[line [n}5.1.205{]}To spy an I can hear my Thisbe’s face.{line] 
+[line [n}5.1.206{]}Thisbe? {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.207.0{][}, as Thisbe{]] My love! Thou art my love, I think.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.208.0{][}, as Pyramus{]] 
+[line [n}5.1.208{]}Think what thou wilt, I am thy lover’s grace,{line] 
+[line [n}5.1.209{]}And, like Limander, am I trusty still.{line] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.210.0{][}, as Thisbe{]] 
+[line [n}5.1.210{]}And I like Helen, till the Fates me kill.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.211.0{][}, as Pyramus{]] 
+[line [n}5.1.211{]}Not Shafalus to Procrus was so true.{line] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.212.0{][}, as Thisbe{]] 
+[line [n}5.1.212{]}As Shafalus to Procrus, I to you.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.213.0{][}, as Pyramus{]] 
+[line [n}5.1.213{]}O kiss me through the hole of this vile wall.{line] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.214.0{][}, as Thisbe{]] 
+[line [n}5.1.214{]}I kiss the wall’s hole, not your lips at all.{line] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.215.0{][}, as Pyramus{]] 
+[line [n}5.1.215{]}Wilt thou at Ninny’s tomb meet me straightway?{line] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.216.0{][}, as Thisbe{]] 
+[line [n}5.1.216{]}’Tide life, ’tide death, I come without delay.{line] {sp] 
+[stage [n}SD 5.1.216.1{][}Bottom and Flute exit.{]] 
+[sp [speaker}SNOUT{speaker]}
+[stage [n}SD 5.1.217.0{][}, as Wall{]] 
+[line [n}5.1.217{]}Thus have I, Wall, my part dischargèd so,{line] 
+[line [n}5.1.218{]}And, being done, thus Wall away doth go.{line] {sp]
+[stage [n}SD 5.1.218{][}He exits.{]] 
+[sp [speaker}THESEUS{speaker]}
+[ab}Now is the wall down between the two neighbors.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}No remedy, my lord, when walls are so willful to hear without warning.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}This is the silliest stuff that ever I heard.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}The best in this kind are but shadows, and the worst are no worse, if imagination amend them.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}It must be your imagination, then, and not theirs.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}If we imagine no worse of them than they of themselves, they may pass for excellent men. Here come two noble beasts in, a man and a lion.{ab] {sp]  
+[stage [n}SD 5.1.231.1{][}Enter Lion (Snug) and Moonshine (Starveling).{]]  
+[sp [speaker}SNUG{speaker]}
+[stage [n}SD 5.1.232.0{][}, as Lion{]] 
+[line [n}5.1.232{]}You ladies, you whose gentle hearts do fear{line] 
+[line [n}5.1.233{]}The smallest monstrous mouse that creeps on floor,{line] 
+[line [n}5.1.235{]}May now perchance both quake and tremble here,{line] 
+[line [n}5.1.236{]}When lion rough in wildest rage doth roar.{line] 
+[line [n}5.1.237{]}Then know that I, as Snug the joiner, am{line] 
+[line [n}5.1.238{]}A lion fell, nor else no lion’s dam;{line] 
+[line [n}5.1.239{]}For if I should as lion come in strife{line] 
+[line [n}5.1.240{]}Into this place, ’twere pity on my life.{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}A very gentle beast, and of a good conscience.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}The very best at a beast, my lord, that e’er I saw.{ab] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[ab}This lion is a very fox for his valor.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}True, and a goose for his discretion.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}Not so, my lord, for his valor cannot carry his discretion, and the fox carries the goose.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}His discretion, I am sure, cannot carry his valor, for the goose carries not the fox. It is well. Leave it to his discretion, and let us listen to the Moon.{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[stage [n}SD 5.1.253.0{][}, as Moonshine{]] 
+[line [n}5.1.253{]}This lanthorn doth the hornèd moon present.{line] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}He should have worn the horns on his head.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}He is no crescent, and his horns are invisible within the circumference.{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[stage [n}SD 5.1.258.0{][}, as Moonshine{]] 
+[line [n}5.1.258{]}This lanthorn doth the hornèd moon present.{line] 
+[line [n}5.1.259{]}Myself the man i’ th’ moon do seem to be.{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}This is the greatest error of all the rest; the man should be put into the lanthorn. How is it else [q}the man i’ th’ moon{q]?{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}He dares not come there for the candle, for you see, it is already in snuff.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}I am aweary of this moon. Would he would change.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}It appears by his small light of discretion that he is in the wane; but yet, in courtesy, in all reason, we must stay the time.{ab] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[ab}Proceed, Moon.{ab] {sp] 
+[sp [speaker}STARVELING{speaker]}
+[stage [n}SD 5.1.271{][}, as Moonshine{]]
+[ab} All that I have to say is to tell you that the lanthorn is the moon, I the man i’ th’ moon, this thornbush my thornbush, and this dog my dog.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}Why, all these should be in the lanthorn, for all these are in the moon. But silence. Here comes Thisbe.{ab] {sp]  
+[stage [n}SD 5.1.277.1{][}Enter Thisbe (Flute).{]]  
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.278.0{][}, as Thisbe{]] 
+[line [n}5.1.278{]}This is old Ninny’s tomb. Where is my love?{line] {sp] 
+[sp [speaker}SNUG{speaker]}
+[stage [n}SD 5.1.279{][}, as Lion{]]
+[ab}O!{ab] {sp] 
+[stage [n}SD 5.1.279.1{][}
+  [stage [n}SD 5.1.279.1{][}The Lion roars.{]] 
+  [stage [n}SD 5.1.279.1{][}Thisbe runs off, dropping her mantle.{]]{]] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}Well roared, Lion.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}Well run, Thisbe.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}Well shone, Moon. Truly, the Moon shines with a good grace.{ab] {sp] 
+[stage [n}SD 5.1.283.1{][}Lion worries the mantle.{]] 
+[sp [speaker}THESEUS{speaker]}
+[ab}Well moused, Lion.{ab] {sp]  
+[stage [n}SD 5.1.284.1{][}Enter Pyramus (Bottom).{]]  
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}And then came Pyramus.{ab] {sp] 
+[stage [n}SD 5.1.285.1{][}Lion exits.{]] 
+[sp [speaker}LYSANDER{speaker]}
+[ab}And so the lion vanished.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.287.0{][}, as Pyramus{]] 
+[line [n}5.1.287{]}Sweet Moon, I thank thee for thy sunny beams.{line] 
+[line [n}5.1.288{]}I thank thee, Moon, for shining now so bright,{line] 
+[line [n}5.1.289{]}For by thy gracious, golden, glittering gleams,{line] 
+[line [n}5.1.290{]}I trust to take of truest Thisbe sight.—{line] 
+[line [n}5.1.291{]}But stay! O spite!{line] 
+[line [n}5.1.292{]}But mark, poor knight,{line] 
+[line [n}5.1.293{]}What dreadful dole is here!{line] 
+[line [n}5.1.294{]}Eyes, do you see!{line] 
+[line [n}5.1.295{]}How can it be!{line] 
+[line [n}5.1.296{]}O dainty duck! O dear!{line] 
+[line [n}5.1.297{]}Thy mantle good—{line] 
+[line [n}5.1.298{]}What, stained with blood?{line] 
+[line [n}5.1.299{]}Approach, ye Furies fell!{line] 
+[line [n}5.1.300{]}O Fates, come, come,{line] 
+[line [n}5.1.301{]}Cut thread and thrum,{line] 
+[line [n}5.1.302{]}Quail, crush, conclude, and quell!{line] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}This passion, and the death of a dear friend, would go near to make a man look sad.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}Beshrew my heart but I pity the man.{ab] {sp] 
+[sp [speaker}BOTTOM{speaker]}
+[stage [n}SD 5.1.306.0{][}, as Pyramus{]] 
+[line [n}5.1.306{]}O, wherefore, Nature, didst thou lions frame,{line] 
+[line [n}5.1.307{]}Since lion vile hath here deflowered my dear,{line] 
+[line [n}5.1.308{]}Which is—no, no—which was the fairest dame{line] 
+[line [n}5.1.309{]}That lived, that loved, that liked, that looked with cheer?{line] 
+[line [n}5.1.311{]}Come, tears, confound!{line] 
+[line [n}5.1.312{]}Out, sword, and wound{line] 
+[line [n}5.1.313{]}The pap of Pyramus;{line] 
+[line [n}5.1.314{]}Ay, that left pap,{line] 
+[line [n}5.1.315{]}Where heart doth hop.{line]
+[stage [n}SD 5.1.315{][}Pyramus stabs himself.{]] 
+[line [n}5.1.316{]}Thus die I, thus, thus, thus.{line] 
+[line [n}5.1.317{]}Now am I dead;{line] 
+[line [n}5.1.318{]}Now am I fled;{line] 
+[line [n}5.1.319{]}My soul is in the sky.{line] 
+[line [n}5.1.320{]}Tongue, lose thy light!{line] 
+[line [n}5.1.321{]}Moon, take thy flight!{line]
+[stage [n}SD 5.1.321{][}Moonshine exits.{]] 
+[line [n}5.1.322{]}Now die, die, die, die, die.{line]
+[stage [n}SD 5.1.322{][}Pyramus falls.{]] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}No die, but an ace[anchor][app [from}#a0337810{]}[rdg [wit}#print #ebook{]},{rdg]{app] for him, for he is but one.{ab] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[ab}Less than an ace, man, for he is dead, he is nothing.{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}With the help of a surgeon he might yet recover and yet prove an ass.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}How chance Moonshine is gone before Thisbe comes back and finds her lover?{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}She will find him by starlight.  
+[stage [n}SD 5.1.331.1{][}Enter Thisbe (Flute).{]]  Here she comes, and her passion ends the play.{ab] {sp] 
+[sp [speaker}HIPPOLYTA{speaker]}
+[ab}Methinks she should not use a long one for such a Pyramus. I hope she will be brief.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}A mote will turn the balance, which Pyramus, which Thisbe, is the better: he for a man, God warrant us; she for a woman, God bless us.{ab] {sp] 
+[sp [speaker}LYSANDER{speaker]}
+[ab}She hath spied him already with those sweet eyes.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}And thus she means, [foreign [xml:lang}la{]}videlicet{foreign]—{ab] {sp] 
+[sp [speaker}FLUTE{speaker]}
+[stage [n}SD 5.1.341.0{][}, as Thisbe{]] [poem}
+[line [n}5.1.341{]}Asleep, my love?{line] 
+[line [n}5.1.342{]}What, dead, my dove?{line] 
+[line [n}5.1.343{]}O Pyramus, arise!{line] 
+[line [n}5.1.344{]}Speak, speak. Quite dumb?{line] 
+[line [n}5.1.345{]}Dead? Dead? A tomb{line] 
+[line [n}5.1.346{]}Must cover thy sweet eyes.{line] 
+[line [n}5.1.347{]}These lily lips,{line] 
+[line [n}5.1.348{]}This cherry nose,{line] 
+[line [n}5.1.349{]}These yellow cowslip cheeks{line] 
+[line [n}5.1.350{]}Are gone, are gone!{line] 
+[line [n}5.1.351{]}Lovers, make moan;{line] 
+[line [n}5.1.352{]}His eyes were green as leeks.{line] 
+[line [n}5.1.353{]}O Sisters Three,{line] 
+[line [n}5.1.354{]}Come, come to me{line] 
+[line [n}5.1.355{]}With hands as pale as milk.{line] 
+[line [n}5.1.356{]}Lay them in gore,{line] 
+[line [n}5.1.357{]}Since you have shore{line] 
+[line [n}5.1.358{]}With shears his thread of silk.{line] 
+[line [n}5.1.359{]}Tongue, not a word!{line] 
+[line [n}5.1.360{]}Come, trusty sword,{line] 
+[line [n}5.1.361{]}Come, blade, my breast imbrue!{line] 
+[stage [n}SD 5.1.361.1{][}Thisbe stabs herself.{]] 
+[line [n}5.1.362{]}And farewell, friends.{line] 
+[line [n}5.1.363{]}Thus Thisbe ends.{line] 
+[line [n}5.1.364{]}Adieu, adieu, adieu.{line]{poem] {sp]
+[stage [n}SD 5.1.364{][}Thisbe falls.{]] 
+[sp [speaker}THESEUS{speaker]}
+[ab}Moonshine and Lion are left to bury the dead.{ab] {sp] 
+[sp [speaker}DEMETRIUS{speaker]}
+[ab}Ay, and Wall too.{ab] {sp] 
+[stage [n}SD 5.1.367.1{][}Bottom and Flute arise.{]] 
+[sp [speaker}BOTTOM{speaker]}
+[ab}No, I assure you, the wall is down that parted their fathers. Will it please you to see the Epilogue or to hear a Bergomask dance between two of our company?{ab] {sp] 
+[sp [speaker}THESEUS{speaker]}
+[ab}No epilogue, I pray you. For your play needs no excuse. Never excuse. For when the players are all dead, there need none to be blamed. Marry, if he that writ it had played Pyramus and hanged himself in Thisbe’s garter, it would have been a fine tragedy; and so it is, truly, and very notably discharged. But, come, your Bergomask. Let your epilogue alone. 
+[stage [n}SD 5.1.379.1{][}Dance, and the players exit.{]] 
+[line [n}5.1.380{]}The iron tongue of midnight hath told twelve.{line] 
+[line [n}5.1.381{]}Lovers, to bed! ’Tis almost fairy time.{line] 
+[line [n}5.1.382{]}I fear we shall outsleep the coming morn{line] 
+[line [n}5.1.383{]}As much as we this night have overwatched.{line] 
+[line [n}5.1.384{]}This palpable-gross play hath well beguiled{line] 
+[line [n}5.1.385{]}The heavy gait of night. Sweet friends, to bed.{line] 
+[line [n}5.1.386{]}A fortnight hold we this solemnity{line] 
+[line [n}5.1.387{]}In nightly revels and new jollity.{line]
+[stage [n}SD 5.1.387.1{][}They exit.{]]{ab] {sp]  
+[stage [n}SD 5.1.387.2{][}Enter Robin Goodfellow.{]]  
+[sp [speaker}ROBIN{speaker]} [poem}
+[line [n}5.1.388{]}Now the hungry lion roars,{line] 
+[line [n}5.1.389{]}And the wolf behowls the moon,{line] 
+[line [n}5.1.390{]}Whilst the heavy plowman snores,{line] 
+[line [n}5.1.391{]}All with weary task fordone.{line] 
+[line [n}5.1.392{]}Now the wasted brands do glow,{line] 
+[line [n}5.1.393{]}Whilst the screech-owl, screeching loud,{line] 
+[line [n}5.1.394{]}Puts the wretch that lies in woe{line] 
+[line [n}5.1.395{]}In remembrance of a shroud.{line] 
+[line [n}5.1.396{]}Now it is the time of night{line] 
+[line [n}5.1.397{]}That the graves, all gaping wide,{line] 
+[line [n}5.1.398{]}Every one lets forth his sprite{line] 
+[line [n}5.1.399{]}In the church-way paths to glide.{line] 
+[line [n}5.1.400{]}And we fairies, that do run{line] 
+[line [n}5.1.401{]}By the triple Hecate’s team{line] 
+[line [n}5.1.402{]}From the presence of the sun,{line] 
+[line [n}5.1.403{]}Following darkness like a dream,{line] 
+[line [n}5.1.404{]}Now are frolic. Not a mouse{line] 
+[line [n}5.1.405{]}Shall disturb this hallowed house.{line] 
+[line [n}5.1.406{]}I am sent with broom before,{line] 
+[line [n}5.1.407{]}To sweep the dust behind the door.{line]{poem] {sp]  
+[stage [n}SD 5.1.407.1{][}Enter Oberon and Titania, King and Queen of Fairies, with all their train.{]]  
+[sp [speaker}OBERON{speaker]} [poem}
+[line [n}5.1.408{]}Through the house give glimmering light,{line] 
+[line [n}5.1.409{]}By the dead and drowsy fire.{line] 
+[line [n}5.1.410{]}Every elf and fairy sprite,{line] 
+[line [n}5.1.411{]}Hop as light as bird from brier,{line] 
+[line [n}5.1.412{]}And this ditty after me,{line] 
+[line [n}5.1.413{]}Sing and dance it trippingly.{line]{poem] {sp] 
+[sp [speaker}TITANIA{speaker]} [poem}
+[line [n}5.1.414{]}First rehearse your song by rote,{line] 
+[line [n}5.1.415{]}To each word a warbling note.{line] 
+[line [n}5.1.416{]}Hand in hand, with fairy grace,{line] 
+[line [n}5.1.417{]}Will we sing and bless this place.{line]{poem] {sp] 
+[stage [n}SD 5.1.417.1{][}Oberon leads the Fairies in song and dance.{]] 
+[sp [speaker}OBERON{speaker]} [poem}
+[line [n}5.1.418{]}Now, until the break of day,{line] 
+[line [n}5.1.419{]}Through this house each fairy stray.{line] 
+[line [n}5.1.420{]}To the best bride-bed will we,{line] 
+[line [n}5.1.421{]}Which by us shall blessèd be,{line] 
+[line [n}5.1.422{]}And the issue there create{line] 
+[line [n}5.1.423{]}Ever shall be fortunate.{line] 
+[line [n}5.1.424{]}So shall all the couples three{line] 
+[line [n}5.1.425{]}Ever true in loving be,{line] 
+[line [n}5.1.426{]}And the blots of Nature’s hand{line] 
+[line [n}5.1.427{]}Shall not in their issue stand.{line] 
+[line [n}5.1.428{]}Never mole, harelip, nor scar,{line] 
+[line [n}5.1.429{]}Nor mark prodigious, such as are{line] 
+[line [n}5.1.430{]}Despisèd in nativity,{line] 
+[line [n}5.1.431{]}Shall upon their children be.{line] 
+[line [n}5.1.432{]}With this field-dew consecrate{line] 
+[line [n}5.1.433{]}Every fairy take his gait,{line] 
+[line [n}5.1.434{]}And each several chamber bless,{line] 
+[line [n}5.1.435{]}Through this palace, with sweet peace.{line] 
+[line [n}5.1.436{]}And the owner of it blest,{line] 
+[line [n}5.1.437{]}Ever shall in safety rest.{line] 
+[line [n}5.1.438{]}Trip away. Make no stay.{line] 
+[line [n}5.1.439{]}Meet me all by break of day.{line]{poem] {sp] 
+[stage [n}SD 5.1.439.1{][}All but Robin exit.{]] 
+[sp [speaker}ROBIN{speaker]} [poem}
+[line [n}5.1.440{]}If we shadows have offended,{line] 
+[line [n}5.1.441{]}Think but this and all is mended:{line] 
+[line [n}5.1.442{]}That you have but slumbered here{line] 
+[line [n}5.1.443{]}While these visions did appear.{line] 
+[line [n}5.1.444{]}And this weak and idle theme,{line] 
+[line [n}5.1.445{]}No more yielding but a dream,{line] 
+[line [n}5.1.446{]}Gentles, do not reprehend.{line] 
+[line [n}5.1.447{]}If you pardon, we will mend.{line] 
+[line [n}5.1.448{]}And, as I am an honest Puck,{line] 
+[line [n}5.1.449{]}If we have unearnèd luck{line] 
+[line [n}5.1.450{]}Now to ’scape the serpent’s tongue,{line] 
+[line [n}5.1.451{]}We will make amends ere long.{line] 
+[line [n}5.1.452{]}Else the Puck a liar call.{line] 
+[line [n}5.1.453{]}So good night unto you all.{line] 
+[line [n}5.1.454{]}Give me your hands, if we be friends,{line] 
+[line [n}5.1.455{]}And Robin shall restore amends.{line]{poem] {sp] 
+[stage [n}SD 5.1.455.1{][}He exits.{]] {scene] {act] {body]{text]{lmnlTEI]
