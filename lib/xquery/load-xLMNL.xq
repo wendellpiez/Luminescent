@@ -33,7 +33,8 @@ let $fileSet := map {
    "Tempest.xlmnl"      := 'file:///C:/Projects/Github/Luminescent/lmnl/Tempest.lmnl'       }
   
 for $file in map:keys($fileSet)
-let $lmnl := file:read-text(map($fileSet,$file))
+let $fileURI := map($fileSet,$file)
+let $lmnl    := file:read-text($fileURI)
 
 return 
-  db:add('LMNL-samples', lm:lmnl-to-xLMNL($lmnl), $file)
+  db:add('LMNL-samples', lm:lmnl-to-xLMNL($lmnl,$fileURI), $file)

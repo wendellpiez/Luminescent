@@ -11,9 +11,41 @@ declare option db:chop 'no';
 (: Runtime query library for xLMNL :)
 
 declare function lm:return-text($range as element(x:range)) as xs:string? {
-  let $id := $range/@ID
-  return string-join($range/../x:content/x:span[tokenize(@ranges,'\s+') = $id],'')
+  normalize-space(string-join($range/../x:content/x:span[tokenize(@ranges,'\s+') = $range/@ID],''))
 };
+
+(: function lm:serialize-lmnl-fragment($spans) returns a LMNL syntax instance
+   representing the given spans. These are expected to be contiguous,
+   but they don't have to be. They should, however, be on the same layer
+   (siblings) or unexpected outputs will result!
+ :)
+declare function lm:serialize-lmnl-fragment($spans as element(x:span)*) as xs:string {
+  if (count($spans/..) gt 1) then '[ERROR: spans not in the same layer]'
+  else
+     let $lmnl-document := document {
+       <x:document>
+          <x:content>
+           { $spans }
+          </x:content>
+          { lm:ranges-for-spans($spans) } 
+       </x:document> }
+   return lm:run-xslt($lmnl-document,lm:xslt-path('../down/xLMNL-write.xsl'),())
+};
+
+declare function lm:spans-for-ranges($ranges as element(x:range)*) as element(x:span)* {
+     let $rangeIDs := $ranges/@ID
+     return $ranges/../x:content/x:span[tokenize(@ranges,'\s+') = $rangeIDs]  
+};
+
+declare function lm:ranges-for-spans($spans as element(x:span)*) as element(x:range)* {
+     let $rangeIDs := $spans/tokenize(@ranges,'\s+')
+     return $spans/../../x:range[@ID = $rangeIDs]  
+};
+
+declare function lm:range-value($range as element(x:range)*) as xs:string {
+     string-join(lm:spans-for-ranges($range),'')
+};
+
 
 (: Luminescent proper: parsing LMNL syntax into xLMNL :)
 declare variable $lm:xslt-dir := "file:///C:/Projects/Github/Luminescent/lib/up";
@@ -24,11 +56,12 @@ declare function lm:xslt-path($relative as xs:string) as xs:string
 };
 
 (: Processes a LMNL syntax instance to generate xLMNL. :)
-declare function lm:lmnl-to-xLMNL($lmnl as xs:string) (: a LMNL document as a string :)
+declare function lm:lmnl-to-xLMNL($lmnl as xs:string,    (: A LMNL document as a string :)
+                                  $baseURI as xs:string) (: A Base URI for the xLMNL to note :)
                  as document-node()* {
 
    let $start := document { <lmnl> { $lmnl } </lmnl> }
-   let $params := ()
+   let $params := map { "base-uri" := $baseURI }
 
    let $xLMNL-pipeline :=
 
