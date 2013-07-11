@@ -62,17 +62,35 @@
       <head>
         <title>Sonneteer graph</title>
         <meta charset="utf-8"/>
-        <script type="text/javascript" src="jquery-1.7.1.min.js">
-        <xsl:text> </xsl:text>
+        <!--<link rel="stylesheet" type="text/css" href="jquery.svg.css"/>--> 
+        <script type="text/javascript" src="jquery-1.9.1.min.js">
+          <xsl:text> </xsl:text>
+        </script>
+        <xsl:comment> JQuery SVG plugin by Keith Wood: see keith-wood.name/svg.html (and thanks!) </xsl:comment>
+        <script type="text/javascript" src="jquery.svg.min.js">
+          <xsl:text> </xsl:text>
+        </script>
+        <script type="text/javascript" src="jquery.svgdom.min.js">
+          <xsl:text> </xsl:text>
         </script>
         <script type="text/javascript">
+          
 $(document).ready(function() {
-  $('.rangebar').hover(
+
+  $('.range-bar').hover(
     function(event) {
-      $('.'+this.id).addClass('shine');
+      $('.'+this.id).stop(true,true).addClass('shine');
       },
-      function() {$('.'+this.id).removeClass('shine')});
-    });
+    function() {$('.'+this.id).stop(true,true).removeClass('shine')});
+
+  $('.range-span').hover(
+    function(event) {
+      $.each($(this).attr('class').split(' '), function() {
+        $('#' + this).addClass('show') }) },
+    function() {
+    $.each($(this).attr('class').split(' '), function() {
+      $('#' + this).removeClass('show') }) })
+ })
         </script>
         <style type="text/css">
 div#text    { margin-left:460px; color: white; font-size: 14pt }
@@ -82,11 +100,12 @@ div.lg      { margin-top: 2ex }
 p.line      { margin-top: 0px; margin-bottom: 0px; margin-left: 1em; text-indent:-1em }
 span:hover  { color: skyblue }
 span.shine  { background-color: papayawhip; color: midnightblue }
+.show       { fill-opacity: 0.5 }
         </style>
       </head>
-      <body style="background-color:{$specs/f:background-color}">
+      <body style="background-color:{$specs/f:background-color}" id="mainbody">
         <svg width="450" height="800" xmlns="http://www.w3.org/2000/svg"
-          style="position:fixed; top: 0px">
+          style="position:fixed; top: 0px" id="svg">
           <xsl:call-template name="draw-svg"/>
         </svg>
 
@@ -146,8 +165,8 @@ span.shine  { background-color: papayawhip; color: midnightblue }
 
   <xsl:template match="line/x:span" mode="display">
     <span id="{generate-id(.)}"
-      class="{string-join(
-      for $r in tokenize(@ranges,'\s+') return replace($r,'^R.','bar'),' ')}">
+      class="range-span {string-join(
+      for $r in tokenize(@ranges,'\s+') return replace($r,'^R.','bar-'),' ')}">
       <xsl:apply-templates/>
     </span>
   </xsl:template>
@@ -158,13 +177,13 @@ span.shine  { background-color: papayawhip; color: midnightblue }
     xmlns="http://www.w3.org/2000/svg"/>
 
 
-  <xsl:template match="*" mode="animate" xmlns="http://www.w3.org/2000/svg">
+  <!--<xsl:template match="*" mode="animate" xmlns="http://www.w3.org/2000/svg">
     <xsl:param name="stroke-width" select="1" as="xs:double"/>
     <xsl:param name="fill-opacity" select="0.2" as="xs:double"/>
     <set attributeName="fill-opacity" to="{($fill-opacity + 1) div 2}"
-      begin="{replace(@ID,'^R.','bar')}.mouseover"/>
+      begin="{replace(@ID,'^R.','bar-')}.mouseover"/>
     <set attributeName="fill-opacity" to="{$fill-opacity}"
-      begin="{replace(@ID,'^R.','bar')}.mouseout"/>
+      begin="{replace(@ID,'^R.','bar-')}.mouseout"/>
     <xsl:for-each select="key('spans-by-range',@ID,$sonnet-xml)">
       <set attributeName="fill-opacity" to="{($fill-opacity + 1) div 2}"
         begin="{generate-id(.)}.mouseover"/>
@@ -175,6 +194,6 @@ span.shine  { background-color: papayawhip; color: midnightblue }
       <set attributeName="stroke-width" to="{$stroke-width}"
         begin="{generate-id(.)}.mouseout"/>
     </xsl:for-each>
-  </xsl:template>
+  </xsl:template>-->
 
 </xsl:stylesheet>

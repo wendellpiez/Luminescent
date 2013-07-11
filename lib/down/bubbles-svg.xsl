@@ -131,7 +131,7 @@
               <xsl:if test="not($spec/@label='none')">
                 <xsl:attribute name="text-anchor"
                   select="if ($spec/@label='left') then 'end' else 'start'"/>
-                <xsl:value-of select="@name"/>
+                <xsl:apply-templates select="." mode="label-disc"/>
               </xsl:if>
             </text>
             <!--             -->
@@ -142,6 +142,11 @@
       <xsl:call-template name="display-text"/>
       
     </g>
+  </xsl:template>
+  
+  <!-- override in a calling stylesheet to modify the label -->
+  <xsl:template match="*" mode="label-disc">
+    <xsl:value-of select="@name"/>
   </xsl:template>
   
   <xsl:template match="*" mode="animate">
