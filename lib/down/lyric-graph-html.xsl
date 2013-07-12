@@ -4,6 +4,7 @@
 <!ENTITY rdquo '&#x201D;' >
 ]>
 
+<!-- TODO: consolidate this stylesheet with sonneteer-graph.xsl (which is largely identical) -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -61,9 +62,16 @@
         <title>Lyric graph</title>
         <meta charset="utf-8"/>
         <script type="text/javascript" src="jquery-1.7.1.min.js">
-        <xsl:text> </xsl:text>
+          <xsl:text> </xsl:text>
         </script>
-        <script type="text/javascript">
+        <xsl:comment> JQuery SVG plugin by Keith Wood: see keith-wood.name/svg.html (and thanks!) </xsl:comment>
+        <script type="text/javascript" src="jquery.svg.min.js">
+          <xsl:text> </xsl:text>
+        </script>
+        <script type="text/javascript" src="jquery.svgdom.min.js">
+          <xsl:text> </xsl:text>
+        </script>
+        <!--<script type="text/javascript">
 $(document).ready(function() {
   $('.range-bar').hover(
     function(event) {
@@ -79,6 +87,30 @@ $(document).ready(function() {
       },
       function() {$('.'+this.id).removeClass('shine')});
     });
+        </script>-->
+        <script type="text/javascript">
+          
+$(document).ready(function() {
+          
+  $('.range-bar').hover(
+    function(event) {
+      $('.'+this.id).stop(true,true).addClass('shine');
+    },
+    function() {$('.'+this.id).stop(true,true).removeClass('shine')
+    }
+  );
+          
+  $('.range-span').hover(
+    function(event) {
+      $.each($(this).attr('class').split(' '), function() {
+        $('#' + this).addClass('show') })
+    },
+    function() {
+      $.each($(this).attr('class').split(' '), function() {
+        $('#' + this).removeClass('show') })
+    }
+  )
+})
         </script>
         <style type="text/css">
 div#text    { margin-left:180px; color: white; font-size: 12pt;
@@ -90,6 +122,7 @@ div.lg      { margin-top: 2ex }
 p.line      { margin-top: 0px; margin-bottom: 0px; margin-left: 1em; text-indent:-1em }
 span:hover  { color: gold }
 span.shine  { background-color: lemonchiffon; color: darkgreen }
+.show       { fill-opacity: 0.5 }
         </style>
       </head>
       <body style="background-color:{$specs/f:background-color}">
@@ -186,7 +219,7 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
   
   <xsl:template match="l/x:span" mode="display">
     <span id="{generate-id(.)}"
-      class="{string-join(
+      class="range-span {string-join(
       for $r in tokenize(@ranges,'\s+') return replace($r,'^R.','bar-'),' ')}">
       <xsl:apply-templates/>
     </span>
@@ -198,7 +231,7 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
     xmlns="http://www.w3.org/2000/svg"/>
 
 
-  <xsl:template match="*" mode="animate" xmlns="http://www.w3.org/2000/svg">
+  <!--<xsl:template match="*" mode="animate" xmlns="http://www.w3.org/2000/svg">
     <xsl:param name="stroke-width" select="1" as="xs:double"/>
     <xsl:param name="fill-opacity" select="0.2" as="xs:double"/>
     <set attributeName="fill-opacity" to="{$fill-opacity + 0.1}"
@@ -215,6 +248,6 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
       <set attributeName="stroke-width" to="{$stroke-width}"
         begin="{generate-id(.)}.mouseout"/>
     </xsl:for-each>
-  </xsl:template>
+  </xsl:template>-->
 
 </xsl:stylesheet>

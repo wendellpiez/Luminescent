@@ -80,17 +80,22 @@ $(document).ready(function() {
   $('.range-bar').hover(
     function(event) {
       $('.'+this.id).stop(true,true).addClass('shine');
-      },
-    function() {$('.'+this.id).stop(true,true).removeClass('shine')});
+    },
+    function() {$('.'+this.id).stop(true,true).removeClass('shine')
+    }
+  );
 
   $('.range-span').hover(
     function(event) {
       $.each($(this).attr('class').split(' '), function() {
-        $('#' + this).addClass('show') }) },
+        $('#' + this).addClass('show') })
+    },
     function() {
     $.each($(this).attr('class').split(' '), function() {
-      $('#' + this).removeClass('show') }) })
- })
+      $('#' + this).removeClass('show') })
+    }
+  )
+})
         </script>
         <style type="text/css">
 div#text    { margin-left:460px; color: white; font-size: 14pt }

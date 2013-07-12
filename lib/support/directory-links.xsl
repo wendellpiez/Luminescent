@@ -38,7 +38,7 @@
     
     <group name="Results">
       <label key="xLMNL" color="duskyrose">xLMNL</label>
-      <label key="XML" color="lightsteelblue">XML</label>
+      <conditional-label key="XML" color="lightsteelblue">XML</conditional-label>
       <label type="-analysis.html" color="skyblue">Analysis</label>
       <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
       <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
@@ -70,17 +70,33 @@
     <basename>WinterNight</basename>
   </xsl:variable>
 
+  <xsl:variable name="page-header">
+    <xsl:choose>
+      <xsl:when test="$dir = 'lmnl'">
+        <h5>Other demonstrations: <a href="sonnets">Sonnets</a> | <a href="shakespeare">Shakespeare</a></h5>
+        <h1>Luminescent testing miscellany</h1>
+        <h3>Various texts below (including complete, fragmentary and factitious examples) demonstrate
+        some functionalities supported by the Luminescent LMNL parsing pipeline.</h3>
+      </xsl:when>
+      <xsl:when test="$dir = 'sonnets'">
+        <h5>Other demonstrations: <a href="shakespeare">Shakespeare</a> | <a href="lmnl">Miscellany</a></h5>
+        <h1>Sonnets: a structural analysis</h1>
+        <p>Two concurrent hierarchies are marked up: the verse form and the grammatical structure
+        (as indicated by punctuation of sentences and phrases).</p>
+      </xsl:when>
+      <xsl:when test="$dir = 'shakespeare'">
+        <h5>Other demonstrations: <a href="sonnets">Sonnets</a> | <a href="lmnl">Miscellany</a></h5>
+        <h1>Some plays of William Shakespeare, marked up in LMNL syntax</h1>
+        <h3>With grateful acknowledgement of the  
+          <a href="http://www.folgerdigitaltexts.org/">Folger Digital Texts</a> project,
+        from whose XML encoding this LMNL was semi-automatically generated.</h3>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:template match="/">
     <html>
       <body style="background-color: thistle">
-        <h1>
-          <!--<xsl:value-of select="$dir"/>
-          <xsl:text>/*.xml</xsl:text>-->
-          <xsl:text>LMNL syntax parsing: a demonstration</xsl:text></h1>
-        <xsl:comment>
-          <xsl:text>$dir is </xsl:text>
-          <xsl:value-of select="$dir"/>
-        </xsl:comment>
+        <xsl:copy-of select="$page-header"/>
         <table>
           <xsl:call-template name="table-header"/>
           <xsl:apply-templates select="//dir:file[ends-with(@name,'lmnl')]"/>
@@ -163,7 +179,14 @@
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
-
+  
+  <xsl:template match="conditional-label[.='XML']" mode="cell">
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:if test="$dir='sonnets'">
+      <xsl:next-match/>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template match="conditional-label[.='Lyric graph']" mode="cell">
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:if test="$basename=$lyrics">
@@ -223,9 +246,10 @@
     <xsl:variable name="file" select="concat($basename,'.xml')"/>
     <xsl:variable name="basename" select="replace($file,'\.xml$','')"/>
     <p style="margin:0ex">
-      <a href="{$dir}/{$basename}.xml">
+      <xsl:value-of select=".."/>
+      <!--<a href="{$dir}/{$basename}.xml">
         <xsl:value-of select=".."/>
-      </a>
+      </a>-->
     </p>
 
     <xsl:if test="$sonnet-dir">
