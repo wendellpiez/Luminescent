@@ -94,6 +94,12 @@ $(document).ready(function() {
           
   $('.range-bar').hover(
     function(event) {
+    /* scroll to the corresponding span,
+       found by @class=this.id */
+      $('html, body').stop().animate(
+        { scrollTop: $('.'+this.id).offset().top - 50 }, 1000);
+      event.preventDefault();
+    /* also, light it up */
       $('.'+this.id).stop(true,true).addClass('shine');
     },
     function() {$('.'+this.id).stop(true,true).removeClass('shine')
@@ -103,11 +109,11 @@ $(document).ready(function() {
   $('.range-span').hover(
     function(event) {
       $.each($(this).attr('class').split(' '), function() {
-        $('#' + this).addClass('show') })
+        $('#' + this).addClass('shine') })
     },
     function() {
       $.each($(this).attr('class').split(' '), function() {
-        $('#' + this).removeClass('show') })
+      $('#' + this).removeClass('shine') })
     }
   )
 })
@@ -122,7 +128,7 @@ div.lg      { margin-top: 2ex }
 p.line      { margin-top: 0px; margin-bottom: 0px; margin-left: 1em; text-indent:-1em }
 span:hover  { color: gold }
 span.shine  { background-color: lemonchiffon; color: darkgreen }
-.show       { fill-opacity: 0.5 }
+rect.shine, circle.shine  { fill-opacity: 0.5 }
         </style>
       </head>
       <body style="background-color:{$specs/f:background-color}">
@@ -230,6 +236,17 @@ span.shine  { background-color: lemonchiffon; color: darkgreen }
   <xsl:template match="x:range[@name='sonnet']" mode="animate"
     xmlns="http://www.w3.org/2000/svg"/>
 
+  <!-- customizes class assignment only on bubble objects
+       generated for ranges, binding them to the corresponding bar. -->
+  <xsl:template match="x:range" mode="assign-class">
+    <xsl:param name="class"/>
+    <xsl:if test="$class = 'range-bubble'">
+      <xsl:attribute name="class" select="string-join(($class,replace(@ID,'^R\.','bar-')),' ')"/>
+    </xsl:if>
+  </xsl:template>
+
+  <!-- suppressing labeling of discs 
+  <xsl:template name="label-disc"/>-->
 
   <!--<xsl:template match="*" mode="animate" xmlns="http://www.w3.org/2000/svg">
     <xsl:param name="stroke-width" select="1" as="xs:double"/>
