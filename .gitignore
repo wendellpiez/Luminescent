@@ -1,6 +1,9 @@
 # oXygen project file
 *.xpr
-
+# Windows shortcuts
+*.lnk
+# Local ftp support
+Update-GSLIS.*
 # archiving logic
 localhost+8888/
 snapshot.bat
