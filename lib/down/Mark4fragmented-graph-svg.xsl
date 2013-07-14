@@ -52,8 +52,8 @@
       stroke="gold" stroke-width="2" stroke-opacity="1" stroke-dasharray="6 4">
       <ranges>q</ranges>
     </arcs>
-    <arcs fill="green" fill-opacity="0.4"
-          stroke="darkgreen" stroke-width="0.1" stroke-opacity="0.5">
+    <arcs fill="lemonchiffon" fill-opacity="0.4"
+          stroke="yellow" stroke-width="1" stroke-opacity="0.5">
           <ranges>nar</ranges>
         </arcs>
     

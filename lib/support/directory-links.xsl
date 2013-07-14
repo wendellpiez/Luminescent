@@ -89,7 +89,7 @@
         <h1>Some plays of William Shakespeare, marked up in LMNL syntax</h1>
         <h3>With grateful acknowledgement of the  
           <a href="http://www.folgerdigitaltexts.org/">Folger Digital Texts</a> project,
-        from whose XML encoding this LMNL was semi-automatically generated.</h3>
+        from whose XML encoding this LMNL was generated.</h3>
       </xsl:when>
     </xsl:choose>
   </xsl:variable>

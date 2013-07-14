@@ -41,7 +41,7 @@
     <map:selectors default="browser"/>
   </map:components>
   <map:pipelines>
-    <map:pipeline type="noncaching">
+    <map:pipeline type="caching">
       <!-- SWITCH TO CACHING WHEN EVERYTHING IS WORKING -->
       <map:match pattern="**/*.js">
         <map:read mime-type="text/ecmascript" src="lib/support/{2}.js"/>

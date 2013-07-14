@@ -76,7 +76,7 @@ to get back support for analysis of dialogue. [gi [TEI}yes{TEI]}TITLE{gi] tags a
 [name}Peter-john Byrnes{name]
 [resp}U. Va. Electronic Text Center{resp]
 {respStmt]
-[item}Pagination has been taken from the 1831 revised text (London: Henry Colburn and Richard Bentley, 1831). Italics from the Colburn and Bentley introduction have been retained; a cursory check of the body of the work shows italics somewhat haphazardly retained. Original spelling appears to have been retained. Unambiguous line-end hyphenation has been eliminated. Hyphenation which carries over a page break has been eliminated, with the word to be found on the earlier page. The attribute [ident}narrator{ident] allows the reader to search only the text narrated by "Walton," "Frankenstein," or "Monster" [not consistently implemented, so removed from this edition — wap]. TEI tagging added [perhaps the original text was marked up with a non-TEI2 DTD — wap]. {item]
+[item}Pagination has been taken from the 1831 revised text (London: Henry Colburn and Richard Bentley, 1831). Italics from the Colburn and Bentley introduction have been retained; a cursory check of the body of the work shows italics somewhat haphazardly retained. Original spelling appears to have been retained. Unambiguous line-end hyphenation has been eliminated. Hyphenation which carries over a page break has been eliminated, with the word to be found on the earlier page. The attribute [ident}narrator{ident] allows the reader to search only the text narrated by "Walton," "Frankenstein," or "Monster" [note [}Not consistently implemented, so removed from this edition.{][resp}wap{]]. TEI tagging added [note [}Maybe the original text was marked up with a non-TEI2 DTD{][resp}wap{]]. {item]
 {change]
 {revisionDesc]
 {teiHeader]}
