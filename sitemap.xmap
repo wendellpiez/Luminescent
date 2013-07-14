@@ -41,7 +41,7 @@
     <map:selectors default="browser"/>
   </map:components>
   <map:pipelines>
-    <map:pipeline type="caching">
+    <map:pipeline type="noncaching">
       <!-- SWITCH TO CACHING WHEN EVERYTHING IS WORKING -->
       <map:match pattern="**/*.js">
         <map:read mime-type="text/ecmascript" src="lib/support/{2}.js"/>
@@ -118,13 +118,58 @@
       </map:match>
       
       <!-- down conversions from xLMNL -->
-      <map:match pattern="**/*.xml">
-        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="lib/down/xlmnl-xml.xsl">
-          <map:parameter name="use-request-parameters" value="true"/>
-        </map:transform>
+      
+      <!--  bespoke conversions (customized for directory or document) -->
+      <map:match pattern="sonnets/*-snapshot.png">
+        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml" label="xml"/>
+        <map:transform type="xslt2" src="lib/down/sonnet-snapshot.xsl"/>
+        <!--<map:serialize type="svgxml"/>-->
+        <map:serialize type="svg2png"/>
+      </map:match>
+      
+      <map:match pattern="sonnets/*-sonneteer.svg">
+        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
+        <map:transform type="xslt2" src="lib/down/sonneteer-svg.xsl"/>
+        <map:serialize type="svgxml"/>
+        <!--<map:serialize type="xml"/>-->
+      </map:match>
+      <map:match pattern="sonnets/*-sonneteer.html">
+        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
+        <map:transform type="xslt2" src="lib/down/sonneteer-graph.xsl"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+      
+      <map:match pattern="shakespeare/*-structured.xml">
+        <map:generate src="cocoon:/shakespeare/xLMNL/{1}.xml"/>
+        <map:transform type="xslt2" src="lib/down/shakespeare-structure-xml.xsl"/>
         <map:serialize type="xml"/>
       </map:match>
+      <!--<map:match pattern="**/*-act*scene*-display.html">
+        <map:generate src="cocoon:/shakespeare/{1}-structured.xml"/>
+        <map:transform type="xslt2" src="lib/down/scene-graph-html.xsl">
+          <map:parameter name="act" value="{3}"/>
+          <map:parameter name="scene" value="{4}"/>
+        </map:transform>
+        <map:serialize type="xhtml"/>
+      </map:match>-->
+      <map:match pattern="shakespeare/*-display.html">
+        <map:generate src="cocoon:/shakespeare/{1}-structured.xml"/>
+        <map:transform type="xslt2" src="lib/down/shakespeare-graph-html.xsl"/>
+        <map:serialize type="xhtml"/>
+        <!--<map:serialize type="xml"/>-->
+        
+      </map:match>      
+      
+      <map:match pattern="lmnl/demo.html">
+        <map:generate src="cocoon:/lmnl/xLMNL/demo.xml"/>
+        <map:transform type="xslt2" src="lib/down/xlmnl-xml.xsl">
+          <map:parameter name="element-list" value="demo+div+head+p+list+item+emph+term+q+link"/>
+        </map:transform>
+        <map:transform type="xslt2" src="lib/down/demo-html.xsl"/>
+        <map:serialize type="html"/>
+      </map:match>
+      
+      <!-- More general downconversion matches -->
       <map:match pattern="**/*-analysis.html">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="lib/down/xLMNL-analyze.xsl">
@@ -152,35 +197,14 @@
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
-      
-      <!--  bespoke conversions (customized for directory or document) -->
-      <map:match pattern="sonnets/*-snapshot.png">
-        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml" label="xml"/>
-        <map:transform type="xslt2" src="lib/down/sonnet-snapshot.xsl"/>
-        <!--<map:serialize type="svgxml"/>-->
-        <map:serialize type="svg2png"/>
-      </map:match>
-      
-      <map:match pattern="sonnets/*-sonneteer.svg">
-        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
-        <map:transform type="xslt2" src="lib/down/sonneteer-svg.xsl"/>
-        <map:serialize type="svgxml"/>
-        <!--<map:serialize type="xml"/>-->
-      </map:match>
-      <map:match pattern="sonnets/*-sonneteer.html">
-        <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
-        <map:transform type="xslt2" src="lib/down/sonneteer-graph.xsl"/>
-        <map:serialize type="xhtml"/>
-      </map:match>
-      
-      <map:match pattern="lmnl/demo.html">
-        <map:generate src="cocoon:/lmnl/xLMNL/demo.xml"/>
+
+      <!--<map:match pattern="**/*.xml">
+        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="lib/down/xlmnl-xml.xsl">
-          <map:parameter name="element-list" value="demo+div+head+p+list+item+emph+term+q+link"/>
+          <map:parameter name="use-request-parameters" value="true"/>
         </map:transform>
-        <map:transform type="xslt2" src="lib/down/demo-html.xsl"/>
-        <map:serialize type="html"/>
-      </map:match>
+        <map:serialize type="xml"/>
+      </map:match>-->
       
       <!--<map:match pattern="**/serialize/*.lmnl">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>

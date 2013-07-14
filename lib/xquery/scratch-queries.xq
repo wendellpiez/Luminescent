@@ -3,7 +3,7 @@ import module namespace lm = "http://www.lmnl-markup.org/ns/luminescent/xquery" 
 declare namespace x = "http://lmnl-markup.org/ns/xLMNL";
 declare option output:separator "\n";
 
-let $doc  := db:open('LMNL-samples','Tempest.xlmnl')
+let $doc  := db:open('LMNL-samples','Frankenstein.xlmnl')
 
 (:
    Distinct values of @who in Frankenstein:
@@ -15,9 +15,10 @@ let $doc  := db:open('LMNL-samples','Tempest.xlmnl')
 
 (: for $r in ($doc//x:range[@name='q'][x:annotation[@name = 'who'] = 'Krempe']) :)
 
-for $r in ($doc//x:range[@name='sp'][x:annotation[@name = 'speaker'] = 'PROSPERO'])
+for $r in ($doc//x:range[x:annotation[@name='who'] = 'Victor'])
 
-(: return  '=============&#xA;' || lm:return-text($r) || '&#xA;' :)
+return $r
+(: return  '=============&#xA;' || lm:return-text($r) || '&#xA;':)
 
-return lm:serialize-lmnl-fragment(lm:spans-for-ranges($r))
+(: return lm:serialize-lmnl-fragment(lm:spans-for-ranges($r)):)
 

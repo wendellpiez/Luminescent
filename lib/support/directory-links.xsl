@@ -43,6 +43,11 @@
       <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
       <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
       <conditional-label type="-shakespeare-graph.svg" color="pink">Shakespeare graph</conditional-label>
+      <xsl:if test="$dir = 'shakespeare' and false()">
+        <!-- come back to ... -->
+        <label type="-structured.xml" color="pink">structured XML</label>
+        <label type="-display.html" color="pink">display HTML</label>
+      </xsl:if>
       <conditional-label type=".html" color="pink">Demo HTML</conditional-label>
       <conditional-label type="-sonneteer.html" color="pink">Sonnet bubbles</conditional-label>
     </group>
