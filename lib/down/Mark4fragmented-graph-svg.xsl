@@ -54,7 +54,7 @@
     </arcs>
     <arcs fill="lemonchiffon" fill-opacity="0.4"
           stroke="yellow" stroke-width="1" stroke-opacity="0.5">
-          <ranges>nar</ranges>
+          <ranges>story</ranges>
         </arcs>
     
   </xsl:variable>

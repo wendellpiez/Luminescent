@@ -42,8 +42,9 @@
       <label type="-analysis.html" color="skyblue">Analysis</label>
       <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
       <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
+      <conditional-label type="-map.svg" color="pink">Map (SVG)</conditional-label>
       <conditional-label type="-shakespeare-graph.svg" color="pink">Shakespeare graph</conditional-label>
-      <xsl:if test="$dir = 'shakespeare' and false()">
+      <xsl:if test="$dir = 'shakespeare'">
         <!-- come back to ... -->
         <label type="-structured.xml" color="pink">structured XML</label>
         <label type="-display.html" color="pink">display HTML</label>
@@ -73,6 +74,7 @@
   <xsl:variable name="lyrics" as="element()+">
     <basename>Easter1916</basename>
     <basename>WinterNight</basename>
+    <basename>julian-and-maddalo</basename>
   </xsl:variable>
 
   <xsl:variable name="page-header">
@@ -166,7 +168,7 @@
     </td>
   </xsl:template>
 
-  <xsl:template match="conditional-label[ends-with(@type,'graph.svg')]"
+  <xsl:template match="conditional-label[matches(@type,'graph\.svg$|map\.svg$')]"
     mode="cell">
     <!-- only if a stylesheet customized
          for the particular instance can be found -->

@@ -26,6 +26,7 @@
           group-adjacent="string-join((@layer,@ranges),':')">
           <!-- wrapping text spans and atoms together -->
           <x:span start="{@off}" end="{@off + sum(current-group()/self::span/string-length(.)) + count(current-group()/self::atom)}">
+            <xsl:attribute name="ID" select="generate-id()"/>
             <xsl:apply-templates select="@layer | @ranges"/>
             <xsl:apply-templates select="current-group()"/>
           </x:span>
@@ -61,6 +62,9 @@
   <xsl:template match="start | empty">
     <xsl:variable name="end" select="key('end-for-start',@rID)"/>
     <x:range start="{@off}" end="{$end/@off}">
+      <xsl:for-each select="self::start">
+        <xsl:attribute name="spans" select="following-sibling::span[$end >> .]/generate-id()"/>
+      </xsl:for-each>
       <xsl:apply-templates select="@gi | @rID | @so | @sl | $end/@eo | $end/@el"/>
       <xsl:apply-templates select="(.|$end)/(annotation | comment)"/>
     </x:range>

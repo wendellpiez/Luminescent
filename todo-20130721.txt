@@ -1,0 +1,33 @@
+LMNL to do
+
+Post slides on Resources page and announce (Twitter)
+Set up Luminescent blog
+Documentation on Github wiki
+  
+Change 'span' to 'seg' throughout?
+BaseX
+  flesh out and test more operations
+  serialization (LMNL syntax write)
+  enclosure/overlap detection
+
+Luminescent restXQ demo
+  Console
+    Lists files in db
+      Indicates source file and upload time for each
+      Compares file in file system for currency
+      Update button initiates load
+    Analysis page
+    Separate page for each file or family
+      Sonnets
+      Lyrics
+      Julian and Maddalo
+      Frankenstein
+      Testing/improvisation
+
+Luminescent in the BaseX GUI
+  Load functions
+  Query Dialect (xLMNL BaseX module)
+  Output modules
+    LMNL syntax
+    XML    
+  

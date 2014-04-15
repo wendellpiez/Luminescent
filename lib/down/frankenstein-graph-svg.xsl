@@ -32,20 +32,20 @@
       <ranges color="skyblue">lg verse</ranges>
       <ranges color="steelblue">l line</ranges>
       <ranges color="thistle" opacity="0.1">letter entry</ranges>
-      <ranges color="pink">nar</ranges>
+      <ranges color="pink">story</ranges>
       <ranges color="lightgreen" opacity="0.3" stroke="gold" stroke-width="2"
         stroke-opacity="0.8">q</ranges>
       <ranges color="green" opacity="0.3">p</ranges>
     </styles>
     <bars indent="20">
-      <ranges width="30" indent="20">nar</ranges>
+      <ranges width="30" indent="20">story</ranges>
       <ranges width="30">chapter</ranges>
       <ranges width="10" indent="45">q</ranges>
     </bars>
     <discs indent="400">
       <range>preface</range>
       <range>introduction</range>
-      <range label="left">nar</range>
+      <range label="left">story</range>
       <range>letter</range>
       <range>entry</range>
       <range>chapter</range>

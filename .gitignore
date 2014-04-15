@@ -2,6 +2,8 @@
 *.xpr
 # Windows shortcuts
 *.lnk
+# Log files
+*.log
 # Local ftp support
 Update-GSLIS.*
 # archiving logic

@@ -22,6 +22,7 @@
   <xsl:variable name="specs" xmlns="http://lmnl-markup.org/ns/xslt/utility">
     <left-margin>0</left-margin>
     <top-margin>10</top-margin>
+    <text-block-width>10</text-block-width>
     <bottom-margin>10</bottom-margin>
     <background-color>#003300</background-color>
     <title>
@@ -34,19 +35,20 @@
     <styles>
       <ranges color="rosybrown" opacity="0.1">verse-para</ranges>
       <ranges color="darkorange" opacity="0.1">quatrain tercet couplet</ranges>
-      <ranges color="gold" opacity="0.1" stroke="orange">s</ranges>
-      <ranges color="white" opacity="0.2">l</ranges>
+      <ranges color="gold" opacity="0.1" stroke="orange">q s</ranges>
+      <ranges color="white" opacity="0.2">l lg</ranges>
       <ranges color="yellow" opacity="0.2">phr</ranges>
     </styles>
     <bars indent="10">
-      <ranges width="150" indent="0">verse-para</ranges>
-      <ranges width="30" indent="15">quatrain tercet couplet</ranges>
-      <ranges width="30" indent="45">l</ranges>
-      <ranges width="30" indent="75">phr</ranges>
-      <ranges width="30" indent="105">s</ranges>
+      <ranges width="30" indent="0">verse-para</ranges>
+      <ranges width="30" indent="30">lg quatrain tercet couplet</ranges>
+      <ranges width="30" indent="60">l</ranges>
+      <ranges width="30" indent="90">phr</ranges>
+      <ranges width="30" indent="105">s q</ranges>
     </bars>
     <discs indent="220">
       <range label="none">verse-para</range>
+      <range label="none">q</range>
       <range label="none">quatrain</range>
       <range label="none">tercet</range>
       <range label="none">couplet</range>
@@ -118,35 +120,63 @@ $(document).ready(function() {
   )
 })
         </script>
-        <style type="text/css">
-div#text    { margin-left:180px; color: white; font-size: 12pt;
-              width:320px }
-div.verse-para      { margin-top: 2ex }
-h3.title, h4.author { margin: 0px }
-h3.title { border-bottom: thin solid white }
-div.lg      { margin-top: 2ex }
-p.line      { margin-top: 0px; margin-bottom: 0px; margin-left: 1em; text-indent:-1em }
-span:hover  { color: gold }
-span.shine  { background-color: lemonchiffon; color: darkgreen }
-rect.shine, circle.shine  { fill-opacity: 0.5 }
-        </style>
+        <xsl:copy-of select="$page-css"/>
       </head>
       <body style="background-color:{$specs/f:background-color}">
         <xsl:call-template name="bars-svg"/>
-
         <div id="text">
           <xsl:call-template name="display-lyric"/>
         </div>
         <xsl:call-template name="discs-svg"/>
         
         <!--<div style="display:none">
-          <xsl:copy-of select="$sonnet-xml"/>
+          <xsl:copy-of select="$lyric-xml"/>
         </div>-->
+        
       </body>
     </html>
   </xsl:template>
+  
+  <xsl:variable name="page-css">
+    <style type="text/css">
+      div#text{
+        margin-left:180px;
+        color:white;
+        font-size:12pt;
+        width:320px
+      }
+      div.verse-para{
+        margin-top:2ex
+      }
+      h3.title,
+      h4.author{
+        margin:0px
+      }
+      h3.title{
+        border-bottom:thin solid white
+      }
+      div.lg{
+        margin-top:2ex
+      }
+      p.line{
+        margin-top:0px;
+        margin-bottom:0px;
+        margin-left:1em;
+        text-indent:-1em
+      }
+      span:hover{
+        color:gold
+      }
+      span.shine{
+        background-color:lemonchiffon;
+        color:darkgreen
+      }
+      rect.shine,
+      circle.shine{
+        fill-opacity:0.5
+      }</style>
+  </xsl:variable>
 
- 
   <xsl:template name="bars-svg">
     <svg width="{max($specs/f:bars/f:ranges/
       sum((@width,ancestor-or-self::*/@indent)))}"

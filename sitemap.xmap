@@ -127,9 +127,9 @@
         <map:serialize type="svg2png"/>
       </map:match>
       
-      <map:match pattern="sonnets/*-sonneteer.svg">
+      <map:match pattern="sonnets/*-graph.svg">
         <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
-        <map:transform type="xslt2" src="lib/down/sonneteer-svg.xsl"/>
+        <map:transform type="xslt2" src="lib/down/sonnet-static-graph-svg.xsl"/>
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
@@ -138,7 +138,6 @@
         <map:transform type="xslt2" src="lib/down/sonneteer-graph.xsl"/>
         <map:serialize type="xhtml"/>
       </map:match>
-      
       <map:match pattern="shakespeare/*-structured.xml">
         <map:generate src="cocoon:/shakespeare/xLMNL/{1}.xml"/>
         <map:transform type="xslt2" src="lib/down/shakespeare-structure-xml.xsl"/>
@@ -181,7 +180,7 @@
       
       <map:match pattern="**/*-lyric-graph.html">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
-        <map:transform type="xslt2" src="lib/down/lyric-graph-html.xsl"/>
+        <map:transform type="xslt2" src="lib/down/{2}-graph-html.xsl"/>
         <map:serialize type="xhtml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
@@ -197,14 +196,22 @@
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
-
-      <!--<map:match pattern="**/*.xml">
+      <map:match pattern="**/*-map.svg">
+        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
+        <map:transform type="xslt2" src="lib/down/{2}-map-svg.xsl">
+          <map:parameter name="use-request-parameters" value="true"/>
+        </map:transform>
+        <map:serialize type="svgxml"/>
+        <!--<map:serialize type="xml"/>-->
+      </map:match>
+      
+      <map:match pattern="**/*.xml">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="lib/down/xlmnl-xml.xsl">
           <map:parameter name="use-request-parameters" value="true"/>
         </map:transform>
         <map:serialize type="xml"/>
-      </map:match>-->
+      </map:match>
       
       <!--<map:match pattern="**/serialize/*.lmnl">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>

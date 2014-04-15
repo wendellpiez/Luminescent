@@ -32,7 +32,7 @@
       <ranges color="skyblue">scene</ranges>
       <ranges color="gold">sp</ranges>
       <!--<ranges color="lightgreen" opacity="0.3" line="gold" line-weight="10"
-        line-opacity="0.8" width="10">nar q</ranges>-->
+        line-opacity="0.8" width="10">story q</ranges>-->
     </styles>
     <bars indent="20">
       <ranges width="80">act</ranges>
@@ -139,14 +139,17 @@
             select="f:return-ranges-for-fragment(string($spec),$display-fragment)">
             <xsl:variable name="start-y" select="@start"/>
             <xsl:variable name="radius" select="(@end - @start) div 2"/>
-            <circle id="{replace(@rID,'^R.','bubble-')}" class="range-bubble off"
+            <circle id="{replace(@rID,'^R.','bubble-')}" class="range-bubble"
               fill="{$fill}" fill-opacity="{$fill-opacity}" stroke="{$stroke}"
               stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
               cx="0" cy="{$start-y + ($radius)}" r="{$radius}">
-              <xsl:apply-templates select="." mode="animate-bubble">
+              <xsl:apply-templates select="." mode="assign-class">
+                <xsl:with-param name="class">range-bubble</xsl:with-param>
+              </xsl:apply-templates>
+              <!--<xsl:apply-templates select="." mode="animate-bubble">
                 <xsl:with-param name="stroke-width" select="number($stroke-width)"/>
                 <xsl:with-param name="fill-opacity" select="number($fill-opacity)"/>
-              </xsl:apply-templates>
+              </xsl:apply-templates>-->
             </circle>
             <text fill="{$fill}" fill-opacity="{$fill-opacity}"
               stroke="{$stroke}" stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
@@ -171,6 +174,8 @@
   </xsl:template>
   
   <xsl:template match="*" mode="decorate-bubble"/>
+  
+  <xsl:template match="*" mode="assign-class"/>
   
   <xsl:template match="*" mode="animate"/>
   
@@ -221,6 +226,7 @@
       </xsl:for-each>
     </g>
   </xsl:template>
+  
   
   
   <xsl:function name="f:round">

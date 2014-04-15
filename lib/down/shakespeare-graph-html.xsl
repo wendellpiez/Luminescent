@@ -37,12 +37,12 @@
       <ranges color="skyblue">scene</ranges>
       <ranges color="gold">sp</ranges>
       <!--<ranges color="lightgreen" opacity="0.3" line="gold" line-weight="10"
-        line-opacity="0.8" width="10">nar q</ranges>-->
+        line-opacity="0.8" width="10">story q</ranges>-->
     </styles>
     <bars indent="0">
-      <ranges width="50">act</ranges>
+      <ranges width="50">sp</ranges>
       <ranges width="60" indent="20">scene</ranges>
-      <ranges width="60" indent="40">sp</ranges>
+      <ranges width="60" indent="40">act</ranges>
     </bars>
     <discs indent="320">
       <range label="left">act</range>
@@ -61,7 +61,14 @@
         <script type="text/javascript" src="jquery-1.9.1.min.js">
         <xsl:text> </xsl:text>
         </script>
-        <script type="text/javascript">
+        <xsl:comment> JQuery SVG plugin by Keith Wood: see keith-wood.name/svg.html (and thanks!) </xsl:comment>
+        <script type="text/javascript" src="jquery.svg.min.js">
+          <xsl:text> </xsl:text>
+        </script>
+        <script type="text/javascript" src="jquery.svgdom.min.js">
+          <xsl:text> </xsl:text>
+        </script>
+        <!--<script type="text/javascript">
 $(document).ready(function() {
   $('.range-bar').hover(
     function(event) {
@@ -78,6 +85,36 @@ $(document).ready(function() {
       function() {$('.'+this.id).removeClass('shine')});
 
 });
+        </script>-->
+        <script type="text/javascript">
+          
+$(document).ready(function() {
+          
+  $('.range-bar').hover(
+    function(event) {
+    /* scroll to the corresponding span,
+       found by @class=this.id */
+      $('html, body').stop().animate(
+        { scrollTop: $('.'+this.id).offset().top - 50 }, 1000);
+      event.preventDefault();
+    /* also, light it up */
+    $('.'+this.id).stop(true,true).addClass('shine');
+    },
+    function() {$('.'+this.id).stop(true,true).removeClass('shine')
+    }
+  );
+
+  $('.range-span').hover(
+    function(event) {
+      $.each($(this).attr('class').split(' '), function() {
+        $('#' + this).addClass('shine') })
+    },
+    function() {
+      $.each($(this).attr('class').split(' '), function() {
+       $('#' + this).removeClass('shine') })
+    }
+  )
+})
         </script>
         <style type="text/css">
 div#text    { margin-left:150px; color: white; font-size: 12pt;
@@ -93,8 +130,10 @@ span.contd { padding-left: 6em }
 // p.line      { margin-top: 0px; margin-bottom: 0px; margin-left: 1em; text-indent:-1em }
 span.shine  { background-color: darkred }
 
+rect.shine, circle.shine  { fill-opacity: 0.5 }
+<!--
 .range-bubble.on { fill-opacity: 0.4 }
-.range-bubble.off { fill-opacity: 0.2 }
+.range-bubble.off { fill-opacity: 0.2 }-->
         </style>
       </head>
       <body style="background-color:{$specs/f:background-color}">
@@ -215,9 +254,9 @@ span.shine  { background-color: darkred }
     <xsl:variable name="line" select="key('ranges-by-rID',tokenize(@ranges,'\s+'))[@name='line']"/>
     <xsl:variable name="contd" select="empty(preceding-sibling::x:span) and
       exists($line) and not(parent::x:div[@name='sp'] is $line/parent::x:div[@name='sp'])"/>
-    <xsl:variable name="signals" select="key('ranges-by-rID',tokenize(@ranges,'\s+'))[@name='sp']"/>
+    <xsl:variable name="signals" select="key('ranges-by-rID',tokenize(@ranges,'\s+'))(: [@name='sp'] :)"/>
     <span id="{generate-id(.)}"
-      class="text {string-join(
+      class="range-span {string-join(
       for $rID in $signals/@rID return replace($rID,'^R.','bar-'),' ')}{' contd'[$contd]}">
       <xsl:apply-templates/>
     </span>
@@ -227,12 +266,20 @@ span.shine  { background-color: darkred }
     <br class="lb"/>
   </xsl:template>
   
+  <xsl:template match="x:div | x:start | x:empty" mode="assign-class">
+    <xsl:param name="class"/>
+    <xsl:if test="$class = 'range-bubble'">
+      <xsl:attribute name="class" select="string-join(($class,replace(@rID,'^R\.','bar-')),' ')"/>
+    </xsl:if>
+  </xsl:template>
+  
   <!--<xsl:template match="x:*"/>-->
 
+  <!-- TODO: remove traces of mode 'animate' and 'animate-bubble' -->
   <xsl:template match="*" mode="animate animate-bubble"/>
 
 
-  <xsl:template match="x:div | x:start" mode="animate-bubble"
+ <!-- <xsl:template match="x:div | x:start" mode="animate-bubble"
     priority="2" xmlns="http://www.w3.org/2000/svg">
     <xsl:param name="stroke-width" select="1" as="xs:double"/>
     <xsl:param name="fill-opacity" select="0.2" as="xs:double"/>
@@ -241,26 +288,26 @@ span.shine  { background-color: darkred }
     <set attributeName="class" to="range-bubble off"
       begin="{replace(@rID,'^R.','bar-')}.mouseout"/>
     <xsl:next-match></xsl:next-match>
-  </xsl:template>
+  </xsl:template>-->
   
-  <xsl:template match="x:div[@name='sp']" mode="animate-bubble" xmlns="http://www.w3.org/2000/svg">
+  <!--<xsl:template match="x:div[@name='sp']" mode="animate-bubble" xmlns="http://www.w3.org/2000/svg">
     <xsl:param name="stroke-width" select="1" as="xs:double"/>
     <xsl:param name="fill-opacity" select="0.2" as="xs:double"/>
-    <!--<set attributeName="fill-opacity" to="{ f:round(($fill-opacity + 1) div 2) }"
+    <!-\-<set attributeName="fill-opacity" to="{ f:round(($fill-opacity + 1) div 2) }"
       begin="bar-{generate-id(.)}.mouseover"/>
     <set attributeName="stroke-width" to="{ f:round($stroke-width * 2) }"
       begin="bar-{generate-id(.)}.mouseover"/>
     <set attributeName="fill-opacity" to="{$fill-opacity}"
       begin="bar-{generate-id(.)}.mouseout"/>
     <set attributeName="stroke-width" to="{$stroke-width}"
-      begin="bar-{generate-id(.)}.mouseout"/>-->
+      begin="bar-{generate-id(.)}.mouseout"/>-\->
     <xsl:for-each select="key('spans-by-rID',@rID,$structured-lmnl)">
       <set attributeName="class" to="range-bubble on"
         begin="{generate-id(.)}.mouseover"/>
       <set attributeName="class" to="range-bubble off"
         begin="{generate-id(.)}.mouseout"/>
     </xsl:for-each>
-  </xsl:template>
+  </xsl:template>-->
 
   <!--<xsl:template match="x:start | x:end | x:empty"/>-->
 </xsl:stylesheet>

@@ -27,14 +27,18 @@ let $silkenTent := '[sonneteer [id}silkentent{id]}[meta [author}Robert Frost{aut
 (: return lm:lmnl-to-xLMNL('[range [a1}1{] [a2}2{]}testing my range{range [a3}3{a3]]') :)
 (: return lm:lmnl-to-xLMNL($silkenTent):)
 
+(: 341000 ms to run - 5 mins 41 sec :)
 
 let $fileSet := map {
    "Frankenstein.xlmnl" := 'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein.lmnl',
-   "Tempest.xlmnl"      := 'file:///C:/Projects/Github/Luminescent/lmnl/Tempest.lmnl'       }
+   "Tempest.xlmnl"      := 'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'       }
   
 for $file in map:keys($fileSet)
-let $fileURI := map($fileSet,$file)
+let $fileURI :=  map:get($fileSet,$file)
 let $lmnl    := file:read-text($fileURI)
 
 return 
-  db:add('LMNL-samples', lm:lmnl-to-xLMNL($lmnl,$fileURI), $file)
+  db:add('LMNL-library', lm:lmnl-to-xLMNL($lmnl,$fileURI), $file),
+  db:optimize('LMNL-library')
+  
+  (:  lm:lmnl-to-xLMNL($lmnl,$fileURI) :)

@@ -33,17 +33,17 @@
       <ranges color="orange" width="10">s seg</ranges>
       <ranges color="pink" width="10">letter entry</ranges>
       <ranges color="lightgreen" opacity="0.3" line="gold" line-weight="10"
-        line-opacity="0.8" width="10">nar q</ranges>
+        line-opacity="0.8" width="10">story q</ranges>
     </styles>
     <bars indent="20">
-      <ranges width="10">nar</ranges>
+      <ranges width="10">story</ranges>
       <ranges width="10">chapter</ranges>
       <ranges width="10">q</ranges>
     </bars>
     <discs indent="400">
       <range>preface</range>
       <range>introduction</range>
-      <range label="left">nar</range>
+      <range label="left">story</range>
       <range label="left">letter</range>
       <range label="left">entry</range>
       <range>chapter</range>

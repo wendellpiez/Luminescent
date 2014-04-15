@@ -7,6 +7,6 @@ declare option db:chop 'no';
 let $file := 'file:///C:/Projects/LMNL/Luminescent/lmnl/frankenstein.lmnl'
 let $lmnl := file:read-text($file)
 
-return lm:lmnl-to-xLMNL($lmnl)
+return lm:lmnl-to-xLMNL($lmnl,replace($file,'^.+/',''))
 
 

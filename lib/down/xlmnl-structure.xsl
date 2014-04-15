@@ -38,11 +38,13 @@
       <xsl:with-param name="elements" tunnel="yes" as="xs:string*">
         <xsl:choose>
           <xsl:when test="exists($element-list[normalize-space()])">
-            <!-- we tokenize members of $element-list if it is given -->
+            <!-- We tokenize members of $element-list if it is given. -->
+            <!-- Either space or '+' delimiter between element types is supported.
+                 They will be taken in order, so go top-down. --> 
             <xsl:sequence select="for $e in $element-list return tokenize($e,'[+\s]+')"/>
           </xsl:when>
           <xsl:otherwise>
-            <!-- otherwise we just take everything -->
+            <!-- otherwise we just take everything, and hope (overlaps will be segmented arbitrarily) -->
             <xsl:sequence select="distinct-values(x:range/@name)"/>
           </xsl:otherwise>
         </xsl:choose>
@@ -72,7 +74,7 @@
     <xsl:variable name="filtered-spans" as="element(x:span)*">
       <xsl:apply-templates select="$spans" mode="filter"/>
     </xsl:variable>
-    
+    <!--<xsl:copy-of select="$filtered-spans"/>-->
     <xsl:call-template name="levitate">
       <xsl:with-param name="layer" tunnel="yes" select="$layer"/>
       <xsl:with-param name="spans" select="$filtered-spans"/>
@@ -88,7 +90,8 @@
       <xsl:copy-of select="@start | @end | @ranges"/>
       <!-- $promote names the ranges that will be promoted because they are named among
            $elements (when $elements is empty they will all be) -->
-      <xsl:variable name="promote" select="$ranges[f:range-for-span($span,.)/@name = $elements]"/>
+      <!--<xsl:variable name="promote" select="$ranges[f:range-for-span($span,.)/@name = $elements]"/>-->
+      <xsl:variable name="promote" select="$ranges[key('range-by-id',.,$span/../..)/@name = $elements]"/>
       <xsl:attribute name="elements" select="string-join($promote,' ')"/>
       <!--<xsl:if test="exists($ranges[not(.=$promote)])">
         <xsl:attribute name="ranges" select="string-join($ranges (: [not(. = $promote)] :),' ')"/>
