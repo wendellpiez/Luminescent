@@ -168,7 +168,7 @@
     </td>
   </xsl:template>
 
-  <xsl:template match="conditional-label[matches(@type,'graph\.svg$|map\.svg$')]"
+  <xsl:template match="conditional-label[ends-with(@type,'-graph.svg')]"
     mode="cell">
     <!-- only if a stylesheet customized
          for the particular instance can be found -->
@@ -179,7 +179,18 @@
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
-
+  
+  <xsl:template match="conditional-label[ends-with(@type,'-map.svg')]"
+    mode="cell">
+    <!-- same for -map.svg -->
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:variable name="xslt"
+      select="concat('../down/',$basename,'-map-svg.xsl')"/>
+    <xsl:if test="doc-available(resolve-uri($xslt))">
+      <xsl:next-match/>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template match="conditional-label[.='Demo HTML']" mode="cell">
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:if test="$basename='demo'">

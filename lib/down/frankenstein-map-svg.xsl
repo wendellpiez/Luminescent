@@ -27,7 +27,7 @@
   <!--close up on the final segment:
     <xsl:param name="xOffset" select="860"/>
   <xsl:param name="yOffset" select="2520"/>
-  <xsl:param name="displayScale"  select="5.5"/>-->
+  <xsl:param name="displayScale"  select="5.5"/> -->
   
   <!-- vertical axes for display of labels -->
   <xsl:variable name="leftOffset"  select="5"/>
@@ -45,9 +45,9 @@
     select="'titlePage','page',
     'introduction', 'preface',
     'chapter', 'p',
-    'letter', 'entry'
+    'letter', 'entry',
     (: 'epigraph','lg','l', :)
-    (: 'story', 'q', 'said' :)
+    'story', 'q', 'said'
     (: 'head', 'title' :)"/>
 
   <xsl:output indent="yes"/>

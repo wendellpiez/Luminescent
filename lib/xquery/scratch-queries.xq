@@ -13,37 +13,42 @@ let $novel  := db:open('LMNL-library','Frankenstein.xlmnl')/*
    Dutch schoolmaster Elizabeth Ernest Justine court officer PBS Monster
  :)
 
+(:return distinct-values(lm:ranges('said',$novel)/lm:annotations('who',.)/lm:annotation-value(.)):)
+
+
 (: Show all the quotes ('said' ranges) attributed to 'The creature' :)
 
-(: let $who := 'The creature'
+(:let $who := 'The creature'
 
-return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value(.) ! normalize-space(.) :)
+return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.):)
 
 (: Find any page with more than 2500 characters (there was one,
    marked erroneously.
 return lm:ranges('page',$novel) [ string-length(lm:range-value(.)) gt 2500 ]  /
  ( string-length(lm:range-value(.)) || ':' ||
-   x:annotation[lm:named(.,'n')]/string(x:content)
+   x:annotation[lm:named('n',.)]/string(x:content)
  ) :)
  
-return
-
+ 
 (: distinct-values(lm:ranges('said',$novel)/lm:annotations('who',.)/lm:value(.)) :)
 (: distinct-values(lm:ranges('q',$novel)/lm:value(.)):) 
 
-for $l in (lm:ranges('letter',$novel))
+(:for $l in (lm:ranges('letter',$novel))
 where $l/preceding-sibling::*:range[@name='letter'][1]/@start >= ($l/@start - 10000)
-return $l/@start/string(.)
+return $l/@start/string(.):)
+
+return lm:ranges('said',$novel)/lm:overlapping-ranges(.)[not(lm:named('page',.))]/@name/string(.)
 
 
-(: Where is Volney mentioned?
 
-return lm:ranges('page',$novel)[contains(lm:range-value(.),'Volney')]
+(: Where is Volney mentioned?:)
 
-return lm:ranges('p',$novel)[contains(lm:range-value(.),'Volney')]/lm:range-value(.)
+(:return lm:ranges('page',$novel)[contains(lm:range-value(.),'Volney')]
+/lm:annotations('n',.)/lm:annotation-value(.):)
+
+(:return lm:ranges('p',$novel)[contains(lm:range-value(.),'Volney')]/lm:range-value(.):)
 
 
- :)
 
 (: How far in is 'Volney'; where is it located? 
    PUT A FULL TEXT SEARCH OVER DOCUMENTSKETCH FOR FRANKENSTEIN DATA

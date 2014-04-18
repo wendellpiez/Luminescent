@@ -15,19 +15,19 @@ declare option db:chop 'false';
    Returns ranges named $name from layer $layer
    $layer should be either x:document or x:annotation :)
 declare function lm:ranges($name as xs:string?, $layer as element()) as element(x:range)* {
-  $layer/x:range[lm:named(.,$name)]
+  $layer/x:range[lm:named($name,.)]
 };
 
 (: Function lm:annotations($name,$range)
    Returns annotations named $name from range $range :)
 declare function lm:annotations($name as xs:string?, $range as element(x:range)) as element(x:annotation)* {
-  $range/x:annotation[lm:named(.,$name)]
+  $range/x:annotation[lm:named($name,.)]
 };
 
 (: Function lm:named($item,$name)
    Returns boolean true() if range or annotation $item has name $name,
    or is anonymous for $name () (the empty sequence) :)
-declare function lm:named($item as element(), $name as xs:string?) as xs:boolean {
+declare function lm:named($name as xs:string?, $item as element()) as xs:boolean {
   if (exists($name)) then ($item/@name = $name)
   else empty($item/@name)
 };
