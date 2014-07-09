@@ -18,9 +18,10 @@ let $novel  := db:open('LMNL-library','Frankenstein.xlmnl')/*
 
 (: Show all the quotes ('said' ranges) attributed to 'The creature' :)
 
-(:let $who := 'The creature'
+(: let $who := 'The creature'
 
-return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.):)
+return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.)
+ :)
 
 (: Find any page with more than 2500 characters (there was one,
    marked erroneously.
@@ -37,14 +38,14 @@ return lm:ranges('page',$novel) [ string-length(lm:range-value(.)) gt 2500 ]  /
 where $l/preceding-sibling::*:range[@name='letter'][1]/@start >= ($l/@start - 10000)
 return $l/@start/string(.):)
 
-return lm:ranges('said',$novel)/lm:overlapping-ranges(.)[not(lm:named('page',.))]/@name/string(.)
+(: return lm:ranges('said',$novel)/lm:overlapping-ranges(.)[not(lm:named('page',.))]/@name/string(.) :)
 
 
 
 (: Where is Volney mentioned?:)
 
-(:return lm:ranges('page',$novel)[contains(lm:range-value(.),'Volney')]
-/lm:annotations('n',.)/lm:annotation-value(.):)
+return lm:ranges('page',$novel)[contains(lm:range-value(.),'Great God')]
+/lm:annotations('n',.)/lm:annotation-value(.)
 
 (:return lm:ranges('p',$novel)[contains(lm:range-value(.),'Volney')]/lm:range-value(.):)
 

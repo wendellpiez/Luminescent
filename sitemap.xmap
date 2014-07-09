@@ -204,6 +204,19 @@
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
+      <map:match pattern="**/*-sonnet-overlap.svg">
+        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
+        
+          <!--<map:transform type="xslt2" src="lib/down/silkentent-graph-svg.xsl">--> 
+        <map:transform type="xslt2" src="lib/down/sonnet-static-graph-svg.xsl">
+<!--        <map:transform type="xslt2" src="lib/down/sonnet-snapshot.xsl">-->
+          <map:parameter name="use-request-parameters" value="true"/>
+          
+          <map:parameter name="LMNL-file" value="../../{1}/{2}.lmnl"/>
+        </map:transform>
+        <map:serialize type="svgxml"/>
+        <!--<map:serialize type="xml"/>-->
+      </map:match>
       
       <map:match pattern="**/*.xml">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>

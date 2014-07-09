@@ -30,8 +30,12 @@ let $silkenTent := '[sonneteer [id}silkentent{id]}[meta [author}Robert Frost{aut
 (: 341000 ms to run - 5 mins 41 sec :)
 
 let $fileSet := map {
-   "Frankenstein.xlmnl" := 'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein.lmnl',
-   "Tempest.xlmnl"      := 'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'       }
+   "Frankenstein.xlmnl"              :=
+      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein.lmnl',
+   "Frankenstein-as-published.xlmnl" :=
+      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein-as-published.lmnl',
+   "Tempest.xlmnl"                   :=
+      'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'       }
   
 for $file in map:keys($fileSet)
 let $fileURI :=  map:get($fileSet,$file)
