@@ -51,6 +51,7 @@
       </xsl:if>
       <conditional-label type=".html" color="pink">Demo HTML</conditional-label>
       <conditional-label type="-sonneteer.html" color="pink">Sonnet bubbles</conditional-label>
+      <conditional-label type="-sonnet-overlap.svg" color="pink">Static B&amp;W sonnet diagram</conditional-label>
     </group>
     <!-- <xsl:choose>
       <xsl:when test="$type='sonnets'">
@@ -220,7 +221,7 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:template match="conditional-label[ends-with(@type,'sonneteer.html')]"
+  <xsl:template match="conditional-label[matches(@type,'sonneteer\.html$|sonnet-overlap.svg$')]"
     mode="cell">
     <xsl:if test="$sonnet-dir">
       <xsl:next-match/>
