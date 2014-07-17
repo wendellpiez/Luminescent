@@ -11,22 +11,30 @@
   <xsl:template name="down" match="/s:root">
     <xsl:copy copy-namespaces="no">
       <xsl:copy-of select="@*"/>
-      <xsl:apply-templates select="node()[1]" mode="across"/>
+      <xsl:apply-templates select="*[1]" mode="across"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="node()" mode="across">
+  <xsl:template match="s:text" mode="across">
     <xsl:param name="stack" select="()"/>
-    <xsl:call-template name="down"/>
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="across">
+    <xsl:copy-of select="."/>
+    <xsl:apply-templates select="following-sibling::*[1]" mode="across">
       <xsl:with-param name="stack" select="$stack"/>
     </xsl:apply-templates>
   </xsl:template>
-
+  
+  <xsl:template match="*" mode="across">
+    <xsl:param name="stack" select="()"/>
+    <xsl:call-template name="down"/>
+    <xsl:apply-templates select="following-sibling::*[1]" mode="across">
+      <xsl:with-param name="stack" select="$stack"/>
+    </xsl:apply-templates>
+  </xsl:template>
+  
   <xsl:template match="s:start" mode="across">
     <xsl:param name="stack" select="()"/>
     <xsl:call-template name="down"/>
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="across">
+    <xsl:apply-templates select="following-sibling::*[1]" mode="across">
       <xsl:with-param name="stack" select=".,$stack"/>
     </xsl:apply-templates>
   </xsl:template>
@@ -50,7 +58,9 @@
       <xsl:choose>
         <xsl:when test="empty(@gi)">
           <xsl:choose>
-            <xsl:when test="empty($stack except preceding-sibling::*[1]/self::s:start)
+            <xsl:when test="($stack[1] is preceding-sibling::s:start[1])
+              and empty($stack[1]/following-sibling::* intersect
+                       (preceding-sibling::* except preceding-sibling::s:text))
               and exists(parent::s:start | parent::s:end | parent::s:empty | parent::s:atom)">
               <xsl:sequence select="$stack[1]"/>
             </xsl:when>
@@ -66,9 +76,9 @@
     </xsl:variable>
     <xsl:copy copy-namespaces="no">
       <xsl:copy-of select="@*,$start/@pID"/>
-      <xsl:apply-templates select="node()[1]" mode="across"/>
+      <xsl:apply-templates select="*[1]" mode="across"/>
     </xsl:copy>
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="across">
+    <xsl:apply-templates select="following-sibling::*[1]" mode="across">
       <xsl:with-param name="stack" select="$stack[not(. is $start)]"/>
     </xsl:apply-templates>
   </xsl:template>

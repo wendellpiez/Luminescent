@@ -20,14 +20,27 @@
   <xsl:template name="content">
     <xsl:apply-templates select="annotation"/>
     <x:content>
-      <xsl:for-each-group select="span|atom|comment"
+      <xsl:for-each-group select="*" group-starting-with="start | end | empty">
+        <!-- taking care to maintain the split between range starts and ends ... -->
+        <xsl:for-each-group select="current-group()/(self::span|self::atom|self::comment)"
+          group-adjacent="string-join((@layer,@ranges),':')">
+          <!-- wrapping text spans and atoms together -->
+          <x:span start="{@off}" end="{@off + sum(current-group()/self::span/string-length(.)) + count(current-group()/self::atom)}">
+            <xsl:attribute name="ID" select="generate-id()"/>
+            <xsl:apply-templates select="@layer | @ranges"/>
+            <xsl:apply-templates select="current-group()"/>
+          </x:span>
+        </xsl:for-each-group>
+      </xsl:for-each-group>
+      <!--<xsl:for-each-group select="span|atom|comment"
         group-adjacent="string-join((@layer,@ranges),':')">
-        <!-- wrapping text spans and atoms together -->
+        <!-\- wrapping text spans and atoms together -\->
+        <!-\- while taking care not to concatenate spans around empty ranges! -\->
         <x:span start="{@off}" end="{@off + sum(current-group()/self::span/string-length(.)) + count(current-group()/self::atom)}">
           <xsl:apply-templates select="@layer | @ranges"/>
           <xsl:apply-templates select="current-group()"/>
         </x:span>
-      </xsl:for-each-group>
+      </xsl:for-each-group>-->
     </x:content>
     <xsl:apply-templates select="start | empty"/>
   </xsl:template>
@@ -49,6 +62,9 @@
   <xsl:template match="start | empty">
     <xsl:variable name="end" select="key('end-for-start',@rID)"/>
     <x:range start="{@off}" end="{$end/@off}">
+      <xsl:for-each select="self::start">
+        <xsl:attribute name="spans" select="following-sibling::span[$end >> .]/generate-id()"/>
+      </xsl:for-each>
       <xsl:apply-templates select="@gi | @rID | @so | @sl | $end/@eo | $end/@el"/>
       <xsl:apply-templates select="(.|$end)/(annotation | comment)"/>
     </x:range>
@@ -68,7 +84,7 @@
   <xsl:template match="@lID | @rID">
     <xsl:attribute name="ID" select="."/>
   </xsl:template>
-  
+ 
   <xsl:template match="@*">
     <xsl:copy-of select="."/>
   </xsl:template>

@@ -25,6 +25,8 @@ output:
 
 -->
 
+  <xsl:output indent="no"/>
+  
   <xsl:template match="root">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
@@ -133,13 +135,22 @@ output:
     </error>
   </xsl:template>
   
+  <xsl:template match="s:t">
+    <text>
+      <xsl:apply-templates/>
+    </text>
+  </xsl:template>
+  
   <xsl:template match="s:comment">
     <comment>
       <xsl:apply-templates select="@l|@o" mode="locate-start"/>
       <xsl:variable name="lines" select="tokenize(.,'\n')"/>
-      <xsl:attribute name="el" select="@l + count($lines) - 1"/>
-      <xsl:attribute name="eo"
-        select="(if (count($lines) gt 1) then 0 else (@o - 1)) + string-length($lines[last()])"/>
+      <xsl:if test="exists(@l | @o)">
+        <!-- only generate @el and @eo if we have @l or @o -->
+        <xsl:attribute name="el" select="@l + count($lines) - 1"/>
+        <xsl:attribute name="eo"
+          select="(if (count($lines) gt 1) then 0 else (@o - 1)) + string-length($lines[last()])"/>
+      </xsl:if>
       <xsl:value-of select="replace(., '\[!--(.*?)--\]', '$1')"/>
     </comment>
   </xsl:template>

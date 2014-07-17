@@ -14,6 +14,12 @@
   
   <!--xmlns:svg="http://www.w3.org/2000/svg"-->
   
+  <xsl:param name="labels" select="'yes'"/>
+
+  <xsl:variable name="show-labels" select="$labels = 'yes'"/>
+  
+  <!--<xsl:variable name="clean" select="$labels = 'no'"/>-->
+  
   <xsl:variable name="specs" xmlns="http://lmnl-markup.org/ns/xslt/utility">
     <left-margin>40</left-margin>
     <top-margin>10</top-margin>
@@ -33,23 +39,24 @@
       <ranges color="orange" width="10">s seg</ranges>
       <ranges color="pink" width="10">letter entry</ranges>
       <ranges color="lightgreen" opacity="0.3" line="gold" line-weight="10"
-        line-opacity="0.8" width="10">nar q</ranges>
+        line-opacity="0.8" width="10">story q</ranges>
     </styles>
     <bars indent="20">
-      <ranges width="10">nar</ranges>
+      <ranges width="10">story</ranges>
       <ranges width="10">chapter</ranges>
       <ranges width="10">q</ranges>
     </bars>
     <discs indent="400">
       <range>preface</range>
       <range>introduction</range>
-      <range label="left">nar</range>
+      <range label="left">story</range>
       <range label="left">letter</range>
       <range label="left">entry</range>
       <range>chapter</range>
       <range label="left">q</range>
     </discs>
     <text line="l">
+      <indent>0</indent>
       <font-size>36</font-size>
       <highlight color="green">q</highlight>
     </text>
@@ -88,8 +95,10 @@
       <xsl:apply-templates select="/" mode="draw-discs"/>
       <xsl:apply-templates select="/" mode="draw-bars"/>
     </g>
+    <xsl:call-template name="display-meta-info"/>
   </xsl:template>
 
+  <xsl:template name="display-meta-info"/>
   
   <xsl:template match="/" mode="draw-discs">
     <!-- the discs diagram -->
@@ -100,11 +109,11 @@
       <xsl:for-each select="$specs/f:discs/f:range">
         <xsl:variable name="spec" select="."/>
         <xsl:variable name="style" select="$specs/f:styles/f:ranges[tokenize(.,'\s+') = current()]"/>
-        <xsl:variable name="fill" select="($style/@color,'black')[1]"/>
+        <!--<xsl:variable name="fill" select="($style/@color,'black')[1]"/>
         <xsl:variable name="fill-opacity" select="($style/@opacity,'0.2')[1]"/>
         <xsl:variable name="stroke" select="($style/@stroke,$fill)[1]"/>
         <xsl:variable name="stroke-width" select="($style/@stroke-width,'1')[1]"/>
-        <xsl:variable name="stroke-opacity" select="($style/@stroke-opacity,'1')[1]"/>
+        <xsl:variable name="stroke-opacity" select="($style/@stroke-opacity,'1')[1]"/>-->
         <g style="visibility:visible">
           <!--<svg:set attributeName="visibility" attributeType="CSS" to="visible"
             begin="{generate-id()}-on.click" fill="freeze"/>
@@ -114,25 +123,30 @@
           <xsl:for-each
             select="key('ranges-by-name',$spec,$lmnl-document)">
             <xsl:variable name="start-y" select="@start"/>
-            <xsl:variable name="radius" select="(@end - @start) div 2"/>
-            <circle fill="{$fill}" fill-opacity="{$fill-opacity}" stroke="{$stroke}"
-              stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
+            <xsl:variable name="radius" select="((@end - @start) div 2) + 1"/>
+            <circle id="bubble-{generate-id()}" class="range-bubble"
+              fill="black"
+              fill-opacity="0.2"
+              stroke="black"
+              stroke-width="1"
+              stroke-opacity="1"
               cx="0" cy="{$start-y + ($radius)}" r="{$radius}">
-              <xsl:apply-templates select="." mode="animate">
-                <xsl:with-param name="stroke-width" select="number($stroke-width)"/>
-                <xsl:with-param name="fill-opacity" select="number($fill-opacity)"/>
+              <xsl:apply-templates select="." mode="assign-class">
+                <xsl:with-param name="class">range-bubble</xsl:with-param>
               </xsl:apply-templates>
+              <xsl:apply-templates select="$style/@*" mode="copy-property"/>
             </circle>
-            <text fill="{$fill}" fill-opacity="{$fill-opacity}"
-              stroke="{$stroke}" stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
-              x="{if ($spec/@label='left') then '-' else ''}{$radius div 4}"
-              y="{$start-y + ($radius)}" font-size="{$radius}">
-              <xsl:if test="not($spec/@label='none')">
-                <xsl:attribute name="text-anchor"
-                  select="if ($spec/@label='left') then 'end' else 'start'"/>
-                <xsl:value-of select="@name"/>
-              </xsl:if>
-            </text>
+            <xsl:call-template name="label-disc">
+              <!--<xsl:with-param name="fill" select="$fill"/>
+              <xsl:with-param name="fill-opacity" select="$fill-opacity"/>
+              <xsl:with-param name="stroke" select="$stroke"/>
+              <xsl:with-param name="stroke-width" select="$stroke-width"/>
+              <xsl:with-param name="stroke-opacity" select="$stroke-opacity"/>-->
+              <xsl:with-param name="spec" select="$spec"/>
+              <xsl:with-param name="style" select="$style"/>
+              <xsl:with-param name="radius" select="$radius"/>
+              <xsl:with-param name="start-y" select="$start-y"/>
+            </xsl:call-template>
             <!--             -->
           </xsl:for-each>
         </g>
@@ -143,28 +157,77 @@
     </g>
   </xsl:template>
   
-  <xsl:template match="*" mode="animate">
-    <xsl:param name="stroke-width" select="1"/>
-    <xsl:param name="fill-opacity" select="0.2"/>
+  <xsl:template mode="copy-property" match="@*">
+    <xsl:copy-of select="."/>
   </xsl:template>
   
+  <xsl:template mode="copy-property" match="@color">
+    <xsl:attribute name="fill" select="."/>
+  </xsl:template>
+  
+  <xsl:template mode="copy-property" match="@opacity">
+    <xsl:attribute name="fill-opacity" select="."/>
+  </xsl:template>
+  
+  <xsl:template name="label-disc">
+    <!--<xsl:param name="fill"/>
+    <xsl:param name="fill-opacity"/>
+    <xsl:param name="stroke"/>
+    <xsl:param name="stroke-width"/>
+    <xsl:param name="stroke-opacity"/>-->
+    <xsl:param name="style"/>
+    <xsl:param name="spec"/>
+    <xsl:param name="radius"/>
+    <xsl:param name="start-y"/>
+    <xsl:variable name="labels" select="$show-labels and not($spec/@label='none')"/>
+    <xsl:if test="$labels">
+      <text 
+        x="{if ($spec/@label='left') then '-' else ''}{$radius div 4}" y="{$start-y + ($radius)}"
+        >
+        <xsl:apply-templates select="$style/@*" mode="copy-property"/>
+        <xsl:apply-templates select="." mode="label-size">
+          <xsl:with-param name="disc-radius" select="$radius"/>
+        </xsl:apply-templates>
+        <xsl:attribute name="text-anchor" select="if ($spec/@label='left') then 'end' else 'start'"/>
+        <xsl:apply-templates select="." mode="label-disc"/>
+      </text>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template mode="label-size" match="*">
+    <xsl:param name="disc-radius"  required="yes"/>
+    <xsl:attribute name="font-size" select="$disc-radius"/>
+  </xsl:template>
+  
+  <xsl:template mode="label-size" match="x:range[@name='stage']">
+    <xsl:attribute name="font-size" select="12"/>
+  </xsl:template>
+  
+  <!-- override in a calling stylesheet to modify the label -->
+  <xsl:template match="*" mode="label-disc">
+    <xsl:value-of select="@name"/>
+  </xsl:template>
+  
+  <xsl:template match="*" mode="assign-class"/>
+  
   <xsl:template name="display-text">
-    <g id="text">
-    <xsl:apply-templates select="$specs/f:text" mode="write-text"/>
-    </g>
+      <xsl:variable name="text-svg">
+        <xsl:apply-templates select="$specs/f:text" mode="write-text"/>
+      </xsl:variable>
+      <g id="text">
+        <xsl:copy-of select="$text-svg"/>
+      </g>
   </xsl:template>
   
   <xsl:template match="f:text" mode="write-text">
     <xsl:variable name="line-range" select="$specs/f:text/@line"/>
     <!--<xsl:variable name="div-range" select="$specs/f:text/@div"/>-->
-    <xsl:variable name="font-size" select="($specs/f:text/f:font-size,'24')[1]"/>
-    <xsl:variable name="font-color" select="($specs/f:text/f:font-color,'black')[1]"/>
-    <xsl:variable name="indent" select="($specs/f:text/@indent,50)[1]"/>
+   <xsl:variable name="indent" select="($specs/f:text/@indent,50)[1]"/>
     
-    <xsl:variable name="range-spec" select="$specs/f:styles/f:ranges[tokenize(.,'\s+')=$line-range]"/>
-    <xsl:variable name="stroke" select="($range-spec/@stroke,'black')[1]"/>
-    <xsl:variable name="stroke-width" select="($range-spec/@stroke-width,'1')[1]"/>
-    <xsl:variable name="stroke-opacity" select="($range-spec/@stroke-opacity,'1')[1]"/>
+    <xsl:variable name="style" select="$specs/f:styles/f:ranges[tokenize(.,'\s+')=$line-range]"/>
+    <xsl:variable name="stroke" select="($style/@stroke,'black')[1]"/>
+    <xsl:variable name="stroke-width" select="($style/@stroke-width,'1')[1]"/>
+    <xsl:variable name="stroke-opacity" select="($style/@stroke-opacity,'1')[1]"/>
     <xsl:variable name="start-y"/>
     
     <xsl:variable name="line-ranges" select="key('ranges-by-name',$line-range,$lmnl-document)"/>
@@ -172,23 +235,29 @@
     <xsl:variable name="line-count" select="count($line-ranges)"/>
     <xsl:variable name="last-y" select="$line-ranges[last()]/@end"/>
     
-    <xsl:for-each select="$line-ranges">
-      <!-- start-y and radius measure the extent of the range -->
-      <xsl:variable name="start-y" select="@start"/>
-      <xsl:variable name="radius" select="(@end - @start) div 2"/>
-      
-      <!-- line-count, last-y and y space the lines evenly, leaving a
+    <g fill="{($specs/f:text/f:font-color,'black')[1]}"
+      font-size="{($specs/f:text/f:font-size,'24')[1]}"
+      font-family="{($specs/f:text/f:font-family,'sans-serif')[1]}">
+
+      <xsl:for-each select="$line-ranges">
+        <!-- start-y and radius measure the extent of the range -->
+        <xsl:variable name="start-y" select="@start"/>
+        <xsl:variable name="radius" select="(@end - @start) div 2"/>
+        
+        <!-- line-count, last-y and y space the lines evenly, leaving a
            single line height for the divs -->
-      <xsl:variable name="y" select="(position() - 0.5) * ($last-y div $line-count)"/>
-      <!-- first drawing a line from the vertical position of this range to the
+        <xsl:variable name="y" select="(position() - 0.5) * ($last-y div $line-count)"/>
+        <!-- first drawing a line from the vertical position of this range to the
            text baseline -->
-      <path fill="none"  stroke="{$stroke}"
-        stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
-        d="M 0 {$start-y + $radius} L {$indent} {$y}"/>
-      <text fill="{$font-color}" font-size="{$font-size}" x="{$indent}" y="{$y}" >
-        <xsl:apply-templates select="key('spans-by-range',@ID)" mode="write"/>
-      </text>
-    </xsl:for-each>    
+        <path fill="none"  stroke="{$stroke}"
+          stroke-width="{$stroke-width}" stroke-opacity="{$stroke-opacity}"
+          d="M 0 {$start-y + $radius} L {$indent - 5} {$y}"/>
+        <text x="{$indent}" y="{$y}" >
+          <xsl:apply-templates select="key('spans-by-range',@ID)" mode="write"/>
+        </text>
+      </xsl:for-each>    
+      
+    </g>
   </xsl:template>
   
   <!--<xsl:template priority="2"
@@ -253,14 +322,14 @@
             
             <xsl:variable name="start-y" select="@start"/>
             <xsl:variable name="height" select="@end - @start"/>
-            <rect id="{replace(@ID,'^R.','bar')}" class="rangebar" title="{@name}"
+            <rect id="{replace(@ID,'^R.','bar-')}" class="range-bar" title="{@name}"
               x="{$indent}" y="{$start-y}"
               rx="4" ry="4"
               width="{$width}" height="{$height}" stroke="{$stroke}"
               fill="{$fill}" fill-opacity="{$fill-opacity}" stroke-width="{$stroke-width}">
-              <xsl:apply-templates select="." mode="animate">
-                <xsl:with-param name="stroke-width" select="1"/>
-                <xsl:with-param name="fill-opacity" select="0.2"/>
+              <!-- class assignment is dynamic to enable customized animation hooks -->
+              <xsl:apply-templates select="." mode="assign-class">
+                <xsl:with-param name="range-bar"/>
               </xsl:apply-templates>
             </rect> 
           </xsl:for-each>

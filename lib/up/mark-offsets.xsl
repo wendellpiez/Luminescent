@@ -42,10 +42,10 @@
     </xsl:apply-templates>
   </xsl:template>
   
-  <xsl:template match="text()" priority="0">
+  <xsl:template match="s:text" priority="0">
     <xsl:param name="offset" select="0" as="xs:integer"/>
     <span off="{$offset}" xmlns="http://lmnl-markup.org/ns/luminescent/tags">
-      <xsl:copy-of select="."/>
+      <xsl:value-of select="."/>
     </span>
     <xsl:apply-templates select="following-sibling::node()[1]">
       <xsl:with-param name="offset" select="$offset + string-length(.)"/>

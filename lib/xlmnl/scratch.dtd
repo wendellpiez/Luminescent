@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT content (mark*, (insert, mark+)*, insert? )  >
+
+<!ELEMENT mark EMPTY >
+<!ELEMENT insert EMPTY >

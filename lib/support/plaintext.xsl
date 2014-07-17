@@ -10,12 +10,19 @@
        reader delivers ISO-8859-1 even when the resource is
        in UTF-8. -->
 
+<!-- Actually, Cocoon works if we do
+  
+     <map:read mime-type="text/plain;charset=utf-8" src="{1}.lmnl"/>
+  
+     so this can be used unless EOL normalization is also 
+     needed.
+  -->
   
   <!-- $plaintext-file should be provided. -->
   <xsl:param name="plaintext-file" as="xs:string*" required="yes"/>
   
   <xsl:template name="start" match="/">
-    <xsl:value-of select="s:eol(unparsed-text($plaintext-file))"/>
+    <xsl:value-of select="s:eol(unparsed-text($plaintext-file,'utf-8'))"/>
   </xsl:template>
    
    <!-- EOL of LF, CR, or CRLF are all normalized to LF (&#xA;) -->

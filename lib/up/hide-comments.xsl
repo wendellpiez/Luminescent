@@ -13,6 +13,8 @@
        the data value of the input document is read. -->
   <xsl:param name="lmnl-file" as="xs:string*"/>
   
+  <xsl:param name="base-uri" select="false()"/>
+  
   <xsl:variable name="source">
     <xsl:choose>
       <xsl:when test="normalize-space($lmnl-file)">
@@ -26,7 +28,7 @@
   
   <xsl:template name="start" match="/">
     <t:root>
-      <xsl:attribute name="base-uri" select="resolve-uri($lmnl-file)"/>
+      <xsl:attribute name="base-uri" select="if ($base-uri) then $base-uri else resolve-uri($lmnl-file)"/>
       <xsl:analyze-string select="$source" regex="\[!--(.*?)--\]" flags="s">
         <xsl:matching-substring>
           <t:comment>

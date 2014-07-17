@@ -6,7 +6,8 @@
 
   <!--<xsl:param name="type" select="''"/>-->
   
-  <xsl:variable name="sonnet-dir" select="matches($dir,'sonnets')"/>
+  <xsl:variable name="demo-dir" select="matches($dir,'^lmnl$')"/>
+  <xsl:variable name="sonnet-dir" select="matches($dir,'^sonnets$')"/>
   
   <xsl:variable name="labels" as="element()*">
 
@@ -18,32 +19,39 @@
       </group>
     </xsl:if>
     
-    <xsl:if test="not($sonnet-dir)">
+    <xsl:if test="$demo-dir">
       <group name="Luminescent">
-      <label key="xLMNL" view="step1">step 1</label>
-      <label key="xLMNL" view="step2">step 2</label>
-      <label key="xLMNL" view="step3">step 3</label>
-      <label key="xLMNL" view="step4">step 4</label>
-      <label key="xLMNL" view="step5">step 5</label>
-      <label key="xLMNL" view="step6">step 6</label>
-      <label key="xLMNL" view="step7">step 7</label>
-      <label key="xLMNL" view="step8">step 8</label>
-      <label key="xLMNL" view="step9">step 9</label>
-      <label key="xLMNL" view="step10">step 10</label>
-      <label key="xLMNL" view="step11">step 11</label>
-      <label key="xLMNL" view="step12">step 12</label>
-      <label key="xLMNL" color="duskyrose">xLMNL</label>
+        <label key="xLMNL" view="step1">step 1</label>
+        <label key="xLMNL" view="step2">step 2</label>
+        <label key="xLMNL" view="step3">step 3</label>
+        <label key="xLMNL" view="step4">step 4</label>
+        <label key="xLMNL" view="step5">step 5</label>
+        <label key="xLMNL" view="step6">step 6</label>
+        <label key="xLMNL" view="step7">step 7</label>
+        <label key="xLMNL" view="step8">step 8</label>
+        <label key="xLMNL" view="step9">step 9</label>
+        <label key="xLMNL" view="step10">step 10</label>
+        <label key="xLMNL" view="step11">step 11</label>
+        <label key="xLMNL" view="step12">step 12</label>
       </group>
     </xsl:if>
     
     <group name="Results">
-
-      <label key="XML" color="lightsteelblue">XML</label>
-    <label type="-analysis.html" color="skyblue">Analysis</label>
-    <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
-    <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
-    <conditional-label type=".html" color="pink">Demo HTML</conditional-label>
-    <conditional-label type="-sonneteer.html" color="pink">Sonnet bubbles</conditional-label>
+      <label key="xLMNL" color="duskyrose">xLMNL</label>
+      <conditional-label key="XML" color="lightsteelblue">XML</conditional-label>
+      <label type="-analysis.html" color="skyblue">Analysis</label>
+      <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
+      <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
+      <conditional-label type="-map.svg" color="pink">Map (SVG)</conditional-label>
+      <conditional-label type="-shakespeare-graph.svg" color="pink">Shakespeare graph</conditional-label>
+      <xsl:if test="$dir = 'shakespeare'">
+        <!-- come back to ... -->
+        <label type="-structured.xml" color="pink">structured XML</label>
+        <label type="-display.html" color="pink">display HTML</label>
+      </xsl:if>
+      <conditional-label type=".html" color="pink">Demo HTML</conditional-label>
+      <conditional-label type="-sonneteer.html" color="pink">Sonnet bubbles</conditional-label>
+      <conditional-label type="-sonnet-overlap.svg" color="pink">Static B&amp;W sonnet diagram</conditional-label>
     </group>
     <!-- <xsl:choose>
       <xsl:when test="$type='sonnets'">
@@ -67,19 +75,36 @@
   <xsl:variable name="lyrics" as="element()+">
     <basename>Easter1916</basename>
     <basename>WinterNight</basename>
+    <basename>julian-and-maddalo</basename>
   </xsl:variable>
 
+  <xsl:variable name="page-header">
+    <xsl:choose>
+      <xsl:when test="$dir = 'lmnl'">
+        <h5>Other demonstrations: <a href="sonnets">Sonnets</a> | <a href="shakespeare">Shakespeare</a></h5>
+        <h1>Luminescent testing miscellany</h1>
+        <h3>Various texts below (including complete, fragmentary and factitious examples) demonstrate
+        some functionalities supported by the Luminescent LMNL parsing pipeline.</h3>
+      </xsl:when>
+      <xsl:when test="$dir = 'sonnets'">
+        <h5>Other demonstrations: <a href="shakespeare">Shakespeare</a> | <a href="lmnl">Miscellany</a></h5>
+        <h1>Sonnets: a structural analysis</h1>
+        <p>Two concurrent hierarchies are marked up: the verse form and the grammatical structure
+        (as indicated by punctuation of sentences and phrases).</p>
+      </xsl:when>
+      <xsl:when test="$dir = 'shakespeare'">
+        <h5>Other demonstrations: <a href="sonnets">Sonnets</a> | <a href="lmnl">Miscellany</a></h5>
+        <h1>Some plays of William Shakespeare, marked up in LMNL syntax</h1>
+        <h3>With grateful acknowledgement of the  
+          <a href="http://www.folgerdigitaltexts.org/">Folger Digital Texts</a> project,
+        from whose XML encoding this LMNL was generated.</h3>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:template match="/">
     <html>
       <body style="background-color: thistle">
-        <h1>
-          <!--<xsl:value-of select="$dir"/>
-          <xsl:text>/*.xml</xsl:text>-->
-          <xsl:text>LMNL syntax parsing: a demonstration</xsl:text></h1>
-        <xsl:comment>
-          <xsl:text>$dir is </xsl:text>
-          <xsl:value-of select="$dir"/>
-        </xsl:comment>
+        <xsl:copy-of select="$page-header"/>
         <table>
           <xsl:call-template name="table-header"/>
           <xsl:apply-templates select="//dir:file[ends-with(@name,'lmnl')]"/>
@@ -119,7 +144,7 @@
             <xsl:value-of select="$file"/>
           </a>
           <xsl:text> [</xsl:text>
-          <xsl:value-of select="(round(../@size div 100) * 100) div 1000"/>
+          <xsl:value-of select="(round(@size div 100) * 100) div 1000"/>
           <xsl:text>K]</xsl:text>
         </p>
       </td>
@@ -134,7 +159,7 @@
     <xsl:apply-templates mode="cell"/>
   </xsl:template>
   
-  <xsl:template match="*" mode="cell">
+  <xsl:template match="*" mode="cell" name="cell">
     <td
       style="font-family: sans-serif; font-size: 80%; font-weight: bold;
       background-color:{(@color,'lavender')[1]};
@@ -144,7 +169,7 @@
     </td>
   </xsl:template>
 
-  <xsl:template match="conditional-label[ends-with(@type,'graph.svg')]"
+  <xsl:template match="conditional-label[ends-with(@type,'-graph.svg')]"
     mode="cell">
     <!-- only if a stylesheet customized
          for the particular instance can be found -->
@@ -155,14 +180,32 @@
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
-
+  
+  <xsl:template match="conditional-label[ends-with(@type,'-map.svg')]"
+    mode="cell">
+    <!-- same for -map.svg -->
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:variable name="xslt"
+      select="concat('../down/',$basename,'-map-svg.xsl')"/>
+    <xsl:if test="doc-available(resolve-uri($xslt))">
+      <xsl:next-match/>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template match="conditional-label[.='Demo HTML']" mode="cell">
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:if test="$basename='demo'">
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
-
+  
+  <xsl:template match="conditional-label[.='XML']" mode="cell">
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:if test="$dir='sonnets'">
+      <xsl:next-match/>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template match="conditional-label[.='Lyric graph']" mode="cell">
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:if test="$basename=$lyrics">
@@ -170,7 +213,15 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="conditional-label[ends-with(@type,'sonneteer.html')]"
+  <xsl:template match="conditional-label[.='Shakespeare graph']"
+    priority="2" mode="cell">
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:if test="$dir = 'shakespeare'">
+      <xsl:call-template name="cell"/>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="conditional-label[matches(@type,'sonneteer\.html$|sonnet-overlap.svg$')]"
     mode="cell">
     <xsl:if test="$sonnet-dir">
       <xsl:next-match/>
@@ -214,9 +265,10 @@
     <xsl:variable name="file" select="concat($basename,'.xml')"/>
     <xsl:variable name="basename" select="replace($file,'\.xml$','')"/>
     <p style="margin:0ex">
-      <a href="{$dir}/{$basename}.xml">
+      <xsl:value-of select=".."/>
+      <!--<a href="{$dir}/{$basename}.xml">
         <xsl:value-of select=".."/>
-      </a>
+      </a>-->
     </p>
 
     <xsl:if test="$sonnet-dir">

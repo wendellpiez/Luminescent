@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="markover.rnc" type="application/relax-ng-compact-syntax"?>
+<transform>
+  <pass>
+    <match range="x:range[@name='s']">
+      <range name="r">
+        <keep/>
+      </range>
+      <eval select=""/>
+      <range name="r">
+        <literal/>
+      </range>
+    </match>
+  </pass>
+</transform>

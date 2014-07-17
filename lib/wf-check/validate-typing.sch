@@ -44,8 +44,8 @@
     <rule context="s:error">
       <!--<report test="empty($leader) and empty($follower)">-->
       <report test="true()">
-        Error <value-of select="@code"/> reported
-        <value-of select="(*[1],.)[1]/string-join(
+        Error <value-of select="@type"/> reported
+        <value-of select="string-join(
           ('for',util:tag(.),'at',util:start-position(.)),' ')"/>, 
         <value-of select="util:file-path(.)"/>
       </report>
@@ -75,7 +75,7 @@
     <xsl:variable name="l" select="$delimiters[@type=local-name($tag)]/string(.)[normalize-space(.)]"/> 
     <xsl:value-of>
       <xsl:value-of select="string-join((concat($o,$tag/@gi,$c),$l),' ')"/>
-      <xsl:value-of select="$tag[local-name(.)='error']"/>
+      <xsl:value-of select="$tag/self::s:error/@type"/>
       <xsl:if test="empty($tag)">[???]</xsl:if>
     </xsl:value-of>
   </xsl:function>

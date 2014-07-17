@@ -32,7 +32,7 @@
   <xsl:template match="start | end | empty | atom">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
-      <xsl:apply-templates select="node()[1]" mode="annotate"/>
+      <xsl:apply-templates select="*[1]" mode="annotate"/>
     </xsl:copy>
   </xsl:template>
   
@@ -41,7 +41,7 @@
   <!-- comments inside tags are allowed -->
   <xsl:template match="comment" mode="annotate">
     <xsl:copy-of select="."/>
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="annotate"/>
+    <xsl:apply-templates select="following-sibling::*[1]" mode="annotate"/>
   </xsl:template>
   
   <!-- errors, encountered, warrant quitting -->
@@ -50,23 +50,28 @@
   </xsl:template>
   
   <!-- certain kinds of nodes are unexpected in this mode, so we capture them as errors -->
-  <xsl:template match="end | atom | text()[normalize-space(.)]" mode="annotate">
+  <xsl:template match="end | atom | text[normalize-space(.)]" mode="annotate">
     <error code="{upper-case((self::*/local-name(.),'text')[1])}-UNEXPECTED">
       <xsl:copy-of select="@sl|@so|@el|@eo"/>
       <xsl:copy-of select="."/>
     </error>
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="annotate"/>
+    <xsl:apply-templates select="following-sibling::*[1]" mode="annotate"/>
   </xsl:template>
   
-  <!-- in 'annotate' mode, we discard whitespace --> 
-  <xsl:template match="text()[not(normalize-space(.))]" mode="annotate">
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="annotate"/>
+  <!-- text between annotations is dropped --> 
+  <xsl:template match="text" mode="annotate">
+    <xsl:apply-templates select="following-sibling::*[1]" mode="annotate"/>
   </xsl:template>
+  
+  <!--<!-\- in 'annotate' mode, we discard whitespace -\-> 
+  <xsl:template match="text()[not(normalize-space(.))]" mode="annotate">
+    <xsl:apply-templates select="following-sibling::*[1]" mode="annotate"/>
+  </xsl:template>-->
   
   <!-- in 'annotate' mode, we simply proceed past comments and PIs --> 
   <xsl:template match="comment() | processing-instruction()" mode="annotate">
     <xsl:copy-of select="."/>
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="annotate"/>
+    <xsl:apply-templates select="following-sibling::*[1]" mode="annotate"/>
   </xsl:template>
   
   <!-- empty tags make annotations -->
@@ -74,10 +79,10 @@
     <annotation>
       <xsl:copy-of select="@*"/>
       <!-- contents of empty tags may become annotations -->
-      <xsl:apply-templates select="node()[1]" mode="annotate"/>
+      <xsl:apply-templates select="*[1]" mode="annotate"/>
     </annotation>
     <!-- an empty tag may not indicate the last annotation, so we proceed -->
-    <xsl:apply-templates select="following-sibling::node()[1]" mode="annotate"/>
+    <xsl:apply-templates select="following-sibling::*[1]" mode="annotate"/>
   </xsl:template>
   
   <!-- start tags should also make annotations -->
@@ -91,26 +96,26 @@
            annotation the @el and @eo of its end tag -->
       <xsl:copy-of select="$end/(@el|@eo)"/>
       <!-- the start tag might have its own annotations -->
-      <xsl:apply-templates select="node()[1]" mode="annotate"/>
+      <xsl:apply-templates select="*[1]" mode="annotate"/>
       <xsl:choose>
         <xsl:when test="empty($end)">
           <error code="ANNOTATION-UNFINISHED">
             <xsl:copy-of select="@sl|@so|@el|@eo"/>
-            <xsl:apply-templates select="following-sibling::node()"/>
+            <xsl:apply-templates select="following-sibling::*"/>
           </error>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates
-              select="following-sibling::node()
+              select="following-sibling::*
                       except $end/(.|following-sibling::node())"/>
         </xsl:otherwise>
       </xsl:choose>
       <!-- and the end tag for the annotation might have its
            own annotations :-> -->
-      <xsl:apply-templates select="$end/node()[1]" mode="annotate"/>
+      <xsl:apply-templates select="$end/*[1]" mode="annotate"/>
     </annotation>
     <!-- following the annotations we look for any more annotations -->
-    <xsl:apply-templates select="$end/following-sibling::node()[1]" mode="annotate"/>
+    <xsl:apply-templates select="$end/following-sibling::*[1]" mode="annotate"/>
   </xsl:template>
 
 </xsl:stylesheet>
