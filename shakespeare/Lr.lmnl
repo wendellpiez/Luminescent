@@ -3280,7 +3280,7 @@
 [line [n}4.3.65{]}Lending me this acquaintance. I pray you, go{line] 
 [line [n}4.3.66{]}Along with me.{line] {sp] 
 [stage [n}SD 4.3.66.1{][}They exit.{]] {scene]
-[act [n}4{][head}Scene 4{head]}
+[scene [n}4{][head}Scene 4{head]}
 [stage [n}SD 4.4.0{][}Enter with Drum and Colors, Cordelia, Doctor, Gentlemen, and Soldiers.{]]  
 [sp [speaker}CORDELIA{speaker]} 
 [line [n}4.4.1{]}Alack, ’tis he! Why, he was met even now{line] 
@@ -3321,7 +3321,7 @@
 [line [n}4.4.30{]}No blown ambition doth our arms incite,{line] 
 [line [n}4.4.31{]}But love, dear love, and our aged father’s right.{line] 
 [line [n}4.4.32{]}Soon may I hear and see him.{line] {sp] 
-[stage [n}SD 4.4.32.1{][}They exit.{]] {act]
+[stage [n}SD 4.4.32.1{][}They exit.{]] {scene]
 [scene [n}5{][head}Scene 5{head]}
 [stage [n}SD 4.5.0{][}Enter Regan and Oswald, the Steward.{]]  
 [sp [speaker}REGAN{speaker]} 
