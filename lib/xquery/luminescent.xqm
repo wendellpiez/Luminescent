@@ -7,7 +7,7 @@
 module namespace lm = "http://www.lmnl-markup.org/ns/luminescent/xquery";
 declare namespace x = "http://lmnl-markup.org/ns/xLMNL";
 
-declare option db:chop 'false';
+declare option db:chop 'false'; 
 
 (: Runtime query library for xLMNL :)
 
