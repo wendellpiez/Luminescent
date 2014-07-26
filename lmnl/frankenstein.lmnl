@@ -590,7 +590,7 @@ Heaven bless my beloved sister! {p]
 [page [n}11{n] [ed}1831{ed]}
 [letter [n}4{n]}
 [head}Letter IV.{head]
-[entry [dated}Aug 5{]}
+[entry [dateline}Aug 5{]}
 [opener}[dateline}August 5th, 17—.{dateline]{opener]
 [p}So strange an accident has happened to us that I cannot forbear recording
 it, although it is very probable that you will see me before these papers can
@@ -711,7 +711,7 @@ my heart.{p]
 [p}I shall continue my journal concerning the stranger at intervals, should I
 have any fresh incidents to record.{p]
 {entry]
-[entry [dated}Aug 13{]}
+[entry [dateline}Aug 13{]}
 [opener}[dateline}August 13th, 17—.{dateline]{opener]
 [p}My affection for my guest increases every day. He excites at once my
 admiration and my pity to an astonishing degree. How can I see so noble a
@@ -782,7 +782,7 @@ unequalled for clearness and precision; add to this a facility of expression
 and a voice whose varied intonations are soul-subduing music. {p]
 {entry]{page]
 [page [n}17{n] [ed}1831{ed]}
-[entry [dated}Aug 19{]}
+[entry [dateline}Aug 19{]}
 [opener}[dateline}August 19, 17—{dateline]{opener]
 [p}Yesterday the stranger said to me, [said [who}Victor{]}You may easily
 perceive, Captain Walton, that I have suffered great and unparalleled
@@ -826,9 +826,8 @@ swells in my ears; his lustrous eyes dwell on me with all their melancholy
 sweetness; I see his thin hand raised in animation, while the lineaments of his
 face are irradiated by the soul within. Strange and harrowing must be his
 story, frightful the storm which embraced the gallant vessel on its course and
-wrecked it—thus!{p]
-[story [who}Victor{who]}
-[chapter [n}1{n]}
+wrecked it—thus!{p]{entry]
+[story [who}Victor{who]}[chapter [n}1{n]}
 [head}Chapter 1{head]
 [p}I am by birth a Genevese, and my family is one of the most distinguished of
 that republic. My ancestors had been for many years counsellors and syndics,
@@ -6211,8 +6210,8 @@ my heart; but trust him not. His soul is as hellish as his form, full of
 treachery and fiendlike malice. Hear him not; call on the names of William,
 Justine, Clerval, Elizabeth, my father, and of the wretched Victor, and thrust
 your sword into his heart. I will hover near and direct the steel aright.{p]
-{chapter]{story]{entry]
-[entry [dated}Aug 26{]}
+{chapter]{story]
+[entry [dateline}Aug 26{]}
 [head}Walton, in continuation{head]
 [opener}[dateline}August 26th, 17—.{dateline]{opener]
 [p}You have read this strange and terrific story, Margaret; and do you not feel
@@ -6314,7 +6313,7 @@ with extensive utility to my fellow creatures, then could I live to fulfil it.
 But such is not my destiny; I must pursue and destroy the being to whom I gave
 existence; then my lot on earth will be fulfilled and I may die.{said]{p]
 {entry]
-[entry [dated}Sep 2{]}
+[entry [dateline}Sep 2{]}
 [opener}[dateline}September 2d.{dateline]
 [salute}My beloved Sister,{salute]{opener]
 [p}I write to you, encompassed by peril and ignorant whether I am ever doomed
@@ -6344,7 +6343,7 @@ before the resolutions of man. These feelings are transitory; each day of
 expectation delayed fills them with fear, and I almost dread a mutiny caused by
 this despair.{p]
 {entry]
-[entry [dated}Sep 5{]}
+[entry [dateline}Sep 5{]}
 [opener}[dateline}September 5th.{dateline]{opener]
 [p}A scene has just passed of such uncommon interest that, although it is
 highly probable that these papers may never reach you, yet I cannot forbear
@@ -6409,14 +6408,14 @@ shamefully, my purpose unfulfilled. Yet I fear such will be my fate; the men,
 unsupported by ideas of glory and honour, can never willingly continue to
 endure their present hardships.{p]
 {entry]
-[entry [dated}Sep 7{]}
+[entry [dateline}Sep 7{]}
 [opener}[dateline}September 7th.{dateline]{opener]
 [p}The die is cast; I have consented to return if we are not destroyed. Thus
 are my hopes blasted by cowardice and indecision; I come back ignorant and
 disappointed. It requires more philosophy than I possess to bear this injustice
 with patience.{p]
 {entry]
-[entry [dated}Sep 12{]}
+[entry [dateline}Sep 12{]}
 [opener}[dateline}September 12th.{dateline]{opener]
 [p}It is past; I am returning to England. I have lost my hopes of utility and
 glory; I have lost my friend. But I will endeavour to detail these bitter

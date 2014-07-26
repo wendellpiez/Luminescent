@@ -342,11 +342,11 @@ one which has been completed.{p]
 [page [n}3{n] [ed}1831{ed]}
 [body}
 [story [who}Walton{who]}
-[letter [n}1{n]}
+[letter [n}1{n][dateline}St. Petersburgh, Dec. 11th, 17—.{]}
 [head}Letter I.{head]
 [opener}
 [salute}To Mrs. Saville, England{salute]
-[dateline}St. Petersburgh, Dec. 11th, 17—.{dateline]{opener]
+[date}St. Petersburgh, Dec. 11th, 17—.{date]{opener]
 [p}You will rejoice to hear that no disaster has accompanied the commencement
 of an enterprise which you have regarded with such evil forebodings. I arrived
 here yesterday, and my first task is to assure my dear sister of my welfare and
@@ -444,11 +444,11 @@ and save me, that I may again and again testify my gratitude for all your love
 and kindness. {p]
 [signed}Your affectionate brother, [lb}{lb] R. Walton{signed]
 {letter]
-[letter [n}2{n]}
+[letter [n}2{n] [dateline}Archangel, 28th March, 17—.{dateline]}
 [head}Letter II.{head]
 [opener}
-[salute}To Mrs. Saville, England{salute] [dateline}Archangel, 28th March,
-17—.{dateline]{opener]
+[salute}To Mrs. Saville, England{salute]
+[date}Archangel, 28th March, 17—.{date]{opener]
 [p}How slowly the time passes here, encompassed as I am by frost and snow! Yet
 a second step is taken towards my enterprise. I have hired a vessel and am
 occupied in collecting my sailors; those whom I have already engaged appear to
@@ -554,11 +554,11 @@ should you never hear from me again. {p]
 [signed}Your affectionate brother, [lb}{lb] Robert Walton.{signed]
 {letter]{page]
 [page [n}10{n] [ed}1831{ed]}
-[letter [n}3{n]}
+[letter [n}3{n][dateline}July 7th, 17—.{dateline]}
 [head}Letter III.{head]
 [opener}
-[salute}To Mrs. Saville, England{salute] [dateline}July 7th,
-17—.{dateline]{opener]
+[salute}To Mrs. Saville, England{salute]
+[date}July 7th, 17—.{date]{opener]
 [salute}My dear Sister,{salute]
 [p}I write a few lines in haste to say that I am safe—and well advanced
 on my voyage. This letter will reach England by a merchantman now on its
@@ -590,8 +590,8 @@ Heaven bless my beloved sister! {p]
 [page [n}11{n] [ed}1831{ed]}
 [letter [n}4{n]}
 [head}Letter IV.{head]
-[entry [dated}Aug 5{]}
-[opener}[dateline}August 5th, 17—.{dateline]{opener]
+[entry [dateline}Aug 5{]}
+[opener}[date}August 5th, 17—.{date]{opener]
 [p}So strange an accident has happened to us that I cannot forbear recording
 it, although it is very probable that you will see me before these papers can
 come into your possession.{p]
@@ -711,7 +711,7 @@ my heart.{p]
 [p}I shall continue my journal concerning the stranger at intervals, should I
 have any fresh incidents to record.{p]
 {entry]
-[entry [dated}Aug 13{]}
+[entry [dateline}Aug 13{]}
 [opener}[dateline}August 13th, 17—.{dateline]{opener]
 [p}My affection for my guest increases every day. He excites at once my
 admiration and my pity to an astonishing degree. How can I see so noble a
@@ -782,7 +782,7 @@ unequalled for clearness and precision; add to this a facility of expression
 and a voice whose varied intonations are soul-subduing music. {p]
 {entry]{page]
 [page [n}17{n] [ed}1831{ed]}
-[entry [dated}Aug 19{]}
+[entry [dateline}Aug 19{]}
 [opener}[dateline}August 19, 17—{dateline]{opener]
 [p}Yesterday the stranger said to me, [said [who}Victor{]}You may easily
 perceive, Captain Walton, that I have suffered great and unparalleled
@@ -826,9 +826,8 @@ swells in my ears; his lustrous eyes dwell on me with all their melancholy
 sweetness; I see his thin hand raised in animation, while the lineaments of his
 face are irradiated by the soul within. Strange and harrowing must be his
 story, frightful the storm which embraced the gallant vessel on its course and
-wrecked it—thus!{p]
-[story [who}Victor{who]}
-[chapter [n}1{n]}
+wrecked it—thus!{p]{entry]
+[story [who}Victor{who]}[chapter [n}1{n]}
 [head}Chapter 1{head]
 [p}I am by birth a Genevese, and my family is one of the most distinguished of
 that republic. My ancestors had been for many years counsellors and syndics,
@@ -1163,7 +1162,7 @@ terrible destruction.{p]
 become a student at the university of Ingolstadt. I had hitherto attended the
 schools of Geneva, but my father thought it necessary for the completion of my
 education that I should be made acquainted with other customs than those of my
-native country. My departure was therefore fixed at an early date, but before
+native country. My departure was therefore fixed at an early dateline, but before
 the day resolved upon could arrive, the first misfortune of my life
 occurred—an omen, as it were, of my future misery.{p]
 [p}Elizabeth had caught the scarlet fever; her illness was severe, and she was
@@ -1990,7 +1989,7 @@ acquainted with any of its inhabitants. The winter, however, was spent
 cheerfully, and although the spring was uncommonly late, when it came its
 beauty compensated for its dilatoriness.{p]
 [p}The month of May had already commenced, and I expected the letter daily
-which was to fix the date of my departure, when Henry proposed a pedestrian
+which was to fix the dateline of my departure, when Henry proposed a pedestrian
 tour in the environs of Ingolstadt, that I might bid a personal farewell to the
 country I had so long inhabited. I acceded with pleasure to this proposition: I
 was fond of exercise, and Clerval had always been my favourite companion in the
@@ -2029,7 +2028,7 @@ bounded along with feelings of unbridled joy and hilarity.{p]
 [p}On my return, I found the following letter from my father: {p]
 [letter}
 [salute}My dear Victor,{salute]
-[p}You have probably waited impatiently for a letter to fix the date of your
+[p}You have probably waited impatiently for a letter to fix the dateline of your
 return to us, and I was at first tempted to write only a few lines, merely
 mentioning the day on which I should expect you. But that would be a cruel
 kindness, and I dare not do it. What would be your surprise, my son, when you
@@ -2218,7 +2217,7 @@ I knew of the murderer and cause instant pursuit to be made. But I paused when
 I reflected on the story that I had to tell. A being whom I myself had formed,
 and endued with life, had met me at midnight among the precipices of an
 inaccessible mountain. I remembered also the nervous fever with which I had
-been seized just at the time that I dated my creation, and which would give an
+been seized just at the time that I datelined my creation, and which would give an
 air of delirium to a tale otherwise so utterly improbable. I well knew that if
 any other had communicated such a relation to me, I should have looked upon it
 as the ravings of insanity. Besides, the strange nature of the animal would
@@ -2747,7 +2746,7 @@ but nought had changed in those savage and enduring scenes.{p]
 mule, as the more sure-footed and least liable to receive injury on these
 rugged roads. The weather was fine; it was about the middle of the month of
 August, nearly two months after the death of Justine, that miserable epoch from
-which I dated all my woe. The weight upon my spirit was sensibly lightened as I
+which I datelined all my woe. The weight upon my spirit was sensibly lightened as I
 plunged yet deeper in the ravine of Arve. The immense mountains and precipices
 that overhung me on every side, the sound of the river raging among the rocks,
 and the dashing of the{page]
@@ -3710,7 +3709,7 @@ new life into his soul.{p]
 rank, the merchant commanded his daughter to think no more of her lover, but to
 prepare to return to her native country. The generous nature of Safie was
 outraged by this command; she attempted to expostulate with her father, but he
-left her angrily, reiterating his tyrannical mandate.{p]
+left her angrily, reiterating his tyrannical mandateline.{p]
 [p}A few days after, the Turk entered his daughter's apartment and told
 her hastily that he had reason to believe that his residence at Leghorn had
 been divulged and that he should speedily be delivered up to the French
@@ -5536,7 +5535,7 @@ they had ever been since my journey to the sea of ice.{p]
 following letter from Elizabeth:—{p]{page]
 [page [n}167{n] [ed}1831{ed]}[letter}
 [salute}My dear Friend,{salute]
-[p}It gave me the greatest pleasure to receive a letter from my uncle dated at
+[p}It gave me the greatest pleasure to receive a letter from my uncle datelined at
 Paris; you are no longer at a formidable distance, and I may hope to see you in
 less than a fortnight. My poor cousin, how much you must have suffered! I
 expect to see you looking even more ill than when you quitted Geneva. This
@@ -5920,7 +5919,7 @@ mistaken{page]
 falsehood.{said] My manner as I thus addressed him was impressive but calm; I had
 formed in my own heart a resolution to pursue my destroyer to death, and this
 purpose quieted my agony and for an interval reconciled me to life. I now
-related my history briefly but with firmness and precision, marking the dates
+related my history briefly but with firmness and precision, marking the datelines
 with accuracy and never deviating into invective or exclamation.{p]
 [p}The magistrate appeared at first perfectly incredulous, but as I continued
 he became more attentive and interested; I saw him sometimes shudder with
@@ -5948,7 +5947,7 @@ chamois and destroyed as a beast of prey. But I perceive your thoughts; you do
 not credit my narrative and do not intend to pursue my enemy with the
 punishment which is his desert.{said]{p]{page]
 [page [n}180{n] [ed}1831{ed]}
-[p}As I spoke, rage sparkled in my eyes; the magistrate was intimidated.
+[p}As I spoke, rage sparkled in my eyes; the magistrate was intimidatelined.
 [said [who}Magistrate{]}You are mistaken,{said] said he. [said [who}Magistrate{]}I will exert myself,
 and if it is in my power to seize the monster, be assured that he shall suffer
 punishment proportionate to his crimes. But I fear, from what you have yourself
@@ -6211,8 +6210,8 @@ my heart; but trust him not. His soul is as hellish as his form, full of
 treachery and fiendlike malice. Hear him not; call on the names of William,
 Justine, Clerval, Elizabeth, my father, and of the wretched Victor, and thrust
 your sword into his heart. I will hover near and direct the steel aright.{p]
-{story]{entry]
-[entry [dated}Aug 26{]}
+{story]
+[entry [dateline}Aug 26{]}
 [head}Walton, in continuation{head]
 [opener}[dateline}August 26th, 17—.{dateline]{opener]
 [p}You have read this strange and terrific story, Margaret; and do you not feel
@@ -6314,7 +6313,7 @@ with extensive utility to my fellow creatures, then could I live to fulfil it.
 But such is not my destiny; I must pursue and destroy the being to whom I gave
 existence; then my lot on earth will be fulfilled and I may die.{said]{p]
 {entry]
-[entry [dated}Sep 2{]}
+[entry [dateline}Sep 2{]}
 [opener}[dateline}September 2d.{dateline]
 [salute}My beloved Sister,{salute]{opener]
 [p}I write to you, encompassed by peril and ignorant whether I am ever doomed
@@ -6344,7 +6343,7 @@ before the resolutions of man. These feelings are transitory; each day of
 expectation delayed fills them with fear, and I almost dread a mutiny caused by
 this despair.{p]
 {entry]
-[entry [dated}Sep 5{]}
+[entry [dateline}Sep 5{]}
 [opener}[dateline}September 5th.{dateline]{opener]
 [p}A scene has just passed of such uncommon interest that, although it is
 highly probable that these papers may never reach you, yet I cannot forbear
@@ -6409,14 +6408,14 @@ shamefully, my purpose unfulfilled. Yet I fear such will be my fate; the men,
 unsupported by ideas of glory and honour, can never willingly continue to
 endure their present hardships.{p]
 {entry]
-[entry [dated}Sep 7{]}
+[entry [dateline}Sep 7{]}
 [opener}[dateline}September 7th.{dateline]{opener]
 [p}The die is cast; I have consented to return if we are not destroyed. Thus
 are my hopes blasted by cowardice and indecision; I come back ignorant and
 disappointed. It requires more philosophy than I possess to bear this injustice
 with patience.{p]
 {entry]
-[entry [dated}Sep 12{]}
+[entry [dateline}Sep 12{]}
 [opener}[dateline}September 12th.{dateline]{opener]
 [p}It is past; I am returning to England. I have lost my hopes of utility and
 glory; I have lost my friend. But I will endeavour to detail these bitter
