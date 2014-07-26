@@ -342,11 +342,11 @@ one which has been completed.{p]
 [page [n}3{n] [ed}1831{ed]}
 [body}
 [story [who}Walton{who]}
-[letter [n}1{n][dateline}St. Petersburgh, Dec. 11th, 17—.{]}
+[letter [n}I{][head}Letter I{head][to}To Mrs. SAVILLE, England.{to]}
 [head}Letter I.{head]
-[opener}
-[salute}To Mrs. Saville, England{salute]
-[date}St. Petersburgh, Dec. 11th, 17—.{date]{opener]
+[opener}[salute}To Mrs. Saville, England{salute]
+[entry [dateline}St. Petersburgh, Dec. 11th, 17--.{]}
+[line}[place}St. Petersburgh{place], [date}Dec. 11th, 17—.{date]{line]{opener]
 [p}You will rejoice to hear that no disaster has accompanied the commencement
 of an enterprise which you have regarded with such evil forebodings. I arrived
 here yesterday, and my first task is to assure my dear sister of my welfare and
@@ -441,14 +441,13 @@ answer this question? If I succeed, many, many months, perhaps years, will pass
 before you and I may meet. If I fail, you will see me again soon, or never.{p]
 [p}Farewell, my dear, excellent Margaret. Heaven shower down blessings on you,
 and save me, that I may again and again testify my gratitude for all your love
-and kindness. {p]
-[signed}Your affectionate brother, [lb}{lb] R. Walton{signed]
-{letter]
-[letter [n}2{n] [dateline}Archangel, 28th March, 17—.{dateline]}
+and kindness. {p]{entry]
+[signed}Your affectionate brother, [lb}{lb] R. Walton{signed]{letter]
+[letter [n}II{n][head}Letter II{head][to}To Mrs. SAVILLE, England.{to]}
 [head}Letter II.{head]
-[opener}
-[salute}To Mrs. Saville, England{salute]
-[date}Archangel, 28th March, 17—.{date]{opener]
+[opener}[salute}To Mrs. Saville, England{salute]
+[entry [dateline}Archangel, 28th March, 17—.{dateline]}
+[line}[place}Archangel{place], [date}28th March, 17—.{date]{line]{opener]
 [p}How slowly the time passes here, encompassed as I am by frost and snow! Yet
 a second step is taken towards my enterprise. I have hired a vessel and am
 occupied in collecting my sailors; those whom I have already engaged appear to
@@ -550,16 +549,17 @@ America? I dare not expect such success, yet I cannot bear to look on the
 reverse of the picture. Continue for the present to write to me by every
 opportunity: I may receive your letters on some occasions when I need them most
 to support my spirits. I love you very tenderly. Remember me with affection,
-should you never hear from me again. {p]
+should you never hear from me again. {p]{entry]
 [signed}Your affectionate brother, [lb}{lb] Robert Walton.{signed]
 {letter]{page]
 [page [n}10{n] [ed}1831{ed]}
-[letter [n}3{n][dateline}July 7th, 17—.{dateline]}
+[letter [n}III{n][head}Letter III{head][to}To Mrs. SAVILLE, England.{to]}
 [head}Letter III.{head]
 [opener}
 [salute}To Mrs. Saville, England{salute]
-[date}July 7th, 17—.{date]{opener]
-[salute}My dear Sister,{salute]
+[entry [dateline}July 7th, 17--.{]}
+[line}[date}July 7th, 17—.{date]{line]
+[line}My dear Sister,{line]{opener]
 [p}I write a few lines in haste to say that I am safe—and well advanced
 on my voyage. This letter will reach England by a merchantman now on its
 homeward voyage from Archangel; more fortunate than I, who may not see my
@@ -584,14 +584,15 @@ witnesses and testimonies of my triumph. Why not still proceed over the untamed
 yet obedient element? What can stop the determined heart and resolved will of
 man?{p]
 [p}My swelling heart involuntarily pours itself out thus. But I must finish.
-Heaven bless my beloved sister! {p]
+Heaven bless my beloved sister! {p]{entry]
 [signed} R. W.{signed]
 {letter]{page]
 [page [n}11{n] [ed}1831{ed]}
-[letter [n}4{n]}
+[letter [n}IV{n][head}Letter IV{head][to}To Mrs. SAVILLE, England.{to]}
 [head}Letter IV.{head]
-[entry [dateline}Aug 5{]}
-[opener}[date}August 5th, 17—.{date]{opener]
+[opener}[salute}To Mrs. SAVILLE, England.{salute]
+[entry [dateline}August 5th, 17—.{]}
+[line}[date}August 5th, 17—.{date]{line]{opener]
 [p}So strange an accident has happened to us that I cannot forbear recording
 it, although it is very probable that you will see me before these papers can
 come into your possession.{p]
