@@ -30,19 +30,23 @@ let $silkenTent := '[sonneteer [id}silkentent{id]}[meta [author}Robert Frost{aut
 (: 341000 ms to run - 5 mins 41 sec :)
 
 let $fileSet := map {
-   "Frankenstein.xlmnl"              :=
-      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein.lmnl',
-   "Frankenstein-as-published.xlmnl" :=
-      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein-as-published.lmnl',
+   "Frankenstein1818.xlmnl"              :=
+      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein1818.lmnl' ,
+   "Frankenstein1831.xlmnl" :=
+      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein-as-published.lmnl', 
+   "Frankenstein.xlmnl" :=
+      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein.lmnl' 
+      (:,
    "Tempest.xlmnl"                   :=
-      'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'       }
+      'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'     :)  }
   
 for $file in map:keys($fileSet)
+
 let $fileURI :=  map:get($fileSet,$file)
-let $lmnl    := file:read-text($fileURI)
+let $lmnl    :=  file:read-text($fileURI)
 
 return 
-  db:add('LMNL-library', lm:lmnl-to-xLMNL($lmnl,$fileURI), $file),
+  db:replace('LMNL-library', $file, lm:lmnl-to-xLMNL($lmnl,$fileURI)),
   db:optimize('LMNL-library')
   
   (:  lm:lmnl-to-xLMNL($lmnl,$fileURI) :)
