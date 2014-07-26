@@ -5,24 +5,24 @@
   xmlns:lmnl="http://lmnl-markup.net/ns/xproc-extensions"
   name="LMNL-wf-check" type="lmnl:LMNL-wf-check">
 
-  <p:import href="LMNL-xLMNL.xpl"/>
-
-  <p:option name="lmnl-file" required="true"/>
-  
-  <p:input port="source"/>
-
-  <p:input kind="parameter" port="parameters" primary="true"/>
-  
   <!--<p:output port="raw-svrl" primary="false">
     <p:pipe port="report" step="validate-wf-tagging"/>
   </p:output>-->
 
+  <p:option name="lmnl-file" required="true"/>
+  
   <p:serialization port="wf-check" method="text"
     omit-xml-declaration="true" indent="false"/>
+
+  <p:input port="source"/>
+  
+  <p:input kind="parameter" port="parameters" primary="true"/>
   
   <p:output port="wf-check" primary="true">
     <p:pipe port="result" step="wf-report"/>
   </p:output>
+
+  <p:import href="LMNL-xLMNL.xpl"/>
   
   <lmnl:LMNL-xLMNL name="xLMNL">
     <p:input port="source">
