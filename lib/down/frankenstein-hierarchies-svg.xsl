@@ -9,25 +9,22 @@
   exclude-result-prefixes="#all"
   version="2.0">
   
+  <xsl:variable name="xLMNL-document" select="/"/>
+  
   <xsl:variable name="pageWidth"  select="600"/>
   <xsl:variable name="pageHeight" select="800"/>
   <xsl:variable name="pageMargin" select="20"/>
   
   <xsl:variable name="axis"   select="200"/>
 
-  <xsl:param name="xOffset"      select="0"/>
-  <xsl:param name="yOffset"      select="0"/>
-  <xsl:param name="displayScale" select="1"/>
   
-  <!-- close up on initial segment:
-    <xsl:param name="xOffset" select="720"/>
-  <xsl:param name="yOffset" select="-20"/>
-  <xsl:param name="displayScale"  select="4"/>-->
+  <xsl:param name="xOffset" select="0"/>
+  <xsl:param name="yOffset" select="0"/>
+  <xsl:param name="displayScale"  select="1"/>
   
-  <!--close up on the final segment:
-    <xsl:param name="xOffset" select="860"/>
-  <xsl:param name="yOffset" select="2520"/>
-  <xsl:param name="displayScale"  select="5.5"/> -->
+  <!--<xsl:param name="xOffset" select="680"/>
+  <xsl:param name="yOffset" select="1700"/>
+  <xsl:param name="displayScale"  select="4.5"/>-->
   
   <!-- vertical axes for display of labels -->
   <xsl:variable name="leftOffset"  select="5"/>
@@ -41,15 +38,6 @@
   <xsl:variable name="bubbleSqueeze" select="0.61"/>
   <!-- Calculate this dynamically? -->
   
-  <xsl:variable name="showRanges"
-    select="'titlePage','page',
-    'introduction', 'preface',
-    'chapter', 'p',
-    'letter', 'entry',
-    (: 'epigraph','lg','l', :)
-    'story', 'q', 'said'
-    (: 'head', 'title' :)"/>
-
   <xsl:output indent="yes"/>
   <!--doctype-public="-//W3C//DTD SVG 1.1//EN"
     doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"/>-->
@@ -60,32 +48,26 @@
   
   <xsl:param name="strokeWeight"  select="0.1"/>
   
+  
   <xsl:template match="x:document">
     <!--<xsl:variable name="height" select="dsk:e/@height + (2 * $headExtent)"/>-->
     <xsl:variable name="svgContents">
       <xsl:apply-templates select="." mode="draw"/>
     </xsl:variable>
 
-    <!--<xsl:variable name="width" select="(max($svgContents//@dsk:xBound))
-      + (2 * $inter)"/>
-    <xsl:variable name="height" select="(max($svgContents//@dsk:yBound))
-      + (2 * $inter)"/>-->
     <!-- The max @end is 433822 -->
     <xsl:variable name="width"
       select="ceiling(max(/x:document/x:range/@end) * $pageSqueeze) + (2 * $pageMargin)"/>
-    
-    <!--<xsl:message>
-      <xsl:text>$squeeze is </xsl:text>
-      <xsl:value-of select="$squeeze"/>
-    </xsl:message>-->
-    <!--<svg version="1.1"
-      viewBox="0 0 800 {$height}" width="800" height="{$height}">-->
     <svg version="1.1"
       viewBox="0 0 {$pageWidth} {$pageHeight}"
       width="{$pageWidth}" height="{$pageHeight}"
       font-family="'Cambria',serif">
+      
+      <!--<xsl:apply-templates select="$tocMap[$debug]" mode="dsk:map-position"/>-->
+      <!--<xsl:copy-of select="$legendSet"/>-->      
+      
       <rect x="0" y="0" width="{$pageWidth}" height="{$pageHeight}"
-        stroke-width="1" stroke="black" fill="#9c9ccf"/>
+            stroke-width="1" stroke="black" fill="none"/>
       <g transform="translate({$pageMargin - $xOffset} {$pageMargin - $yOffset}) scale({$displayScale})">
         <defs>
           <xsl:comment> 
@@ -96,6 +78,9 @@
       </g>
     </svg>
   </xsl:template>
+  
+  <xsl:variable name="debug" select="true()"/>
+  
   
   <!-- Scrub mode removes anything with dsk namespace from SVG results -->
   <xsl:template match="node() | @*" mode="scrub">
@@ -117,21 +102,34 @@
   <xsl:variable name="textBoxWidth" select="60"/>
 
   <xsl:template match="x:document" mode="draw">
-    <xsl:variable name="pageView" select="('titlePage','page')[.=$showRanges]"/>
+    
+    <xsl:variable name="showRanges"
+      select="'titlePage','volume','page',
+      'introduction', 'preface', 'letter', 'entry',
+      'chapter', 'p',  
+      (: 'epigraph','lg','l', :)
+      'story', 'q', 'said'
+      (: 'head', 'title' :)"/>
+    
+    
+    <xsl:variable name="pageView" select="('titlePage','page','volume')[.=$showRanges]"/>
     <xsl:variable name="narrativeView" select="('story','said','q')[.=$showRanges]"/>
     <xsl:apply-templates select="x:range[@name=$pageView]" mode="draw"/>
+    <xsl:apply-templates select="x:range[@name='story']" mode="draw"/>
+    <xsl:apply-templates select="$legendSet/*" mode="draw"/>
+    <xsl:apply-templates select="x:range[@name=('said','q')]" mode="draw"/>
     <xsl:apply-templates select="x:range[@name=$showRanges] except x:range[@name=($pageView, $narrativeView)]" mode="draw"/>
-    <xsl:apply-templates select="x:range[@name=$narrativeView]" mode="draw"/>
+    <!--<xsl:apply-templates select="x:range[@name='volume']" mode="draw"/>-->
   </xsl:template>
 
-  <xsl:template match="x:range[@name=('titlePage','page')]" mode="draw">
+  <xsl:template match="x:range[@name=('titlePage','title-page','page')]" mode="draw">
     <rect y="{@start * $pageSqueeze}" x="{$axis - 40}" height="{(@end - @start) * $pageSqueeze}"
-      width="40" stroke-width="{$strokeWeight}" stroke="black" fill="none">
+      width="40" fill="none">
       <xsl:apply-templates select="." mode="formatObject"/>
     </rect>
     <xsl:apply-templates select="." mode="label"/>
   </xsl:template>
-
+  
   <!--<xsl:variable name="published" 
     select="'introduction','preface','letter','chapter','p','lg'"/>-->
 
@@ -174,15 +172,7 @@
     <!-- end of the line -->
   </xsl:template>
 
-  <xsl:template match="x:range[@name='page']" mode="formatObject">
-    <xsl:attribute name="fill"             >white</xsl:attribute>
-    <xsl:attribute name="fill-opacity"     >1</xsl:attribute>
-    <xsl:attribute name="stroke"           >black</xsl:attribute>
-    <xsl:attribute name="stroke-width"     >0.25</xsl:attribute>
-    <xsl:attribute name="stroke-opacity"   >0.5</xsl:attribute>
-  </xsl:template>
-  
-  <xsl:template match="x:range[@name=('introduction','preface','chapter')]" mode="formatObject">
+  <xsl:template match="x:range[@name='chapter']" mode="formatObject">
     <xsl:attribute name="stroke-width"     >1</xsl:attribute>
     <xsl:attribute name="fill"           >none</xsl:attribute>
     <xsl:attribute name="fill-opacity"   >0.6</xsl:attribute>
@@ -190,12 +180,12 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="formatObject">
-    <xsl:attribute name="stroke-width"     >0.1</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >0.01</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
   
   <xsl:template match="x:range[@name='said']" mode="formatObject">
-    <xsl:attribute name="fill"             >purple</xsl:attribute>
+    <xsl:attribute name="fill"             >midnightblue</xsl:attribute>
     <xsl:attribute name="fill-opacity"     >0.4</xsl:attribute>
     <xsl:attribute name="stroke"           >darkred</xsl:attribute>
     <xsl:attribute name="stroke-width"     >0.01</xsl:attribute>
@@ -213,9 +203,9 @@
   <xsl:template match="x:range[@name='letter']" mode="formatObject">
     <xsl:attribute name="fill"           >none</xsl:attribute>
     <xsl:attribute name="fill-opacity"   >0.2</xsl:attribute>
-    <xsl:attribute name="stroke"         >saddlebrown</xsl:attribute>
+    <xsl:attribute name="stroke"         >midnightblue</xsl:attribute>
     <xsl:attribute name="stroke-width"   >1</xsl:attribute>
-    <xsl:attribute name="stroke-opacity" >0.2</xsl:attribute>
+    <xsl:attribute name="stroke-opacity" >0.6</xsl:attribute>
     <xsl:attribute name="stroke-dasharray" >5 1</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
@@ -223,8 +213,8 @@
   <xsl:template match="x:range[@name='entry']" mode="formatObject">
     <xsl:attribute name="fill"           >none</xsl:attribute>
     <xsl:attribute name="fill-opacity"   >0.2</xsl:attribute>
-    <xsl:attribute name="stroke"         >#633030</xsl:attribute>
-    <xsl:attribute name="stroke-width"   >0.5</xsl:attribute>
+    <xsl:attribute name="stroke"         >midnightblue</xsl:attribute>
+    <xsl:attribute name="stroke-width"   >1</xsl:attribute>
     <xsl:attribute name="stroke-opacity" >0.8</xsl:attribute>
     <xsl:attribute name="stroke-dasharray" >4 1</xsl:attribute>
     <xsl:next-match/>
@@ -232,12 +222,28 @@
   
   
   <xsl:template match="x:range[@name='story']" mode="formatObject">
-    <xsl:attribute name="fill"             >lemonchiffon</xsl:attribute>
-    <xsl:attribute name="fill-opacity"     >0.2</xsl:attribute>
     <xsl:attribute name="stroke"           >darkred</xsl:attribute>
     <xsl:attribute name="stroke-width"     >3</xsl:attribute>
     <xsl:attribute name="stroke-opacity"   >0.5</xsl:attribute>
     <xsl:attribute name="stroke-dasharray" >2 2</xsl:attribute>
+    <xsl:attribute name="fill"             >rosybrown</xsl:attribute>
+    <xsl:attribute name="fill-opacity"     >0.1</xsl:attribute>
+    <xsl:next-match/>
+  </xsl:template>
+  
+  <xsl:template match="x:range[@name='volume']" mode="formatObject">
+    <xsl:attribute name="stroke"           >midnightblue</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >2</xsl:attribute>
+    <xsl:attribute name="stroke-opacity"   >0.5</xsl:attribute>
+    <xsl:attribute name="fill"             >steelblue</xsl:attribute>
+    <xsl:attribute name="fill-opacity"     >0.1</xsl:attribute>
+    <xsl:next-match/>
+  </xsl:template>
+  
+  <xsl:template match="x:range[@name='page']" mode="formatObject">
+    <xsl:attribute name="stroke"           >black</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >0.1</xsl:attribute>
+    <xsl:attribute name="stroke-opacity"   >1</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
   
@@ -263,24 +269,24 @@
   
   <xsl:template match="x:range[@name='letter']" mode="labelFormat">
     <xsl:attribute name="font-size">14</xsl:attribute>
-    <xsl:attribute name="fill">saddlebrown</xsl:attribute>
+    <xsl:attribute name="fill">midnightblue</xsl:attribute>
   </xsl:template>
   
   <xsl:template match="x:range[@name='entry']" mode="labelFormat">
     <xsl:attribute name="font-size">12</xsl:attribute>
-    <xsl:attribute name="fill">#633030</xsl:attribute>
+    <xsl:attribute name="fill">midnightblue</xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="x:range[@name='letter'][dsk:covering(.)/@name='letter']" mode="labelFormat" priority="2">
+  <xsl:template match="x:range[@name='letter'][dsk:covering-ranges(.)/@name='letter']" mode="labelFormat" priority="2">
     <xsl:attribute name="font-size">12</xsl:attribute>
-    <xsl:attribute name="fill">saddlebrown</xsl:attribute>
+    <xsl:attribute name="fill">midnightblue</xsl:attribute>
     <xsl:attribute name="text-anchor">end</xsl:attribute>
   </xsl:template>
   
   <xsl:template match="x:range[@name='chapter']" mode="labelFormat">
     <xsl:attribute name="font-size">11</xsl:attribute>
     <xsl:attribute name="fill">black</xsl:attribute>
-    <xsl:attribute name="fill-opacity">0.8</xsl:attribute>
+    <xsl:attribute name="fill-opacity">1</xsl:attribute>
     <xsl:attribute name="text-anchor">start</xsl:attribute>
   </xsl:template>
   
@@ -311,6 +317,13 @@
     <xsl:attribute name="text-anchor">start</xsl:attribute>
   </xsl:template>
   
+  <xsl:template match="x:range[@name='volume']" mode="labelFormat">
+    <xsl:attribute name="font-size">20</xsl:attribute>
+    <xsl:attribute name="fill">black</xsl:attribute>
+    <xsl:attribute name="fill-opacity">1</xsl:attribute>
+    <!--<xsl:attribute name="text-anchor">end</xsl:attribute>-->
+  </xsl:template>
+  
   <xsl:template match="x:range[@name='page']" mode="labelFormat">
     <xsl:attribute name="font-size">2</xsl:attribute>
     <xsl:attribute name="fill">black</xsl:attribute>
@@ -326,79 +339,106 @@
           fill-opacity="{ $spec/dsk:fontOpacity }"
           text-anchor="{  if ($spec/dsk:indent &lt; 0) then 'end' else 'start' }"  -->
   
+  
   <xsl:template match="x:range" mode="label">
     <xsl:variable name="name" select="@name"/>
-    <!--<xsl:variable name="spec" select="($labelSpecs[@name=$name],$labelSpecs/self::dsk:default)[1]"/>-->
     <xsl:variable name="labelCoords" as="element()">
       <dsk:label>
         <xsl:apply-templates select="." mode="labelX"/>
         <xsl:apply-templates select="." mode="labelY"/>
       </dsk:label>
     </xsl:variable>
+
+    <xsl:apply-templates select="." mode="label-path">
+      <xsl:with-param name="labelCoords" select="$labelCoords"/>
+    </xsl:apply-templates>
     
-    <xsl:if test="not(@name='page')">
-      <path d="M { $axis }   {dsk:round-and-format(dsk:scale(@start))}
-        L { $labelCoords/@x} {dsk:round-and-format(dsk:scale(@start))}
-        L { $labelCoords/@x} { $labelCoords/@y } ">
-        <xsl:apply-templates select="." mode="formatObject"/>
-        <xsl:attribute name="fill">none</xsl:attribute>
-      </path>
-      
-      <!--<line x1="{ $axis }"
-            y1="{ dsk:round-and-format(dsk:scale(@start)) }"
-            x2="{ $labelCoords/@x}"
-            y2="{ dsk:round-and-format(dsk:scale(@start)) }">
-        <xsl:apply-templates select="." mode="formatObject"/>
-      </line>-->
-      
-    </xsl:if>
-    <!--</xsl:if>-->
-    <!--  y="{ dsk:round-and-format(dsk:scale(@start) +
-               $spec/dsk:baseline )}"  -->
-    <!--<xsl:message>
-      <!-\-<xsl:text>At </xsl:text>
-      <xsl:value-of select="@name"/>
-      <xsl:text> with </xsl:text>-\->
-      <xsl:value-of select="$spec/(@name,'default')[1]"/>
-    </xsl:message>-->
-    <text x="{ $labelCoords/@x }" y="{ $labelCoords/@y }">
+    <!-- Next, the label itself -->
+    
+    <!-- Sometimes, a label gets an extra indent by virtue
+         of being assigned to a legend; when not, the indent is 0 -->
+    <xsl:variable name="indent"
+      select="(key('legend-line-by-ID',@ID,$legendSet)/@indent,0)[1]"/>
+    <text x="{ $labelCoords/@x + $indent }" y="{ $labelCoords/@y }">
       <xsl:apply-templates  select="." mode="labelFormat"/>
       <xsl:apply-templates  select="." mode="labelText"/>
     </text>
-    <xsl:if test="@name='story'">
-      <path d="M { $axis } {dsk:round-and-format(dsk:scale(@end)) }
-        Q { $axis + 100 }  {dsk:round-and-format(dsk:scale(@end)) }
-          { $axis + 120 }  {number(dsk:round-and-format(dsk:scale(@end))) - 5}">
-        <xsl:apply-templates select="." mode="formatObject"/>
-        <xsl:attribute name="fill">none</xsl:attribute>
-      </path>
-      <text x="{ $axis + 120 } " y="{number(dsk:round-and-format(dsk:scale(@end))) - 5}">
-        <xsl:apply-templates  select="." mode="labelFormat"/>
-        <xsl:attribute name="font-size">13</xsl:attribute>
-        <xsl:attribute name="text-anchor">start</xsl:attribute>
-        <xsl:apply-templates  select="." mode="labelText">
-          <xsl:with-param name="ending" select="true()"></xsl:with-param>
-        </xsl:apply-templates>
-      </text>
-    </xsl:if>
     
+    <xsl:apply-templates select="." mode="ornament-label">
+      <xsl:with-param name="axis" select="$axis"/>
+    </xsl:apply-templates>
+    
+  </xsl:template>
+
+  <xsl:template match="x:range" mode="ornament-label"/>
+  
+  <xsl:template match="x:range[@name='story']" mode="ornament-label">
+    <xsl:param name="axis"/>
+    <path
+      d="M { $axis } {dsk:round-and-format(dsk:scale(@end)) }
+      Q { $axis }  {dsk:round-and-format(dsk:scale(@end) + 10) }
+        { $axis - 50 }  {dsk:round-and-format(dsk:scale(@end) + 10) }">
+      <xsl:apply-templates select="." mode="formatObject"/>
+      <xsl:attribute name="fill">none</xsl:attribute>
+    </path>
+    <text x="{ $axis - 55 } " y="{number(dsk:round-and-format(dsk:scale(@end))) + 10}">
+      <xsl:apply-templates select="." mode="labelFormat"/>
+      <xsl:attribute name="font-size">12</xsl:attribute>
+      <xsl:attribute name="text-anchor">end</xsl:attribute>
+      <xsl:apply-templates select="." mode="labelText">
+        <xsl:with-param name="ending" select="true()"/>
+      </xsl:apply-templates>
+    </text>
+  </xsl:template>
+  
+  <xsl:template match="x:range[@name='page']" mode="label-path"/>
+  
+  <xsl:template match="*" mode="label-path">
+    <xsl:param name="labelCoords" as="element(dsk:label)" required="yes"/>
+    
+      <!-- $orient is -1 for labels to the left of the axis -->
+      <!--<xsl:variable name="orient"
+        select="($labelCoords/@x - $axis) div abs(($labelCoords/@x - $axis))"/>-->
+      <!-- $midwayX is the x between the axis and the labelX -->
+      <!-- $midwayXX is the x between $midwayX and the labelX -->
+      <xsl:variable name="midwayX"  select="($axis + $labelCoords/@x) div 2"/>
+      <xsl:variable name="midwayXX" select="($midwayX + $labelCoords/@x) div 2"/>
+      <xsl:variable name="startY"   select="dsk:round-and-format(dsk:scale(@start))"/>
+      
+<!--      <path
+        d="M { $axis }   {dsk:round-and-format(dsk:scale(@start))}
+           L { $axis + (50 * $orient)} {dsk:round-and-format(dsk:scale(@start))}
+           L { $labelCoords/@x - 10 } { $labelCoords/@y } h {20 * $orient}">
+-->
+    <path
+      d="M { $axis }   { $startY }
+         L { $midwayX } { $startY }
+         L { $midwayXX } { $labelCoords/@y }
+         L { $labelCoords/@x } { $labelCoords/@y }">
+      
+    <xsl:apply-templates select="." mode="formatObject"/>
+        <xsl:attribute name="fill">none</xsl:attribute>
+    </path>
+
   </xsl:template>
   
   <xsl:template match="x:range" mode="labelX">
     <xsl:attribute name="x" select="$axis + 10"/>
   </xsl:template>
 
-  <xsl:template match="x:range[@name='letter']" mode="labelX">
-    <xsl:variable name="start" select="number(@start)"/>
+
+  
+  <!--<xsl:template match="x:range[@name='letter']" mode="labelX">
+    <!-\-<xsl:variable name="start" select="number(@start)"/>-\->
     <xsl:variable name="precedents" as="element()*">
       <xsl:apply-templates mode="pullPrecedents" select=".">
         <xsl:with-param name="buffer" tunnel="yes" select="10000"/>
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:attribute name="x" select="(((count($precedents) - 1) mod 2) * 60) + 130 + $axis"/>
-  </xsl:template>
+  </xsl:template>-->
   
-  <xsl:template match="x:range[@name='entry']" mode="labelX">
+  <!--<xsl:template match="x:range[@name='entry']" mode="labelX">
     <xsl:variable name="start" select="number(@start)"/>
     <xsl:variable name="precedents" as="element()*">
       <xsl:apply-templates mode="pullPrecedents" select=".">
@@ -406,42 +446,59 @@
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:attribute name="x" select="(((count($precedents) - 1) mod 3) * 35) + 260 + $axis"/>
+  </xsl:template>-->
+
+  <xsl:template mode="labelX"
+    match="x:range[@name=('volume','introduction','preface','letter','chapter','entry')]">
+    <xsl:variable name="legend-indent"
+      select="key('legend-line-by-ID',@ID, $legendSet)/parent::dsk:legend/(@x + (@padding,0)[1])"/>
+    <xsl:attribute name="x" select="$axis + $legend-indent"/>
   </xsl:template>
   
-  <xsl:template match="x:range[@name='letter'][dsk:covering(.)/@name='letter']" mode="labelX" priority="2">
-    <xsl:attribute name="x" select="$axis - 50"/>
+  <xsl:template mode="labelX" priority="2"
+    match="x:range[@name='said'][dsk:covering-ranges(.)/@name='dialogue']">
+    <xsl:variable name="legend-indent"
+      select="key('legend-line-by-ID',@ID, $legendSet)/parent::dsk:legend/(@x + (@padding,0)[1])"/>
+    <xsl:message>
+      <xsl:value-of select="$legend-indent"/>
+    </xsl:message>
+    
+    <xsl:attribute name="x" select="$axis + $legend-indent"/>
+  </xsl:template>
+  
+  <xsl:template match="x:range[@name='letter'][dsk:covering-ranges(.)/@name='letter']" mode="labelX" priority="2">
+    <xsl:attribute name="x" select="$axis - 80"/>
   </xsl:template>
   
   <xsl:template match="x:range[@name='story']" mode="labelX">
     <xsl:attribute name="x" select="$axis - 100"/>
   </xsl:template>
   
-  <xsl:template match="x:range[@name='chapter']" mode="labelX">
-    <xsl:attribute name="x" select="$axis + 120"/>
-  </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="labelX">
     <xsl:attribute name="x" select="$axis + 8"/>
   </xsl:template>
 
   <xsl:template match="x:range[@name='q']" mode="labelX">
-    <xsl:variable name="start" select="number(@start)"/>
+    <xsl:attribute name="x" select="$axis + 15"/>
+    <!--<xsl:variable name="start" select="number(@start)"/>
     <xsl:variable name="precedents" as="element()*">
       <xsl:apply-templates mode="pullPrecedents" select=".">
         <xsl:with-param name="buffer" tunnel="yes" select="1000"/>
       </xsl:apply-templates>
     </xsl:variable>
-    <xsl:attribute name="x" select="(((count($precedents) - 1) mod 2) * 4) + 12 + $axis"/>
+    <xsl:attribute name="x" select="(((count($precedents) - 1) mod 2) * 4) + 12 + $axis"/>-->
   </xsl:template>
   
   <xsl:template match="x:range[@name='said']" mode="labelX">
-    <xsl:variable name="start" select="number(@start)"/>
+    <xsl:attribute name="x" select="$axis - 66"/>
+    <!--<xsl:variable name="start" select="number(@start)"/>
     <xsl:variable name="precedents" as="element()*">
       <xsl:apply-templates mode="pullPrecedents" select=".">
         <xsl:with-param name="buffer" tunnel="yes" select="1000"/>
       </xsl:apply-templates>
     </xsl:variable>
-    <xsl:attribute name="x" select="(((count($precedents) - 1) mod 10) * 10) + 20 + $axis"/>
+    <xsl:attribute name="x" select="(((count($precedents) - 1) mod 10) * 10) + 20 + $axis"/>-->
   </xsl:template>
 
   <xsl:template match="x:range[@name='page']" mode="labelX">
@@ -472,14 +529,25 @@
     <xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>
   </xsl:template>
   
-  <xsl:template match="x:range[@name='letter']" mode="labelY">
-    <xsl:variable name="baseline" as="xs:double">-5</xsl:variable>
-    <xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>
+  <xsl:template match="x:range[@name='letter'][dsk:covering-ranges(.)/@name='letter']" mode="labelY" priority="2">
+    <xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start))"/>
   </xsl:template>
   
-  <xsl:template match="x:range[@name='chapter']" mode="labelY">
-    <xsl:variable name="baseline" as="xs:double">-4</xsl:variable>
-    <xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>
+  <xsl:template match="x:range[@name=('chapter','letter','entry','volume','preface','introduction')]" mode="labelY">
+    <!--<xsl:variable name="baseline" as="xs:double">-4</xsl:variable>-->
+    <!--<xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>-->
+    <xsl:attribute name="y" select="dsk:legend-y(.)"/>
+  </xsl:template>
+  
+  <xsl:template match="x:range[@name='said'][dsk:covering-ranges(.)/@name='dialogue']"
+    mode="labelY" priority="2">
+    <xsl:message>Okay</xsl:message>
+    <!--<xsl:variable name="baseline" as="xs:double">-4</xsl:variable>-->
+    <!--<xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>-->
+    <xsl:attribute name="y" select="dsk:legend-y(.)"/>
+    <xsl:message>
+      <xsl:value-of select="dsk:legend-y(.)"/>
+    </xsl:message>
   </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="labelY">
@@ -487,7 +555,7 @@
     <xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>
   </xsl:template>
 
-  <xsl:template match="x:range[@name='said']" mode="labelY">
+  <xsl:template match="x:range[@name=('dialogue','said')]" mode="labelY">
     <xsl:variable name="baseline" as="xs:double">0</xsl:variable>
     <xsl:attribute name="y" select="dsk:round-and-format(dsk:scale(@start) - $baseline )"/>
   </xsl:template>
@@ -516,13 +584,37 @@
   <xsl:template mode="labelText" match="x:range[@name='chapter']">
     <xsl:text>&#xA0;Chapter </xsl:text>
     <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
+    <xsl:call-template name="word-count"/>
+  </xsl:template>
+  
+  <xsl:template mode="labelText" match="x:range[@name='entry']">
+    <xsl:text>&#xA0;</xsl:text>
+    <xsl:value-of select="x:annotation[@name='dateline']/x:content/normalize-space(.)"/>
+    <xsl:call-template name="word-count"/>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name='letter']">
     <xsl:text>&#xA0;Letter </xsl:text>
-    <xsl:value-of select="x:annotation[@name='n']/x:content"/>
+    <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
+    <xsl:for-each select="x:annotation[@name='dateline']">
+      <tspan font-size="80%">
+        <xsl:text> (</xsl:text>
+        <xsl:value-of select="x:content/normalize-space(.)"/>
+        <xsl:text>)</xsl:text>
+      </tspan>
+    </xsl:for-each>
+    <xsl:call-template name="word-count"/>
   </xsl:template>
   
+  <xsl:template name="word-count">
+    <xsl:variable name="content" select="string-join(key('spans-for-rangeID',@ID),'')"/>
+    <tspan font-size="80%">
+      <xsl:text> [</xsl:text>
+      <xsl:value-of select="count(tokenize($content,'\s+'))"/>
+      <xsl:text>]</xsl:text>
+    </tspan>
+  </xsl:template>
+
   <xsl:template match="x:range[@name=('head','title')]" mode="labelText">
     <xsl:value-of select="string-join(key('spans-for-rangeID',@ID),'')"/>
   </xsl:template>
@@ -533,13 +625,20 @@
   
   <xsl:template mode="labelText" match="x:range[@name='titlePage']"/>
   
+  <xsl:template mode="labelText" match="x:range[@name='volume']">
+    <xsl:text>Volume </xsl:text>
+    <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
+  </xsl:template>
+  
   <xsl:template mode="labelText" match="x:range[@name='page']">
-      <xsl:text>p. </xsl:text>
+    <xsl:text>p. </xsl:text>
     <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name=('preface','introduction')]">
+    <xsl:text>&#xA0;</xsl:text>
     <xsl:value-of select="concat(upper-case(substring(@name,1,1)),substring(@name,2))"/>
+    <xsl:call-template name="word-count"/>
   </xsl:template>
   
   <!--<xsl:template match="x:range[@name='story']" mode="subLabel">
@@ -595,8 +694,163 @@
     <xsl:value-of select="format-number($value,'0.00000')"/>
   </xsl:function>
   
-  <xsl:function name="dsk:size" as="xs:double">
-    <!-- makes lines and scale bolder for larger things, but not linearly -->
+  
+  <xsl:variable name="legendSet">
+    <xsl:variable name="bareLegends">
+      <xsl:apply-templates select="/x:document/x:range[@name=('body','dialogue')]" mode="make-legend"/>
+    </xsl:variable>
+    <!--<bare>
+    <xsl:copy-of select="$bareLegends"/>
+    </bare>-->
+    <xsl:apply-templates select="$bareLegends" mode="legend-position"/>
+  </xsl:variable>
+
+  <xsl:template match="x:range[@name='body']" mode="make-legend">
+    <dsk:legend rangeID="{@ID}" rangeName="body">
+      <xsl:for-each
+        select="/x:document/
+        ( x:range[@name=('volume','introduction','preface','chapter','entry')] |
+          x:range[@name='letter'][not(dsk:covering-ranges(.)/@name='chapter')] )">
+        <dsk:line rangeID="{@ID}" rangeName="{@name}"/>
+        <!--<xsl:copy-of select="."/>-->
+      </xsl:for-each>
+    </dsk:legend>
+  </xsl:template>
+  
+  <xsl:template match="x:range[@name='dialogue']" mode="make-legend">
+    <xsl:variable name="dialogue" select="."/>
+    <dsk:legend rangeID="{@ID}" rangeName="dialogue">
+      <xsl:for-each select="/x:document/x:range[@name='said']
+        [exists(dsk:covering-ranges(.) intersect $dialogue)]">
+        <dsk:line rangeID="{@ID}" rangeName="{@name}"/>
+        <!--<xsl:copy-of select="."/>-->
+      </xsl:for-each>
+    </dsk:legend>
+  </xsl:template>
+  
+  <xsl:template match="dsk:legend[@rangeName='body']" mode="legend-position">
+    <dsk:legend x="120" y="0" padding="4" width="240"
+      stroke="grey" stroke-width="1" stroke-opacity="0.4"
+      fill="cornsilk" fill-opacity="0.7">
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates mode="#current"/>
+    </dsk:legend>
+  </xsl:template>
+
+  <xsl:template match="dsk:legend[@rangeName='dialogue']" mode="legend-position">
+    <dsk:legend x="20" padding="0.2" width="10"
+      stroke="grey" stroke-width="0.3" stroke-opacity="0.4"
+      fill="tan" fill-opacity="0.8">
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates select="key('range-by-ID',@rangeID,$xLMNL-document)" mode="labelY"/>
+      <xsl:apply-templates mode="#current"/>
+    </dsk:legend>
+  </xsl:template>
+  
+  <!--<xsl:template match="dsk:line[1]" priority="2" mode="legend-position">
+    <xsl:variable name="label" as="element()">
+      <dsk:label>
+        <xsl:apply-templates select="key('range-by-ID',@rangeID,$xLMNL-document)" mode="labelFormat"/>
+      </dsk:label>
+    </xsl:variable>
+    <dsk:line line-height="{($label/@font-size,'10')[1]}">
+      <xsl:copy-of select="@*"/>
+    </dsk:line>
+  </xsl:template>-->
+  
+  <xsl:template match="dsk:line[@rangeName='volume']" mode="legend-position">
+    <dsk:line line-height="24">
+      <xsl:copy-of select="@*"/>
+    </dsk:line>
+  </xsl:template>
+  <xsl:template match="dsk:line[@rangeName=('introduction','preface','letter')]" mode="legend-position">
+    <dsk:line line-height="20" indent="10">
+      <xsl:copy-of select="@*"/>
+    </dsk:line>
+  </xsl:template>
+  <xsl:template match="dsk:line[@rangeName='entry']" mode="legend-position">
+    <dsk:line line-height="16" indent="20">
+      <xsl:copy-of select="@*"/>
+    </dsk:line>
+  </xsl:template>
+  <xsl:template match="dsk:line[@rangeName='chapter']" mode="legend-position">
+    <dsk:line line-height="18" indent="20">
+      <xsl:copy-of select="@*"/>
+    </dsk:line>
+  </xsl:template>
+  <xsl:template match="dsk:line[@rangeName='said']" mode="legend-position">
+    <dsk:line line-height="2" indent="0.4">
+      <xsl:copy-of select="@*"/>
+    </dsk:line>
+  </xsl:template>
+  
+  <xsl:key name="legend-line-by-ID" match="dsk:line" use="@rangeID"/>
+  
+  <xsl:function name="dsk:legend-y" as="xs:double?">
+    <xsl:param name="r" as="element(x:range)"/>
+    <xsl:variable name="legend-line" select="key('legend-line-by-ID',$r/@ID, $legendSet )"/>
+    <xsl:sequence
+      select="sum($legend-line/(.|preceding-sibling::*)/@line-height |
+                  $legend-line/parent::dsk:legend/(@y|@padding) )"/>
+  </xsl:function>
+  
+  <xsl:template match="dsk:legend" mode="draw">
+    <!-- Only draws the frame for the legend or ToC; it will be filled
+         in by labeling logic. -->
+    <!--<dsk:legend x="180" y="0" padding="6"
+      stroke="black" stroke-width="1" fill="white" fill-opacity="0.4">
+      <xsl:apply-templates mode="#current"/>
+    </dsk:legend>-->
+    <!-- shadow should be a template -->
+    <!--<rect x="{@x + $axis}" y="{@y}"
+      height="{sum(.//@line-height) + (2 * @padding)}"
+      width="{@width + (2 * @padding)}">
+      <xsl:copy-of select="@* except (@x | @y)"/>
+      <xsl:attribute name="fill">saddlebrown</xsl:attribute>
+      <xsl:attribute name="fill-opacity">0.4</xsl:attribute>
+    </rect>-->
+    <rect x="{@x + $axis}" y="{@y + @padding}"
+      height="{sum(.//@line-height) + (2 * @padding)}"
+      width="{@width + (2 * @padding)}">
+      <xsl:copy-of select="@* except (@x | @y)"/>
+    </rect>
+  </xsl:template>
+  
+  
+  
+<!--  <xsl:function name="dsk:toc-y" as="xs:decimal?">
+    <xsl:param name="r" as="element(x:range)"/>\
+    <xsl:variable name="map-item" select="key('toc-map-item',$r/@ID,$tocMap)"/>
+    <xsl:sequence select="sum($map-item/(.|preceding-sibling::*|..)/(@line-height | @y) )"/>
+  </xsl:function>
+  
+-->  
+  <xsl:key name="range-by-ID" match="x:range" use="@ID"/>
+
+  <xsl:key name="ranges-for-spanID" match="x:range" use="tokenize(@spans,'\s+')"/>
+  
+  <xsl:key name="spans-for-rangeID" match="x:span"  use="tokenize(@ranges,'\s+')"/>
+  
+  <!-- covering-ranges() returns all the ranges covering a given range
+       ('ancestors' in XML parlance) -->
+  <xsl:function name="dsk:covering-ranges" as="element(x:range)*">
+    <xsl:param name="r" as="element(x:range)"/>
+    <xsl:sequence select="$r/key('spans-for-rangeID',@ID)/key('ranges-for-spanID',@ID)[dsk:encloses(.,$r)]"/>
+  </xsl:function>
+
+  <!-- encloses() returns true() iff $r1 encloses $r2; if they are congruent,
+       it does *not* enclose. -->
+  <xsl:function name="dsk:encloses" as="xs:boolean">
+    <xsl:param name="r1" as="element(x:range)"/>
+    <xsl:param name="r2" as="element(x:range)"/>
+    <xsl:sequence select="not($r1 is $r2) and
+      ($r1/@start/number() le $r2/@start/number()) and ($r1/@end/number() ge $r2/@end/number()) and
+      not($r1/@start eq $r2/@start and $r1/@end eq $r2/@end)"/>
+  </xsl:function>
+  
+
+  <!--<xsl:function name="dsk:size" as="xs:double">
+    <!-\- makes lines and scale bolder for larger things, but not linearly -\->
     <xsl:param name="extent" as="xs:double"/>
     <xsl:variable name="extent-sqrt">
     <xsl:call-template name="math:sqrt">
@@ -604,23 +858,24 @@
     </xsl:call-template>
     </xsl:variable>
     <xsl:sequence select="$extent-sqrt div 500"/>
-  </xsl:function>
-  
-  <xsl:template name="math:sqrt" as="xs:double">
-    <!--  The number you want to find the square root of  -->
+  </xsl:function>-->
+
+
+<!--  <xsl:template name="math:sqrt" as="xs:double">
+    <!-\-  The number you want to find the square root of  -\->
     <xsl:param name="number"
       select="0" />
-    <!--  The current 'try'.  This is used internally.  -->
+    <!-\-  The current 'try'.  This is used internally.  -\->
     <xsl:param name="try"
       select="1" />
-    <!--  The current iteration, checked against maxiter to limit loop count  -->
+    <!-\-  The current iteration, checked against maxiter to limit loop count  -\->
     <xsl:param name="iter"
       select="1" />
-    <!--  Set this up to ensure against infinite loops  -->
+    <!-\-  Set this up to ensure against infinite loops  -\->
     <xsl:param name="maxiter"
       select="20" />
-    <!--  This template was written by Nate Austin using Sir Isaac Newton's
-       method of finding roots  -->
+    <!-\-  This template was written by Nate Austin using Sir Isaac Newton's
+       method of finding roots  -\->
     <xsl:choose>
       <xsl:when test="$try * $try = $number or $iter > $maxiter">
         <xsl:value-of select="$try" />
@@ -639,20 +894,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+-->  
   
-  <xsl:key name="ranges-for-spanID" match="x:range" use="tokenize(@spans,'\s+')"/>
   
-  <xsl:key name="spans-for-rangeID" match="x:span"  use="tokenize(@ranges,'\s+')"/>
-  
-  <xsl:function name="dsk:covering" as="element(x:range)*">
-    <xsl:param name="r" as="element(x:range)"/>
-    <xsl:sequence select="$r/key('spans-for-rangeID',@ID)/key('ranges-for-spanID',@ID)[dsk:encloses(.,$r)]"/>
-  </xsl:function>
-
-  <xsl:function name="dsk:encloses" as="xs:boolean">
-    <xsl:param name="r1" as="element(x:range)"/>
-    <xsl:param name="r2" as="element(x:range)"/>
-    <xsl:sequence select="not($r1 is $r2) and
-      ($r1/@start/number() le $r2/@start/number()) and ($r1/@end/number() ge $r2/@end/number())"/>
-  </xsl:function>
 </xsl:stylesheet>

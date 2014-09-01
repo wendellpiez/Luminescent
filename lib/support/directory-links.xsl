@@ -42,7 +42,7 @@
       <label type="-analysis.html" color="skyblue">Analysis</label>
       <conditional-label type="-graph.svg" color="pink">Bubble graph</conditional-label>
       <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
-      <conditional-label type="-map.svg" color="pink">Map (SVG)</conditional-label>
+      <conditional-label type="-map.svg" color="pink">Narrative map (SVG)</conditional-label>
       <conditional-label type="-shakespeare-graph.svg" color="pink">Shakespeare graph</conditional-label>
       <xsl:if test="$dir = 'shakespeare'">
         <!-- come back to ... -->
@@ -181,13 +181,10 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:template match="conditional-label[ends-with(@type,'-map.svg')]"
-    mode="cell">
+  <xsl:template match="conditional-label[.='Narrative map (SVG)']" mode="cell">
     <!-- same for -map.svg -->
     <xsl:param name="basename" tunnel="yes"/>
-    <xsl:variable name="xslt"
-      select="concat('../down/',$basename,'-map-svg.xsl')"/>
-    <xsl:if test="doc-available(resolve-uri($xslt))">
+    <xsl:if test="starts-with($basename,'frankenstein')">
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
@@ -286,7 +283,7 @@
   <xsl:template match="@type" mode="menu-item">
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:variable name="file" select="concat($basename,'.xml')"/>
-    <xsl:variable name="basename" select="replace($file,'\.xml$','')"/>
+    <!--<xsl:variable name="basename" select="replace($file,'\.xml$','')"/>-->
     <!--<xsl:variable name="href" select="
       concat(
       string-join(($dir,.,$file),'/'),

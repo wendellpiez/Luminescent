@@ -5,6 +5,7 @@ declare option output:indent "no";
 declare option output:format "no";
 declare option db:chop 'no';
 
+(: For compiling LMNL into a BaseX db :)
 
 let $silkenTent := '[sonneteer [id}silkentent{id]}[meta [author}Robert Frost{author] [title}A Silken Tent{title]]
 [sonnet}
@@ -30,12 +31,12 @@ let $silkenTent := '[sonneteer [id}silkentent{id]}[meta [author}Robert Frost{aut
 (: 341000 ms to run - 5 mins 41 sec :)
 
 let $fileSet := map {
-   "Frankenstein1818.xlmnl"              :=
-      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein1818.lmnl' ,
+   "Frankenstein1818.xlmnl" :=
+      'file:///C:/Users/Wendell/Documents/Github/Luminescent/lmnl/frankenstein1818.lmnl' ,
    "Frankenstein1831.xlmnl" :=
-      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein-as-published.lmnl', 
-   "Frankenstein.xlmnl" :=
-      'file:///C:/Projects/Github/Luminescent/lmnl/frankenstein.lmnl' 
+      'file:///C:/Users/Wendell/Documents/Github/Luminescent/lmnl/frankenstein-as-published.lmnl', 
+   "Frankenstein.xlmnl"     :=
+      'file:///C:/Users/Wendell/Documents/Github/Luminescent/lmnl/frankenstein.lmnl' 
       (:,
    "Tempest.xlmnl"                   :=
       'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'     :)  }

@@ -629,11 +629,11 @@ drifted towards us in the night on a large fragment of ice. Only one dog
 remained alive; but there was a human being within it whom the sailors were
 persuading to enter the vessel. He was not, as the other traveller seemed to
 be, a savage inhabitant of some undiscovered island, but a European. When I
-appeared on deck the master said, [said [who}Shipmaster{]}Here is our
+appeared on deck the master said, [dialogue}[said [who}Shipmaster{]}Here is our
 captain, and he will not allow you to perish on the open sea.{said]{p]
 [p}On perceiving me, the stranger addressed me in English, although with a
 foreign accent. [said [who}Victor{]}Before I come on board your
-vessel,{said] said he,[said [who}Victor{]}will you have the kindness to
+vessel, [interjectj}said he,{interjectj] will you have the kindness to
 inform me whither you are bound?{said]{p]
 [p}You may conceive my astonishment on hearing such a question addressed to me
 from a man on the brink of destruction and to whom I should have supposed that
@@ -690,7 +690,7 @@ perilous situation; you have benevolently restored me to life.{said]{p]
 destroyed the other sledge. I replied that I could not answer with any degree
 of certainty, for the ice had not broken until near midnight, and the traveller
 might have arrived at a place of safety before that time; but of this I could
-not judge.{p]
+not judge.{p]{dialogue]
 [p}From this time a new spirit of life animated the decaying frame of the
 stranger. He manifested the greatest eagerness to be upon deck to watch for the
 sledge which had before appeared; but I have persuaded him to remain in the
@@ -747,7 +747,7 @@ hours of repose and tranquil conversation were necessary to restore his
 composure.{p]
 [p}Having conquered the violence of his feelings, he appeared to despise
 himself for being the slave of passion; and quelling the dark tyranny of
-despair, he led me again to converse concerning myself personally. He asked me
+despair, he led me again to converse concerning myself personally. [dialogue}He asked me
 the history of my earlier years. The tale was quickly told:{page]
 [page [n}16{n] [ed}1831{ed]}but it awakened various trains of reflection. I spoke of my desire
 of finding a friend, of my thirst for a more intimate sympathy with a fellow
@@ -763,7 +763,7 @@ you, and have no cause for despair. But I—I have lost everything and
 cannot begin life anew.{said]{p]
 [p}As he said this his countenance became expressive of a calm, settled grief
 that touched me to the heart. But he was silent and presently retired to his
-cabin.{p]
+cabin.{p]{dialogue]
 [p}Even broken in spirit as he is, no one can feel more deeply than he does the
 beauties of nature. The starry sky, the sea, and every sight afforded by these
 wonderful regions seem still to have the power of elevating his soul from
@@ -1257,7 +1257,7 @@ some of the principal professors. Chance—or rather the evil influence,
 the Angel of Destruction, which asserted omnipotent sway over me from the
 moment I turned my reluctant steps from my father's door—led me
 first to M. Krempe, professor of natural philosophy. He was an uncouth man, but
-deeply imbued in the secrets of his science. He asked me several questions
+deeply imbued in the secrets of his science. [dialogue}He asked me several questions
 concerning my progress in the different branches of science appertaining to
 natural philosophy. I replied carelessly, and partly in contempt, mentioned the
 names of my alchemists as the principal authors I had studied. The professor
@@ -1278,7 +1278,7 @@ of natural philosophy which he desired me to procure, and dismissed me after
 mentioning that in the beginning of the following week he intended to commence
 a course of lectures upon natural philosophy in its general relations, and that
 M. Waldman, a fellow professor, would lecture upon chemistry the alternate days
-that he omitted.{p]{page]
+that he omitted.{p]{dialogue]{page]
 [page [n}33{n] [ed}1831{ed]}
 [p}I returned home not disappointed, for I have said that I had long considered
 those authors useless whom the professor reprobated; but I returned not at all
@@ -1319,8 +1319,8 @@ fervour the names of the most distinguished discoverers. He then took a cursory
 view of the present state of the science and explained many of its elementary
 terms. After having made a few preparatory experiments, he concluded with a
 panegyric upon modern chemistry, the terms of which I shall never forget:{p]
-[p}[said [who}Prof Waldman{]}The ancient teachers of this science,{said] said
-he,[said [who}Prof Waldman{]}promised impossibilities and performed nothing.
+[p}[said [who}Prof Waldman{]}The ancient teachers of this science, [interject}said
+he,{interject] promised impossibilities and performed nothing.
 The modern masters promise very little; they know that metals cannot be
 transmuted and that the elixir of life is a chimera. But these philosophers,
 whose hands seem only made to dabble in dirt, and their eyes to pore over the
@@ -1344,7 +1344,7 @@ power to produce it. By degrees after the morning's dawn, sleep came. I
 awoke, and my yesternight's thoughts were as a dream. There only{page]
 [page [n}35{n] [ed}1831{ed]}remained a resolution to return to my ancient studies and to devote
 myself to a science for which I believed myself to have a natural talent. On
-the same day I paid M. Waldman a visit. His manners in private were even more
+the same day I paid M. Waldman a visit. [dialogue}His manners in private were even more
 mild and attractive than in public, for there was a certain dignity in his mien
 during lecture which in his own house was replaced by the greatest affability
 and kindness. I gave him pretty nearly the same account of my former pursuits
@@ -1379,7 +1379,7 @@ branch of natural philosophy, including mathematics.{said]{p]
 various machines, instructing me as to who I ought to procure and promising me
 the use of his own when I should have advanced far enough in the science not to
 derange their mechanism. He also gave me the list of books which I had
-requested, and I took my leave.{p]
+requested, and I took my leave.{p]{dialogue]
 [p}Thus ended a day memorable to me; it decided my future destiny.{p]
 {chapter]
 [chapter [n}4{n]}
@@ -1678,7 +1678,7 @@ diligences and carriages usually stopped. Here I paused, I knew not why; but I
 remained some minutes with my eyes fixed on a coach that was coming towards me
 from the other end of the street. As it drew nearer I observed that it was the
 Swiss diligence; it stopped just where I was standing, and on the door being
-opened, I perceived Henry Clerval, who, on seeing me, instantly sprung out.[said [who}Clerval{]}My dear Frankenstein,{said] exclaimed he,
+opened, I perceived Henry Clerval, who, on seeing me, instantly sprung out.[dialogue}[said [who}Clerval{]}My dear Frankenstein,{said] exclaimed he,
 [said [who}Clerval{]}how glad I am to see you! How fortunate that you
 should be here at the very moment of my alighting!{said]{p]
 [p}Nothing could equal my delight on seeing Clerval; his presence brought back
@@ -1795,7 +1795,7 @@ suppose{page]
 dear, dear friends whom I love and who are so deserving of my love?{said]{p]
 [p}[said [who}Clerval{]}If this is your present temper, my friend, you
 will perhaps be glad to see a letter that has been lying here some days for
-you; it is from your cousin, I believe.{said]{p]
+you; it is from your cousin, I believe.{said]{dialogue]{p]
 {chapter]
 [chapter [n}6{n]}
 [head}Chapter 6{head]
@@ -1948,13 +1948,13 @@ impress more deeply.{p]
 almost insupportable sensitiveness, his harsh, blunt encomiums gave me even
 more pain than the benevolent{page]
 [page [n}54{n] [ed}1831{ed]}approbation of M.
-Waldman.[said [who}Prof Krempe{]}D—n the fellow!{said] cried he.
-[said [who}Prof Krempe{]}Why, M. Clerval, I assure you he has outstripped us
+Waldman.[said [who}Prof Krempe{]}D—n the fellow! [interject}cried he.{interject]
+Why, M. Clerval, I assure you he has outstripped us
 all. Ay, stare if you please; but it is nevertheless true. A youngster who, but
 a few years ago, believed in Cornelius Agrippa as firmly as in the Gospel, has
 now set himself at the head of the university; and if he is not soon pulled
-down, we shall all be out of countenance. Ay, ay,{said] continued he, observing
-my face expressive of suffering, [said [who}Prof Krempe{]}M. 
+down, we shall all be out of countenance. Ay, ay, [interject}continued he, observing
+my face expressive of suffering,{interject] M. 
 Frankenstein is modest, an excellent quality in a young man. Young men should 
 be diffident of themselves, you know, M. Clerval; I was myself when young, 
 but that wears out in a very short time.{said]{p]
@@ -2106,7 +2106,7 @@ intend to do?{said]{p]
 to order the horses.{said]{p]
 [p}During our walk Clerval endeavoured to say a few words of consolation; he
 could only express his heartfelt sympathy. [said [who}Clerval{]}Poor
-William!{said] said he, [said [who}Clerval{]}dear lovely child,{page]
+William! [interject} said he, {interject]dear lovely child,{page]
 [page [n}59{n] [ed}1831{ed]}he now sleeps with his angel mother! Who that had seen
 him bright and joyous in his young beauty but must weep over his untimely loss!
 To die so miserably, to feel the murderer's grasp! How much more a
@@ -2240,8 +2240,8 @@ was an air of dignity and beauty that hardly permitted the sentiment of pity.
 Below this picture was a miniature of William, and my tears flowed when I
 looked upon it. While I was thus engaged, Ernest entered; he had heard me
 arrive and hastened to welcome me. He expressed a sorrowful delight to see
-me.[said [who}Ernest{]}Welcome, my dearest Victor,{said] said he.
-[said [who}Ernest{]}Ah! I wish you had come three months ago, and then
+me.[said [who}Ernest{]}Welcome, my dearest Victor, [interject}said he.{interject]
+Ah! I wish you had come three months ago, and then
 you would have found us all joyous and delighted. You come to us now to share a
 misery which nothing can alleviate; yet your presence will, I hope, revive our
 father, who seems sinking under his misfortune; and your persuasions will
@@ -2252,16 +2252,16 @@ agony crept over my frame. Before, I had only imagined the wretchedness of my
 desolated home; the reality came on me as a new and a not less terrible
 disaster. I tried to calm Ernest; I inquired more minutely concerning my father
 and her I named my cousin.{p]
-[p}[said [who}Ernest{]}She most of all,{said] said Ernest,
-[said [who}Ernest{]}requires consolation; she accused herself of having
+[p}[dialogue}[said [who}Ernest{]}She most of all, [interject}said Ernest,{interject]
+requires consolation; she accused herself of having
 caused the death of my brother, and that made her very wretched. But since the
 murderer has been discovered—{said]{p]
 [p}[said [who}Victor{]}The murderer discovered! Good God! How can that
 be? Who could attempt to pursue him? It is impossible; one might as well try to
 overtake the winds or confine a mountain stream with a straw. I saw him too; he
 was free last night!{said]{p]
-[p}[said [who}Ernest{]}I do not know what you mean,{said] replied my
-brother in accents of wonder, [said [who}Ernest{]}but to us the
+[p}[said [who}Ernest{]}I do not know what you mean, [interject}replied my
+brother in accents of wonder,{interject] but to us the
 discovery we have made completes our misery. No one would believe it at first;
 and even now Elizabeth will not be convinced, notwithstanding all the evidence.
 Indeed, who would credit that Justine Moritz, who was so amiable and fond of
@@ -2295,8 +2295,8 @@ exchanged our mournful greeting, would have introduced some other topic than
 that of our disaster, had not Ernest exclaimed, [said [who}Ernest{]}Good
 God, Papa! Victor says that he knows who was the murderer of poor
 William.{said]{p]
-[p}[said [who}Victor's father{]}We do also, unfortunately,{said] replied
-my father;[said [who}Victor's father{]}for indeed I had rather have been
+[p}[said [who}Victor's father{]}We do also, unfortunately, [interject}replied
+my father;{interject] for indeed I had rather have been
 forever ignorant than have discovered so much depravity and ingratitude in one
 I valued so highly.{said]{p]
 [p}[said [who}Victor{]}My dear father, you are mistaken; Justine is
@@ -2304,7 +2304,7 @@ innocent.{said]{p]
 [p}[said [who}Victor's father{]}If she is, God forbid that she should
 suffer as guilty.{page]
 [page [n}65{n] [ed}1831{ed]}She is to be tried today, and I hope, I
-sincerely hope, that she will be acquitted.{said]{p]
+sincerely hope, that she will be acquitted.{said]{dialogue]{p]
 [p}This speech calmed me. I was firmly convinced in my own mind that Justine,
 and indeed every human being, was guiltless of this murder. I had no fear,
 therefore, that any circumstantial evidence could be brought forward strong
@@ -2318,7 +2318,7 @@ her; it had endowed her with loveliness surpassing the beauty of her childish
 years. There was the same candour, the same vivacity, but it was allied to an
 expression more full of sensibility and intellect. She welcomed me with the
 greatest affection. [said [who}Elizabeth{]}Your arrival, my dear
-cousin,{said] said she,[said [who}Elizabeth{]}fills me with hope. You
+cousin, [interject} said she,{interject]fills me with hope. You
 perhaps will find some means to justify my poor guiltless Justine. Alas! Who is
 safe, if she be convicted of crime? I rely on her innocence as certainly as I
 do upon my own. Our misfortune is doubly hard to us; we have not only lost that
@@ -2326,15 +2326,15 @@ lovely darling boy, but this poor girl, whom I sincerely love, is to be torn
 away by even a worse fate. If she is condemned, I never shall know joy more.
 But she will not, I am sure she will not; and then I shall be happy again, even
 after the sad death of my little William.{said]{p]
-[p}[said [who}Victor{]}She is innocent, my Elizabeth,{said] said I,
-[said [who}Victor{]}and that shall be proved; fear nothing, but let your
+[p}[said [who}Victor{]}She is innocent, my Elizabeth, [interject}said I,{interject]
+and that shall be proved; fear nothing, but let your
 spirits be cheered by the assurance of her acquittal.{said]{p]
 [p}[said [who}Elizabeth{]}How kind and generous you are! Everyone else
 believes in her guilt, and that made me wretched, for I knew that it was
 impossible; and to see everyone else prejudiced in so deadly a manner rendered
 me hopeless and despairing.{said] She wept.{p]
-[p}[said [who}Victor's father{]}Dearest niece,{said] said my father,
-[said [who}Victor's father{]}dry your tears. If she is, as you believe,
+[p}[said [who}Victor's father{]}Dearest niece, [interject}said my father,{interject]
+dry your tears. If she is, as you believe,
 innocent, rely on the justice of our{page]
 [page [n}66{n] [ed}1831{ed]}laws, and the
 activity with which I shall prevent the slightest shadow of partiality.{said]{p]
@@ -2388,8 +2388,8 @@ horror and indignation filled the court.{p]
 countenance had altered. Surprise, horror, and misery were strongly expressed.
 Sometimes she struggled with her tears, but when she was desired to plead, she
 collected her powers and spoke in an audible although variable voice.{p]
-[p}[said [who}Justine{]}God knows,{said] she said,
-[said [who}Justine{]}how entirely I am innocent. But I do not pretend
+[p}[said [who}Justine{]}God knows, [interject}she said,{interject]
+how entirely I am innocent. But I do not pretend
 that my protestations should acquit me; I rest my innocence on a plain and
 simple explanation of the facts which have been adduced against me, and I hope
 the character I have always borne will incline my judges to a favourable
@@ -2411,8 +2411,8 @@ knowledge. That she had been bewildered when questioned by the market-woman was
 not surprising, since she had passed a sleepless night and the fate of poor
 William was yet uncertain. Concerning the picture she could give no
 account.{p]
-[p}[said [who}Justine{]}I know,{said] continued the unhappy victim,
-[said [who}Justine{]}how heavily and fatally this one circumstance
+[p}[said [who}Justine{]}I know, [interject}continued the unhappy victim,{interject]
+how heavily and fatally this one circumstance
 weighs against me, but I have no power of explaining it; and when I have
 expressed my utter ignorance, I am only left to conjecture concerning the
 probabilities by which it might have been placed in my pocket. But here also I
@@ -2431,8 +2431,8 @@ guilty rendered them timorous and unwilling to come forward.{page]
 [page [n}69{n] [ed}1831{ed]}Elizabeth saw even this last resource, her excellent dispositions
 and irreproachable conduct, about to fail the accused, when, although violently
 agitated, she desired permission to address the court.{p]
-[p}[said [who}Elizabeth{]}I am,{said] said she,
-[said [who}Elizabeth{]}the cousin of the unhappy child who was murdered,
+[p}[said [who}Elizabeth{]}I am, [interject}said she,{interject]
+the cousin of the unhappy child who was murdered,
 or rather his sister, for I was educated by and have lived with his parents
 ever since and even long before his birth. It may therefore be judged indecent
 in me to come forward on this occasion, but when I see a fellow creature about
@@ -2475,7 +2475,7 @@ sensations of horror, and I have endeavoured to bestow upon them adequate
 expressions, but words cannot convey an idea of the heart-sickening despair
 that I then endured. The person to whom I addressed myself added that Justine
 had already confessed her guilt. [said [who}Court officer{]}That
-evidence,{said] he observed,[said [who}Court officer{]}was hardly required
+evidence, [interject} he observed,{interject]was hardly required
 in so glaring a case, but I am glad of it; and, indeed, none of our judges like
 to condemn a criminal upon circumstantial evidence, be it ever so
 decisive.{said]{p]
@@ -2483,21 +2483,21 @@ decisive.{said]{p]
 eyes deceived me? And was I really as mad as the whole world would believe me
 to be if I disclosed the object of my suspicions? I hastened to return home,
 and Elizabeth eagerly demanded the result.{p]
-[p}[said [who}Victor{]}My cousin,{said] replied I,
-[said [who}Victor{]}it is decided as you may have expected; all judges
+[p}[said [who}Victor{]}My cousin, [interject}replied I,{interject]
+it is decided as you may have expected; all judges
 had rather that ten innocent should suffer than that one guilty should escape.
 But she has confessed.{said]{p]
 [p}This was a dire blow to poor Elizabeth, who had relied with firmness upon
-Justine's innocence. [said [who}Elizabeth{]}Alas!{said] said she.
-[said [who}Elizabeth{]}How shall I ever again believe in human goodness?
+Justine's innocence. [said [who}Elizabeth{]}Alas! [interject}said she.{interject]
+How shall I ever again believe in human goodness?
 Justine, whom I loved and esteemed as my sister, how could she put on those
 smiles of innocence only to betray? Her mild eyes seemed incapable of any
 severity or guile, and yet she has committed a murder.{said]{p]
 [p}Soon after we heard that the poor victim had expressed{page]
 [page [n}71{n] [ed}1831{ed]}a desire to see my cousin. My father wished her not to go but said
 that he left it to her own judgment and feelings to decide.
-[said [who}Elizabeth{]}Yes,{said] said Elizabeth,
-[said [who}Elizabeth{]}I will go, although she is guilty; and you,
+[said [who}Elizabeth{]}Yes, [interject}said Elizabeth,{interject]
+I will go, although she is guilty; and you,
 Victor, shall accompany me; I cannot go alone.{said] The idea of this visit was
 torture to me, yet I could not refuse.{p]
 [p}We entered the gloomy prison chamber and beheld Justine sitting on some
@@ -2505,15 +2505,15 @@ straw at the farther end; her hands were manacled, and her head rested on her
 knees. She rose on seeing us enter, and when we were left alone with her, she
 threw herself at the feet of Elizabeth, weeping bitterly. My cousin wept
 also.{p]
-[p}[said [who}Elizabeth{]}Oh, Justine!{said] said she.
-[said [who}Elizabeth{]}Why did you rob me of my last consolation? I
+[dialogue}[p}[said [who}Elizabeth{]}Oh, Justine! [interject}said she.{interject]
+Why did you rob me of my last consolation? I
 relied on your innocence, and although I was then very wretched, I was not so
 miserable as I am now.{said]{p]
 [p}[said [who}Justine{]}And do you also believe that I am so very, very
 wicked? Do you also join with my enemies to crush me, to condemn me as a
 murderer?{said] Her voice was suffocated with sobs.{p]
-[p}[said [who}Elizabeth{]}Rise, my poor girl,{said] said Elizabeth;
-[said [who}Elizabeth{]}why do you kneel, if you are innocent? I am not
+[p}[said [who}Elizabeth{]}Rise, my poor girl, [interject}said Elizabeth;{interject]
+why do you kneel, if you are innocent? I am not
 one of your enemies; I believed you guiltless, notwithstanding every evidence,
 until I heard that you had yourself declared your guilt. That report, you say,
 is false; and be assured, dear Justine, that nothing can shake my confidence in
@@ -2542,7 +2542,7 @@ hearts of your enemies by my tears and prayers. You shall not die! You, my
 playfellow, my companion, my sister, perish on the scaffold! No! No! I never
 could survive so horrible a misfortune.{said]{p]
 [p}Justine shook her head mournfully. [said [who}Justine{]}I do not fear
-to die,{said] she said; [said [who}Justine{]}that pang is past. God raises
+to die, [interject} she said; {interject]that pang is past. God raises
 my weakness and gives me courage to endure the worst. I leave a sad and bitter
 world; and if you remember me and think of me as of one unjustly condemned, I
 am resigned to the fate awaiting me. Learn from me, dear lady, to submit in
@@ -2555,8 +2555,8 @@ gnashed my teeth and ground them together, uttering a groan that came from my
 inmost soul. Justine started. When she saw who it was, she approached me and
 said, [said [who}Justine{]}Dear sir, you are very kind to visit me; you,
 I hope, do not believe that I am guilty?{said]{p]
-[p}I could not answer. [said [who}Elizabeth{]}No, Justine,{said] said
-Elizabeth;[said [who}Elizabeth{]}he is more convinced of your innocence
+[p}I could not answer. [said [who}Elizabeth{]}No, Justine, [interject}said
+Elizabeth;{interject] he is more convinced of your innocence
 than I was, for even when he heard that you had confessed, he did not credit
 it.{said]{p]
 [p}[said [who}Justine{]}I truly thank him. In these last moments I feel
@@ -2573,15 +2573,15 @@ which, like a cloud that passes over the fair moon, for a while hides but
 cannot tarnish its brightness. Anguish and despair had penetrated into the core
 of my heart; I bore a hell within me which nothing could extinguish. We stayed
 several hours with Justine, and it was with great difficulty that Elizabeth
-could tear herself away. [said [who}Elizabeth{]}I wish,{said] cried she,
-[said [who}Elizabeth{]}that I were to die with you; I cannot live in
+could tear herself away. [said [who}Elizabeth{]}I wish, [interject}cried she,{interject]
+that I were to die with you; I cannot live in
 this world of misery.{said]{p]
 [p}Justine assumed an air of cheerfulness, while she with difficulty repressed
 her bitter tears. She embraced Elizabeth and said in a voice of half-suppressed
 emotion, [said [who}Justine{]}Farewell, sweet lady, dearest Elizabeth,
 my beloved and only friend; may heaven, in its bounty, bless and preserve you;
 may this be the last misfortune that you will ever suffer! Live, and be happy,
-and make others so.{said]{p]
+and make others so.{said]{p]{dialogue]
 [p}And on the morrow Justine died. Elizabeth's heart-rending eloquence
 failed to move the judges from their settled conviction in the criminality of
 the saintly sufferer. My passionate and indignant appeals were lost upon them.
@@ -2633,10 +2633,10 @@ consolation—deep, dark, deathlike solitude.{p]
 and habits and endeavoured by arguments deduced from the feelings of his serene
 conscience and guiltless life to inspire me with fortitude and awaken in me the
 courage to dispel the dark cloud which brooded over me.
-[said [who}Victor's father{]}Do you think, Victor,{said] said he,
-[said [who}Victor's father{]}that I do not suffer also? No one could
-love a child more than I loved your brother{said]—tears came into his eyes
-as he spoke— [said [who}Victor's father{]}but is it not a duty to
+[said [who}Victor's father{]}Do you think, Victor, [interject}said he,{interject]
+that I do not suffer also? No one could
+love a child more than I loved your brother [interject}— tears came into his eyes
+as he spoke —{interject] but is it not a duty to
 the survivors that we should refrain from augmenting their unhappiness by an
 appearance of immoderate grief? It is also a duty owed to yourself, for
 excessive sorrow prevents improvement or enjoyment, or even the discharge of
@@ -3920,11 +3920,11 @@ sank to the ground. Again I rose, and exerting all the firmness of which I was
 master, removed the planks which I had placed before my hovel to conceal my
 retreat. The fresh air revived me, and with renewed determination I approached
 the door of their cottage.{p]
-[p}I knocked. [said [who}De Lacey{]}Who is there?{said] said the old man. [said [who}De Lacey{]}Come in.{said]{p]
-[p}I entered. [said [who}The creature{]}Pardon this intrusion,{said] said I; [said [who}The creature{]}I
+[p}I knocked. [said [who}De Lacey{]}Who is there? [interject} said the old man. {interject]Come in.{said]{p]
+[p}I entered. [said [who}The creature{]}Pardon this intrusion, [interject} said I; {interject]I
 am a traveller in want of a little rest; you would greatly oblige me if you
 would allow me to remain a few minutes before the fire.{said]{p]
-[p}[said [who}De Lacey{]}Enter,{said] said De Lacey, [said [who}De Lacey{]}and I will try in what
+[p}[said [who}De Lacey{]}Enter, [interject} said De Lacey, {interject]and I will try in what
 manner I can to relieve your wants; but, unfortunately, my children are from
 home, and as I am blind, I am afraid I shall find it difficult to procure food
 for you.{said]{p]
@@ -4335,7 +4335,7 @@ that you could deny it only in the wantonness of power and cruelty. Pitiless as
 you have been towards me, I now see compassion in your eyes; let me seize the
 favourable moment and persuade you to promise what I so ardently
 desire.{said]{p]
-[p}[said [who}Victor{]}You propose,{said] replied I, [said [who}Victor{]}to fly from the
+[p}[said [who}Victor{]}You propose, [interject} replied I, {interject]to fly from the
 habitations of man, to dwell in those wilds where the beasts of the field will
 be your only companions. How can you, who long for the love and sympathy of
 man, persevere in this exile? You will return and again seek their kindness,
@@ -4357,7 +4357,7 @@ those of horror and hatred. I tried to{page]
 sensations; I thought that as I could not sympathize with him, I had no right
 to withhold from him the small portion of happiness which was yet in my power
 to bestow.{p]
-[p}[said [who}Victor{]}You swear,{said] I said, [said [who}Victor{]}to be harmless; but have
+[p}[said [who}Victor{]}You swear, [interject} I said, {interject]to be harmless; but have
 you not already shown a degree of malice that should reasonably make me
 distrust you? May not even this be a feint that will increase your triumph by
 affording a wider scope for your revenge?{said]{p]
@@ -4382,7 +4382,7 @@ me that I should comply with his request. Turning to him, therefore, I said,
 [said [who}Victor{]}I consent to your demand, on your solemn oath to quit Europe
 forever, and every other place in the neighbourhood of man, as soon as I shall
 deliver into your hands a female who will accompany you in your exile.{said]{p]
-[p}[said [who}The creature{]}I swear,{said] he cried, [said [who}The creature{]}by the sun, and by the
+[p}[said [who}The creature{]}I swear, [interject} he cried, {interject]by the sun, and by the
 blue sky of heaven, and by the fire of love that burns my heart, that if you
 grant my prayer, while they exist you shall{page]
 [page [n}130{n] [ed}1831{ed]}never
@@ -4570,7 +4570,7 @@ joyful when he saw the beauties of the setting sun,{page]
 [page [n}136{n] [ed}1831{ed]}and
 more happy when he beheld it rise and recommence a new day. He pointed out to
 me the shifting colours of the landscape and the appearances of the sky.
-[said [who}Clerval{]}This is what it is to live,{said] he cried; [said [who}Clerval{]}now I enjoy
+[said [who}Clerval{]}This is what it is to live, [interject} he cried; {interject]now I enjoy
 existence! But you, my dear Frankenstein, wherefore are you desponding and
 sorrowful!{said] In truth, I was occupied by gloomy thoughts and neither saw the
 descent of the evening star nor the golden sunrise reflected in the Rhine. And
@@ -4597,7 +4597,7 @@ continually agitated by gloomy feelings, even I was pleased. I lay at the
 bottom of the boat, and as I gazed on the cloudless blue sky, I seemed to drink
 in a tranquillity to which I had long been a stranger. And if these were my
 sensations, who can describe those of Henry? He felt as if he had been
-transported to Fairy-land and enjoyed a happiness seldom tasted by man.[said [who}Clerval{]}I have seen,{said] he said, [said [who}Clerval{]}the most beautiful{page]
+transported to Fairy-land and enjoyed a happiness seldom tasted by man.[said [who}Clerval{]}I have seen, [interject} he said, {interject]the most beautiful{page]
 [page [n}137{n] [ed}1831{ed]}scenes of my own country; I have visited the lakes of
 Lucerne and Uri, where the snowy mountains descend almost perpendicularly to
 the water, casting black and impenetrable shades, which would cause a gloomy
@@ -4817,14 +4817,14 @@ along the banks of the Tay, to Perth, where our friend expected us. But I was
 in no mood to laugh and talk with strangers or enter into their feelings of
 plans with the good humour expected from a guest; and accordingly I told
 Clerval that I wished to make the tour of Scotland alone. [said [who}Victor{]}Do
-you,{said] said I, [said [who}Victor{]}enjoy yourself, and let this be our rendezvous.
+you, [interject} said I, {interject]enjoy yourself, and let this be our rendezvous.
 I may be absent a month or two; but do not interfere with my motions, I entreat
 you; leave me to peace and solitude for a short time; and when I return, I hope
 it will be with a lighter heart, more congenial to your own temper.{said] {p]{page]
 [page [n}144{n] [ed}1831{ed]}
 [p}Henry wished to dissuade me, but seeing me bent on this plan, ceased to
 remonstrate. He entreated me to write often. [said [who}Clerval{]}I had rather be with
-you,{said] he said, [said [who}Clerval{]}in your solitary rambles, than with these
+you, [interject} he said, {interject]in your solitary rambles, than with these
 Scotch people, whom I do not know; hasten, then, my dear friend, to return,
 that I may again feel myself somewhat at home, which I cannot do in your
 absence.{said]{p]
@@ -5126,7 +5126,7 @@ crowded towards the spot. They seemed much surprised at my appearance, but
 instead of offering me any assistance, whispered together with gestures that at
 any other time might have produced in me a slight sensation of alarm. As it
 was, I merely remarked that they spoke English, and I therefore addressed them
-in that language. [said [who}Victor{]}My good friends,{said] said I, [said [who}Victor{]}will
+in that language. [said [who}Victor{]}My good friends, [interject} said I, {interject]will
 you be so kind as to tell me the name of this town and inform me where I
 am?{said]{p]
 [p}[said [who}Irishman{]}You will know that soon enough,{said] replied a man with a
@@ -5139,7 +5139,7 @@ and I was also disconcerted on perceiving the frowning and angry countenances
 of his companions. [said [who}Victor{]}Why do you answer me so roughly?{said] I
 replied. [said [who}Victor{]}Surely it is not the custom of Englishmen to receive
 strangers so inhospitably.{said]{p]
-[p}[said [who}Irishman{]}I do not know,{said] said the man, [said [who}Irishman{]}what the custom
+[p}[said [who}Irishman{]}I do not know, [interject} said the man, {interject]what the custom
 of the English may be, but it is the custom of the Irish to hate
 villains.{said]{p]
 [p}While this strange dialogue continued, I perceived the crowd rapidly
@@ -5277,7 +5277,7 @@ sir?{said]said she.{p]
 [p}I replied in the same language, with a feeble voice, [said [who}Victor{]}I believe
 I am; but if it be all true, if indeed I did not dream, I am sorry that I am
 still alive to feel this misery and horror.{said]{p]
-[p}[said [who}Nurse{]}For that matter,{said] replied the old woman, [said [who}Nurse{]}if
+[p}[said [who}Nurse{]}For that matter, [interject} replied the old woman, {interject]if
 you mean about the gentleman you murdered, I believe that it were better for
 you if you were dead, for I fancy it will go hard with you! However,
 that's none of my business; I am sent to nurse you and get you well; I do
@@ -5375,7 +5375,7 @@ said he, looking mournfully at the barred windows and wretched appearance of the
 And poor Clerval—{said]{p]
 [p}The name of my unfortunate and murdered friend was an agitation too great to
 be endured in my weak state; I shed tears.{p]
-[p}[said [who}Victor{]}Alas! Yes, my father,{said] replied I; [said [who}Victor{]}some
+[p}[said [who}Victor{]}Alas! Yes, my father, [interject} replied I; {interject]some
 destiny of the most horrible kind hangs over me, and I must live to fulfil it,
 or surely I should have died on the coffin of Henry.{said]{p]
 [p}We were not allowed to converse for any length of time, for the precarious
@@ -5490,7 +5490,7 @@ had their source in me!{p]
 various arguments to banish my despair. Sometimes he thought that I felt deeply
 the degradation of being obliged to answer a charge of murder, and he
 endeavoured to prove to me the futility of pride.{p]
-[p}[said [who}Victor{]}Alas! My father,{said] said I, [said [who}Victor{]}how little do you
+[p}[said [who}Victor{]}Alas! My father, [interject} said I, {interject]how little do you
 know me. Human beings, their feelings and passions, would indeed be degraded if
 such a wretch as I felt pride. Justine, poor unhappy Justine, was as innocent
 as I, and she suffered the same charge; she died for it; and I am the cause of
@@ -5515,7 +5515,7 @@ of my mysterious woe.{p]
 [p}Upon this occasion my father said, with an expression of unbounded wonder,
 [said [who}Victor's father{]}My dearest Victor, what infatuation is this? My dear son, I entreat
 you never to make such an assertion again.{said]{p]
-[p}[said [who}Victor{]}I am not mad,{said] I cried energetically; [said [who}Victor{]}the sun
+[p}[said [who}Victor{]}I am not mad, [interject} I cried energetically; {interject]the sun
 and the heavens, who have viewed my operations, can hear witness of my truth. I
 am the assassin of those most innocent victims; they died by my machinations. A
 thousand times would I have shed my own blood, drop by drop, to have saved
@@ -5734,7 +5734,7 @@ barrier to the invader who should wish to enslave it.{p]{page]
 If you knew what I have suffered and what I may yet endure, you would endeavour
 to let me taste the quiet and freedom from despair that this one day at least
 permits me to enjoy.{said]{p]
-[p}[said [who}Elizabeth{]}Be happy, my dear Victor,{said] replied Elizabeth;[said [who}Elizabeth{]}there is, I hope, nothing to distress you; and be assured that if a
+[p}[said [who}Elizabeth{]}Be happy, my dear Victor, [interject} replied Elizabeth;{interject]there is, I hope, nothing to distress you; and be assured that if a
 lively joy is not painted in my face, my heart is contented. Something whispers
 to me not to depend too much on the prospect that is opened before us, but I
 will not listen to such a sinister voice. Observe how fast we move along and
@@ -5783,7 +5783,7 @@ extinguished.{p]
 but there was something in my glance which communicated terror to her, and
 trembling, she asked, [said [who}Elizabeth{]}What is it that agitates you, my dear
 Victor? What is it you fear?{said]{p]
-[p}[said [who}Victor{]}Oh! Peace, peace, my love,{said] replied I; [said [who}Victor{]}this
+[p}[said [who}Victor{]}Oh! Peace, peace, my love, [interject} replied I; {interject]this
 night, and all will be safe; but this night is dreadful, very dreadful.{said]{p]
 [p}I passed an hour in this state of mind, when suddenly I reflected how
 fearful the combat which I momentarily expected would be to my wife, and I
@@ -5909,9 +5909,9 @@ release, I repaired to a criminal judge in the town and told him that I had an
 accusation to make, that I knew the destroyer of my family, and that I required
 him to exert his whole authority for the apprehension of the murderer.{p]
 [p}The magistrate listened to me with attention and kindness, [said [who}Magistrate{]}Be
-assured, sir,{said] said he, [said [who}Magistrate{]}no pains or exertions on my part shall
+assured, sir, [interject} said he, {interject]no pains or exertions on my part shall
 be spared to discover the villain.{said]{p]
-[p}[said [who}Victor{]}I thank you,{said] replied I; [said [who}Victor{]}listen, therefore,
+[p}[said [who}Victor{]}I thank you, [interject} replied I; {interject]listen, therefore,
 to the deposition that I have to make. It is indeed a tale so strange that I
 should fear you would not credit it were there not something in truth which,
 however wonderful, forces conviction. The story is too connected to be
@@ -5949,7 +5949,7 @@ not credit my narrative and do not intend to pursue my enemy with the
 punishment which is his desert.{said]{p]{page]
 [page [n}180{n] [ed}1831{ed]}
 [p}As I spoke, rage sparkled in my eyes; the magistrate was intimidatelined.
-[said [who}Magistrate{]}You are mistaken,{said] said he. [said [who}Magistrate{]}I will exert myself,
+[said [who}Magistrate{]}You are mistaken, [interject} said he. {interject]I will exert myself,
 and if it is in my power to seize the monster, be assured that he shall suffer
 punishment proportionate to his crimes. But I fear, from what you have yourself
 described to be his properties, that this will prove impracticable; and thus,
@@ -6433,7 +6433,7 @@ sprang from the west, and on the 11th the passage towards the south became
 perfectly free. When the sailors saw this and that their return to their native
 country was apparently assured, a shout of tumultuous joy broke from them, loud
 and long-continued. Frankenstein, who was dozing, awoke and asked the cause of
-the tumult. [said [who}Walton{]}They shout,{said] I said, [said [who}Walton{]}because they
+the tumult. [said [who}Walton{]}They shout, [interject} I said, {interject]because they
 will soon return to England.{said]{p]
 [p}[said [who}Victor{]}Do you, then, really return?{said]{p]
 [p}[said [who}Walton{]}Alas! Yes; I cannot withstand their demands. I cannot lead
@@ -6518,7 +6518,7 @@ this destroyer. I called on him to stay.{p]
 form of his creator, he seemed to forget my presence, and every feature and
 gesture seemed instigated by the wildest rage of some uncontrollable
 passion.{p]
-[p}[said [who}The creature{]}That is also my victim!{said] he exclaimed. [said [who}The creature{]}In his
+[p}[said [who}The creature{]}That is also my victim! [interject} he exclaimed. {interject]In his
 murder my crimes are consummated; the miserable series of my being is wound to
 its close! Oh, Frankenstein!{page]
 [page [n}198{n] [ed}1831{ed]}Generous and self-devoted
@@ -6537,16 +6537,16 @@ said,[said [who}Walton{]}is now superfluous. If you had listened to the voice of
 conscience and heeded the stings of remorse before you had urged your
 diabolical vengeance to this extremity, Frankenstein would yet have
 lived.{said]{p]
-[p}[said [who}The creature{]}And do you dream?{said] said the demon. [said [who}The creature{]}Do you
-think that I was then dead to agony and remorse? He,{said] he continued, pointing
-to the corpse, [said [who}The creature{]}he suffered not in the consummation of the deed.
+[p}[said [who}The creature{]}And do you dream? [interject} said the demon. {interject]Do you
+think that I was then dead to agony and remorse? He, [interject}he continued, pointing
+to the corpse,{interject] he suffered not in the consummation of the deed.
 Oh! Not the ten-thousandth portion of the anguish that was mine during the
 lingering detail of its execution. A frightful selfishness hurried me on, while
 my heart was poisoned with remorse. Think you that the groans of Clerval were
 music to my ears? My heart was fashioned to be susceptible of love and
 sympathy, and when wrenched by misery to vice and hatred, it did not endure the
-violence of the change without torture such as you cannot even imagine.{said]{p]
-[p}[said [who}The creature{]}After the murder of Clerval I returned to Switzerland,
+violence of the change without torture such as you cannot even imagine.{p]
+[p}After the murder of Clerval I returned to Switzerland,
 heart-broken and overcome. I pitied Frankenstein; my pity amounted to horror; I
 abhorred myself. But when I discovered that he, the author at once of my
 existence and of its unspeakable torments, dared to hope for happiness, that
@@ -6566,16 +6566,15 @@ ended; there is my last victim!{said]{p]
 [p}I was at first touched by the expressions of his misery; yet, when I called
 to mind what Frankenstein had said of his powers of eloquence and persuasion,
 and when I again cast my eyes on the lifeless form of my friend, indignation
-was rekindled within me. [said [who}Walton{]}Wretch!{said] I said.
-[said [who}Walton{]}It is
-well that you come here to whine over the desolation that you have made. You
+was rekindled within me. [said [who}Walton{]}Wretch! [interject}I said.{interject] 
+It is well that you come here to whine over the desolation that you have made. You
 throw a torch into a pile of buildings, and when they are consumed, you sit
 among the ruins and lament the fall. Hypocritical fiend! If he whom you mourn
 still lived, still would he be the object, again would he become the prey, of
 your accursed vengeance. It is not pity that you feel; you lament only because
 the victim of your malignity as withdrawn from your power.{said]{p]
-[p}[said [who}The creature{]}Oh, it is not thus—not thus,{said] interrupted the
-being.[said [who}The creature{]}Yet such must be the impression conveyed to you by what
+[p}[said [who}The creature{]}Oh, it is not thus—not thus, [interject}interrupted the
+being.{interject] Yet such must be the impression conveyed to you by what
 appears to be the purport of my actions. Yet I seek not a fellow feeling in my
 misery. No sympathy may I ever find. When I first sought it, it was the love of
 virtue, the feelings of happiness and affection with which my whole being
