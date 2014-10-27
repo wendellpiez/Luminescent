@@ -1,0 +1,11 @@
+REM Test Calabash like this (adjust the paths as necessar):
+
+C:\Bin\xmlcalabash-1.0.21-95\calabash blank.xpr
+
+C:\Bin\xmlcalabash-1.0.21-95\calabash C:\Users\Wendell\Documents\GitHub\Luminescent\blank.xpr
+
+C:\Bin\xmlcalabash-1.0.21-95\calabash LMNL-wf-check.xpl lmnl-file=file:///C:/Users/Wendell/Documents/GitHub/Luminescent/lmnl/Mark4.lmnl
+
+call C:\Bin\xmlcalabash-1.0.21-95\calabash.bat C:\Users\Wendell\Documents\GitHub\Luminescent\LMNL-xLMNL.xpl lmnl-file=file:///C:/Users/Wendell/Documents/GitHub/Luminescent/lmnl/Mark4.lmnl
+
+C:\Bin\xmlcalabash-1.0.21-95\calabash.bat
