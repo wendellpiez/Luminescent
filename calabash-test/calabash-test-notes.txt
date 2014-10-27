@@ -1,11 +1,7 @@
-REM Test Calabash like this (adjust the paths as necessar):
+See test-calabash.bat to see how I have called Calabash. When this is invoked, Calabash hangs on my system.
 
-C:\Bin\xmlcalabash-1.0.21-95\calabash blank.xpr
+An oXygen project file (XPR) is set up to test the pipeline in oXygen. There is a transformation scenario configured.
 
-C:\Bin\xmlcalabash-1.0.21-95\calabash C:\Users\Wendell\Documents\GitHub\Luminescent\blank.xpr
+I don't know if the issue is reproducible under any OS but Windows. :-)
 
-C:\Bin\xmlcalabash-1.0.21-95\calabash LMNL-wf-check.xpl lmnl-file=file:///C:/Users/Wendell/Documents/GitHub/Luminescent/lmnl/Mark4.lmnl
 
-call C:\Bin\xmlcalabash-1.0.21-95\calabash.bat C:\Users\Wendell\Documents\GitHub\Luminescent\LMNL-xLMNL.xpl lmnl-file=file:///C:/Users/Wendell/Documents/GitHub/Luminescent/lmnl/Mark4.lmnl
-
-C:\Bin\xmlcalabash-1.0.21-95\calabash.bat
