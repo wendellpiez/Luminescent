@@ -59,14 +59,15 @@
   
   <!-- =================================================== -->
 
-  <p:wrap-sequence name="validate-wf-tagging" wrapper="svrl">
+  <p:wrap-sequence name="validate-wf-tagging" wrapper="svrl" 
+    wrapper-namespace="http://purl.oclc.org/dsdl/svrl">
     <p:input port="source">
       <p:pipe port="report" step="validate-tags"/>
       <p:pipe port="report" step="validate-typing"/>
     </p:input>
   </p:wrap-sequence>
   
-<!--  <p:identity name="wf-report"/>-->
+  <!--<p:identity name="wf-report"/>-->
   
   <p:xslt name="wf-report" version="2.0">
     <p:input port="stylesheet">
