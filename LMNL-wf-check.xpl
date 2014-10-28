@@ -9,7 +9,7 @@
     <p:pipe port="report" step="validate-wf-tagging"/>
   </p:output>-->
 
-  <p:option name="lmnl-file" required="true"/>
+  <!--<p:option name="lmnl-file" required="true"/>-->
   
   <p:serialization port="wf-check" method="text"
     omit-xml-declaration="true" indent="false"/>
@@ -24,12 +24,9 @@
 
   <p:import href="LMNL-xLMNL.xpl"/>
   
-  <lmnl:LMNL-xLMNL name="xLMNL">
-    <p:input port="source">
-      <p:inline><lmnl><!-- dummy document --></lmnl></p:inline>
-    </p:input>
-    <p:with-option name="lmnl-file" select="$lmnl-file"/>
-  </lmnl:LMNL-xLMNL>
+  <!-- Binding LMNL file to source port using
+       -dtext/plain@%LMNLFILE% from command line -->
+  <lmnl:LMNL-xLMNL name="xLMNL"/>
   
   <p:sink/>
   

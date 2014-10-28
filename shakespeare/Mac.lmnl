@@ -4,7 +4,7 @@
       describes the XML source. This text is produced for purposes only of demonstrating an experimental 
       text encoding; it is not for publication and all rights to its use remain with the Folger Library.{projectHeader]
 
-  [teiHeader 
+  [teiHeader
     [fileDesc 
       [titleStmt}
         [title}Macbeth{title]

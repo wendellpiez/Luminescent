@@ -5,13 +5,14 @@
   xmlns:lmnl="http://lmnl-markup.net/ns/xproc-extensions"
   name="LMNL-xLMNL" type="lmnl:LMNL-xLMNL">
 
-  <p:input port="source"/>
+  <p:input port="source"/>  
 
-  <p:option name="lmnl-file" required="true"/>
+  <!--<p:option name="lmnl-file" required="true"/>-->
 
   <p:input kind="parameter" port="parameters" primary="true"/>
   
   <p:serialization port="step0-comment" indent="true" encoding="utf-8"/>  
+  
   <p:output port="step0-comment" primary="false">
     <p:pipe port="result" step="tokenize"/>
   </p:output>
@@ -79,13 +80,13 @@
   
   <!--<p:identity name="comment"/>-->
   <p:xslt name="comment" version="2.0">
-    <p:input port="source">
-      <p:inline><lmnl><!-- dummy document --></lmnl></p:inline>
-    </p:input>
+    <!--<p:input port="source">
+      <p:inline><lmnl><!-\- dummy document -\-></lmnl></p:inline>
+    </p:input>-->
     <p:input port="stylesheet">
       <p:document href="lib/up/hide-comments.xsl"/>
     </p:input>
-    <p:with-param name="lmnl-file" select="$lmnl-file"/>
+    <!--<p:with-param name="lmnl-file" select="$lmnl-file"/>-->
   </p:xslt>
   
   <!--<p:identity name="tokenize"/>-->

@@ -1,7 +1,9 @@
-rem set CALABASH=C:\Bin\xmlcalabash-1.0.21-95\calabash LMNL-wf-check.xpl
-set CALABASH=C:\Bin\xmlcalabash-1.0.21-95\calabash LMNL-xLMNL.xpl
+@echo off
+rem Accept LMNLFILE as argument 1
 set LMNLFILE=%1
 
-rem set lmnl-file=file:///C:/Users/Wendell/Documents/GitHub/Luminescent/lmnl/Mark4.lmnl
+rem Set up call to Calabash with data stream into port 'source' (by default), wf check pipeline.
+set WF_CHECK=C:\Bin\xmlcalabash-1.0.21-95\calabash -dtext/plain@%LMNLFILE% LMNL-wf-check.xpl
 
-%CALABASH% lmnl-file=%LMNLFILE%
+rem Go for it --
+%WF_CHECK%
