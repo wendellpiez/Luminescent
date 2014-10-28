@@ -1,7 +1,0 @@
-See test-calabash.bat to see how I have called Calabash. When this is invoked, Calabash hangs on my system.
-
-An oXygen project file (XPR) is set up to test the pipeline in oXygen. There is a transformation scenario configured.
-
-I don't know if the issue is reproducible under any OS but Windows. :-)
-
-
