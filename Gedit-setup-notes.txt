@@ -1,0 +1,29 @@
+Setting up LMNL syntax checking for gedit
+
+(I did this under Linux Mint 17.1 Cinnamon. Note the same thing or something
+very similar should be possible in other *nix applications.)
+
+Under Edit/Preferences, ensure that the "External Tools" plugin is enabled.
+
+Under Tools/Manage External Tools, create a new Tool.
+
+I named mine "LMNL syntax check (XProc)". As a shortcut key I assigned Ctrl-Shift-L.
+
+As the body of the external tool, provide a script like the following (with modifications):
+
+#!/bin/sh
+
+# FILE_URI to give to Calabash
+FILE_URI=$GEDIT_CURRENT_DOCUMENT_URI
+
+# Where is Calabash on your system
+CALABASH=/home/wendell/xmlcalabash-1.0.23-96/calabash.jar
+
+# Again, URI syntax for Calabash; this is the Luminescent XProc for syntax checking.
+PIPELINE=file:///home/wendell/Documents/Luminescent/LMNL-wf-check.xpl
+
+echo LMNL syntax checking ... $FILE_URI ...
+java -Xmx1024m -jar $CALABASH -dtext/plain@$FILE_URI $PIPELINE
+
+
+
