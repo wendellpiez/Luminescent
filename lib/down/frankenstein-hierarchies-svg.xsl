@@ -11,8 +11,9 @@
   
   <xsl:variable name="xLMNL-document" select="/"/>
   
-  <xsl:variable name="nominalWidth" select="19.5"/>
-  <xsl:variable name="nominalHeight" select="27.5"/>
+  <xsl:variable name="scale"         select="50"/>
+  <xsl:variable name="nominalWidth"  select="19.5 * $scale"/>
+  <xsl:variable name="nominalHeight" select="27.5 * $scale"/>
   
   <!-- All the font sizes are scaled to an 800-high page... -->
   <xsl:variable name="pageHeight" select="800"/>
@@ -59,13 +60,10 @@
       <xsl:apply-templates select="." mode="draw"/>
     </xsl:variable>
 
-    <!-- The max @end is 433822 -->
-    <xsl:variable name="width"
-      select="ceiling(max(/x:document/x:range/@end) * $pageSqueeze) + (2 * $pageMargin)"/>
     <svg version="1.1"
       viewBox="0 0 {$pageWidth} {$pageHeight}"
-      width="{$nominalWidth}in" height="{$nominalHeight}in"
-      font-family="'Noto Serif'">
+      width="{$nominalWidth}" height="{$nominalHeight}"
+      font-family="'Noto Serif', Cambria, serif">
       
       <!--<xsl:apply-templates select="$tocMap[$debug]" mode="lmnsc:map-position"/>-->
       <!--<xsl:copy-of select="$legendSet"/>-->      
@@ -82,6 +80,7 @@
       </g>
     </svg>
   </xsl:template>
+  
   
   <xsl:variable name="debug" select="true()"/>
   
@@ -184,7 +183,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="formatObject">
-    <xsl:attribute name="stroke-width"     >0.01</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >0.1</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
   
@@ -200,7 +199,7 @@
     <xsl:attribute name="fill"             >darkorange</xsl:attribute>
     <xsl:attribute name="fill-opacity"     >0.4</xsl:attribute>
     <xsl:attribute name="stroke"           >darkred</xsl:attribute>
-    <xsl:attribute name="stroke-width"     >0.01</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >0.1</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
   
@@ -296,7 +295,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="labelFormat">
-    <xsl:attribute name="font-size">0.2</xsl:attribute>
+    <xsl:attribute name="font-size">0.4</xsl:attribute>
     <xsl:attribute name="fill">black</xsl:attribute>
     <xsl:attribute name="fill-opacity">1</xsl:attribute>
     <xsl:attribute name="text-anchor">start</xsl:attribute>
@@ -316,7 +315,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='said']" mode="labelFormat">
-    <xsl:attribute name="font-size">2</xsl:attribute>
+    <xsl:attribute name="font-size">2.4</xsl:attribute>
     <xsl:attribute name="fill">black</xsl:attribute>
     <xsl:attribute name="fill-opacity">1</xsl:attribute>
     <xsl:attribute name="text-anchor">start</xsl:attribute>
@@ -596,7 +595,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='q']" mode="labelY">
-    <xsl:variable name="baseline" as="xs:double">-2</xsl:variable>
+    <xsl:variable name="baseline" as="xs:double">2</xsl:variable>
     <xsl:attribute name="y" select="lmnsc:round-and-format(lmnsc:scale(@start) - $baseline )"/>
   </xsl:template>
   
@@ -812,7 +811,7 @@
     <xsl:variable name="lines" as="element()*">
       <xsl:apply-templates mode="#current"/>
     </xsl:variable>
-    <xsl:variable name="padding" select="0.2"/>
+    <xsl:variable name="padding" select="0.5"/>
     <xsl:variable name="boxSize" select="sum($lines/@line-height) + (2 * $padding)"/>
     <xsl:variable name="y" select="lmnsc:round-and-format(lmnsc:scale((@start + @end) div 2) - ($boxSize div 2))"/>
     
@@ -821,8 +820,8 @@
     </xsl:variable>
     <xsl:variable name="predecessor-bottom" select="($predecessor/(@y + @height),0)[1]"/>
     <xsl:variable name="impinging" select="$predecessor-bottom gt number($y)"/>
-    <lmnsc:legend width="18" height="{$boxSize}"
-      x="{ if ($impinging) then ($predecessor/@x + 20 ) else ($axis + 40)}" padding="{$padding}"
+    <lmnsc:legend width="22" height="{$boxSize}"
+      x="{ if ($impinging) then ($predecessor/@x + 24 ) else ($axis + 40)}" padding="{$padding}"
       y="{ lmnsc:round-and-format(lmnsc:scale((@start + @end) div 2) - ($boxSize div 2)) }">
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates mode="#current"/>
@@ -868,7 +867,7 @@
     </lmnsc:line>
   </xsl:template>
   <xsl:template match="lmnsc:line[@rangeName='said']" mode="legend-position">
-    <lmnsc:line line-height="2" indent="0.4">
+    <lmnsc:line line-height="3" indent="0.4">
       <xsl:copy-of select="@*"/>
       <!-- overriding line-height for the first one -->
       <xsl:call-template name="firstLine-lineHeight"/>
