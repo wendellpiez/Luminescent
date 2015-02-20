@@ -7,7 +7,7 @@ declare option db:chop 'no';
 
 (: For compiling LMNL into a BaseX db :)
 
-let $lmnldb := 'LMNL-library2'
+let $lmnldb := 'LMNL-library'
 
 let $silkenTent := '[sonneteer [id}silkentent{id]}[meta [author}Robert Frost{author] [title}A Silken Tent{title]]
 [sonnet}
@@ -36,24 +36,25 @@ let $shakespeare-keys := (
   'Ado', 'Ham', 'JC', 'Lr', 'Mac', 'MND', 'MV', 'Oth', 'Rom', 'Shr', 'Tmp', 'TN'
 )
 
+
+(:let $LuminescentPath := 'file:///C:/Users/Wendell/Documents/Github';:)
+let $LuminescentPath := 'file:///home/wendell/Documents/Luminescent'
+
+
 let $shakespeareSet := map:new(
   $shakespeare-keys ! map:entry(
       ('Shakespeare/' || . || '.xlmnl'),
-      ('file:///C:/Users/Wendell/Documents/Github/Luminescent/shakespeare/' || . || '.lmnl') ) )
- 
+      ($LuminescentPath || '/shakespeare/' || . || '.lmnl') ) )
+
 let $frankensteinSet := map {
-   "Frankenstein/Frankenstein1818.xlmnl" :=
-      'file:///C:/Users/Wendell/Documents/Github/Luminescent/lmnl/frankenstein1818.lmnl' ,
-   "Frankenstein1831.xlmnl" :=
-      'file:///C:/Users/Wendell/Documents/Github/Luminescent/lmnl/frankenstein-as-published.lmnl', 
-   "Frankenstein/Frankenstein.xlmnl"     :=
-      'file:///C:/Users/Wendell/Documents/Github/Luminescent/lmnl/frankenstein.lmnl'
-      (:,
-   "Tempest.xlmnl"                   :=
-      'file:///C:/Projects/Github/Luminescent/shakespeare/Tmp.lmnl'     :)  }
+   "Frankenstein/1818ed.xlmnl" :=
+      $LuminescentPath || '/lmnl/frankenstein1818.lmnl' ,
+   "Frankenstein/1831ed.xlmnl" :=
+      $LuminescentPath || '/lmnl/frankenstein-as-published.lmnl', 
+   "Frankenstein/synoptic.xlmnl"     :=
+      $LuminescentPath || '/lmnl/frankenstein.lmnl' }
   
-  
-let $fileSet := ($shakespeareSet)  
+let $fileSet := ($frankensteinSet)  
 
 for $file in map:keys($fileSet)
 

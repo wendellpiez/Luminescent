@@ -1,0 +1,3 @@
+DROP DB LMNL-library
+CREATE DB LMNL-library
+RUN load-xLMNL.xq

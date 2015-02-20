@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!-- Maven pom.xml kindly provided by Dirk Kirsten, BaseX mailing list, Feb 5 2015
+     and modified for local use. (wap) -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.lmnl-markup</groupId>
+  <artifactId>luminescent</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  <name>Luminescent</name>
+  <properties>
+    <compileSource>1.7</compileSource>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <jettyVersion>8.1.14.v20131031</jettyVersion>
+    <baseXVersion>7.9</baseXVersion>
+  </properties>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>Central Maven Repository</name>
+      <url>http://repo2.maven.org/maven2/</url>
+    </repository>
+    <repository>
+      <id>basex</id>
+      <name>BaseX Maven Repository</name>
+      <url>http://files.basex.org/maven</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    
+    <dependency>
+      <groupId>org.basex</groupId>
+      <artifactId>basex-api</artifactId>
+      <version>8.0-SNAPSHOT</version>
+    </dependency> 
+    <!--<dependency>
+      <groupId>org.basex</groupId>
+      <artifactId>basex-api</artifactId>
+      <version>${baseXVersion}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>net.xqj</groupId>
+          <artifactId>basex-xqj</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.xmldb</groupId>
+          <artifactId>xmldb-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.ettrema</groupId>
+          <artifactId>milton-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>-->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-web-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.saxon</groupId>
+      <artifactId>Saxon-HE</artifactId>
+      <version>9.6.0-4</version>
+    </dependency>
+  </dependencies>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>sonatype-oss-public</id>
+      <url>https://oss.sonatype.org/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <finalName>${project.artifactId}-${project.version}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jettyVersion}</version>
+        <configuration>
+          <webAppConfig>
+            <contextPath>/</contextPath>
+            <descriptor>WEB-INF/${webXml}</descriptor>
+            <tempDirectory>.tmp</tempDirectory>
+          </webAppConfig>
+          <webAppSourceDirectory>${basedir}/webapp</webAppSourceDirectory>
+          <jettyXml>WEB-INF/jetty.xml</jettyXml>
+          <!-- <jvmArgs>-Xmx4096m</jvmArgs> -->
+          <!-- Key and port for stopping Jetty -->
+          <stopKey>keyToStopJetty</stopKey>
+          <stopPort>8990</stopPort>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>gui</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.2.1</version>
+            <configuration>
+              <mainClass>org.basex.BaseXGUI</mainClass>
+              <!-- How do I: set data directory; set Java memory allocation -->
+              <!-- arguments>
+                <argument>-q 4+3</argument>
+              </arguments -->
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>six</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.2.1</version>
+            <configuration>
+              <mainClass>org.basex.BaseX</mainClass>
+              <arguments>
+                <argument>-q 4+2</argument>
+              </arguments>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

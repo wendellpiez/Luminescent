@@ -3,7 +3,11 @@ import module namespace lm = "http://www.lmnl-markup.org/ns/luminescent/xquery" 
 declare namespace x = "http://lmnl-markup.org/ns/xLMNL";
 declare option output:item-separator "\n=====\n";
 
-let $novel  := db:open('LMNL-library','Frankenstein.xlmnl')/*
+let $novel  := db:open('LMNL-library','Frankenstein/synoptic.xlmnl')/*
+
+(: 
+//x:range[@name='reflect']/x:annotation[not(@name)]/lm:annotation-value(.)
+:)
 
 (:
    Distinct values of @who in Frankenstein:
@@ -16,12 +20,14 @@ let $novel  := db:open('LMNL-library','Frankenstein.xlmnl')/*
 (:return distinct-values(lm:ranges('said',$novel)/lm:annotations('who',.)/lm:annotation-value(.)):)
 
 
-(: Show all the quotes ('said' ranges) attributed to 'The creature' :)
+(: Show all the quotes ('said' ranges) attributed to 'The creature'
 
-(: let $who := 'The creature'
+ let $who := 'The creature'
 
-return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.)
- :)
+return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.) :)
+ 
+ return distinct-values($novel/x:range/@name)
+ 
 
 (: Find any page with more than 2500 characters (there was one,
    marked erroneously.
@@ -44,8 +50,8 @@ return $l/@start/string(.):)
 
 (: Where is Volney mentioned?:)
 
-return lm:ranges('page',$novel)[contains(lm:range-value(.),'Great God')]
-/lm:annotations('n',.)/lm:annotation-value(.)
+(: return lm:ranges('page',$novel)[contains(lm:range-value(.),'Volney')]
+/lm:annotations('n',.)/lm:annotation-value(.) :)
 
 (:return lm:ranges('p',$novel)[contains(lm:range-value(.),'Volney')]/lm:range-value(.):)
 

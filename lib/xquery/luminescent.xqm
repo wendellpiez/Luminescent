@@ -114,7 +114,9 @@ declare function lm:range-end($range as element(x:range)) as xs:integer {
 
 
 (: Luminescent proper: parsing LMNL syntax into xLMNL :)
-declare variable $lm:xslt-dir := "file:///C:/Users/Wendell/Documents/Github/Luminescent/lib/up";
+(:declare variable $lm:xslt-dir := "file:///C:/Users/Wendell/Documents/Github/Luminescent/lib/up";:)
+
+declare variable $lm:xslt-dir := "file:///home/wendell/Documents/Luminescent/lib/up";
 
 (: Processes a LMNL syntax instance to generate xLMNL. :)
 declare function lm:lmnl-to-xLMNL($lmnl as xs:string,    (: A LMNL document as a string :)
