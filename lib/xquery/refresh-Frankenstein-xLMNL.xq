@@ -12,7 +12,7 @@ let $lmnldb := 'LMNL-library'
 (:let $LuminescentPath := 'file:///C:/Users/Wendell/Documents/Github';:)
 let $LuminescentPath := 'file:///home/wendell/Documents/Luminescent'
 
-let $filePath := $LuminescentPath || '/data/novels/frankenstein.lmnl'
+let $filePath := $LuminescentPath || '/lmnl/frankenstein.lmnl'
 let $dbPath   := 'Frankenstein/synoptic.xlmnl'
 
 let $lmnl    :=  file:read-text($filePath)
