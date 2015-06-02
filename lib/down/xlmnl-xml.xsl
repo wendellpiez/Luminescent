@@ -266,7 +266,7 @@
         <xsl:call-template name="build-xml">
           <xsl:with-param name="spans" select="$spans"/>
           <xsl:with-param name="elements" select="$elements" tunnel="yes"/>
-          <xsl:with-param name="layer" select="$layer"/>
+          <xsl:with-param name="layer" select="$layer" tunnel="yes"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>

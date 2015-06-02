@@ -99,9 +99,17 @@ declare function lm:overlapping-ranges($range as element(x:range)) as element(x:
      $range/../x:range[lm:range-start(.) gt lm:range-start($range)] (: starts after :)
                       [lm:range-end(.)   gt lm:range-end($range)]   (: ends after ::)
                       [lm:range-start(.) lt lm:range-end($range)]   (: starts before end :)
-                      
-
 };
+
+(: Function lm:enclosing-ranges($range) retrieves x:range elements named $n, enclosing the -single- range given:)
+declare function lm:enclosing-ranges-named($name as xs:string, $range as element(x:range)) as element(x:range)* {
+     $range/../x:range[lm:named($name,.)]
+                      [lm:range-start(.) le lm:range-start($range)] (: starts with or before :)
+                      [lm:range-end(.)   ge lm:range-end($range)]   (: ends with or after :)
+     except $range                      
+};
+
+
 
 declare function lm:range-start($range as element(x:range)) as xs:integer {
  xs:integer($range/@start)

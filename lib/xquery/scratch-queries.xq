@@ -26,7 +26,21 @@ let $novel  := db:open('LMNL-library','Frankenstein/synoptic.xlmnl')/*
 
 return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.) :)
  
- return distinct-values($novel/x:range/@name)
+for $narrative in lm:ranges('story',$novel)
+let $enclosing-narratives := $narrative/(lm:enclosing-ranges-named('story',.),.)
+let $narrator := $narrative/lm:annotations('who',.)/lm:value(.)
+group by $narrator
+let $speeches := lm:spans-for-ranges($narrative)/lm:ranges-for-spans(.)[lm:named('said',.)]
+[empty(lm:enclosing-ranges-named('story',.) except $enclosing-narratives)]
+
+return 
+<narrative who="{$narrator}" count="{count($speeches)}"> {
+  for $who-speeches in $speeches
+  let $who := $who-speeches/lm:annotations('who',.)/lm:value(.)
+  group by $who
+  return <who count="{count($who-speeches)}">{$who}</who>
+ 
+</narrative>
  
 
 (: Find any page with more than 2500 characters (there was one,
@@ -50,8 +64,7 @@ return $l/@start/string(.):)
 
 (: Where is Volney mentioned?:)
 
-(: return lm:ranges('page',$novel)[contains(lm:range-value(.),'Volney')]
-/lm:annotations('n',.)/lm:annotation-value(.) :)
+(: return lm:ranges('p',$novel)[matches(lm:range-value(.),'Paradise')] ! string-join((@sl,@so),':') :)
 
 (:return lm:ranges('p',$novel)[contains(lm:range-value(.),'Volney')]/lm:range-value(.):)
 
