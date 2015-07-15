@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="lmnl" _name="LMNL" version="1.0" _section="Markup">
+    <metadata>
+        <property name="mimetypes">text/lmnl;application/lmnl</property>
+        <property name="globs">*.lmnl</property>
+        <property name="block-comment-start">\[!--</property>
+        <property name="block-comment-end">--\]</property>
+    </metadata>
+
+    <styles>
+        <style id="comment"                _name="Comment"                map-to="def:comment"/>
+        <style id="processing-instruction" _name="Processing instruction" map-to="def:preprocessor"/>
+        <style id="range-name"             _name="Range name"             map-to="def:identifier"/>
+        <style id="tag"                    _name="Tag"/>
+        
+        <style id="error"                  _name="Error"                  map-to="def:error"/>
+        
+        
+        <!-- from xml.lang:
+        <style id="doctype"                 _name="DOCTYPE"                 map-to="def:preprocessor"/>
+        <style id="cdata-delim"             _name="CDATA delimiter"         map-to="def:preprocessor"/>
+        <style id="processing-instruction"  _name="Processing instruction"  map-to="def:preprocessor"/>
+        <style id="element-name"            _name="Element name"            map-to="def:identifier"/>
+        <style id="attribute-name"          _name="Attribute name"          map-to="def:type"/>
+        <style id="attribute-value"         _name="Attribute value"         map-to="def:string"/>
+        <style id="entity"                  _name="Entity"                  map-to="def:preprocessor"/>
+        <style id="tag"                     _name="Tag"/>
+        <style id="namespace"               _name="Namespace"               map-to="xml:element-name"/>-->
+    </styles>
+
+    <definitions>
+        
+        <!--<define-regex id="nmtoken">[[:alpha:]_][[:alnum:]._-]*</define-regex>
+        <define-regex id="name"   >(\%{nmtoken}:)?\%{nmtoken}</define-regex>
+        
+        <context id="start-tag" style-ref="tag" class="no-spell-check">
+            <match>\[\%{name}\}</match>
+        </context>
+        -->
+        
+        
+        <!--<context id="entity" style-ref="entity" class="no-spell-check">
+            <match>&amp;\%{name};</match>
+        </context>-->
+
+        <!--<context id="character-reference" style-ref="entity">
+            <match>&amp;#([0-9]+|x[a-fA-F0-9]+);</match>
+        </context>-->
+
+        <context id="unallowed-chars" style-ref="error" extend-parent="false">
+            <match>[\[\]\{\}]</match>
+        </context>
+
+        <context id="comment" style-ref="comment" class="comment">
+            <start>\[!--</start>
+            <end>--\]</end>
+            <include>
+                <context style-ref="error" extend-parent="false">
+                    <match>--+</match>
+                </context>
+                <context ref="def:in-comment"/>
+            </include>
+        </context>
+
+       <!-- <context id="doctype" class="no-spell-check">
+            <start>(&lt;!DOCTYPE)\s+(\%{name})</start>
+            <end>&gt;</end>
+            <include>
+              <context sub-pattern="1" where="start" style-ref="doctype"/>
+              <context sub-pattern="2" where="start" style-ref="doctype"/>
+              <context sub-pattern="0" where="end" style-ref="doctype"/>
+              <context>
+                <match>(SYSTEM)\s+(\"[^\"]*\")</match>
+                <include>
+                  <context sub-pattern="1" style-ref="doctype"/>
+                  <context sub-pattern="2" style-ref="attribute-value"/>
+                </include>
+              </context>
+              <context>
+                <match>(PUBLIC)\s+(\"[^\"]*\")\s+(\"[^\"]*\")</match>
+                <include>
+                  <context sub-pattern="1" style-ref="doctype"/>
+                  <context sub-pattern="2" style-ref="attribute-value"/>
+                  <context sub-pattern="3" style-ref="attribute-value"/>
+                </include>
+              </context>
+              <context>
+                <start>\[</start>
+                <end>\]</end>
+                <include>
+                  <context sub-pattern="0" where="start" style-ref="doctype"/>
+                  <context sub-pattern="0" where="end" style-ref="doctype"/>
+                  <context ref="dtd:dtd"/>
+                </include>
+              </context>
+            </include>
+        </context>-->
+
+        <!--<context id="cdata" class="no-spell-check">
+            <start>&lt;!\[CDATA\[</start>
+            <end>\]\]&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="cdata-delim" class="no-spell-check"/>
+                <context sub-pattern="0" where="end" style-ref="cdata-delim"/>
+            </include>
+        </context>-->
+
+        <context id="processing-instruction" style-ref="processing-instruction">
+            <start>\[\?</start>
+            <end>\?\];</end>
+        </context>
+
+        <!-- The following three contexts can be <replace>d in xml
+             dialect lang files, to custommize highlighting, e.g.
+             highlighting docbook tags as keywords -->
+
+        
+
+        <!-- Match attribute-name before element-name otherwise
+             "text" in <fo:block text-align="left"> is detected as
+             element -->
+        <!--<context id="attribute-name" style-ref="attribute-name" class="no-spell-check">
+            <match>\b\%{name}\s*=</match>
+        </context>-->
+
+        <!--<context id="attribute-value" style-ref="attribute-value" class="string" class-disabled="no-spell-check">
+            <start>["']</start>
+            <end>\%{0@start}</end>
+            <include>
+                <context ref="entity"/>
+                <context ref="character-reference"/>
+                <context ref="unallowed-chars"/>
+            </include>
+        </context>-->
+
+        <!--<context id="element-name" once-only="true" style-ref="element-name" class="no-spell-check">
+            <match>\b\%{name}\b(?!\s*=)</match>
+        </context>-->
+
+        <!--<context id="prolog" class="no-spell-check">
+            <start>&lt;\?xml</start>
+            <end>\?&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="processing-instruction"/>
+                <context sub-pattern="0" where="end" style-ref="processing-instruction"/>
+                <context ref="attribute-value"/>
+                <context ref="attribute-name"/>
+            </include>
+        </context>-->
+
+        <!--<context id="start-tag" style-ref="tag" class="no-spell-check">
+            <start>&lt;(?!/)</start>
+            <end>/?&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="element-name"/>
+                <context sub-pattern="0" where="end" style-ref="element-name"/>
+                <context ref="entity"/>
+                <context ref="character-reference"/>
+                <context ref="unallowed-chars"/>
+                <context ref="namespace"/>
+                <context ref="attribute-name"/>
+                <context ref="attribute-value"/>
+                <context ref="element-name"/>
+                <context style-ref="error" extend-parent="false">
+                  <match>\S</match>
+                </context>
+            </include>
+        </context>-->
+
+        <!--<context id="end-tag" style-ref="tag" class="no-spell-check">
+            <start>&lt;/</start>
+            <end>&gt;</end>
+            <include>
+                <context sub-pattern="0" where="start" style-ref="element-name"/>
+                <context sub-pattern="0" where="end" style-ref="element-name"/>
+                <context ref="entity"/>
+                <context ref="character-reference"/>
+                <context ref="unallowed-chars"/>
+                <context ref="namespace"/>
+                <context ref="element-name"/>
+                <context style-ref="error" extend-parent="false">
+                  <match>\S</match>
+                </context>
+            </include>
+        </context>-->
+
+        <!--<context id="close-tag-outside-tag" style-ref="error">
+          <match>/&gt;</match>
+        </context>-->
+
+        <!--<context id="xml">
+            <include>
+                <context ref="comment"/>
+                <context ref="doctype"/>
+                <context ref="cdata"/>
+                <context ref="prolog"/>
+                <context ref="processing-instruction"/>
+                <context ref="start-tag"/>
+                <context ref="end-tag"/>
+                <context ref="entity"/>
+                <context ref="character-reference"/>
+                <context ref="unallowed-chars"/>
+                <context ref="close-tag-outside-tag"/>
+            </include>
+        </context>-->
+        
+        <context id="lmnl">
+            <include>
+                <context ref="unallowed-chars"/>
+                <!--<context ref="start-tag"/>-->
+                
+                <context ref="comment"/>
+                <context ref="processing-instruction"/>
+                
+                <!--<context ref="end-tag"/>
+                <context ref="empty-range-tag"/>
+                <context ref="atom"/>-->
+                
+            </include>
+        </context>
+    </definitions>
+</language>
