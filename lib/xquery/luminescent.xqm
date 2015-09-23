@@ -132,7 +132,7 @@ declare function lm:lmnl-to-xLMNL($lmnl as xs:string,    (: A LMNL document as a
                  as document-node()* {
 
    let $start := document { <lmnl> { $lmnl } </lmnl> }
-   let $params := map { "base-uri" := $baseURI }
+   let $params := map { "base-uri" : $baseURI }
 
    let $xLMNL-pipeline :=
 
@@ -158,7 +158,7 @@ declare function lm:xLMNL-with-divs($xLMNL as document-node()*,
                                     $elementList as xs:string)
                  as document-node()* {
    let $xslt   := lm:xslt-path('../down/xlmnl-structure.xsl')
-   let $params := map { "element-list" := $elementList }
+   let $params := map { "element-list" : $elementList }
    return lm:run-xslt($xLMNL, $xslt, $params)
 
 };
