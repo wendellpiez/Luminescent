@@ -11,10 +11,9 @@
 
   <p:input kind="parameter" port="parameters" primary="true"/>
   
-  <p:serialization port="step0-comment" indent="true" encoding="utf-8"/>  
-  
+  <p:serialization port="step0-comment" indent="true" encoding="utf-8"/>
   <p:output port="step0-comment" primary="false">
-    <p:pipe port="result" step="tokenize"/>
+    <p:pipe port="result" step="comment"/>
   </p:output>
   
   <p:serialization port="step1-tokenize" indent="true" encoding="utf-8"/>  
