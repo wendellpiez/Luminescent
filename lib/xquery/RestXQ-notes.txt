@@ -1,7 +1,0 @@
-Get RESTXQ going by modifying the .basex configuration file (something like) as
-follows:
-
-RESTXQPATH = /home/wendell/Documents/Luminescent/xquery/restxq
-
-(i.e. add the path to the Luminescent xquery/restxq directory.)
-

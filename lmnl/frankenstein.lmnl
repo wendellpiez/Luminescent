@@ -81,7 +81,7 @@ to get back support for analysis of dialogue. [gi [TEI}yes{TEI]}TITLE{gi] tags a
 {revisionDesc]
 {teiHeader]}
 [text}
-[volume [nominal]}[front}
+[volume [n}I{]}[front}
 [titlePage}
 [docTitle}
 [titlePart [type}main{type]}Frankenstein{titlePart]
@@ -1094,7 +1094,7 @@ this feeling into enthusiasm. A new light seemed to dawn upon my mind, and
 bounding with joy, I communicated my discovery to my father.{page]
 
 [page [n}26{n] [ed}1831{ed]}My father looked carelessly at the title page of my book and said,
-[said [who}Victor's father{]}Ah! Cornelius Agrippa! My dear Victor, do
+[said [who}Frankenstein Sr.{]}Ah! Cornelius Agrippa! My dear Victor, do
 not waste your time upon this; it is sad trash.{said]{p]
 [p}If, instead of this remark, my father had taken the pains to explain to me
 that the principles of Agrippa had been entirely exploded and that a modern
@@ -1593,7 +1593,7 @@ insensible to the charms of nature. And the same feelings which made me neglect
 the scenes around me caused me also to forget those friends who were so many
 miles absent, and whom I had not seen for so long a time. I knew my silence
 disquieted them, and I well remembered the words of my father:
-[said [who}Victor's father{]}I know that while you are pleased with
+[said [who}Frankenstein Sr.{]}I know that while you are pleased with
 yourself you will think of us with affection, and we shall hear regularly from
 you. You must pardon me if I regard any interruption in your correspondence as
 a proof that your other duties are equally neglected.{said]{p]
@@ -1856,7 +1856,7 @@ you; it is from your cousin, I believe.{said]{dialogue]{p]
 [chapter [n}6{n]}
 [head}Chapter 6{head]
 [p}Clerval then put the following letter into my hands. It was from my own
-Elizabeth:{p] [letter}
+Elizabeth:{p] [letter [to}Victor Frankenstein{to][from}Elizabeth Lavenza{from]}
 [salute}My dearest Cousin,{salute]
 [p}You have been ill, very ill, and even the constant letters of dear kind
 Henry are not sufficient to reassure me on your account. You are forbidden to
@@ -2090,7 +2090,7 @@ bounded along with feelings of unbridled joy and hilarity.{p]
 [chapter [n}7{n]}
 [head}Chapter 7{head]
 [p}On my return, I found the following letter from my father: {p]
-[letter}
+[letter [from}Frankenstein Sr.{from][to}Victor Frankenstein{to]}
 [salute}My dear Victor,{salute]
 [p}You have probably waited impatiently for a letter to fix the dateline of your
 return to us, and I was at first tempted to write only a few lines, merely
@@ -2366,13 +2366,13 @@ exchanged our mournful greeting, would have introduced some other topic than
 that of our disaster, had not Ernest exclaimed, [said [who}Ernest{]}Good
 God, Papa! Victor says that he knows who was the murderer of poor
 William.{said]{p]
-[p}[said [who}Victor's father{]}We do also, unfortunately, [interject}replied
+[p}[said [who}Frankenstein Sr.{]}We do also, unfortunately, [interject}replied
 my father;{interject] for indeed I had rather have been
 forever ignorant than have discovered so much depravity and ingratitude in one
 I valued so highly.{said]{p]
 [p}[said [who}Victor{]}My dear father, you are mistaken; Justine is
 innocent.{said]{p]
-[p}[said [who}Victor's father{]}If she is, God forbid that she should
+[p}[said [who}Frankenstein Sr.{]}If she is, God forbid that she should
 suffer as guilty.{page]
 
 [page [n}65{n] [ed}1831{ed]}She is to be tried today, and I hope, I
@@ -2405,7 +2405,7 @@ spirits be cheered by the assurance of her acquittal.{said]{p]
 believes in her guilt, and that made me wretched, for I knew that it was
 impossible; and to see everyone else prejudiced in so deadly a manner rendered
 me hopeless and despairing.{said] She wept.{p]
-[p}[said [who}Victor's father{]}Dearest niece, [interject}said my father,{interject]
+[p}[said [who}Frankenstein Sr.{]}Dearest niece, [interject}said my father,{interject]
 dry your tears. If she is, as you believe,
 innocent, rely on the justice of our{page]
 
@@ -2689,7 +2689,7 @@ beheld those I loved spend vain sorrow upon the graves of William and Justine,
 the first hapless victims to my unhallowed arts.{p]
 {chapter]{volume]
 
-[volume [nominal]}[chapter [n}9{n]}
+[volume [n}II{]}[chapter [n}9{n]}
 [head}Chapter 9{head]
 [p}Nothing is more painful to the human mind than, after the feelings have been
 worked up by a quick succession of events, the dead calmness of inaction and
@@ -2716,7 +2716,7 @@ consolation—deep, dark, deathlike solitude.{p]
 and habits and endeavoured by arguments deduced from the feelings of his serene
 conscience and guiltless life to inspire me with fortitude and awaken in me the
 courage to dispel the dark cloud which brooded over me.
-[said [who}Victor's father{]}Do you think, Victor, [interject}said he,{interject]
+[said [who}Frankenstein Sr.{]}Do you think, Victor, [interject}said he,{interject]
 that I do not suffer also? No one could
 love a child more than I loved your brother [interject}— tears came into his eyes
 as he spoke —{interject] but is it not a duty to
@@ -4565,7 +4565,7 @@ before me like a dream, and that thought only had to me the reality of
 life.{p]
 {chapter]{volume]
 
-[volume [nominal]}[chapter [n}18{n]}
+[volume [n}III{]}[chapter [n}18{n]}
 [head}Chapter 18{head]
 [p}Day after day, week after week, passed away on my return to Geneva; and I
 could not collect the courage to recommence my work. I feared the vengeance of
@@ -4592,14 +4592,14 @@ me to some degree{page]
 the salutations of my friends with a readier smile and a more cheerful
 heart.{p]
 [p}[dialogue}It was after my return from one of these rambles that my father, calling me
-aside, thus addressed me, [said [who}Victor's father{]}I am happy to remark, my dear son, that
+aside, thus addressed me, [said [who}Frankenstein Sr.{]}I am happy to remark, my dear son, that
 you have resumed your former pleasures and seem to be returning to yourself.
 And yet you are still unhappy and still avoid our society. For some time I was
 lost in conjecture as to the cause of this, but yesterday an idea struck me,
 and if it is well founded, I conjure you to avow it. Reserve on such a point
 would be not only useless, but draw down treble misery on us all.{said]{p]
 [p}I trembled violently at his exordium, and my father continued,
-[said [who}Victor's father{]}I confess, my son, that I have always looked forward to your
+[said [who}Frankenstein Sr.{]}I confess, my son, that I have always looked forward to your
 marriage with our dear Elizabeth as the tie of our domestic comfort and the
 stay of my declining years. You were attached to each other from your earliest
 infancy; you studied together, and appeared, in dispositions and tastes,
@@ -4613,7 +4613,7 @@ occasion the poignant misery which you appear to feel.{said]{p]
 and sincerely. I never saw any woman who excited, as Elizabeth does, my warmest
 admiration and affection. My future hopes and prospects are entirely bound up
 in the expectation of our union.{said]{p]
-[p}[said [who}Victor's father{]}The expression of your sentiments of this subject, my dear
+[p}[said [who}Frankenstein Sr.{]}The expression of your sentiments of this subject, my dear
 Victor, gives me more pleasure than I have for some time experienced. If you
 feel thus, we shall assuredly be happy, however present events may cast a gloom
 over us. But it is this gloom which appears to have taken so strong a hold of
@@ -5541,9 +5541,9 @@ arrival of my father. I stretched out my hand to him and cried,
 [p}My father calmed me with assurances of their welfare and endeavoured, by
 dwelling on these subjects so interesting to my heart, to raise my desponding
 spirits; but he soon felt that a prison cannot be the abode of cheerfulness.
-[said [who}Victor's father{]}What a place is this that you inhabit, my son!{said]
+[said [who}Frankenstein Sr.{]}What a place is this that you inhabit, my son!{said]
 said he, looking mournfully at the barred windows and wretched appearance of the room.
-[said [who}Victor's father{]}You travelled to seek happiness, but a fatality seems to pursue you.
+[said [who}Frankenstein Sr.{]}You travelled to seek happiness, but a fatality seems to pursue you.
 And poor Clerval—{said]{p]
 [p}The name of my unfortunate and murdered friend was an agitation too great to
 be endured in my weak state; I shed tears.{p]
@@ -5690,7 +5690,7 @@ still, words like those I have recorded would burst uncontrollably from me. I
 could offer no explanation of them, but their truth in part relieved the burden
 of my mysterious woe.{p]
 [p}[dialogue}Upon this occasion my father said, with an expression of unbounded wonder,
-[said [who}Victor's father{]}My dearest Victor, what infatuation is this? My dear son, I entreat
+[said [who}Frankenstein Sr.{]}My dearest Victor, what infatuation is this? My dear son, I entreat
 you never to make such an assertion again.{said]{p]
 [p}[said [who}Victor{]}I am not mad, [interject} I cried energetically; {interject]the sun
 and the heavens, who have viewed my operations, can hear witness of my truth. I
@@ -5712,7 +5712,7 @@ they had ever been since my journey to the sea of ice.{p]
 [p}A few days before we left Paris on our way to Switzerland I received the
 following letter from Elizabeth:—{p]{page]
 
-[page [n}167{n] [ed}1831{ed]}[letter}
+[page [n}167{n] [ed}1831{ed]}[letter [from}Elizabeth Lavenza{from][to}Victor Frankenstein{to]}
 [salute}My dear Friend,{salute]
 [p}It gave me the greatest pleasure to receive a letter from my uncle datelined at
 Paris; you are no longer at a formidable distance, and I may hope to see you in
@@ -5833,11 +5833,11 @@ agonies of remorse poison the luxury there is otherwise sometimes found in
 indulging the excess of grief. {p]
 [p}[dialogue}Soon after my arrival my father spoke of my immediate marriage with
 Elizabeth. I remained silent.{p]
-[p}[said [who}Victor's father{]}Have you, then, some other attachment?{said]{p]
+[p}[said [who}Frankenstein Sr.{]}Have you, then, some other attachment?{said]{p]
 [p}[said [who}Victor{]}None on earth. I love Elizabeth and look forward to our union
 with delight. Let the day therefore be fixed; and on it I will consecrate
 myself, in life or death, to the happiness of my cousin.{said]{p]
-[p}[said [who}Victor's father{]}My dear Victor, do not speak thus. Heavy misfortunes have
+[p}[said [who}Frankenstein Sr.{]}My dear Victor, do not speak thus. Heavy misfortunes have
 befallen us, but let us only cling closer to what remains and transfer our love
 for those whom we have lost to those who yet live. Our circle will be small but
 bound close by the ties of affection and mutual misfortune. And when time shall

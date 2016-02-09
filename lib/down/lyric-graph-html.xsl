@@ -34,14 +34,14 @@
     </title>
     <styles>
       <ranges color="rosybrown" opacity="0.1">verse-para</ranges>
-      <ranges color="darkorange" opacity="0.1">quatrain tercet couplet</ranges>
+      <ranges color="darkorange" opacity="0.1">quatrain tercet couplet tercet quatrain quintain</ranges>
       <ranges color="gold" opacity="0.1" stroke="orange">q s</ranges>
       <ranges color="white" opacity="0.2">l lg</ranges>
       <ranges color="yellow" opacity="0.2">phr</ranges>
     </styles>
     <bars indent="10">
       <ranges width="30" indent="0">verse-para</ranges>
-      <ranges width="30" indent="30">lg quatrain tercet couplet</ranges>
+      <ranges width="30" indent="30">lg quatrain tercet couplet quintain sestet</ranges>
       <ranges width="30" indent="60">l</ranges>
       <ranges width="30" indent="90">phr</ranges>
       <ranges width="30" indent="105">s q</ranges>
@@ -49,6 +49,8 @@
     <discs indent="220">
       <range label="none">verse-para</range>
       <range label="none">q</range>
+      <range label="none">sestet</range>
+      <range label="none">quintain</range>
       <range label="none">quatrain</range>
       <range label="none">tercet</range>
       <range label="none">couplet</range>
@@ -161,7 +163,7 @@ $(document).ready(function() {
       p.line{
         margin-top:0px;
         margin-bottom:0px;
-        margin-left:1em;
+        padding-left:1em;
         text-indent:-1em
       }
       span:hover{

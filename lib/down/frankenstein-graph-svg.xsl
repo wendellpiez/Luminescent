@@ -3,7 +3,7 @@
 <!ENTITY ldquo '&#x201C;' >
 <!ENTITY rdquo '&#x201D;' >
 ]>
-
+<!-- Generic bubbles-svg.xsl logic tuned for frankenstein or similar LMNL -->
 <xsl:stylesheet version="2.0"
   xmlns:x="http://lmnl-markup.org/ns/xLMNL"
   xmlns:svg="http://www.w3.org/2000/svg"
