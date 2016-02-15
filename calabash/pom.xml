@@ -164,4 +164,13 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
+
+ <!-- <profiles>
+        <profile>
+            <id>lmnl.syntax.check</id>
+            <properties>
+                <file.URI>This is some text</file.URI>
+            </properties>
+        </profile>
+    </profiles> -->
 </project>

@@ -32,14 +32,14 @@
     </title>
     <styles>
       <ranges color="rosybrown" opacity="0.1">verse-para</ranges>
-      <ranges color="darkorange" opacity="0.1">quatrain tercet couplet tercet quatrain quintain</ranges>
+      <ranges color="darkorange" opacity="0.1">couplet tercet quatrain quintain sestet</ranges>
       <ranges color="gold" opacity="0.1" stroke="orange">q s</ranges>
       <ranges color="white" opacity="0.2">l lg</ranges>
       <ranges color="yellow" opacity="0.2">phr</ranges>
     </styles>
     <bars indent="10">
       <ranges width="30" indent="0">verse-para</ranges>
-      <ranges width="30" indent="30">lg quatrain tercet couplet quintain sestet</ranges>
+      <ranges width="30" indent="30">lg couplet tercet quatrain quintain sestet</ranges>
       <ranges width="30" indent="60">l</ranges>
       <ranges width="30" indent="90">phr</ranges>
       <ranges width="30" indent="105">s q</ranges>

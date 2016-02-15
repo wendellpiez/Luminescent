@@ -197,7 +197,7 @@
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
-      <map:match pattern="**/*-novel-bubblemap.svg">
+      <map:match pattern="**/*-map.svg">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="lib/down/narrative-map-svg.xsl">
           <map:parameter name="use-request-parameters" value="true"/>
