@@ -129,7 +129,9 @@
       
       <map:match pattern="sonnets/*-graph.svg">
         <map:generate src="cocoon:/sonnets/xLMNL/{1}.xml"/>
-        <map:transform type="xslt2" src="lib/down/sonnet-static-graph-svg.xsl"/>
+        <map:transform type="xslt2" src="lib/down/sonnet-static-graph-svg.xsl">
+          <map:parameter name="use-request-parameters" value="true"/>
+        </map:transform>
         <map:serialize type="svgxml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
