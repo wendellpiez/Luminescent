@@ -137,6 +137,14 @@ s      rect.shine,
     </xsl:call-template>
   </xsl:template>
   
+  
+  <xsl:template match="x:range[@name='voice']" mode="label-disc">
+    <xsl:value-of select="@name"/>
+    <tspan font-size="60%">
+      <xsl:value-of select="x:annotation[@name='who']/x:content/(concat(' (',string(.),')') )"/>
+    </tspan>
+  </xsl:template>
+  
   <xsl:function name="x:covering" as="element(x:range)*">
     
     <xsl:param as="element(x:range)" name="who"/>

@@ -1,7 +1,7 @@
 [sonneteer [id}ozymandias{id]}
 [meta [author}Percy Bysshe Shelley{author] [title}Ozymandias{title]]
 [sonnet}[s}[octave}[quatrain}
-[l}[voice [who}firstPerson{]}[phr}I met a traveller from an antique land,{phr]{l]
+[l}[voice [who}Narrator{]}[phr}I met a traveller from an antique land,{phr]{l]
 [l}[phr}Who said —{phr][voice [who}traveller{][discourse}direct{]}[phr}“Two vast and trunkless legs of stone{l]
 [l}Stand in the desart.[caesura}...{caesura]{phr][phr}Near them,{phr] [phr}on the sand,{phr]{l]
 [l}[phr}Half sunk a shattered visage lies,{phr] [voice [who}sculptor{][discourse}implicit{]}[phr}whose frown,{phr]{l]{quatrain]
