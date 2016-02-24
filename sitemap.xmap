@@ -181,12 +181,20 @@
       </map:match>
       
       <!--http://buteo:8888/cocoon/Luminescent//lmnl/frankenstein-map.svg-->
+      <map:match pattern="**/*-voices.html">
+        <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
+        <map:transform type="xslt2" src="lib/down/voices-graph-html.xsl"/>
+        <map:serialize type="xhtml"/>
+        <!--<map:serialize type="xml"/>-->
+      </map:match>
+      
       <map:match pattern="**/*-lyric-graph.html">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="lib/down/{2}-graph-html.xsl"/>
         <map:serialize type="xhtml"/>
         <!--<map:serialize type="xml"/>-->
       </map:match>
+      
       <map:match pattern="**/*-shakespeare-graph.svg">
         <map:generate src="cocoon:/{1}/xLMNL/{2}.xml"/>
         <map:transform type="xslt2" src="lib/down/shakespeare-graph-svg.xsl"/>

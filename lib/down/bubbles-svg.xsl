@@ -120,41 +120,45 @@
             <svg:set attributeName="visibility" attributeType="CSS" to="hidden"
             begin="{generate-id()}-off.click" fill="freeze"/>-->
           
-          <xsl:for-each
-            select="key('ranges-by-name',$spec,$lmnl-document)">
-            <xsl:variable name="start-y" select="@start"/>
-            <xsl:variable name="radius" select="((@end - @start) div 2) + 1"/>
-            <circle id="bubble-{generate-id()}" class="range-bubble"
-              fill="black"
-              fill-opacity="0.2"
-              stroke="black"
-              stroke-width="1"
-              stroke-opacity="1"
-              cx="0" cy="{$start-y + ($radius)}" r="{$radius}">
-              <xsl:apply-templates select="." mode="assign-class">
-                <xsl:with-param name="class">range-bubble</xsl:with-param>
-              </xsl:apply-templates>
-              <xsl:apply-templates select="$style/@*" mode="copy-property"/>
-            </circle>
-            <xsl:call-template name="label-disc">
-              <!--<xsl:with-param name="fill" select="$fill"/>
-              <xsl:with-param name="fill-opacity" select="$fill-opacity"/>
-              <xsl:with-param name="stroke" select="$stroke"/>
-              <xsl:with-param name="stroke-width" select="$stroke-width"/>
-              <xsl:with-param name="stroke-opacity" select="$stroke-opacity"/>-->
-              <xsl:with-param name="spec" select="$spec"/>
-              <xsl:with-param name="style" select="$style"/>
-              <xsl:with-param name="radius" select="$radius"/>
-              <xsl:with-param name="start-y" select="$start-y"/>
-            </xsl:call-template>
-            <!--             -->
-          </xsl:for-each>
+          <xsl:apply-templates select="key('ranges-by-name',$spec,$lmnl-document)"
+            mode="drawBubble">
+            <xsl:with-param tunnel="yes" name="spec"  select="$spec"/>
+            <xsl:with-param tunnel="yes" name="style" select="$style"/>
+          </xsl:apply-templates>
         </g>
       </xsl:for-each>
       
       <xsl:call-template name="display-text"/>
       
     </g>
+  </xsl:template>
+
+  <xsl:template match="*" mode="drawBubble">
+    <xsl:param name="spec"  as="node()" tunnel="yes"/>
+    <xsl:param name="style" as="node()" tunnel="yes"/>
+    <xsl:variable name="start-y" select="@start"/>
+    <xsl:variable name="radius" select="((@end - @start) div 2) + 1"/>
+    
+    <circle id="bubble-{generate-id()}" class="range-bubble" fill="black" fill-opacity="0.2"
+      stroke="black" stroke-width="1" stroke-opacity="1" cx="0" cy="{$start-y + ($radius)}"
+      r="{$radius}">
+      <xsl:apply-templates select="." mode="assign-class">
+        <xsl:with-param name="class">range-bubble</xsl:with-param>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="$style/@*" mode="copy-property"/>
+      <xsl:attribute name="cx">
+        <xsl:apply-templates select="." mode="bubbleOffset"/>
+      </xsl:attribute>
+    </circle>
+    <xsl:call-template name="label-disc">
+      <!--<xsl:with-param name="fill" select="$fill"/>
+              <xsl:with-param name="fill-opacity" select="$fill-opacity"/>
+              <xsl:with-param name="stroke" select="$stroke"/>
+              <xsl:with-param name="stroke-width" select="$stroke-width"/>
+              <xsl:with-param name="stroke-opacity" select="$stroke-opacity"/>-->
+      <xsl:with-param name="radius" select="$radius"/>
+      <xsl:with-param name="start-y" select="$start-y"/>
+    </xsl:call-template>
   </xsl:template>
   
   <xsl:template mode="copy-property" match="@*">
@@ -169,14 +173,16 @@
     <xsl:attribute name="fill-opacity" select="."/>
   </xsl:template>
   
+  <xsl:template mode="bubbleOffset" match="*">0</xsl:template>
+  
   <xsl:template name="label-disc">
     <!--<xsl:param name="fill"/>
     <xsl:param name="fill-opacity"/>
     <xsl:param name="stroke"/>
     <xsl:param name="stroke-width"/>
     <xsl:param name="stroke-opacity"/>-->
-    <xsl:param name="style"/>
-    <xsl:param name="spec"/>
+    <xsl:param name="style" tunnel="yes"/>
+    <xsl:param name="spec" tunnel="yes"/>
     <xsl:param name="radius"/>
     <xsl:param name="start-y"/>
     <xsl:variable name="labels" select="$show-labels and not($spec/@label='none')"/>

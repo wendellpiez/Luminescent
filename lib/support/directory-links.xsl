@@ -44,6 +44,7 @@
       <conditional-label type="-lyric-graph.html" color="pink">Lyric graph</conditional-label>
       <conditional-label type="-map.svg" color="pink">Narrative map (SVG)</conditional-label>
       <conditional-label type="-shakespeare-graph.svg" color="pink">Shakespeare graph</conditional-label>
+      <conditional-label type="-voices.html" color="pink">Voices graph</conditional-label>
       <xsl:if test="$dir = 'shakespeare'">
         <!-- come back to ... -->
         <label type="-structured.xml" color="pink">structured XML</label>
@@ -170,9 +171,15 @@
     </td>
   </xsl:template>
 
-  <xsl:template match="conditional-label[ends-with(@type,'-graph.svg')]"
+  <xsl:template match="conditional-label[starts-with(@type,'-voices')]"
     mode="cell">
-    <!-- only if a stylesheet customized
+    <xsl:param name="basename" tunnel="yes"/>
+    <xsl:if test="matches($basename,'voices')">
+      <xsl:next-match/>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="conditional-label[ends-with(@type,'-graph.svg')]" mode="cell">  <!-- only if a stylesheet customized
          for the particular instance can be found -->
     <xsl:param name="basename" tunnel="yes"/>
     <xsl:variable name="xslt"
