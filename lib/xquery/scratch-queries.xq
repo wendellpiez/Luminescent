@@ -1,9 +1,13 @@
+
+
 import module namespace lm = "http://www.lmnl-markup.org/ns/luminescent/xquery" at "luminescent.xqm";
 
-declare namespace x = "http://lmnl-markup.org/ns/xLMNL";
+(: declare namespace x = "http://lmnl-markup.org/ns/xLMNL"; :)
 declare option output:item-separator "\n=====\n";
 
-let $novel  := db:open('LMNL-library','Frankenstein/synoptic.xlmnl')/*
+let $novel  := db:open('LMNL-library','Frankenstein.xlmnl')/*
+
+(: return $novel/* :)
 
 (: 
 //x:range[@name='reflect']/x:annotation[not(@name)]/lm:annotation-value(.)
@@ -20,28 +24,27 @@ let $novel  := db:open('LMNL-library','Frankenstein/synoptic.xlmnl')/*
 (:return distinct-values(lm:ranges('said',$novel)/lm:annotations('who',.)/lm:annotation-value(.)):)
 
 
-(: Show all the quotes ('said' ranges) attributed to 'The creature'
+(: Show all the quotes ('said' ranges) attributed to 'The creature' :)
 
  let $who := 'The creature'
 
-return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.) :)
+return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.)
  
-for $narrative in lm:ranges('story',$novel)
+(: for $narrative in lm:ranges('story',$novel)
 let $enclosing-narratives := $narrative/(lm:enclosing-ranges-named('story',.),.)
 let $narrator := $narrative/lm:annotations('who',.)/lm:value(.)
 group by $narrator
 let $speeches := lm:spans-for-ranges($narrative)/lm:ranges-for-spans(.)[lm:named('said',.)]
 [empty(lm:enclosing-ranges-named('story',.) except $enclosing-narratives)]
 
-return 
+return
 <narrative who="{$narrator}" count="{count($speeches)}"> {
   for $who-speeches in $speeches
   let $who := $who-speeches/lm:annotations('who',.)/lm:value(.)
   group by $who
-  return <who count="{count($who-speeches)}">{$who}</who>
+  return <who count="{count($who-speeches)}">{$who}</who> }
  
-</narrative>
- 
+</narrative> :)  
 
 (: Find any page with more than 2500 characters (there was one,
    marked erroneously.
