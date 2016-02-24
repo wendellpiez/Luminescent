@@ -75,6 +75,7 @@
   <xsl:variable name="lyrics" as="element()+">
     <basename>Easter1916</basename>
     <basename>WinterNight</basename>
+    <basename>KublaKhan</basename>
     <basename>julian-and-maddalo</basename>
   </xsl:variable>
 

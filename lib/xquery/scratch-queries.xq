@@ -23,10 +23,9 @@ let $novel  := db:open('LMNL-library','Frankenstein.xlmnl')/*
 
 (:return distinct-values(lm:ranges('said',$novel)/lm:annotations('who',.)/lm:annotation-value(.)):)
 
-
 (: Show all the quotes ('said' ranges) attributed to 'The creature' :)
 
- let $who := 'The creature'
+let $who := 'The creature'
 
 return lm:ranges('said',$novel)[lm:annotations('who',.) = $who] / lm:range-value-ws-trim(.)
  
@@ -43,6 +42,11 @@ return
   let $who := $who-speeches/lm:annotations('who',.)/lm:value(.)
   group by $who
   return <who count="{count($who-speeches)}">{$who}</who> }
+<<<<<<< HEAD
+=======
+ 
+</narrative> :)
+>>>>>>> origin/master
  
 </narrative> :)  
 
@@ -65,11 +69,11 @@ return $l/@start/string(.):)
 
 
 
-(: Where is Volney mentioned?:)
+(: Where is 'Paradise' mentioned? (line number and offset) :)
 
 (: return lm:ranges('p',$novel)[matches(lm:range-value(.),'Paradise')] ! string-join((@sl,@so),':') :)
 
-(:return lm:ranges('p',$novel)[contains(lm:range-value(.),'Volney')]/lm:range-value(.):)
+return lm:ranges('page',$novel)[contains(lm:range-value(.),'Volney')]/lm:annotations('n',.)/lm:annotation-value(.)
 
 
 
@@ -96,3 +100,7 @@ let $promoteParam := string-join(
 
 
  $promoteParam :)
+
+
+(: for $quote in lm:ranges('said',$novel)[empty(lm:enclosing-ranges-named('p',.))]
+return ($quote/lm:annotations('who',.) || ':: ' || string-join(lm:spans-for-ranges($quote) ! lm:serialize-lmnl-fragment(.),'')) :)

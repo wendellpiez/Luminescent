@@ -10,6 +10,12 @@ Update-GSLIS.*
 localhost+8888/
 snapshot.bat
 
+# cocoon installation
+cocoon/target/
+
+# local working files
+local
+
 # misc
 debug/
 xml-mapping-notes.txt

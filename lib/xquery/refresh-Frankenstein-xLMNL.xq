@@ -2,7 +2,7 @@ import module namespace lm = "http://www.lmnl-markup.org/ns/luminescent/xquery" 
 
 declare namespace x = "http://lmnl-markup.org/ns/xLMNL";
 declare option output:indent "no";
-declare option output:format "no";
+(: declare option output:format "no"; :)
 declare option db:chop 'no';
 
 (: For compiling LMNL into a BaseX db :)

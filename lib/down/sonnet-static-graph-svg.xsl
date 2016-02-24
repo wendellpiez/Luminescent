@@ -66,14 +66,14 @@
       <range label="left">phr</range>
     </discs>
     <title>
-      <font-family>Cambria</font-family>
+      <font-family>Noto Serif</font-family>
       <font-size>28</font-size>
       <line-height>40</line-height>
       <indent>440</indent>
       <drop>120</drop>
     </title>
     <text line="line">
-      <font-family>Cambria</font-family>
+      <font-family>Noto Serif</font-family>
       <indent>480</indent>
       <drop>200</drop>
       <font-size>16</font-size>

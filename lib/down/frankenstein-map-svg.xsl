@@ -9,6 +9,9 @@
   exclude-result-prefixes="#all"
   version="2.0">
   
+<!-- Rather early attempt. -->
+  
+  
   <xsl:variable name="pageWidth"  select="600"/>
   <xsl:variable name="pageHeight" select="800"/>
   <xsl:variable name="pageMargin" select="20"/>

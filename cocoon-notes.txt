@@ -1,0 +1,34 @@
+Cocoon installation
+
+Cocoon is archaic, but it works, and many old demonstrations have been made using it, and remain viable. It is still reasonably okay as a LMNL processing platform for development.
+
+Alternatives to running Cocoon include running BaseX (XML database) or an XProc toolchain such as XML Calabash. Basically any XSLT pipelining technology will do as long as XSLT 2.0 is supported.
+
+In order to set up this Cocoon installation I have done as follows:
+
+0. Have Maven (recent) and a JDK (not just JVM)
+1. Install Cocoon under Maven:
+mvn archetype:generate -DarchetypeCatalog=http://cocoon.apache.org
+   using archetype 2
+2. Patch src/resources/META-INF/cocoon/avalon to support Saxon9
+3. Perform surgery on pom.xml
+4. Perform surgery on sitemap.xmap (plus copied demo installation files)
+5. Run via mvn jetty:run
+
+Hopefully once this is done once for the project you shouldn't have to replicate it. If you do, renamed this 'cocoon' directory, run the installation, then patch in from the (renamed) project installation.
+
+With Cocoon running you should see test result pages here:
+
+http://localhost:8888/cocoon/test (results of running XSLT 1.0)
+http://localhost:8888/cocoon/test2 (results of running XSLT 2.0, showing a version of Saxon has been installed)
+http://localhost:8888/cocoon/testFO (PDF results of invoking XSL-FO)
+
+And these links will get you Luminescent:
+
+http://localhost:8888/cocoon/Luminescent/lmnl
+
+http://localhost:8888/cocoon/Luminescent/processor
+http://localhost:8888/cocoon/Luminescent/sitemap.html
+
+
+

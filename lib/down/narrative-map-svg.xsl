@@ -11,8 +11,9 @@
   
   <xsl:variable name="xLMNL-document" select="/"/>
   
-  <xsl:variable name="nominalWidth" select="19.5"/>
-  <xsl:variable name="nominalHeight" select="27.5"/>
+  <xsl:variable name="scale"         select="50"/>
+  <xsl:variable name="nominalWidth"  select="19.5 * $scale"/>
+  <xsl:variable name="nominalHeight" select="27.5 * $scale"/>
   
   <!-- All the font sizes are scaled to an 800-high page... -->
   <xsl:variable name="pageHeight" select="800"/>
@@ -59,13 +60,10 @@
       <xsl:apply-templates select="." mode="draw"/>
     </xsl:variable>
 
-    <!-- The max @end is 433822 -->
-    <xsl:variable name="width"
-      select="ceiling(max(/x:document/x:range/@end) * $pageSqueeze) + (2 * $pageMargin)"/>
     <svg version="1.1"
       viewBox="0 0 {$pageWidth} {$pageHeight}"
-      width="{$nominalWidth}in" height="{$nominalHeight}in"
-      font-family="'Noto Serif'">
+      width="{$nominalWidth}" height="{$nominalHeight}"
+      font-family="'Noto Serif', Cambria, serif">
       
       <!--<xsl:apply-templates select="$tocMap[$debug]" mode="lmnsc:map-position"/>-->
       <!--<xsl:copy-of select="$legendSet"/>-->      
@@ -82,6 +80,7 @@
       </g>
     </svg>
   </xsl:template>
+  
   
   <xsl:variable name="debug" select="true()"/>
   
@@ -184,7 +183,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="formatObject">
-    <xsl:attribute name="stroke-width"     >0.01</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >0.1</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
   
@@ -200,7 +199,7 @@
     <xsl:attribute name="fill"             >darkorange</xsl:attribute>
     <xsl:attribute name="fill-opacity"     >0.4</xsl:attribute>
     <xsl:attribute name="stroke"           >darkred</xsl:attribute>
-    <xsl:attribute name="stroke-width"     >0.01</xsl:attribute>
+    <xsl:attribute name="stroke-width"     >0.1</xsl:attribute>
     <xsl:next-match/>
   </xsl:template>
   
@@ -296,7 +295,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='p']" mode="labelFormat">
-    <xsl:attribute name="font-size">0.2</xsl:attribute>
+    <xsl:attribute name="font-size">0.4</xsl:attribute>
     <xsl:attribute name="fill">black</xsl:attribute>
     <xsl:attribute name="fill-opacity">1</xsl:attribute>
     <xsl:attribute name="text-anchor">start</xsl:attribute>
@@ -316,7 +315,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='said']" mode="labelFormat">
-    <xsl:attribute name="font-size">2</xsl:attribute>
+    <xsl:attribute name="font-size">2.4</xsl:attribute>
     <xsl:attribute name="fill">black</xsl:attribute>
     <xsl:attribute name="fill-opacity">1</xsl:attribute>
     <xsl:attribute name="text-anchor">start</xsl:attribute>
@@ -342,7 +341,7 @@
     <xsl:attribute name="fill-opacity">1</xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="lmnsc:legend[@rangeName='body']" mode="labelFormat">
+  <xsl:template match="lmnsc:cartouche[@rangeName='body']" mode="labelFormat">
     <xsl:attribute name="stroke">grey</xsl:attribute>
     <xsl:attribute name="stroke-width">1</xsl:attribute>
     <xsl:attribute name="stroke-opacity">0.4</xsl:attribute>
@@ -350,7 +349,7 @@
     <xsl:attribute name="fill-opacity">0.7</xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="lmnsc:legend[@rangeName='dialogue']" mode="labelFormat">
+  <xsl:template match="lmnsc:cartouche[@rangeName='dialogue']" mode="labelFormat">
     <xsl:attribute name="stroke">indianred</xsl:attribute>
     <xsl:attribute name="stroke-width">0.3</xsl:attribute>
     <xsl:attribute name="stroke-opacity">0.4</xsl:attribute>
@@ -392,20 +391,28 @@
       <xsl:with-param name="labelCoords" select="$labelCoords"/>
     </xsl:apply-templates>
     
-    <!-- Next, the label itself -->
+    <!-- Next, the label itself, unless it is to appear in a legend
+         (floating cartouche) -->
     
+    <!--<xsl:if test="empty(key('legend-line-by-ID',@ID,$legendSet))">-->
+      
     <!-- Sometimes, a label gets an extra indent by virtue
          of being assigned to a legend; when not, the indent is 0 -->
     <xsl:variable name="indent"
       select="(key('legend-line-by-ID',@ID,$legendSet)/@indent,0)[1]"/>
-    <text x="{ $labelCoords/@x + $indent }" y="{ $labelCoords/@y }">
+    <!--<text x="{ $labelCoords/@x + $indent }" y="{ $labelCoords/@y }">
       <xsl:apply-templates  select="." mode="labelFormat"/>
       <xsl:apply-templates  select="." mode="labelText"/>
-    </text>
+    </text>-->
+    <g transform="translate({ $labelCoords/@x + $indent } { $labelCoords/@y })">
+      <xsl:apply-templates  select="." mode="labelFormat"/>
+      <xsl:apply-templates  select="." mode="labelText"/>
+    </g>
     
     <xsl:apply-templates select="." mode="ornament-label">
       <xsl:with-param name="axis" select="$axis"/>
     </xsl:apply-templates>
+    <!--</xsl:if>-->
     
   </xsl:template>
 
@@ -420,14 +427,14 @@
       <xsl:apply-templates select="." mode="formatObject"/>
       <xsl:attribute name="fill">none</xsl:attribute>
     </path>
-    <text x="{ $axis - 55 } " y="{number(lmnsc:round-and-format(lmnsc:scale(@end))) + 10}">
+    <g transform="translate({ $axis - 55 } {number(lmnsc:round-and-format(lmnsc:scale(@end))) + 10})">
       <xsl:apply-templates select="." mode="labelFormat"/>
       <xsl:attribute name="font-size">12</xsl:attribute>
       <xsl:attribute name="text-anchor">end</xsl:attribute>
       <xsl:apply-templates select="." mode="labelText">
         <xsl:with-param name="ending" select="true()"/>
       </xsl:apply-templates>
-    </text>
+    </g>
   </xsl:template>
   
   <xsl:template match="x:range[@name='page']" mode="label-path"/>
@@ -490,14 +497,14 @@
   <xsl:template mode="labelX"
     match="x:range[@name=('volume','introduction','preface','letter','chapter','entry')]">
     <xsl:variable name="legend-indent"
-      select="key('legend-line-by-ID',@ID, $legendSet)/parent::lmnsc:legend/(@x + (@padding,0)[1])"/>
+      select="key('legend-line-by-ID',@ID, $legendSet)/parent::lmnsc:cartouche/(@x + (@padding,0)[1])"/>
     <xsl:attribute name="x" select="$legend-indent"/>
   </xsl:template>
   
   <xsl:template mode="labelX" priority="2"
     match="x:range[@name='said'][lmnsc:covering-ranges(.)/@name='dialogue']">
     <xsl:variable name="legend-indent"
-      select="key('legend-line-by-ID',@ID, $legendSet)/parent::lmnsc:legend/(@x + (@padding,0)[1])"/>
+      select="key('legend-line-by-ID',@ID, $legendSet)/parent::lmnsc:cartouche/(@x + (@padding,0)[1])"/>
     <xsl:attribute name="x" select="$legend-indent"/>
   </xsl:template>
   
@@ -571,7 +578,7 @@
   <xsl:template match="x:range[@name=('chapter','letter','entry','volume','preface','introduction')]" mode="labelY">
     <!--<xsl:variable name="baseline" as="xs:double">-4</xsl:variable>-->
     <!--<xsl:attribute name="y" select="lmnsc:round-and-format(lmnsc:scale(@start) - $baseline )"/>-->
-    <xsl:attribute name="y" select="lmnsc:legend-y(.)"/>
+    <xsl:attribute name="y" select="lmnsc:range-legend-y(.)"/>
   </xsl:template>
   
   <xsl:template match="x:range[@name='said'][lmnsc:covering-ranges(.)/@name='dialogue']"
@@ -579,7 +586,7 @@
     <!--<xsl:message>Okay</xsl:message>-->
     <!--<xsl:variable name="baseline" as="xs:double">-4</xsl:variable>-->
     <!--<xsl:attribute name="y" select="lmnsc:round-and-format(lmnsc:scale(@start) - $baseline )"/>-->
-    <xsl:attribute name="y" select="lmnsc:legend-y(.)"/>
+    <xsl:attribute name="y" select="lmnsc:range-legend-y(.)"/>
     <!--<xsl:message>
       <xsl:value-of select="lmnsc:legend-y(.)"/>
     </xsl:message>-->
@@ -596,7 +603,7 @@
   </xsl:template>
   
   <xsl:template match="x:range[@name='q']" mode="labelY">
-    <xsl:variable name="baseline" as="xs:double">-2</xsl:variable>
+    <xsl:variable name="baseline" as="xs:double">2</xsl:variable>
     <xsl:attribute name="y" select="lmnsc:round-and-format(lmnsc:scale(@start) - $baseline )"/>
   </xsl:template>
   
@@ -606,29 +613,38 @@
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range">
-    <xsl:value-of select="@name"/>
+    <text>
+      <xsl:value-of select="@name"/>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name='story']">
     <xsl:param name="ending" select="false()"/>
+    <text>
     <xsl:value-of select="x:annotation[@name='who']/x:content/normalize-space(.)"/>
     <xsl:text>&#xA0;</xsl:text>
     <xsl:if test="$ending">ends</xsl:if>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name='chapter']">
+    <text>
     <xsl:text>&#xA0;Chapter </xsl:text>
     <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
     <xsl:call-template name="word-count"/>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name='entry']">
+    <text>
     <xsl:text>&#xA0;</xsl:text>
     <xsl:value-of select="x:annotation[@name='dateline']/x:content/normalize-space(.)"/>
     <xsl:call-template name="word-count"/>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name='letter']">
+    <text>
     <xsl:text>&#xA0;Letter </xsl:text>
     <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
     <xsl:for-each select="x:annotation[@name='dateline']">
@@ -639,6 +655,19 @@
       </tspan>
     </xsl:for-each>
     <xsl:call-template name="word-count"/>
+    </text>
+    <xsl:if test="lmnsc:covering-ranges(.)/@name='letter'">
+      <text y="8" font-size="45%">
+        <xsl:for-each select="x:annotation[@name='from']">
+          <xsl:value-of select="x:content/normalize-space(.)"/>
+        </xsl:for-each>
+        <xsl:for-each select="x:annotation[@name='to']">
+          <xsl:value-of select="if (not(../x:annotation/@name='from')) then 'To' else ' to '"/>
+          <xsl:value-of select="x:content/normalize-space(.)"/>
+        </xsl:for-each>
+        
+      </text>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template name="word-count">
@@ -646,21 +675,26 @@
     <tspan font-size="80%">
       <xsl:text> [</xsl:text>
       <xsl:value-of select="count(tokenize($content,'\s+'))"/>
+      <xsl:if test="@name='introduction'"> words</xsl:if>
       <xsl:text>]</xsl:text>
     </tspan>
   </xsl:template>
 
   <xsl:template match="x:range[@name=('head','title')]" mode="labelText">
-    <xsl:value-of select="string-join(key('spans-for-rangeID',@ID),'')"/>
+    <text>
+      <xsl:value-of select="string-join(key('spans-for-rangeID',@ID),'')"/>
+    </text>
   </xsl:template>
     
   <xsl:template mode="labelText" match="x:range[@name='said']">
+    <text>
     <xsl:value-of select="x:annotation[@name='who']/x:content/normalize-space(.)"/>
     <xsl:for-each select="key('legend-line-by-ID',@ID, $legendSet )/@rangeCount">
       <xsl:text> (</xsl:text>
       <xsl:value-of select="."/>
       <xsl:text>)</xsl:text>
     </xsl:for-each>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" priority="2"
@@ -686,19 +720,25 @@
   <xsl:template mode="labelText" match="x:range[@name='titlePage']"/>
   
   <xsl:template mode="labelText" match="x:range[@name='volume']">
+    <text>
     <xsl:text>Volume </xsl:text>
     <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name='page']">
+    <text>
     <xsl:text>p. </xsl:text>
     <xsl:value-of select="x:annotation[@name='n']/x:content/normalize-space(.)"/>
+    </text>
   </xsl:template>
   
   <xsl:template mode="labelText" match="x:range[@name=('preface','introduction')]">
+    <text>
     <xsl:text>&#xA0;</xsl:text>
     <xsl:value-of select="concat(upper-case(substring(@name,1,1)),substring(@name,2))"/>
     <xsl:call-template name="word-count"/>
+    </text>
   </xsl:template>
   
   <!--<xsl:template match="x:range[@name='story']" mode="subLabel">
@@ -766,20 +806,26 @@
   </xsl:variable>
 
   <xsl:template match="x:range[@name='body']" mode="make-legend">
-    <lmnsc:legend rangeID="{@ID}" rangeName="body">
+    <lmnsc:cartouche rangeID="{@ID}" rangeName="body">
       <xsl:for-each
         select="/x:document/
         ( x:range[@name=('volume','introduction','preface','chapter','entry')] |
-          x:range[@name='letter'][not(lmnsc:covering-ranges(.)/@name='chapter')] )">
+        x:range[@name='letter'][not(lmnsc:covering-ranges(.)/@name='chapter')] )">
         <lmnsc:line rangeID="{@ID}" rangeName="{@name}"/>
-        <!--<xsl:copy-of select="."/>-->
       </xsl:for-each>
-    </lmnsc:legend>
+      <!--<xsl:for-each
+        select="/x:document/
+        x:range[@name='letter']
+               [not(lmnsc:covering-ranges(.)/@name='chapter')]
+               [x:annotation/@name='to']">
+        <lmnsc:line rangeID="{@ID}" rangeName="letter-to"/>
+      </xsl:for-each>-->
+    </lmnsc:cartouche>
   </xsl:template>
   
   <xsl:template match="x:range[@name='dialogue']" mode="make-legend">
     <xsl:variable name="dialogue" select="."/>
-    <lmnsc:legend rangeID="{@ID}" rangeName="dialogue" start="{@start}" end="{@end}">
+    <lmnsc:cartouche rangeID="{@ID}" rangeName="dialogue" start="{@start}" end="{@end}">
       <!--<xsl:for-each select="/x:document/x:range[@name='said']
         [exists(lmnsc:covering-ranges(.) intersect $dialogue)]">
         <lmnsc:line rangeID="{@ID}" rangeName="{@name}"/>
@@ -793,49 +839,49 @@
                   rangeCount="{count(current-group())}" saidWho="{current-grouping-key()}"/>
         <!--<xsl:copy-of select="."/>-->
       </xsl:for-each-group>
-    </lmnsc:legend>
+    </lmnsc:cartouche>
   </xsl:template>
   
-  <xsl:template match="lmnsc:legend[@rangeName='body']" mode="legend-position">
+  <xsl:template match="lmnsc:cartouche[@rangeName='body']" mode="legend-position">
     <xsl:variable name="lines" as="element()*">
       <xsl:apply-templates mode="#current"/>
     </xsl:variable>
     <xsl:variable name="padding" select="4"/>
     <xsl:variable name="boxSize" select="sum($lines/@line-height) + (2 * $padding)"/>
-    <lmnsc:legend x="{$axis + 120 }" y="{0}" padding="{$padding}" width="200" height="{ $boxSize }">
+    <lmnsc:cartouche x="{$axis + 120 }" y="{0}" padding="{$padding}" width="200" height="{ $boxSize }">
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates mode="#current"/>
-    </lmnsc:legend>
+    </lmnsc:cartouche>
   </xsl:template>
 
-  <xsl:template match="lmnsc:legend[@rangeName='dialogue']" mode="legend-position">
+  <xsl:template match="lmnsc:cartouche[@rangeName='dialogue']" mode="legend-position">
     <xsl:variable name="lines" as="element()*">
       <xsl:apply-templates mode="#current"/>
     </xsl:variable>
-    <xsl:variable name="padding" select="0.2"/>
+    <xsl:variable name="padding" select="0.5"/>
     <xsl:variable name="boxSize" select="sum($lines/@line-height) + (2 * $padding)"/>
     <xsl:variable name="y" select="lmnsc:round-and-format(lmnsc:scale((@start + @end) div 2) - ($boxSize div 2))"/>
     
     <xsl:variable name="predecessor" as="element()?">
-      <xsl:apply-templates select="preceding-sibling::lmnsc:legend[@rangeName='dialogue'][1]" mode="legend-position"/>
+      <xsl:apply-templates select="preceding-sibling::lmnsc:cartouche[@rangeName='dialogue'][1]" mode="legend-position"/>
     </xsl:variable>
     <xsl:variable name="predecessor-bottom" select="($predecessor/(@y + @height),0)[1]"/>
     <xsl:variable name="impinging" select="$predecessor-bottom gt number($y)"/>
-    <lmnsc:legend width="18" height="{$boxSize}"
-      x="{ if ($impinging) then ($predecessor/@x + 20 ) else ($axis + 40)}" padding="{$padding}"
+    <lmnsc:cartouche width="22" height="{$boxSize}"
+      x="{ if ($impinging) then ($predecessor/@x + 24 ) else ($axis + 40)}" padding="{$padding}"
       y="{ lmnsc:round-and-format(lmnsc:scale((@start + @end) div 2) - ($boxSize div 2)) }">
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates mode="#current"/>
-    </lmnsc:legend>
+    </lmnsc:cartouche>
   </xsl:template>
   
   
   <xsl:template match="lmnsc:line[@rangeName='volume']" mode="legend-position">
     <lmnsc:line line-height="16">
-    <xsl:attribute name="text-anchor">start</xsl:attribute>
-    <xsl:copy-of select="@*"/>
-    <!-- overriding line-height for the first one -->
-    <xsl:call-template name="firstLine-lineHeight"/>
+      <xsl:attribute name="text-anchor">start</xsl:attribute>
+      <xsl:copy-of select="@*"/>
+      <!-- overriding line-height for the first one -->
+      <xsl:call-template name="firstLine-lineHeight"/>
     </lmnsc:line>
   </xsl:template>
   
@@ -857,6 +903,11 @@
       <xsl:copy-of select="@*"/>
     </lmnsc:line>
   </xsl:template>
+  <xsl:template match="lmnsc:line[@rangeName='letter-to']" mode="legend-position">
+    <lmnsc:line line-height="16" indent="15">
+      <xsl:copy-of select="@*"/>
+    </lmnsc:line>
+  </xsl:template>
   <xsl:template match="lmnsc:line[@rangeName='entry']" mode="legend-position">
     <lmnsc:line line-height="14" indent="20">
       <xsl:copy-of select="@*"/>
@@ -868,33 +919,51 @@
     </lmnsc:line>
   </xsl:template>
   <xsl:template match="lmnsc:line[@rangeName='said']" mode="legend-position">
-    <lmnsc:line line-height="2" indent="0.4">
+    <lmnsc:line line-height="3" indent="0.4">
       <xsl:copy-of select="@*"/>
       <!-- overriding line-height for the first one -->
       <xsl:call-template name="firstLine-lineHeight"/>
     </lmnsc:line>
   </xsl:template>
   
-  <!-- A single legend line can be bound to any number of ranges -->
+  <!-- A single legend line can be bound to any number of ranges.
+       Also, more than one legend line might be emitted for a given range; i.e.
+       the key may return several lines. -->
   <xsl:key name="legend-line-by-ID" match="lmnsc:line" use="tokenize(@rangeID,'\s+')"/>
   
-  <xsl:function name="lmnsc:legend-y" as="xs:double?">
+  <xsl:function name="lmnsc:range-legend-y" as="xs:double?">
     <xsl:param name="r" as="element(x:range)"/>
-    <xsl:variable name="legend-line" select="key('legend-line-by-ID',$r/@ID, $legendSet )"/>
+    <xsl:variable name="legend-line" select="key('legend-line-by-ID',$r/@ID, $legendSet )[1]"/>
     <xsl:sequence
       select="sum($legend-line/(.|preceding-sibling::*)/@line-height |
-                  $legend-line/parent::lmnsc:legend/@y )"/>
+      $legend-line/parent::lmnsc:cartouche/@y )"/>
   </xsl:function>
   
-  <xsl:template match="lmnsc:legend" mode="draw">
+  
+  <xsl:template match="lmnsc:cartouche" mode="draw">
     <!-- Just drawing the box - lines are handled elsewhere (by labeling ranges) -->
     <rect >
       <!-- includes height and width -->
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates select="." mode="labelFormat"/>
     </rect>
+    <!--<xsl:apply-templates select="lmnsc:line" mode="draw"/>-->
   </xsl:template>
   
+  <!--<xsl:template match="lmnsc:line" mode="draw">
+    <xsl:variable as="element(text)*" name="line-text">
+      <xsl:apply-templates select="key('range-by-ID',@rangeID)" mode="labelText"/>
+    </xsl:variable>
+    <xsl:for-each select="$line-text">
+      <xsl:copy>
+        <xsl:copy-of select="@*"/>
+        <xsl:attribute name="y"
+          select="sum((.|preceding-sibling::*)/@line-height |
+                      parent::lmnsc:cartouche/@y )"/>
+        <xsl:copy-of select="node()"/>
+      </xsl:copy>
+    </xsl:for-each>
+  </xsl:template>-->
   
   
 <!--  <xsl:function name="lmnsc:toc-y" as="xs:decimal?">
