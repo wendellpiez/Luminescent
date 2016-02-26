@@ -9,6 +9,4 @@ set WF_CHECK=java -jar %CALABASH% -dtext/plain@%LMNLFILE% LMNL-wf-check.xpl
 rem Go for it --
 %WF_CHECK%
 
-rem In Textpad a regex for return messages is .*[^0-9]([0-9]+):([0-9]+).+([A-Z]:[^ ]+)
-rem (file, line, position i.e. $3 $1 $2 in subexpression matches)
 
