@@ -77,10 +77,12 @@
     <basename>Easter1916</basename>
     <basename>WinterNight</basename>
     <basename>KublaKhan</basename>
+    <basename>Exequy</basename>
     <basename>julian-and-maddalo</basename>
   </xsl:variable>
 
   <xsl:variable name="page-header">
+    <h5>See the <a href="sitemap.html">Cocoon site map</a></h5>
     <xsl:choose>
       <xsl:when test="$dir = 'lmnl'">
         <h5>Other demonstrations: <a href="sonnets">Sonnets</a> | <a href="shakespeare">Shakespeare</a></h5>
