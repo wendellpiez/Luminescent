@@ -52,11 +52,11 @@
   
   <xsl:template match="end" mode="across">
     <xsl:param name="stack" select="()"/>
-    <xsl:variable name="start" select="$stack[@gi = current()/@gi][last()]"/>
-    <xsl:copy>
+    <xsl:call-template name="down"/>
+    <!--<xsl:copy>
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates select="node()[1]" mode="across"/>
-    </xsl:copy>
+    </xsl:copy>-->
     <xsl:apply-templates select="following-sibling::node()[1]" mode="across">
       <xsl:with-param name="stack" select="$stack[. ne current()/@rID]"/>
     </xsl:apply-templates>
