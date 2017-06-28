@@ -169,8 +169,8 @@
               <xsl:with-param name="stroke" select="$stroke"/>
               <xsl:with-param name="stroke-width" select="$stroke-width"/>
               <xsl:with-param name="stroke-opacity" select="$stroke-opacity"/>-->
-              <xsl:with-param name="spec" select="$spec"/>
-              <xsl:with-param name="style" select="$style"/>
+              <xsl:with-param name="spec" tunnel="yes" select="$spec"/>
+              <xsl:with-param name="style" tunnel="yes" select="$style"/>
               <xsl:with-param name="radius" select="$radius"/>
               <xsl:with-param name="start-y" select="$start-y"/>
             </xsl:call-template>

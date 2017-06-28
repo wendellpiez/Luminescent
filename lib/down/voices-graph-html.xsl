@@ -96,7 +96,7 @@
       background-color:lemonchiffon;
       color:darkgreen
       }
-s      rect.shine,
+      rect.shine,
       circle.shine,
       path.shine {
       fill-opacity:0.5

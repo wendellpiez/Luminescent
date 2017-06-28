@@ -122,7 +122,7 @@
           
           <xsl:apply-templates select="key('ranges-by-name',$spec,$lmnl-document)"
             mode="drawBubble">
-            <xsl:with-param tunnel="yes" name="spec"  select="$spec"/>
+            <xsl:with-param tunnel="yes" name="spec"  select="$spec" as="node()"/>
             <xsl:with-param tunnel="yes" name="style" select="$style"/>
           </xsl:apply-templates>
         </g>
@@ -134,7 +134,7 @@
   </xsl:template>
 
   <xsl:template match="*" mode="drawBubble">
-    <xsl:param name="spec"  as="node()" tunnel="yes"/>
+    <xsl:param name="spec"  as="node()" tunnel="yes" required="yes"/>
     <xsl:param name="style" as="node()" tunnel="yes"/>
     <xsl:variable name="start-y" select="@start"/>
     <xsl:variable name="radius" select="((@end - @start) div 2) + 1"/>
@@ -156,6 +156,7 @@
               <xsl:with-param name="stroke" select="$stroke"/>
               <xsl:with-param name="stroke-width" select="$stroke-width"/>
               <xsl:with-param name="stroke-opacity" select="$stroke-opacity"/>-->
+      <xsl:with-param name="spec" tunnel="yes" select="$spec"/>
       <xsl:with-param name="radius" select="$radius"/>
       <xsl:with-param name="start-y" select="$start-y"/>
     </xsl:call-template>
@@ -182,7 +183,7 @@
     <xsl:param name="stroke-width"/>
     <xsl:param name="stroke-opacity"/>-->
     <xsl:param name="style" tunnel="yes"/>
-    <xsl:param name="spec" tunnel="yes"/>
+    <xsl:param name="spec" tunnel="yes" as="node()" required="yes"/>
     <xsl:param name="radius"/>
     <xsl:param name="start-y"/>
     <xsl:variable name="labels" select="$show-labels and not($spec/@label='none')"/>
@@ -304,7 +305,7 @@
         <!-- for indenting the bars -->
         <xsl:variable name="range-set" select="position() - 1"/>
         <xsl:variable name="width" select="@width"/>
-        <xsl:variable name="indent" select="(@indent,0)[1]"/>
+        <xsl:variable name="indenting" select="(@indent,0)[1]"/>
         <g style="visibility:visible">
           <!--<svg:set attributeName="visibility" attributeType="CSS" to="visible"
             begin="{generate-id()}-on.click" fill="freeze"/>
@@ -329,7 +330,7 @@
             <xsl:variable name="start-y" select="@start"/>
             <xsl:variable name="height" select="@end - @start"/>
             <rect id="{replace(@ID,'^R.','bar-')}" class="range-bar" title="{@name}"
-              x="{$indent}" y="{$start-y}"
+              x="{$indenting}" y="{$start-y}"
               rx="4" ry="4"
               width="{$width}" height="{$height}" stroke="{$stroke}"
               fill="{$fill}" fill-opacity="{$fill-opacity}" stroke-width="{$stroke-width}">
